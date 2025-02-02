@@ -1,0 +1,59 @@
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  z-index: 1000;
+  overflow: auto;
+}
+
+.modal {
+  width: 100%;
+  top:0px;
+  bottom:0px;
+  border-radius: 10px 10px 0 0;
+  padding: 20px;
+  position: absolute;
+  overflow-x: hidden;
+  animation-duration: 0.4s;
+  animation-timing-function: ease;
+}
+
+.modal.slideUp {
+  animation-name: slideUp;
+}
+
+.modal.slideDown {
+  animation-name: slideDown;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+}
+
+.content {
+  text-align: center;
+}

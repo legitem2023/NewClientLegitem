@@ -1,0 +1,28 @@
+[
+
+    {
+        "Name":"Products",
+        "icon":"bi:tags-fill",
+        "Link":"./Products"
+    },
+    {
+        "Name":"News",
+        "icon":"fa6-solid:newspaper",
+        "Link":"./News"
+    },
+    {
+        "Name":"Crowd",
+        "icon":"simple-icons:crowdsource",
+        "Link":"./Crowd"
+    },
+    {
+        "Name":"Account",
+        "icon":"mdi:badge-account-horizontal",
+        "Link":"./Account"
+    },
+    {
+        "Name":"Cart",
+        "icon":"mdi:cart",
+        "Link":"./Cart"
+    }
+]
