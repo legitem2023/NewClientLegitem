@@ -128,7 +128,7 @@ const Messages = ({reciever}) => {
           <ul className='messagesUL'>
           {
             filteredPosts.map((item: any, id: any) => (
-                <ReusableMessage Sender={item.Sender} dateSent={item.dateSent} Messages={item.Messages} key={id}/>
+                <ReusableMessage Sender={item.Sender} dateSent={item.dateSent} Messages={item.Messages} Comments={item.Comments.length}key={id}/>
           ))}
       <li className='messages_pagination'>
         <button className='universalButtonStyle' onClick={goToPreviousDay}>Previous Day</button>
