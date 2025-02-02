@@ -1,4 +1,4 @@
-import React, { useCallback, useMemo, useState } from 'react';
+import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import { useQuery } from '@apollo/client';
 import { GET_CATEGORY, GET_CHILD_INVENTORY } from 'graphql/queries';
 import Loading from 'components/Partial/LoadingAnimation/Loading';
@@ -24,10 +24,14 @@ import { setViewedProd } from 'Redux/viewedProdSlice';
 import { setcurrentPage } from 'Redux/currentPageSlice';
 import ProductLoading from './ProductLoading';
 import ProductViewLoading from './ProductView/ProductViewLoading';
+import { useRouter,usePathname,useSearchParams } from 'next/navigation';
 const itemsPerPage = 20; // Move constant outside component
 
 const Products: React.FC = () => {
   const dispatch = useDispatch();
+  const router = useRouter();
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
 
   const isModalOpen = useSelector((state:any) => state.modal.modal); // Access category state
 
@@ -35,6 +39,7 @@ const Products: React.FC = () => {
     dispatch(setviewed(id));
     dispatch(setmodal(true));
     dispatch(setViewedProd([items]));
+    router.push(`${pathname}?id=${id}`);
   }; // Update category state
 
   const thumbnailDiscounted = useSelector((state:any) => state.discounted.discounted);//useGlobalState('thumbnailDiscounted');
@@ -142,6 +147,7 @@ const Products: React.FC = () => {
   if (productsLoading) return <ProductLoading />;
   if (productsError) return <h1>Connection Error</h1>;
 
+  
 
 
   return (

@@ -7,10 +7,11 @@ import { setTime } from 'utils/cookie'
 type ReusableMessageProps = {
     Sender:string,
     dateSent:string,
-    Messages:string
+    Messages:string,
+    Comments:string
 }
 
-const ReusableMessage:FC<ReusableMessageProps> = ({Sender,dateSent,Messages}) => {
+const ReusableMessage:FC<ReusableMessageProps> = ({Sender,dateSent,Messages,Comments}) => {
   return (
       <li className='messagesLI'>
         <div>
@@ -37,7 +38,7 @@ const ReusableMessage:FC<ReusableMessageProps> = ({Sender,dateSent,Messages}) =>
               <Icon icon="mdi:like" width="24" height="24" style={{"color":"blue"}}/>Like
             </div>
             <div className='messageReactionsIcons'>
-              <Icon icon="mdi:comment-outline" width="24" height="24"/>Comment
+              <Icon icon="mdi:comment-outline" width="24" height="24"/>Comment({Comments})
             </div>
             <div className='messageReactionsIcons'>
               <Icon icon="mdi-light:share" width="24" height="24"/>Share

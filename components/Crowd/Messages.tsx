@@ -100,7 +100,7 @@ const Messages = () => {
   // Render each message row
   const renderRow = ({ index, style }: { index: number, style: React.CSSProperties }) => (
     <div className="messagesUL_li" style={{ ...style, width: "100%", marginTop: "5px", display: "flex", alignItems: "center" }}>
-      <ReusableMessage Sender={posts[index].Sender} dateSent={posts[index].dateSent} Messages={posts[index].Messages}/>
+      <ReusableMessage Sender={posts[index].Sender} dateSent={posts[index].dateSent} Messages={posts[index].Messages} Comments={posts[index].Comments.length}/>
     </div>
   );
 

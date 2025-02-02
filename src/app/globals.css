@@ -255,7 +255,10 @@ body {
   width:50px;
   height: auto;
 }
-
+.colorSelection div{
+  display: flex;
+  flex-direction: column;
+}
 
 
 .messages_pagination {
