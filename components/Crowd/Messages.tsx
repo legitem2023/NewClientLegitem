@@ -100,7 +100,9 @@ const Messages = () => {
   // Render each message row
   const renderRow = ({ index, style }: { index: number, style: React.CSSProperties }) => (
     <div className="messagesUL_li" style={{ ...style, width: "100%", marginTop: "5px", display: "flex", alignItems: "center" }}>
-      <ReusableMessage Sender={posts[index].Sender} dateSent={posts[index].dateSent} Messages={posts[index].Messages} Comments={posts[index].Comments.length}/>
+      <ReusableMessage Sender={posts[index].Sender} 
+                       dateSent={posts[index].dateSent} 
+                       Messages={posts[index].Messages} />
     </div>
   );
 
@@ -108,7 +110,6 @@ const Messages = () => {
   const getItemSize = (index: number) => {
     return Math.max(400, Math.ceil(posts[index].Messages.length / 30) * 30); 
   };
-
   return (
     <ReusableCenterLayout
       child1={() => (

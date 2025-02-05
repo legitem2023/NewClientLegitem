@@ -38,7 +38,6 @@ const Products: React.FC = () => {
     dispatch(setviewed(id));
     dispatch(setmodal(true));
     dispatch(setViewedProd([items]));
-    router.push(`${pathname}?id=${id}`);
   }; // Update category state
 
   const thumbnailDiscounted = useSelector((state:any) => state.discounted.discounted);//useGlobalState('thumbnailDiscounted');

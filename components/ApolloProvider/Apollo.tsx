@@ -20,7 +20,7 @@ export const Apollo = ({ children }: { children: React.ReactNode }) => {
     options: {
       reconnect: true, // Automatically reconnect if the connection is lost
       // connectionParams: {
-      //   authToken: localStorage.getItem('authToken') || "", // Use token from localStorage or cookies for WebSocket authentication
+      //   authToken: typeof window ===undefined?localStorage.getItem('authToken'):"" // Use token from localStorage or cookies for WebSocket authentication
       // },
     },
   });
