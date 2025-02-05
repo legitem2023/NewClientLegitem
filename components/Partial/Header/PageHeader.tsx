@@ -24,7 +24,7 @@ const PageHeader: React.FC = () => {
   const redirect = useRouter();
 
   const handleClick = (item: any) => {
-    if (item.Link !== "."+currentPath) {
+    if (item.Link !== currentPath) {
       setLoadingLink(item.Name); // Set loading for clicked link only if it's not the current page
     }
   };
