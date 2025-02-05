@@ -47,8 +47,8 @@ const Messages = () => {
   // Paginate posts by the current day
   const paginatePosts = useCallback(() => {
     const filteredPosts = data?.messages?.filter((post: any) => {
-      const postDate = new Date(parseInt(post?.dateSent));
-      return postDate.toDateString() === currentDay.toDateString();
+      // const postDate = new Date(parseInt(post?.dateSent));
+      // return postDate.toDateString() === currentDay.toDateString();
     });
     setPosts(filteredPosts || []);
   }, [data, currentDay]);
@@ -96,16 +96,14 @@ const Messages = () => {
   // Handle loading and error states
   if (loading) return <CrowdLoading/>;
   if (error) return <div>{error.message}</div>;
-
   // Render each message row
   const renderRow = ({ index, style }: { index: number, style: React.CSSProperties }) => (
-    <div className="messagesUL_li" style={{ ...style, width: "100%", marginTop: "5px", display: "flex", alignItems: "center" }}>
+    <div className="messagesUL_li" style={{ ...style, width: "100%", marginTop: "5px", display: "flex", alignItems: "center",borderRadius:"10px",padding:"10px" }}>
       <ReusableMessage Sender={posts[index].Sender} 
                        dateSent={posts[index].dateSent} 
                        Messages={posts[index].Messages} />
     </div>
   );
-console.log(posts);
   // Calculate item size for the variable size list
   const getItemSize = (index: number) => {
     return Math.max(400, Math.ceil(posts[index].Messages.length / 30) * 30); 
