@@ -105,7 +105,7 @@ const Messages = () => {
                        Messages={posts[index].Messages} />
     </div>
   );
-
+console.log(posts);
   // Calculate item size for the variable size list
   const getItemSize = (index: number) => {
     return Math.max(400, Math.ceil(posts[index].Messages.length / 30) * 30); 
