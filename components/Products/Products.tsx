@@ -25,15 +25,13 @@ import { setViewedProd } from 'Redux/viewedProdSlice';
 import { setcurrentPage } from 'Redux/currentPageSlice';
 import ProductLoading from './ProductLoading';
 import ProductViewLoading from './ProductView/ProductViewLoading';
-import { useRouter,usePathname,useSearchParams } from 'next/navigation';
+import { useRouter,usePathname } from 'next/navigation';
 const itemsPerPage = 20; // Move constant outside component
 
 const Products: React.FC = () => {
   const dispatch = useDispatch();
   const router = useRouter();
-  const pathname = usePathname();
-  const searchParams = useSearchParams();
-
+  const pathname = usePathname
   const isModalOpen = useSelector((state:any) => state.modal.modal); // Access category state
 
   const openModal = (id:string,items:any) => {
