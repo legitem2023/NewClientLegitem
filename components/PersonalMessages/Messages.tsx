@@ -13,6 +13,7 @@ import ReusableCenterLayout from 'components/Layout/ReusableCenterLayout'
 import { useSelector } from 'react-redux'
 import ReusableMessageInput from 'components/UI/ReusableMessageInput'
 import ReusableMessage from 'components/UI/ReusableMessage'
+import { VariableSizeList } from 'react-window'
 const Messages = ({reciever}) => {
   const cookie = useSelector((state:any)=> state.cookie.cookie);
   const { loading, error, data, subscribeToMore } = useQuery(READ_PERSONAL_MESSAGES,{variables:{emailAddress:cookie.emailAddress}});
@@ -108,6 +109,16 @@ const Messages = ({reciever}) => {
         }
     }
 
+    const renderRow = ({ index, style }: { index: number, style: React.CSSProperties }) => (
+      <div className="messagesUL_li" style={{ ...style, width: "100%", marginTop: "5px", display: "flex", alignItems: "center" }}>
+        <ReusableMessage Sender={filteredPosts[index].Sender} 
+                         dateSent={filteredPosts[index].dateSent} 
+                         Messages={filteredPosts[index].Messages} />
+      </div>
+    );
+    const getItemSize = (index: number) => {
+      return Math.max(400, Math.ceil(filteredPosts[index].Messages.length / 30) * 30); 
+    };
 //########################## MUTATION PART END ##########################
     return (
       <ReusableCenterLayout 
@@ -125,16 +136,25 @@ const Messages = ({reciever}) => {
         )}
 
         child2={()=>(
-          <ul className='messagesUL'>
-          {
-            filteredPosts.map((item: any, id: any) => (
-                <ReusableMessage Sender={item.Sender} dateSent={item.dateSent} Messages={item.Messages} key={id}/>
-          ))}
-      <li className='messages_pagination'>
-        <button className='universalButtonStyle' onClick={goToPreviousDay}>Previous Day</button>
-        <button className='universalButtonStyle' onClick={goToNextDay}>Next Day</button>
-      </li>
-      </ul>
+      //     <ul className='messagesUL'>
+      //     {
+      //       filteredPosts.map((item: any, id: any) => (
+      //           <ReusableMessage Sender={item.Sender} dateSent={item.dateSent} Messages={item.Messages} key={id}/>
+      //     ))}
+      // <li className='messages_pagination'>
+      //   <button className='universalButtonStyle' onClick={goToPreviousDay}>Previous Day</button>
+      //   <button className='universalButtonStyle' onClick={goToNextDay}>Next Day</button>
+      // </li>
+      // </ul>
+              <VariableSizeList
+                height={window.innerHeight}
+                width={"100%"}
+                itemCount={filteredPosts.length}
+                itemSize={getItemSize} // Height of each row
+                className='messagesUL'
+              >
+                {renderRow}
+              </VariableSizeList>
         )}
 
         child3={()=><></>}

@@ -564,6 +564,7 @@ input[type='date']{
   list-style-type: none;
   width: 100%!important;
   box-sizing: border-box;
+  overflow-x: hidden;
   scrollbar-width: none; /* For Firefox */
   -ms-overflow-style: none; /* For IE and Edge */
 }
