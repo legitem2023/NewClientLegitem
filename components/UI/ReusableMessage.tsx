@@ -11,6 +11,37 @@ type ReusableMessageProps = {
 }
 
 const ReusableMessage:FC<ReusableMessageProps> = ({Sender,dateSent,Messages}) => {
+ 
+  const noOfDays = (timestampMs: any) => {
+    const currentTime = new Date().getTime(); // Get current timestamp in ms
+    const differenceMs = currentTime - parseInt(timestampMs); // Difference in milliseconds
+  
+    const seconds = Math.floor(differenceMs / 1000); // Convert to seconds
+    const minutes = Math.floor(seconds / 60); // Convert to minutes
+    const hours = Math.floor(minutes / 60); // Convert to hours
+    const days = Math.floor(hours / 24); // Convert to days
+    const months = Math.floor(days / 30); // Convert to months
+    const years = Math.floor(months / 12); // Convert to years
+  
+    if (years > 0) {
+      return `${years} year${years > 1 ? 's' : ''} ago`; // Return years if more than 12 months
+    } else if (months > 0) {
+      return `${months} month${months > 1 ? 's' : ''} ago`; // Return months if more than 30 days
+    } else if (days > 0) {
+      return `${days} day${days > 1 ? 's' : ''} ago`; // Return days if more than 24 hours
+    } else if (hours > 0) {
+      return `${hours} hour${hours > 1 ? 's' : ''} ago`; // Return hours if more than 1 hour
+    } else if (minutes > 0) {
+      return `${minutes} minute${minutes > 1 ? 's' : ''} ago`; // Return minutes if more than 1 minute
+    } else {
+      return `${seconds} second${seconds > 1 ? 's' : ''} ago`; // Return seconds if less than 1 minute
+    }
+  };
+  
+  // Example Usage:
+  console.log(noOfDays(1738737991254)); // Output: "1 day ago" / "5 hours ago" / "2 months ago" / "10 seconds ago"
+  
+    
   return (
       <li className='messagesLI'>
         <div>
@@ -23,9 +54,9 @@ const ReusableMessage:FC<ReusableMessageProps> = ({Sender,dateSent,Messages}) =>
               height={50} 
             />
             </div>
-            <div><b>Legitem@gmail.com</b></div>
-            <div>Sponsored
-              <Icon icon="fa:globe" width="15" height="15" style={{marginLeft:"5px"}}/>
+            <div><b>{Sender}</b></div>
+            <div>
+              <Icon icon="svg-spinners:clock" width="15" height="15" style={{marginLeft:"5px"}}/>{noOfDays(dateSent)}
             </div>
           </div>
           <div className='messageBody'>

@@ -221,12 +221,6 @@ query Messages {
     Messages
     Sender
     dateSent
-    Comments {
-      id
-      Messages
-      Sender
-      dateSent
-    }
   }
 }`
 export const GET_NAME_OF_STORE = gql`
