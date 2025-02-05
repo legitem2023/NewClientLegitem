@@ -118,6 +118,17 @@ mutation PostPersonalMessage($message: String, $sender: String, $reciever: Strin
   }
 }
 `
+
+export const POSTCOMMENTS = gql`
+mutation PostComment($message: String, $sender: String, $crowId: String) {
+  postComment(Message: $message, Sender: $sender, CrowID: $crowId) {
+    id
+    Messages
+    Sender
+    dateSent
+  }
+}
+`
 export const SET_ACTIVE_USERS = gql`
 mutation SetActiveUsers($emailAddress: String) {
   setActiveUsers(emailAddress: $emailAddress) {

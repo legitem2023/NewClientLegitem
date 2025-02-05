@@ -62,7 +62,7 @@ const ReusableMessage:FC<ReusableMessageProps> = ({Sender,dateSent,Messages}) =>
           {/* <hr></hr> */}
           <div className='messageReactions'>
             <div className='messageReactionsIcons'>
-              <Icon icon="mdi:like" width="24" height="24" style={{"color":"blue"}}/>Like
+              <Icon icon="material-symbols:add-reaction" width="24" height="24"/>React()
             </div>
             <div className='messageReactionsIcons'>
               <Icon icon="mdi:comment-outline" width="24" height="24"/>Comment
