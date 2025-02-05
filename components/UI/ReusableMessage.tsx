@@ -37,10 +37,7 @@ const ReusableMessage:FC<ReusableMessageProps> = ({Sender,dateSent,Messages}) =>
       return `${seconds} second${seconds > 1 ? 's' : ''} ago`; // Return seconds if less than 1 minute
     }
   };
-  
-  // Example Usage:
-  console.log(noOfDays(1738737991254)); // Output: "1 day ago" / "5 hours ago" / "2 months ago" / "10 seconds ago"
-  
+    
     
   return (
       <li className='messagesLI'>
@@ -55,7 +52,7 @@ const ReusableMessage:FC<ReusableMessageProps> = ({Sender,dateSent,Messages}) =>
             />
             </div>
             <div><b>{Sender}</b></div>
-            <div>
+            <div className='messageSenderTime'>
               <Icon icon="svg-spinners:clock" width="15" height="15" style={{marginLeft:"5px"}}/>{noOfDays(dateSent)}
             </div>
           </div>
