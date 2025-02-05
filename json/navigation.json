@@ -3,26 +3,26 @@
     {
         "Name":"Products",
         "icon":"bi:tags-fill",
-        "Link":"./Products"
+        "Link":"/Products"
     },
     {
         "Name":"News",
         "icon":"fa6-solid:newspaper",
-        "Link":"./News"
+        "Link":"/News"
     },
     {
         "Name":"Crowd",
         "icon":"simple-icons:crowdsource",
-        "Link":"./Crowd"
+        "Link":"/Crowd"
     },
     {
         "Name":"Account",
         "icon":"mdi:badge-account-horizontal",
-        "Link":"./Account"
+        "Link":"/Account"
     },
     {
         "Name":"Cart",
         "icon":"mdi:cart",
-        "Link":"./Cart"
+        "Link":"/Cart"
     }
 ]
