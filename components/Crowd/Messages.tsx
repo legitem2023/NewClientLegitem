@@ -98,7 +98,7 @@ const Messages = () => {
   if (error) return <div>{error.message}</div>;
   // Render each message row
   const renderRow = ({ index, style }: { index: number, style: React.CSSProperties }) => (
-    <div className="messagesUL_li" style={{ ...style, width: "100%", marginTop: "5px", display: "flex", alignItems: "center",borderRadius:"10px",padding:"10px" }}>
+    <div className="messagesUL_li" style={{ ...style, width: "100%", marginTop: "5px", display: "flex", alignItems: "center",padding:"10px" }}>
       <ReusableMessage Sender={posts[index].Sender} 
                        dateSent={posts[index].dateSent} 
                        Messages={posts[index].Messages} />
