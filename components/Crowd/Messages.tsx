@@ -47,8 +47,8 @@ const Messages = () => {
   // Paginate posts by the current day
   const paginatePosts = useCallback(() => {
     const filteredPosts = data?.messages?.filter((post: any) => {
-      // const postDate = new Date(parseInt(post?.dateSent));
-      // return postDate.toDateString() === currentDay.toDateString();
+      const postDate = new Date(parseInt(post?.dateSent));
+      return postDate.toDateString() === currentDay.toDateString();
     });
     setPosts(filteredPosts || []);
   }, [data, currentDay]);
@@ -98,7 +98,11 @@ const Messages = () => {
   if (error) return <div>{error.message}</div>;
   // Render each message row
   const renderRow = ({ index, style }: { index: number, style: React.CSSProperties }) => (
-    <div className="messagesUL_li" style={{ ...style, width: "100%", marginTop: "5px", display: "flex", alignItems: "center",padding:"10px" }}>
+    <div className="messagesUL_li" style={{ ...style, width: "100%", marginTop: "5px", display: "flex", alignItems: "center"}}>
+        <li className='messagesLI'>
+          {/* <video ref={`localVideoRef`} autoPlay muted />
+          <video ref={`remoteVideoRef`} autoPlay /> */}
+        </li>
       <ReusableMessage Sender={posts[index].Sender} 
                        dateSent={posts[index].dateSent} 
                        Messages={posts[index].Messages} />

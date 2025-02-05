@@ -51,7 +51,7 @@ const ReusableMessage:FC<ReusableMessageProps> = ({Sender,dateSent,Messages}) =>
               height={50} 
             />
             </div>
-            <div><b>{Sender}</b></div>
+            <b className='messageSenderName'>{Sender}</b>
             <div className='messageSenderTime'>
               <Icon icon="svg-spinners:clock" width="15" height="15" style={{marginLeft:"5px"}}/>{noOfDays(dateSent)}
             </div>

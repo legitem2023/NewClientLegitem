@@ -25,7 +25,7 @@ const CookieLoading = () => {
     )}
         child3={()=>(
             <div className='messagesUL'>
-                <div className='messagesLI' style={{borderRadius:"10px",padding:"10px"}}>
+                <div className='messagesLI' >
                     <div>
                         <div className='messageSender'>
                             <div className='messageSenderImgcont'>
@@ -45,7 +45,7 @@ const CookieLoading = () => {
                         </div>
                     </div>
                 </div>
-                <div className='messagesLI' style={{borderRadius:"10px",padding:"10px"}}>
+                <div className='messagesLI' >
                     <div>
                         <div className='messageSender'>
                             <div className='messageSenderImgcont'>
@@ -65,7 +65,7 @@ const CookieLoading = () => {
                         </div>
                     </div>
                 </div>
-                <div className='messagesLI' style={{borderRadius:"10px",padding:"10px"}}>
+                <div className='messagesLI' >
                     <div>
                         <div className='messageSender'>
                             <div className='messageSenderImgcont'>
