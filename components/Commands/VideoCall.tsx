@@ -1,53 +1,88 @@
-'use effect'
-import React, { useEffect, useRef, useState } from 'react';
-import { useMutation, useSubscription } from '@apollo/client';
-import { LIVE, STARTCALL } from 'graphql/mutation';
-import { CALL_RECIEVE } from 'graphql/subscriptions';
+import React, { useEffect, useRef } from 'react';
+import { useMutation } from '@apollo/client';
+import { STARTCALL, LIVE } from 'graphql/mutation';
 import { Icon } from '@iconify/react';
 import DataManager from 'utils/DataManager';
 import { useDispatch, useSelector } from 'react-redux';
 import { setstreaming } from 'Redux/streamingSlice';
 
 const VideoCall = () => {
-  const cookie = useSelector((state:any)=> state.cookie.cookie);
+  const cookie = useSelector((state: any) => state.cookie.cookie);
   const dispatch = useDispatch();
+  const peerConnectionRef = useRef<RTCPeerConnection | null>(null);
+  const Manager = useRef(new DataManager()).current;
 
-  const [callActive, setCallActive] = useState(false);
-  const [remoteStream, setRemoteStream] = useState<MediaStream | null>(null);
-  const localVideoRef = useRef<HTMLVideoElement | null>(null);
-  const remoteVideoRef = useRef<HTMLVideoElement | null>(null);
-  const Manager = new DataManager();
-  // Mutation to start a call
   const [startCall] = useMutation(STARTCALL, {
-    onCompleted: (data) => {
-      console.log('Call started:', data);
-      setCallActive(true);
-    },
-    onError: (error) => {
-      console.error('Error starting call:', error);
-    },
+    onCompleted: (data) => console.log('Call started:', data),
+    onError: (error) => console.error('Error starting call:', error),
   });
 
+  const [Live] = useMutation(LIVE, {
+    onCompleted: (data) => console.log('Live mutation response:', data),
+    onError: (error) => console.error('Live mutation error:', error),
+  });
 
-const [Live] = useMutation(LIVE,{
-  onCompleted:(data) =>{
-    console.log(data);
-  }
-})
+  const HandleLive = async (stream: MediaStream) => {
+    console.log('Sending live stream:', stream);
+    
+    // Convert stream to a format suitable for transmission
+    const videoTracks = stream.getVideoTracks();
+    if (videoTracks.length === 0) {
+      console.error('No video track found.');
+      return;
+    }
 
+    await Live({
+      variables: {
+        message: "Live",
+        sender: cookie.emailAddress,
+        live: true,
+        video: videoTracks, // Sending track ID (you might need another approach to send video)
+      },
+    });
+  };
 
-const HandleLive = async (data:any) =>{
-  await Live({
-    variables: {
-      message: "Live",
-      sender: cookie.emailAddress,
-      live: data,
-      video: "",
-    },
-  })
-}
+  const setupWebRTC = async () => {
+    try {
+      if (typeof window === 'undefined' || !navigator.mediaDevices) {
+        return Manager.Error('Media devices not supported');
+      }
 
-  // Subscription for incoming calls
+      const devices = await navigator.mediaDevices.enumerateDevices();
+      const hasCamera = devices.some((device) => device.kind === 'videoinput');
+      const hasMicrophone = devices.some((device) => device.kind === 'audioinput');
+
+      if (!hasCamera && !hasMicrophone) {
+        return Manager.Error('No camera or microphone found');
+      }
+
+      const localStream = await navigator.mediaDevices.getUserMedia({
+        video: hasCamera,
+        audio: hasMicrophone,
+      });
+
+      dispatch(setstreaming(localStream));
+
+      peerConnectionRef.current = new RTCPeerConnection();
+      localStream.getTracks().forEach((track) => peerConnectionRef.current!.addTrack(track, localStream));
+
+      HandleLive(localStream); // Send the live stream
+
+      peerConnectionRef.current.onicecandidate = (event) => {
+        if (event.candidate) {
+          console.log('New ICE candidate:', event.candidate);
+          // TODO: Send to signaling server
+        }
+      };
+
+      const offer = await peerConnectionRef.current.createOffer();
+      await peerConnectionRef.current.setLocalDescription(offer);
+    } catch (error: any) {
+      console.error('Error setting up WebRTC:', error);
+      alert(`Error: ${error.message}`);
+    }
+  };
+
   const handleStartCall = async () => {
     try {
       await setupWebRTC();
@@ -61,67 +96,18 @@ const HandleLive = async (data:any) =>{
     }
   };
 
-  const setupWebRTC = async () => {
-    try {
-      if (typeof window === 'undefined' || !navigator.mediaDevices) {
-        Manager.Error('Media devices not supported');
+  useEffect(() => {
+    return () => {
+      if (peerConnectionRef.current) {
+        peerConnectionRef.current.close();
+        peerConnectionRef.current = null;
       }
-      // **Check if user media devices exist**
-      const devices = await navigator.mediaDevices.enumerateDevices();
-      const hasCamera = devices.some((device) => device.kind === 'videoinput');
-      const hasMicrophone = devices.some((device) => device.kind === 'audioinput');
-
-      if (!hasCamera && !hasMicrophone) {
-        Manager.Error('No camera or microphone found');
-      }
-
-      // **Request user media**
-      const localStream = await navigator.mediaDevices.getUserMedia({
-        video: hasCamera, // Enable only if a camera is available
-        audio: hasMicrophone, // Enable only if a microphone is available
-      });
-
-      dispatch(setstreaming(localStream));
-      const peerConnection = new RTCPeerConnection();
-      // **Add local stream to peer connection**
-      localStream.getTracks().forEach((track) => peerConnection.addTrack(track, localStream));
-
-
-
-      // **Handle remote stream**
-      peerConnection.ontrack = (event) => {
-        const newRemoteStream = new MediaStream();
-        newRemoteStream.addTrack(event.track);
-        HandleLive(newRemoteStream);
-
-      };
-
-      // **Create offer and set local description**
-      const offer = await peerConnection.createOffer();
-      await peerConnection.setLocalDescription(offer);
-
-      // **Handle ICE candidates**
-      peerConnection.onicecandidate = (event) => {
-        if (event.candidate) {
-          console.log('New ICE candidate:', event.candidate);
-          // Send the candidate to the remote peer via your signaling system
-        }
-      };
-    } catch (error) {
-      console.error('Error setting up WebRTC:', error);
-      alert(`Error: ${error.message}`);
-    }
-  };
+    };
+  }, []);
 
   return (
-    <div className='VideoCallContainer'>
+    <div className="VideoCallButton">
       <Icon icon="mdi:video" width="24" height="24" onClick={handleStartCall} />
-      {/* {callActive && (
-        <div className='VideoCallContainerVideos'>
-          <video ref={localVideoRef} autoPlay muted />
-          <video ref={remoteVideoRef} autoPlay />
-        </div>
-       )} */}
     </div>
   );
 };
