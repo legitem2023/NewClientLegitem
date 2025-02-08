@@ -87,9 +87,6 @@ const HandleLive = async (data:any) =>{
         audio: hasMicrophone, // Enable only if a microphone is available
       });
 
-      // if (localVideoRef.current) {
-      //   localVideoRef.current.srcObject = localStream;
-      // }
 
       const peerConnection = new RTCPeerConnection();
       // **Add local stream to peer connection**
@@ -100,11 +97,7 @@ const HandleLive = async (data:any) =>{
         const newRemoteStream = new MediaStream();
         newRemoteStream.addTrack(event.track);
         HandleLive(newRemoteStream);
-        // console.log(newRemoteStream+"<<<<<<")
-        // setRemoteStream(newRemoteStream);
-        // if (remoteVideoRef.current) {
-        //   remoteVideoRef.current.srcObject = newRemoteStream;
-        // }
+
       };
 
       // **Create offer and set local description**
