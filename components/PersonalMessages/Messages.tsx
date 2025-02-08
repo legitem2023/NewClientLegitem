@@ -14,6 +14,7 @@ import { useSelector } from 'react-redux'
 import ReusableMessageInput from 'components/UI/ReusableMessageInput'
 import ReusableMessage from 'components/UI/ReusableMessage'
 import { VariableSizeList } from 'react-window'
+import ReusableServerDown from 'components/UI/ReusableServerDown'
 const Messages = ({reciever}) => {
   const cookie = useSelector((state:any)=> state.cookie.cookie);
   const { loading, error, data, subscribeToMore } = useQuery(READ_PERSONAL_MESSAGES,{variables:{emailAddress:cookie.emailAddress}});
@@ -63,7 +64,7 @@ const Messages = ({reciever}) => {
         };
       }, [subscribeToMore, cookie.emailAddress, reciever]);
       if (loading) return <Loading />
-      if (error) return <p>{error.message}</p>
+      if (error) return <ReusableServerDown/>
 // Add necessary dependencies
 //########################## MUTATION PART START ##########################
     const FilterReciever = data?.personalMessages.filter((item: any) => (item.Sender===reciever || item.Sender === cookie.emailAddress) && (item.Reciever===cookie.emailAddress || item.Reciever === reciever))
@@ -110,10 +111,13 @@ const Messages = ({reciever}) => {
     }
 
     const renderRow = ({ index, style }: { index: number, style: React.CSSProperties }) => (
-      <div className="messagesUL_li" style={{ ...style, width: "100%", marginTop: "5px", display: "flex", alignItems: "center" }}>
+      <div className="messagesUL_li" style={{ ...style, width: "100%", marginTop: "5px", alignItems: "center" }}>
         <ReusableMessage Sender={filteredPosts[index].Sender} 
                          dateSent={filteredPosts[index].dateSent} 
-                         Messages={filteredPosts[index].Messages} />
+                         Messages={filteredPosts[index].Messages}
+                         Live=''
+                         Video=''
+                         />
       </div>
     );
     const getItemSize = (index: number) => {

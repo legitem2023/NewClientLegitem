@@ -65,14 +65,27 @@ mutation Mutation($saveCropImageId: Int, $file: Upload) {
 }
 `
 export const SEND_MESSAGE = gql`
-mutation PostMessage($message: String, $sender: String) {
-  postMessage(Message: $message, Sender: $sender) {
+mutation PostMessage($message: String, $sender: String, $live: String, $video: String) {
+  postMessage(Message: $message, Sender: $sender, Live: $live, Video: $video) {
     id
     Messages
     Sender
     dateSent
   }
 }`
+
+export const LIVE = gql`
+mutation Live($message: String, $sender: String, $live: String, $video: String) {
+  live(Message: $message, Sender: $sender, Live: $live, Video: $video) {
+    id
+    Messages
+    Sender
+    Live
+    Video
+    dateSent
+  }
+}`
+
 export const INSERT_ORDER = gql`
 mutation InsertOrder($orderHistoryInput: [OrderHistoryInput]) {
     insertOrder(OrderHistoryInput: $orderHistoryInput) {

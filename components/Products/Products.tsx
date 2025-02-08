@@ -26,6 +26,7 @@ import { setcurrentPage } from 'Redux/currentPageSlice';
 import ProductLoading from './ProductLoading';
 import ProductViewLoading from './ProductView/ProductViewLoading';
 import { useRouter,usePathname } from 'next/navigation';
+import ReusableServerDown from 'components/UI/ReusableServerDown';
 const itemsPerPage = 20; // Move constant outside component
 
 const Products: React.FC = () => {
@@ -143,7 +144,7 @@ const Products: React.FC = () => {
   }) 
 
   if (productsLoading) return <ProductLoading />;
-  if (productsError) return <h1>Connection Error</h1>;
+  if (productsError) return <ReusableServerDown/>;
 
   
 

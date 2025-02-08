@@ -1,6 +1,7 @@
 import { useQuery } from '@apollo/client';
 import ReusableCenterLayout from 'components/Layout/ReusableCenterLayout';
 import Loading from 'components/Partial/LoadingAnimation/Loading';
+import ReusableServerDown from 'components/UI/ReusableServerDown';
 import UniversalContainerItem_Likes from 'components/UI/UniversalContainerItem_Likes';
 import { READ_LIKES } from 'graphql/queries';
 import React from 'react'
@@ -18,7 +19,7 @@ const LikesData = () => {
     }
   });
   if(LikeLoading) return <Loading/> 
-  if(LikeError) return
+  if(LikeError) return <ReusableServerDown/>
   return (
     <ReusableCenterLayout child1={()=><></>} 
     child2={()=>(

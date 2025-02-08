@@ -1,11 +1,15 @@
+'use effect'
 import React, { useEffect, useRef, useState } from 'react';
 import { useMutation, useSubscription } from '@apollo/client';
-import { STARTCALL } from 'graphql/mutation';
+import { LIVE, STARTCALL } from 'graphql/mutation';
 import { CALL_RECIEVE } from 'graphql/subscriptions';
 import { Icon } from '@iconify/react';
 import DataManager from 'utils/DataManager';
+import { useSelector } from 'react-redux';
 
 const VideoCall = () => {
+  const cookie = useSelector((state:any)=> state.cookie.cookie);
+
   const [callActive, setCallActive] = useState(false);
   const [remoteStream, setRemoteStream] = useState<MediaStream | null>(null);
   const localVideoRef = useRef<HTMLVideoElement | null>(null);
@@ -21,6 +25,25 @@ const VideoCall = () => {
       console.error('Error starting call:', error);
     },
   });
+
+
+const [Live] = useMutation(LIVE,{
+  onCompleted:(data) =>{
+    console.log(data);
+  }
+})
+
+
+const HandleLive = async (data:any) =>{
+  await Live({
+    variables: {
+      message: "Live",
+      sender: cookie.emailAddress,
+      live: data,
+      video: "",
+    },
+  })
+}
 
   // Subscription for incoming calls
   useSubscription(CALL_RECIEVE, {
@@ -47,10 +70,8 @@ const VideoCall = () => {
   const setupWebRTC = async () => {
     try {
       if (typeof window === 'undefined' || !navigator.mediaDevices) {
-        // throw new Error('Media devices not supported');
         Manager.Error('Media devices not supported');
       }
-
       // **Check if user media devices exist**
       const devices = await navigator.mediaDevices.enumerateDevices();
       const hasCamera = devices.some((device) => device.kind === 'videoinput');
@@ -58,8 +79,6 @@ const VideoCall = () => {
 
       if (!hasCamera && !hasMicrophone) {
         Manager.Error('No camera or microphone found');
-        return
-        // throw new Error('No camera or microphone found');
       }
 
       // **Request user media**
@@ -73,7 +92,6 @@ const VideoCall = () => {
       // }
 
       const peerConnection = new RTCPeerConnection();
-
       // **Add local stream to peer connection**
       localStream.getTracks().forEach((track) => peerConnection.addTrack(track, localStream));
 
@@ -81,7 +99,7 @@ const VideoCall = () => {
       peerConnection.ontrack = (event) => {
         const newRemoteStream = new MediaStream();
         newRemoteStream.addTrack(event.track);
-        
+        HandleLive(newRemoteStream);
         // console.log(newRemoteStream+"<<<<<<")
         // setRemoteStream(newRemoteStream);
         // if (remoteVideoRef.current) {

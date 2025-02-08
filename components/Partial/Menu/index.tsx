@@ -13,6 +13,7 @@ import { setdiscounted } from 'Redux/discountedSlice';
 import { setnew } from 'Redux/newSlice';
 import { setDrawer } from 'Redux/drawerSlice';
 import MenuLoading from './MenuLoading';
+import ReusableServerDown from 'components/UI/ReusableServerDown';
 
 const Menu: React.FC = () => {
   const { data: categoryData, loading: categoryLoading, error: categoryError } = useQuery(READ_CATEGORY);
@@ -50,7 +51,7 @@ const Menu: React.FC = () => {
   }
 
   if (categoryLoading || productTypesLoading ) return <MenuLoading/>;
-  if (categoryError || productTypesError ) return <div>Error loading data</div>;
+  if (categoryError || productTypesError ) return <ReusableServerDown/>
 
 
 

@@ -7,10 +7,12 @@ import { setTime } from 'utils/cookie'
 type ReusableMessageProps = {
     Sender:string,
     dateSent:string,
-    Messages:string
+    Messages:string,
+    Live?:string,
+    Video?:string
 }
 
-const ReusableMessage:FC<ReusableMessageProps> = ({Sender,dateSent,Messages}) => {
+const ReusableMessage:FC<ReusableMessageProps> = ({Sender,dateSent,Messages,Live,Video}) => {
  
   const noOfDays = (timestampMs: any) => {
     const currentTime = new Date().getTime(); // Get current timestamp in ms
@@ -57,6 +59,7 @@ const ReusableMessage:FC<ReusableMessageProps> = ({Sender,dateSent,Messages}) =>
             </div>
           </div>
           <div className='messageBody'>
+          {Live===null || Live===""?<video src={Live} className='messageVideo'  autoPlay controls></video>:""}
           <ExpandableText text={Messages} />
            </div>
           {/* <hr></hr> */}

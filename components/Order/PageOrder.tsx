@@ -22,6 +22,7 @@ import ReusableMainLayout from 'components/Layout/ReusableMainLayout'
 import ReusableLabel from 'components/UI/ReusableLabel'
 import { useDispatch, useSelector } from 'react-redux'
 import { setorderStage } from 'Redux/orderStageSlice'
+import ReusableServerDown from 'components/UI/ReusableServerDown'
 
 const PageOrder:React.FC = () => {
   const { updateNewOrder,
@@ -54,7 +55,7 @@ const PageOrder:React.FC = () => {
   if(logisticOrderLoading) return <Loading/>
   if(deliverOrderLoading) return <Loading/>
   if(deliveredOrderLoading) return <Loading/>
-  if(error) return "Connection Error";
+  if(error) return <ReusableServerDown/>;
   refetchNew();
   refetchrecieved();
   refetchpacked();

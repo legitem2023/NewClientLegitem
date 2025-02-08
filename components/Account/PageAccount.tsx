@@ -11,6 +11,7 @@ import Element from 'components/UI/Element';
 import ReusableMainLayout from 'components/Layout/ReusableMainLayout';
 import ReusableCenterLayout from 'components/Layout/ReusableCenterLayout';
 import ReusableLabel from 'components/UI/ReusableLabel';
+import ReusableServerDown from 'components/UI/ReusableServerDown';
 interface PageAccountProps {
   userId: string;
 }
@@ -19,7 +20,7 @@ const PageAccount:React.FC<PageAccountProps> = ({ userId }) => {
   const [useScale,setScale] = useState(0);
   const { data:AccountDetails, loading:AccountLoading, error:AccountError,refetch:AccountRefetch } = useQuery(GET_ACCOUNT_DETAILS_ID, { variables: { getAccountDetailsIdId: userId } });
 if(AccountLoading) return <Loading/>
-if(AccountError) return "Connection Error";
+if(AccountError) return <ReusableServerDown/>;
   return (
     <ReusableMainLayout
       childA={()=>(
