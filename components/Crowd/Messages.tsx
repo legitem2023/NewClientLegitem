@@ -17,6 +17,8 @@ import ReusableServerDown from 'components/UI/ReusableServerDown';
 const Messages = () => {
   const cookie = useSelector((state: any) => state.cookie.cookie);
   const streaming = useSelector((state: any) => state.streaming.streaming);
+  const videoRef = useRef<HTMLVideoElement>(null);
+
   const [currentDay, setCurrentDay] = useState(new Date());
   const { loading, error, data, subscribeToMore } = useQuery(GET_MESSAGES);
   const [insertMessage] = useMutation(SEND_MESSAGE);
@@ -53,7 +55,12 @@ const Messages = () => {
     if (data) {
       paginatePosts();
     }
-  }, [data, currentDay, paginatePosts]);
+
+    if (videoRef.current && streaming) {
+      videoRef.current.srcObject = streaming;
+    }
+
+  }, [data, currentDay, paginatePosts,streaming]);
 
   if (!cookie) return <div>No cookie found</div>;
 
@@ -127,10 +134,7 @@ console.log(streaming,"<<<<")
         <>
           {streaming !==''?
          <div className='messagesLI'> 
-          <video width="320" height="240" src={streaming || null} className='messageVideo'  controls>
-          <source src={streaming || null}/>
-          <source src={streaming || null}/>
-         </video>
+           <video ref={videoRef} className='messageVideo' autoPlay playsInline muted />
           </div>
           :<></>}
         </>
