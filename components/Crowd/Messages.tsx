@@ -113,7 +113,7 @@ const Messages = () => {
       return Math.max(100, Math.ceil(message.length / 30) * 30); // Dynamic height for text messages
     }
   };
-
+console.log(streaming,"<<<<")
   return (
     <ReusableCenterLayout
       child1={() => (
@@ -124,9 +124,16 @@ const Messages = () => {
         />
       )}
       child2={() => (
-        <div className='messagesLI'>
-        <video src={streaming || null} className='messagesVideo' autoPlay muted />
-        </div>
+        <>
+          {streaming !==''?
+         <div className='messagesLI'> 
+          <video width="320" height="240" src={streaming || null} className='messageVideo'  controls>
+          <source src="movie.mp4" type="video/mp4"/>
+          <source src="movie.ogg" type="video/ogg"/>
+          </video>
+          </div>
+          :<></>}
+        </>
       )}
       child3={() => (
         <VariableSizeList
