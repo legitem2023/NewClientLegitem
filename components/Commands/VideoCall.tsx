@@ -12,11 +12,6 @@ const VideoCall = () => {
   const peerConnectionRef = useRef<RTCPeerConnection | null>(null);
   const Manager = useRef(new DataManager()).current;
 
-  const [startCall] = useMutation(STARTCALL, {
-    onCompleted: (data) => console.log('Call started:', data),
-    onError: (error) => console.error('Error starting call:', error),
-  });
-
   const [Live] = useMutation(LIVE, {
     onCompleted: (data) => console.log('Live mutation response:', data),
     onError: (error) => console.error('Live mutation error:', error),
@@ -86,11 +81,6 @@ const VideoCall = () => {
   const handleStartCall = async () => {
     try {
       await setupWebRTC();
-      startCall({
-        variables: {
-          callInput: { from: '1', to: '2' }, // Replace with actual user IDs
-        },
-      });
     } catch (error) {
       console.error('Error starting call:', error);
     }

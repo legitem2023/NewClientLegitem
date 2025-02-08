@@ -40,6 +40,8 @@ const ReusableMessage:FC<ReusableMessageProps> = ({Sender,dateSent,Messages,Live
     }
   };
     
+
+
     
   return (
       <li className='messagesLI'>
@@ -59,7 +61,7 @@ const ReusableMessage:FC<ReusableMessageProps> = ({Sender,dateSent,Messages,Live
             </div>
           </div>
           <div className='messageBody'>
-          {Live===null || Live===""?<video src={Live} className='messageVideo'  autoPlay controls></video>:""}
+          {Video===null || Video===""?<video src={Video} className='messageVideo'  autoPlay controls></video>:""}
           <ExpandableText text={Messages} />
            </div>
           {/* <hr></hr> */}

@@ -16,11 +16,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
-
 }
 .messageVideo{
   width: 100%;
   height: auto;
+  transform: scaleX(-1);
 }
 .gridthumb{
   display: grid;
