@@ -16,6 +16,7 @@ import ReusableServerDown from 'components/UI/ReusableServerDown';
 
 const Messages = () => {
   const cookie = useSelector((state: any) => state.cookie.cookie);
+  const streaming = useSelector((state: any) => state.streaming.streaming);
   const [currentDay, setCurrentDay] = useState(new Date());
   const { loading, error, data, subscribeToMore } = useQuery(GET_MESSAGES);
   const [insertMessage] = useMutation(SEND_MESSAGE);
@@ -93,10 +94,6 @@ const Messages = () => {
 
   const renderRow = ({ index, style }: { index: number, style: React.CSSProperties }) => (
     <div className="messagesUL_li" style={{ ...style, width: "100%", marginTop: "5px", alignItems: "center"}}>
-        <li className='messagesLI'>
-          {/* <video ref={`localVideoRef`} autoPlay muted />
-          <video ref={`remoteVideoRef`} autoPlay /> */}
-        </li>
       <ReusableMessage Sender={posts[index].Sender} 
                        dateSent={posts[index].dateSent} 
                        Messages={posts[index].Messages}
@@ -127,6 +124,11 @@ const Messages = () => {
         />
       )}
       child2={() => (
+        <div className='messagesLI'>
+        <video src={streaming || null} className='messagesVideo' autoPlay muted />
+        </div>
+      )}
+      child3={() => (
         <VariableSizeList
           height={window.innerHeight}
           width={"100%"}
@@ -137,7 +139,6 @@ const Messages = () => {
           {renderRow}
         </VariableSizeList>
       )}
-      child3={() => <></>}
       child4={() => <></>}
     />
   );

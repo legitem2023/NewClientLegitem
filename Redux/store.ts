@@ -24,6 +24,7 @@ import cookieReducer from './cookieSlice'
 import messagecountReducer from './messagecountSlice'
 import recieverReducer from './recieverSlice'
 import orderStageReducer from './orderStageSlice'
+import streamingReducer from './streamingSlice'
 const store = configureStore({
   reducer: {
     category: categoryReducer, // Add category slice to the store
@@ -43,7 +44,8 @@ const store = configureStore({
     cookie:cookieReducer,
     messagecount:messagecountReducer,
     reciever:recieverReducer,
-    orderStage:orderStageReducer
+    orderStage:orderStageReducer,
+    streaming:streamingReducer
   },
 });
 

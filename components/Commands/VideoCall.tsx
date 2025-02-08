@@ -5,10 +5,12 @@ import { LIVE, STARTCALL } from 'graphql/mutation';
 import { CALL_RECIEVE } from 'graphql/subscriptions';
 import { Icon } from '@iconify/react';
 import DataManager from 'utils/DataManager';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { setstreaming } from 'Redux/streamingSlice';
 
 const VideoCall = () => {
   const cookie = useSelector((state:any)=> state.cookie.cookie);
+  const dispatch = useDispatch();
 
   const [callActive, setCallActive] = useState(false);
   const [remoteStream, setRemoteStream] = useState<MediaStream | null>(null);
@@ -46,14 +48,6 @@ const HandleLive = async (data:any) =>{
 }
 
   // Subscription for incoming calls
-  useSubscription(CALL_RECIEVE, {
-    onSubscriptionData: ({ subscriptionData }) => {
-      const call = subscriptionData.data.callReceived;
-      console.log('Incoming call:', call);
-      setupWebRTC();
-    },
-  });
-
   const handleStartCall = async () => {
     try {
       await setupWebRTC();
@@ -87,10 +81,12 @@ const HandleLive = async (data:any) =>{
         audio: hasMicrophone, // Enable only if a microphone is available
       });
 
-
+      dispatch(setstreaming(localStream));
       const peerConnection = new RTCPeerConnection();
       // **Add local stream to peer connection**
       localStream.getTracks().forEach((track) => peerConnection.addTrack(track, localStream));
+
+
 
       // **Handle remote stream**
       peerConnection.ontrack = (event) => {
