@@ -44,10 +44,7 @@ const Messages = () => {
   }, [subscribeToMore]);
 
   const paginatePosts = useCallback(() => {
-    const filteredPosts = data?.messages?.filter((post: any) => {
-      const postDate = new Date(parseInt(post?.dateSent));
-      return postDate.toDateString() === currentDay.toDateString();
-    });
+    const filteredPosts = data?.messages;
     setPosts(filteredPosts || []);
   }, [data, currentDay]);
 
@@ -98,7 +95,6 @@ const Messages = () => {
 
   if (loading) return <CrowdLoading/>;
   if (error) return <ReusableServerDown/>;
-
   const renderRow = ({ index, style }: { index: number, style: React.CSSProperties }) => (
     <div className="messagesUL_li" style={{ ...style, width: "100%", marginTop: "5px", alignItems: "center"}}>
       <ReusableMessage Sender={posts[index].Sender} 

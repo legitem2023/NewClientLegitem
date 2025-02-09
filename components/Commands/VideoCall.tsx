@@ -19,20 +19,18 @@ const VideoCall = () => {
 
   const HandleLive = async (stream: MediaStream) => {
     console.log('Sending live stream:', stream);
-    
     // Convert stream to a format suitable for transmission
     const videoTracks = stream.getVideoTracks();
     if (videoTracks.length === 0) {
       console.error('No video track found.');
       return;
     }
-
     await Live({
       variables: {
-        message: "Live",
+        message: `${cookie.emailAddress} is Live`,
         sender: cookie.emailAddress,
-        live: true,
-        video: videoTracks, // Sending track ID (you might need another approach to send video)
+        live: "true",
+        video: videoTracks,
       },
     });
   };
@@ -97,7 +95,7 @@ const VideoCall = () => {
 
   return (
     <div className="VideoCallButton">
-      <Icon icon="mdi:video" width="24" height="24" onClick={handleStartCall} />
+      <Icon icon="bxs:video" width="24" height="24" onClick={handleStartCall} />
     </div>
   );
 };

@@ -221,6 +221,8 @@ query Messages {
     Messages
     Sender
     dateSent
+    Live
+    Video
   }
 }`
 export const GET_NAME_OF_STORE = gql`
