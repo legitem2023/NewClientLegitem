@@ -17,20 +17,26 @@ const VideoCall = () => {
     onError: (error) => console.error('Live mutation error:', error),
   });
 
-  const HandleLive = async (stream: MediaStream) => {
+  const HandleLive = async (stream: any) => {
     console.log('Sending live stream:', stream);
-    // Convert stream to a format suitable for transmission
+
+    // Convert the stream to a URL or other string representation
     const videoTracks = stream.getVideoTracks();
     if (videoTracks.length === 0) {
       console.error('No video track found.');
       return;
     }
+
+    // Example: Convert the stream to a Blob URL
+    const videoBlob = new Blob([stream], { type: 'video/webm' });
+    const videoUrl = URL.createObjectURL(videoBlob);
+
     await Live({
       variables: {
         message: `${cookie.emailAddress} is Live`,
         sender: cookie.emailAddress,
         live: "true",
-        video: videoTracks,
+        video: videoUrl, // Pass the URL as a string
       },
     });
   };

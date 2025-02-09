@@ -25,8 +25,17 @@ const Messages = () => {
   const [isLoading, setIsLoading] = useState(false);
   const textareaRef = useRef<HTMLTextAreaElement>(null);
   const [posts, setPosts] = useState<any[]>([]);
+  const listRef = useRef(null);
+
+  const [height, setHeight] = useState(500); // Default height
 
   useEffect(() => {
+
+    if (listRef.current) {
+      setHeight(listRef.current.clientHeight);
+    }
+
+
     const unsubscribe = subscribeToMore({
       document: MESSAGE_ADDED,
       updateQuery: (prev, { subscriptionData }) => {
@@ -96,7 +105,7 @@ const Messages = () => {
   if (loading) return <CrowdLoading/>;
   if (error) return <ReusableServerDown/>;
   const renderRow = ({ index, style }: { index: number, style: React.CSSProperties }) => (
-    <div className="messagesUL_li" style={{ ...style, width: "100%", marginTop: "5px", alignItems: "center"}}>
+    <div className="messagesUL_li" style={{ ...style, width: "100%", marginTop: "5px", alignItems: "center",height:"auto"}}>
       <ReusableMessage Sender={posts[index].Sender} 
                        dateSent={posts[index].dateSent} 
                        Messages={posts[index].Messages}

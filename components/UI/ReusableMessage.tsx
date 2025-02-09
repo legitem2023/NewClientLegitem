@@ -40,6 +40,7 @@ const ReusableMessage:FC<ReusableMessageProps> = ({Sender,dateSent,Messages,Live
     }
   };
     
+console.log(Live,Video,"<<<<<<<????")
 
     
   return (
