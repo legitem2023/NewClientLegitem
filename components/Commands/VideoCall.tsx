@@ -32,7 +32,7 @@ const VideoCall = () => {
           message: `${cookie.emailAddress} is Live`,
           sender: cookie.emailAddress,
           live: "true",
-          video: streamId, // ✅ Store stream ID instead of a blob URL
+          video: stream.id, // ✅ Store stream ID instead of a blob URL
         },
       });
   
@@ -62,7 +62,6 @@ const VideoCall = () => {
       });
       dispatch(setStreaming(localStream));
 
-console.log("local",localStream);
       peerConnectionRef.current = new RTCPeerConnection();
       localStream.getTracks().forEach((track) => peerConnectionRef.current!.addTrack(track, localStream));
       console.log("deployed",localStream);
