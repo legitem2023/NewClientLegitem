@@ -26,7 +26,8 @@ const VideoCall = () => {
   
       // Generate a unique stream ID based on the sender
       const streamId = `live-stream-${cookie.emailAddress}`;
-  
+      dispatch(setStreaming({ streamId, stream }));
+
       await Live({
         variables: {
           message: `${cookie.emailAddress} is Live`,
@@ -60,7 +61,7 @@ const VideoCall = () => {
         video: hasCamera,
         audio: hasMicrophone,
       });
-      dispatch(setStreaming(localStream));
+      // dispatch(setStreaming(localStream));
 
       peerConnectionRef.current = new RTCPeerConnection();
       localStream.getTracks().forEach((track) => peerConnectionRef.current!.addTrack(track, localStream));

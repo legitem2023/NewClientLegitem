@@ -1,47 +1,34 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef } from "react";
 
 interface LiveStreamPlayerProps {
-  streamUrl: string; // Accepts blob URL
+  stream?: MediaStream | null; // WebRTC live stream
+  streamUrl?: string | null;   // Regular video URL
 }
 
-const LiveStreamPlayer: React.FC<LiveStreamPlayerProps> = ({ streamUrl }) => {
+const LiveStreamPlayer: React.FC<LiveStreamPlayerProps> = ({ stream, streamUrl }) => {
   const videoRef = useRef<HTMLVideoElement | null>(null);
-  const [isPlaying, setIsPlaying] = useState(false); // Track if video is playing
 
   useEffect(() => {
     const video = videoRef.current;
-    if (!video || !streamUrl) return;
+    if (!video) return;
 
-    video.src = streamUrl;
-    video.load();
+    if (stream) {
+      console.log("Assigning MediaStream to video element:", stream);
+      video.srcObject = stream; // ✅ Assign MediaStream
+      video.load();
+    } else if (streamUrl) {
+      console.log("Assigning video URL to video element:", streamUrl);
+      video.src = streamUrl; // ✅ Assign URL
+      video.load();
+    }
 
-    // Try autoplaying, if it fails, show play button
-    video.play()
-      .then(() => setIsPlaying(true)) // Success
-      .catch((err) => {
-        console.warn("Autoplay failed, user interaction required:", err);
-        setIsPlaying(false); // Show play button
-      });
-  }, [streamUrl]);
-
-  const handlePlay = () => {
-    videoRef.current?.play();
-    setIsPlaying(true);
-  };
+    video.play().catch((err) => console.error("Playback error:", err));
+  }, [stream, streamUrl]);
 
   return (
-    <div className="relative">
-      <video ref={videoRef} controls autoPlay className="w-full h-auto" />
-      
-      {!isPlaying && (
-        <button
-          onClick={handlePlay}
-          className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 text-white text-lg font-bold"
-        >
-          ▶ Click to Play
-        </button>
-      )}
-    </div>
+    <video ref={videoRef} controls autoPlay className="w-full h-auto">
+      Your browser does not support the video tag.
+    </video>
   );
 };
 

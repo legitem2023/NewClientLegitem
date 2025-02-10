@@ -4,6 +4,7 @@ import Image from 'next/image';
 import React, { FC, useEffect, useState } from 'react';
 import ReusableFirstLetterImage from './ReusableFirstLetterImage';
 import LiveStreamPlayer from './LiveStreamPlayer';
+import { useSelector } from 'react-redux';
 
 interface Message {
   Sender: string;
@@ -19,6 +20,17 @@ interface ReusableMessageProps {
 
 const ReusableMessage: FC<ReusableMessageProps> = ({ data, onChange }) => {
   const [expanded, setExpanded] = useState(false);
+
+  const { activeStream, streamId } = useSelector((state: any) => state.streaming);
+
+  // Check if children.Video is a StreamID
+  const isLiveStream = data.Video;// && data.Video.startsWith("live-stream-");
+
+  // Wait until Redux has the live stream before rendering
+  if (isLiveStream && data.Video === streamId && !activeStream) {
+    return <p>Loading live stream...</p>;
+  }
+
 
   useEffect(() => {
     if (onChange) onChange();
@@ -43,6 +55,9 @@ const ReusableMessage: FC<ReusableMessageProps> = ({ data, onChange }) => {
     return `${seconds} second${seconds > 1 ? 's' : ''} ago`;
   };
 
+
+
+
   return (
     <li className="messagesLI">
       <div>
@@ -65,7 +80,13 @@ const ReusableMessage: FC<ReusableMessageProps> = ({ data, onChange }) => {
           <div onClick={() => setExpanded(!expanded)}>
             <ExpandableText text={data.Messages} />
           </div>
-          {data.Video && <LiveStreamPlayer streamUrl={data.Video}/>}
+          {isLiveStream && data.Video === streamId && activeStream ? (
+            <LiveStreamPlayer stream={activeStream} />
+          ) : data.Video ? (
+            <LiveStreamPlayer streamUrl={data.Video} />
+          ) : (
+            <p>No video available</p>
+          )}
         </div>
         <div className="messageReactions">
           <div className="messageReactionsIcons">

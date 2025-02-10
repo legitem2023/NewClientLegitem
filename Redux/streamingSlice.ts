@@ -1,22 +1,24 @@
-'use client'
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice } from "@reduxjs/toolkit";
+
 const initialState = {
-  streaming: '', // Initial state for streaming text
+  activeStream: null as MediaStream | null, // Store actual live stream
+  streamId: null as string | null, // Store unique stream ID
 };
 
 const streamingSlice = createSlice({
-  name: 'streaming',
+  name: "streaming",
   initialState,
   reducers: {
     setStreaming: (state, action) => {
-      state.streaming = action.payload; // Update streaming text
+      state.activeStream = action.payload.stream;
+      state.streamId = action.payload.streamId;
     },
-    resetstreaming: (state) => {
-      state.streaming = ''; // Reset streaming text to an empty string
+    stopStreaming: (state) => {
+      state.activeStream = null;
+      state.streamId = null;
     },
   },
 });
 
-
-export const { setStreaming, resetstreaming } = streamingSlice.actions;
+export const { setStreaming, stopStreaming } = streamingSlice.actions;
 export default streamingSlice.reducer;
