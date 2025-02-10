@@ -65,7 +65,7 @@ const VideoCall = () => {
       let streamId = stream.id;
    dispatch(setStreaming({streamId,stream}))
       // Stop recording after 10 seconds (adjust as needed)
-      setTimeout(() => mediaRecorder.stop(), 1000);
+      setTimeout(() => mediaRecorder.stop(), 300000);
     } catch (error) {
       console.error("Error in HandleLive:", error);
     }
