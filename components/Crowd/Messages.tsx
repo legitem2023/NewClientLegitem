@@ -1,46 +1,42 @@
-'use client'
+'use client';
+
 import React, { useEffect, useRef, useState, useCallback } from 'react';
 import { useQuery, useMutation } from '@apollo/client';
 import { GET_MESSAGES } from 'graphql/queries';
 import { MESSAGE_ADDED } from 'graphql/subscriptions';
-import Loading from 'components/Partial/LoadingAnimation/Loading';
 import { SEND_MESSAGE } from 'graphql/mutation';
 import ReusableCenterLayout from 'components/Layout/ReusableCenterLayout';
 import ReusableMessage from 'components/UI/ReusableMessage';
 import { useSelector } from 'react-redux';
 import ReusableMessageInput from 'components/UI/ReusableMessageInput';
-import { VariableSizeList } from 'react-window';
-import ProductLoading from 'components/Products/ProductLoading';
+import { List, AutoSizer, CellMeasurer, CellMeasurerCache } from 'react-virtualized';
 import CrowdLoading from './CrowdLoading';
 import ReusableServerDown from 'components/UI/ReusableServerDown';
 
 const Messages = () => {
   const cookie = useSelector((state: any) => state.cookie.cookie);
   const streaming = useSelector((state: any) => state.streaming.streaming);
-  const videoRef = useRef<HTMLVideoElement>(null);
+  const videoRef = useRef(null);
+  const cache = useRef(new CellMeasurerCache({ defaultHeight: 300, fixedWidth: true,fixedHeight:false }));
 
-  const [currentDay, setCurrentDay] = useState(new Date());
+  const [posts, setPosts] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const textareaRef = useRef(null);
+  const listRef = useRef(null);
+  
   const { loading, error, data, subscribeToMore } = useQuery(GET_MESSAGES);
   const [insertMessage] = useMutation(SEND_MESSAGE);
-  const [isLoading, setIsLoading] = useState(false);
-  const textareaRef = useRef<HTMLTextAreaElement>(null);
-  const [posts, setPosts] = useState<any[]>([]);
-  const listRef = useRef(null);
-
-  const [height, setHeight] = useState(500); // Default height
 
   useEffect(() => {
-
-    if (listRef.current) {
-      setHeight(listRef.current.clientHeight);
-    }
-
-
     const unsubscribe = subscribeToMore({
       document: MESSAGE_ADDED,
       updateQuery: (prev, { subscriptionData }) => {
         if (!subscriptionData.data) return prev;
         const newMessage = subscriptionData.data.messageAdded;
+        console.log(newMessage,"<<<");
+        if(newMessage.id ===null) return;
+        if(newMessage.Sender ===null) return;
+
         return {
           ...prev,
           messages: prev.messages ? [newMessage, ...prev.messages] : [newMessage],
@@ -52,48 +48,25 @@ const Messages = () => {
     };
   }, [subscribeToMore]);
 
-  const paginatePosts = useCallback(() => {
-    const filteredPosts = data?.messages;
-    setPosts(filteredPosts || []);
-  }, [data, currentDay]);
-
   useEffect(() => {
-    if (data) {
-      paginatePosts();
-    }
-
-    if (videoRef.current && streaming) {
-      videoRef.current.srcObject = streaming;
-    }
-
-  }, [data, currentDay, paginatePosts,streaming]);
+    if (data) setPosts(data.messages || []);
+    if (videoRef.current && streaming) videoRef.current.srcObject = streaming;
+  }, [data, streaming]);
 
   if (!cookie) return <div>No cookie found</div>;
 
-  const handleDayChange = (increment: number) => {
-    const newDate = new Date(currentDay);
-    newDate.setDate(currentDay.getDate() + increment);
-    setCurrentDay(newDate);
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    
     const message = textareaRef.current?.value;
     if (message) {
       setIsLoading(true);
       try {
         await insertMessage({
-          variables: {
-            message: message,
-            sender: cookie.emailAddress,
-            live: "",
-            video: "",
-          },
+          variables: { message, sender: cookie.emailAddress, live: '', video: '' },
         });
         textareaRef.current.value = '';
       } catch (err) {
-        console.error("Error sending message", err);
+        console.error('Error sending message', err);
       } finally {
         setIsLoading(false);
       }
@@ -102,58 +75,59 @@ const Messages = () => {
     }
   };
 
-  if (loading) return <CrowdLoading/>;
-  if (error) return <ReusableServerDown/>;
-  const renderRow = ({ index, style }: { index: number, style: React.CSSProperties }) => (
-    <div className="messagesUL_li" style={{ ...style, width: "100%", marginTop: "5px", alignItems: "center",height:"auto"}}>
-      <ReusableMessage Sender={posts[index].Sender} 
-                       dateSent={posts[index].dateSent} 
-                       Messages={posts[index].Messages}
-                       Live={posts[index].Live}
-                       Video={posts[index].Video}
-                       />
-    </div>
-  );
+  if (loading) return <CrowdLoading />;
+  if (error) return <ReusableServerDown />;
 
-  const getItemSize = (index: number) => {
-    const message = posts[index].Messages;
-    const hasVideo = posts[index].Live; // Adjust this condition based on how you identify videos
 
-    if (hasVideo !==null || hasVideo !=="") {
-      return 400; // Fixed height for messages with videos
-    } else {
-      return Math.max(100, Math.ceil(message.length / 30) * 30); // Dynamic height for text messages
-    }
-  };
-console.log(streaming,"<<<<")
   return (
     <ReusableCenterLayout
       child1={() => (
-        <ReusableMessageInput 
-          textRef={textareaRef}
-          event={handleSubmit}
-          loading={isLoading}
-        />
+        <ReusableMessageInput textRef={textareaRef} event={handleSubmit} loading={isLoading} />
       )}
-      child2={() => (
-        <>
-          {streaming !==''?
-         <div className='messagesLI'> 
-           <video ref={videoRef} className='messageVideo' autoPlay playsInline muted />
+      child2={() =>
+        streaming ? (
+          <div className='messagesLI'>
+            <video ref={videoRef} className='messageVideo' autoPlay playsInline muted />
           </div>
-          :<></>}
-        </>
-      )}
+        ) : null
+      }
       child3={() => (
-        <VariableSizeList
-          height={window.innerHeight}
-          width={"100%"}
-          itemCount={posts.length}
-          itemSize={getItemSize}
-          className='messagesUL'
-        >
-          {renderRow}
-        </VariableSizeList>
+        <div style={{ minHeight: '100vh', height: 'auto', width: '100%'}}>
+          <AutoSizer>
+            {({ height, width }) => (
+              <List
+                height={height}
+                width={width}
+                rowHeight={cache.current.rowHeight}
+                deferredMeasurementCache={cache.current}
+                rowCount={posts.length}
+                // className='messagesUL'
+                ref={listRef}
+                rowRenderer={({ key, index, style, parent }) => (
+                  <CellMeasurer 
+                    key={key} 
+                    cache={cache.current} 
+                    columnIndex={0} 
+                    rowIndex={index} 
+                    parent={parent}>
+                    {({ measure }) => ( // Ensure it remeasures on changes
+                      <div style={{
+                        ...style,
+                        marginBottom: "15px",
+                        padding: "10px 0",
+                        display: "flex",
+                        flexDirection: "column",
+                        width: "100%",
+                      }} onLoad={measure}>
+                        <ReusableMessage children={posts[index]} onChange={measure}/>
+                      </div>
+                    )}
+                  </CellMeasurer>
+                )}
+              />
+            )}
+          </AutoSizer>
+        </div>
       )}
       child4={() => <></>}
     />

@@ -64,6 +64,8 @@ subscription Subscription {
     id
     Messages
     Sender
+    Live
+    Video
     dateSent
   }
 }`

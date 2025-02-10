@@ -13,7 +13,8 @@ import ReusableCenterLayout from 'components/Layout/ReusableCenterLayout'
 import { useSelector } from 'react-redux'
 import ReusableMessageInput from 'components/UI/ReusableMessageInput'
 import ReusableMessage from 'components/UI/ReusableMessage'
-import { VariableSizeList } from 'react-window'
+import { List, AutoSizer, CellMeasurer, CellMeasurerCache } from 'react-virtualized';
+
 import ReusableServerDown from 'components/UI/ReusableServerDown'
 const Messages = ({reciever}) => {
   const cookie = useSelector((state:any)=> state.cookie.cookie);
@@ -27,6 +28,9 @@ const Messages = ({reciever}) => {
     const [isLoading, setIsLoading] = useState(false);
     const SelectedReciever = "";//useGlobalState("SelectedReciever");
     const textareaRef = useRef<HTMLTextAreaElement>(null);
+      const cache = useRef(new CellMeasurerCache({ defaultHeight: 300, fixedWidth: true,fixedHeight:false }));
+      const listRef = useRef(null);
+    
     const [currentDay, setCurrentDay] = useState(new Date()); // Track current day
     useEffect(() => {
         const unsubscribe = subscribeToMore({
@@ -110,16 +114,7 @@ const Messages = ({reciever}) => {
         }
     }
 
-    const renderRow = ({ index, style }: { index: number, style: React.CSSProperties }) => (
-      <div className="messagesUL_li" style={{ ...style, width: "100%", marginTop: "5px", alignItems: "center" }}>
-        <ReusableMessage Sender={filteredPosts[index].Sender} 
-                         dateSent={filteredPosts[index].dateSent} 
-                         Messages={filteredPosts[index].Messages}
-                         Live=''
-                         Video=''
-                         />
-      </div>
-    );
+
     const getItemSize = (index: number) => {
       return Math.max(400, Math.ceil(filteredPosts[index].Messages.length / 30) * 30); 
     };
@@ -140,28 +135,51 @@ const Messages = ({reciever}) => {
         )}
 
         child2={()=>(
-      //     <ul className='messagesUL'>
-      //     {
-      //       filteredPosts.map((item: any, id: any) => (
-      //           <ReusableMessage Sender={item.Sender} dateSent={item.dateSent} Messages={item.Messages} key={id}/>
-      //     ))}
-      // <li className='messages_pagination'>
-      //   <button className='universalButtonStyle' onClick={goToPreviousDay}>Previous Day</button>
-      //   <button className='universalButtonStyle' onClick={goToNextDay}>Next Day</button>
-      // </li>
-      // </ul>
-              <VariableSizeList
-                height={window.innerHeight}
-                width={"100%"}
-                itemCount={filteredPosts.length}
-                itemSize={getItemSize} // Height of each row
-                className='messagesUL'
-              >
-                {renderRow}
-              </VariableSizeList>
+<div style={{ minHeight: '100vh', height: 'auto', width: '100%'}}>
+<AutoSizer>
+            {({ height, width }) => (
+              <List
+                height={height}
+                width={width}
+                rowHeight={cache.current.rowHeight}
+                deferredMeasurementCache={cache.current}
+                rowCount={FilterReciever.length}
+                // className='messagesUL'
+                ref={listRef}
+                rowRenderer={({ key, index, style, parent }) => (
+                  <CellMeasurer 
+                    key={key} 
+                    cache={cache.current} 
+                    columnIndex={0} 
+                    rowIndex={index} 
+                    parent={parent}>
+                    {({ measure }) => ( // Ensure it remeasures on changes
+                      <div style={{
+                        ...style,
+                        marginBottom: "15px",
+                        padding: "10px 0",
+                        display: "flex",
+                        flexDirection: "column",
+                        width: "100%",
+                      }} onLoad={measure}>
+                        <ReusableMessage children={FilterReciever[index]} onChange={measure}/>
+                      </div>
+                    )}
+                  </CellMeasurer>
+                )}
+              />
+            )}
+          </AutoSizer>
+        </div>
         )}
 
-        child3={()=><></>}
+        child3={()=><>
+          <ul className='messagesUL'>
+      <li className='messages_pagination'>
+        <button className='universalButtonStyle' onClick={goToPreviousDay}>Previous Day</button>
+        <button className='universalButtonStyle' onClick={goToNextDay}>Next Day</button>
+      </li>
+      </ul></>}
         
         child4={()=><></>}
       />

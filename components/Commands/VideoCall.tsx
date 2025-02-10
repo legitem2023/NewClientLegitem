@@ -18,29 +18,49 @@ const VideoCall = () => {
   });
 
   const HandleLive = async (stream: any) => {
-    console.log('Sending live stream:', stream);
-
-    // Convert the stream to a URL or other string representation
-    const videoTracks = stream.getVideoTracks();
-    if (videoTracks.length === 0) {
-      console.error('No video track found.');
-      return;
+    try {
+      // Check if the stream is valid
+      if (!stream) {
+        Manager.Error('Invalid stream provided.');
+        return;
+      }
+  
+      // Convert the stream to a URL or other string representation
+      const videoTracks = stream.getVideoTracks();
+      if (videoTracks.length === 0) {
+        Manager.Error('No video track found.');
+        return;
+      }
+  
+      // Example: Convert the stream to a Blob URL
+      let videoUrl;
+      try {
+        const videoBlob = new Blob([stream], { type: 'video/webm' });
+        videoUrl = URL.createObjectURL(videoBlob);
+      } catch (error:any) {
+        Manager.Error('Error creating Blob URL:');
+        return;
+      }
+  
+      // Ensure videoUrl is valid
+      if (!videoUrl) {
+        Manager.Error('Failed to generate video URL.');
+        return;
+      }
+  
+      // Send the live stream data via GraphQL mutation
+      await Live({
+        variables: {
+          message: `${cookie.emailAddress} is Live`,
+          sender: cookie.emailAddress,
+          live: "true",
+          video: videoUrl, // Pass the URL as a string
+        },
+      });
+    } catch (error) {
+      console.error('Error in HandleLive:', error);
     }
-
-    // Example: Convert the stream to a Blob URL
-    const videoBlob = new Blob([stream], { type: 'video/webm' });
-    const videoUrl = URL.createObjectURL(videoBlob);
-
-    await Live({
-      variables: {
-        message: `${cookie.emailAddress} is Live`,
-        sender: cookie.emailAddress,
-        live: "true",
-        video: videoUrl, // Pass the URL as a string
-      },
-    });
   };
-
   const setupWebRTC = async () => {
     try {
       if (typeof window === 'undefined' || !navigator.mediaDevices) {

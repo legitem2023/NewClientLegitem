@@ -19,9 +19,6 @@ export const Apollo = ({ children }: { children: React.ReactNode }) => {
     uri: process.env.NEXT_PUBLIC_WS_SERVER_LINK?.replace(/^http/, 'ws'), // Replace http with ws for WebSocket link
     options: {
       reconnect: true, // Automatically reconnect if the connection is lost
-      // connectionParams: {
-      //   authToken: typeof window ===undefined?localStorage.getItem('authToken'):"" // Use token from localStorage or cookies for WebSocket authentication
-      // },
     },
   });
 
@@ -33,7 +30,7 @@ export const Apollo = ({ children }: { children: React.ReactNode }) => {
       );
     }
     if (networkError) {
-      console.error(`[Network error]: ${networkError}`);
+      // console.error(`[Network error]: ${networkError}`);
     }
   });
 

@@ -8,7 +8,7 @@ const ExpandableText = ({ text, maxLength = 500 }) => {
   };
 
   // Determine whether truncation is needed
-  const shouldTruncate = text.length > maxLength;
+  const shouldTruncate = text?.length > maxLength;
 
   // Render text based on expansion state
   const displayText = isExpanded || !shouldTruncate

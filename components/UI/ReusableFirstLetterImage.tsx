@@ -15,9 +15,14 @@ const ReusableFirstLetterImage: React.FC<FirstLetterImageProps> = ({
   textColor = "#ffffff",
 }) => {
   const [imageUrl, setImageUrl] = useState<string>("");
-
+  const [useFletter,setFletter] = useState<string>("")
   useEffect(() => {
     if (text) {
+      if(text===null || text ===""){
+        setFletter("Guess")
+      }else{
+        setFletter(text)
+      }
       const canvas = document.createElement("canvas");
       const ctx = canvas.getContext("2d");
       if (ctx) {
@@ -42,7 +47,7 @@ const ReusableFirstLetterImage: React.FC<FirstLetterImageProps> = ({
     }
   }, [text, size, bgColor, textColor]);
 
-  return imageUrl ? <Image src={imageUrl} alt={text.charAt(0)} width={50} height={50} />: null;
+  return imageUrl ? <Image src={imageUrl} alt={useFletter.charAt(0)} width={50} height={50} />: null;
 };
 
 export default ReusableFirstLetterImage;
