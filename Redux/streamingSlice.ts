@@ -1,23 +1,22 @@
 'use client'
-import { createSlice } from "@reduxjs/toolkit";
-
+import { createSlice } from '@reduxjs/toolkit';
 const initialState = {
-  activeStream: null as MediaStream | null, // Store live WebRTC stream
+  streaming: '', // Initial state for streaming text
 };
 
 const streamingSlice = createSlice({
-  name: "streaming",
+  name: 'streaming',
   initialState,
   reducers: {
     setStreaming: (state, action) => {
-      state.activeStream = action.payload;
+      state.streaming = action.payload; // Update streaming text
     },
-    stopStreaming: (state) => {
-      state.activeStream = null;
+    resetstreaming: (state) => {
+      state.streaming = ''; // Reset streaming text to an empty string
     },
   },
 });
 
-export const { setStreaming, stopStreaming } = streamingSlice.actions;
-export default streamingSlice.reducer;
 
+export const { setStreaming, resetstreaming } = streamingSlice.actions;
+export default streamingSlice.reducer;
