@@ -17,10 +17,18 @@
   justify-content: center;
   align-items: center;
 }
+.redBorder{
+  border:solid 3px red;
+  border-radius: 100%;
+}
 .messageVideo{
   width: 100%;
   height: auto;
   transform: scaleX(-1);
+}
+.messageVideo_live{
+  width: 100%;
+  height: auto;
 }
 .gridthumb{
   display: grid;

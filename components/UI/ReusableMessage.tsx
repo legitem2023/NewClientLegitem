@@ -10,7 +10,7 @@ interface Message {
   Sender: string;
   dateSent: string | number;
   Messages: string;
-  Video?: string | null; // Ensure Video is optional and can be null
+  Video?: string | null;
 }
 
 interface ReusableMessageProps {
@@ -22,23 +22,22 @@ const ReusableMessage: FC<ReusableMessageProps> = ({ data, onChange }) => {
   const [expanded, setExpanded] = useState(false);
 
   const { activeStream, streamId } = useSelector((state: any) => state.streaming);
+  const isLiveStream = data.Video && data.Video === streamId;
 
-  // Check if children.Video is a StreamID
-  const isLiveStream = data.Video;// && data.Video.startsWith("live-stream-");
+  // ✅ Auto-expand when live stream starts, but allow manual toggling
+  useEffect(() => {
+    if (isLiveStream && activeStream) {
+      setExpanded(true); // Auto-expand if a live stream is detected
+    }
+  }, [isLiveStream, activeStream]);
 
   useEffect(() => {
     if (onChange) onChange();
   }, [expanded, onChange]);
 
-  // Wait until Redux has the live stream before rendering
-  if (isLiveStream && data.Video === streamId && !activeStream) {
-    return <p>Loading live stream...</p>;
-  }
-
-
   const noOfDays = (timestampMs: string | number) => {
     const currentTime = new Date().getTime();
-    const differenceMs = currentTime - Number(timestampMs); // Ensure timestamp is a number
+    const differenceMs = currentTime - Number(timestampMs);
 
     const seconds = Math.floor(differenceMs / 1000);
     const minutes = Math.floor(seconds / 60);
@@ -55,20 +54,20 @@ const ReusableMessage: FC<ReusableMessageProps> = ({ data, onChange }) => {
     return `${seconds} second${seconds > 1 ? 's' : ''} ago`;
   };
 
-
-
-
+  const border = (data:any) =>{
+    if(data.Live==='true'){
+      return 'redBorder'
+    }else{
+      return
+    }
+  }
+  console.log(border(data))
   return (
     <li className="messagesLI">
       <div>
         <div className="messageSender">
-          <div className={`messageSenderImgcont`}>
-            <ReusableFirstLetterImage
-              text={data.Sender}
-              size={100}
-              bgColor="#007bff"
-              textColor="#ffffff"
-            />
+          <div className={`messageSenderImgcont ` + border(data)}>
+            <ReusableFirstLetterImage text={data.Sender} size={100} bgColor="#007bff" textColor="#ffffff" />
           </div>
           <b className="messageSenderName">{data.Sender}</b>
           <div className="messageSenderTime">
@@ -76,18 +75,23 @@ const ReusableMessage: FC<ReusableMessageProps> = ({ data, onChange }) => {
             {noOfDays(data.dateSent)}
           </div>
         </div>
+
         <div className="messageBody">
           <div onClick={() => setExpanded(!expanded)}>
             <ExpandableText text={data.Messages} />
           </div>
-          {isLiveStream && data.Video === streamId && activeStream ? (
-            <LiveStreamPlayer stream={activeStream} />
-          ) : data.Video ? (
-            <LiveStreamPlayer streamUrl={data.Video} />
-          ) : (
-            <p>No video available</p>
+
+          {expanded && (
+            isLiveStream && activeStream ? (
+              <LiveStreamPlayer stream={activeStream} />
+            ) : data.Video ? (
+              <LiveStreamPlayer streamUrl={data.Video} />
+            ) : (
+              <></>
+            )
           )}
         </div>
+
         <div className="messageReactions">
           <div className="messageReactionsIcons">
             <Icon icon="material-symbols:add-reaction" width="24" height="24" />

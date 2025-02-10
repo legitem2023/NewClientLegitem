@@ -51,7 +51,7 @@ const LiveStreamPlayer: React.FC<LiveStreamPlayerProps> = ({ stream, streamUrl }
       <video
         ref={videoRef}
         controls={!isPlaying}
-        className="messageVideo"
+        className="messageVideo_live"
         onClick={handlePlay} // ✅ Require user interaction
       >
         Your browser does not support the video tag.
