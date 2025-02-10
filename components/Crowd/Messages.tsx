@@ -15,7 +15,10 @@ import ReusableServerDown from 'components/UI/ReusableServerDown';
 
 const Messages = () => {
   const cookie = useSelector((state: any) => state.cookie.cookie);
-  const streaming = useSelector((state: any) => state.streaming.streaming);
+  // const streaming = useSelector((state: any) => state.streaming.streaming);
+  
+    const { activeStream, streamId } = useSelector((state: any) => state.streaming);
+  
   const videoRef = useRef(null);
   const cache = useRef(new CellMeasurerCache({ defaultHeight: 300, fixedWidth: true,fixedHeight:false }));
 
@@ -50,11 +53,11 @@ const Messages = () => {
 
   useEffect(() => {
     if (data) setPosts(data.messages || []);
-    if (videoRef.current && streaming) videoRef.current.srcObject = streaming;
-  }, [data, streaming]);
+    if (videoRef.current && activeStream) videoRef.current.srcObject = activeStream;
+  }, [data, activeStream]);
 
   if (!cookie) return <div>No cookie found</div>;
-  console.log(streaming,"streaming")
+  console.log(activeStream,"streaming")
   const handleSubmit = async (e) => {
     e.preventDefault();
     const message = textareaRef.current?.value;
@@ -85,7 +88,7 @@ const Messages = () => {
       <></>
       )}
       child2={() =>
-        streaming ? (
+        activeStream ? (
           <div className='messagesLI'>
             <video ref={videoRef} className='messageVideo' autoPlay playsInline muted />
           </div>
