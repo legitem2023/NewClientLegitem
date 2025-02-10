@@ -26,15 +26,15 @@ const ReusableMessage: FC<ReusableMessageProps> = ({ data, onChange }) => {
   // Check if children.Video is a StreamID
   const isLiveStream = data.Video;// && data.Video.startsWith("live-stream-");
 
+  useEffect(() => {
+    if (onChange) onChange();
+  }, [expanded, onChange]);
+
   // Wait until Redux has the live stream before rendering
   if (isLiveStream && data.Video === streamId && !activeStream) {
     return <p>Loading live stream...</p>;
   }
 
-
-  useEffect(() => {
-    if (onChange) onChange();
-  }, [expanded, onChange]);
 
   const noOfDays = (timestampMs: string | number) => {
     const currentTime = new Date().getTime();
