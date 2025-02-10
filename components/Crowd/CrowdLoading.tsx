@@ -14,14 +14,11 @@ const CrowdLoading = () => {
                 <div className='Messenger_inputs_fdiv'>
                     <div className='loading-screen' style={{boxSizing:"border-box",height:"45px"}}></div>
                 </div>
-                <div className='Messenger_inputs_fdiv'>
-                    <div className='loading-screen' style={{boxSizing:"border-box",height:"45px"}}></div>
-                </div>
             </div>
     )}
         child3={()=>(
             <div className='messagesUL'>
-                <div className='messagesLI'>
+                <div className='messagesLI' style={{marginBottom:"25px"}}>
                     <div>
                         <div className='messageSender'>
                             <div className='messageSenderImgcont'>
@@ -41,7 +38,7 @@ const CrowdLoading = () => {
                         </div>
                     </div>
                 </div>
-                <div className='messagesLI'>
+                <div className='messagesLI' style={{marginBottom:"25px"}}>
                     <div>
                         <div className='messageSender'>
                             <div className='messageSenderImgcont'>
@@ -61,7 +58,7 @@ const CrowdLoading = () => {
                         </div>
                     </div>
                 </div>
-                <div className='messagesLI'>
+                <div className='messagesLI' style={{marginBottom:"25px"}}>
                     <div>
                         <div className='messageSender'>
                             <div className='messageSenderImgcont'>

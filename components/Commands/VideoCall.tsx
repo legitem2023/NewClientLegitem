@@ -60,13 +60,13 @@ const VideoCall = () => {
         video: hasCamera,
         audio: hasMicrophone,
       });
+      dispatch(setStreaming(localStream));
 
 console.log("local",localStream);
       peerConnectionRef.current = new RTCPeerConnection();
       localStream.getTracks().forEach((track) => peerConnectionRef.current!.addTrack(track, localStream));
       console.log("deployed",localStream);
-           
-      dispatch(setStreaming(localStream));
+
       HandleLive(localStream); // Send the live stream
 
       peerConnectionRef.current.onicecandidate = (event) => {

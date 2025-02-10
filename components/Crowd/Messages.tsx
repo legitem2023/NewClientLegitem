@@ -54,7 +54,7 @@ const Messages = () => {
   }, [data, streaming]);
 
   if (!cookie) return <div>No cookie found</div>;
-
+  console.log(streaming,"streaming")
   const handleSubmit = async (e) => {
     e.preventDefault();
     const message = textareaRef.current?.value;
@@ -82,7 +82,7 @@ const Messages = () => {
   return (
     <ReusableCenterLayout
       child1={() => (
-        <ReusableMessageInput textRef={textareaRef} event={handleSubmit} loading={isLoading} />
+      <></>
       )}
       child2={() =>
         streaming ? (
@@ -93,6 +93,8 @@ const Messages = () => {
       }
       child3={() => (
         <div style={{ minHeight: '100vh', height: 'auto', width: '100%'}}>
+                  <ReusableMessageInput textRef={textareaRef} event={handleSubmit} loading={isLoading} />
+
           <AutoSizer>
             {({ height, width }) => (
               <List
