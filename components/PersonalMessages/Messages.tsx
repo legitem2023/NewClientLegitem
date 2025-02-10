@@ -162,7 +162,7 @@ const Messages = ({reciever}) => {
                         flexDirection: "column",
                         width: "100%",
                       }} onLoad={measure}>
-                        <ReusableMessage children={FilterReciever[index]} onChange={measure}/>
+                        <ReusableMessage data={FilterReciever[index]} onChange={measure}/>
                       </div>
                     )}
                   </CellMeasurer>

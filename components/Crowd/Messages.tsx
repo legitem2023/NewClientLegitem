@@ -119,7 +119,7 @@ const Messages = () => {
                         flexDirection: "column",
                         width: "100%",
                       }} onLoad={measure}>
-                        <ReusableMessage children={posts[index]} onChange={measure}/>
+                        <ReusableMessage data={posts[index]} onChange={measure}/>
                       </div>
                     )}
                   </CellMeasurer>

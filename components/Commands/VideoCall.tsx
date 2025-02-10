@@ -4,7 +4,7 @@ import { STARTCALL, LIVE } from 'graphql/mutation';
 import { Icon } from '@iconify/react';
 import DataManager from 'utils/DataManager';
 import { useDispatch, useSelector } from 'react-redux';
-import { setstreaming } from 'Redux/streamingSlice';
+import { setStreaming } from 'Redux/streamingSlice';
 
 const VideoCall = () => {
   const cookie = useSelector((state: any) => state.cookie.cookie);
@@ -17,50 +17,31 @@ const VideoCall = () => {
     onError: (error) => console.error('Live mutation error:', error),
   });
 
-  const HandleLive = async (stream: any) => {
+  const HandleLive = async (stream: MediaStream) => {
     try {
-      // Check if the stream is valid
       if (!stream) {
         Manager.Error('Invalid stream provided.');
         return;
       }
   
-      // Convert the stream to a URL or other string representation
-      const videoTracks = stream.getVideoTracks();
-      if (videoTracks.length === 0) {
-        Manager.Error('No video track found.');
-        return;
-      }
+      // Generate a unique stream ID based on the sender
+      const streamId = `live-stream-${cookie.emailAddress}`;
   
-      // Example: Convert the stream to a Blob URL
-      let videoUrl;
-      try {
-        const videoBlob = new Blob([stream], { type: 'video/webm' });
-        videoUrl = URL.createObjectURL(videoBlob);
-      } catch (error:any) {
-        Manager.Error('Error creating Blob URL:');
-        return;
-      }
-  
-      // Ensure videoUrl is valid
-      if (!videoUrl) {
-        Manager.Error('Failed to generate video URL.');
-        return;
-      }
-  
-      // Send the live stream data via GraphQL mutation
       await Live({
         variables: {
           message: `${cookie.emailAddress} is Live`,
           sender: cookie.emailAddress,
           live: "true",
-          video: videoUrl, // Pass the URL as a string
+          video: streamId, // ✅ Store stream ID instead of a blob URL
         },
       });
+  
+      console.log('Live stream started:', streamId);
     } catch (error) {
       console.error('Error in HandleLive:', error);
     }
   };
+  
   const setupWebRTC = async () => {
     try {
       if (typeof window === 'undefined' || !navigator.mediaDevices) {
@@ -80,11 +61,12 @@ const VideoCall = () => {
         audio: hasMicrophone,
       });
 
-      dispatch(setstreaming(localStream));
-
+console.log("local",localStream);
       peerConnectionRef.current = new RTCPeerConnection();
       localStream.getTracks().forEach((track) => peerConnectionRef.current!.addTrack(track, localStream));
-
+      console.log("deployed",localStream);
+           
+      dispatch(setStreaming(localStream));
       HandleLive(localStream); // Send the live stream
 
       peerConnectionRef.current.onicecandidate = (event) => {
