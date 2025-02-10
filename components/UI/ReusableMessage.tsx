@@ -62,7 +62,7 @@ const ReusableMessage: FC<ReusableMessageProps> = ({ data, onChange }) => {
     <li className="messagesLI">
       <div>
         <div className="messageSender">
-          <div className="messageSenderImgcont">
+          <div className={`messageSenderImgcont`}>
             <ReusableFirstLetterImage
               text={data.Sender}
               size={100}

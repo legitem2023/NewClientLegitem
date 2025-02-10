@@ -20,29 +20,56 @@ const VideoCall = () => {
   const HandleLive = async (stream: MediaStream) => {
     try {
       if (!stream) {
-        Manager.Error('Invalid stream provided.');
+        Manager.Error("Invalid stream provided.");
         return;
       }
   
-      // Generate a unique stream ID based on the sender
-      const streamId = `live-stream-${cookie.emailAddress}`;
-      dispatch(setStreaming({ streamId, stream }));
-
-      await Live({
-        variables: {
-          message: `${cookie.emailAddress} is Live`,
-          sender: cookie.emailAddress,
-          live: "true",
-          video: stream.id, // ✅ Store stream ID instead of a blob URL
-        },
-      });
+      // ✅ Create a MediaRecorder to capture the stream
+      const mediaRecorder = new MediaRecorder(stream, { mimeType: "video/webm" });
+      const chunks: BlobPart[] = [];
   
-      console.log('Live stream started:', streamId);
+      mediaRecorder.ondataavailable = (event) => {
+        if (event.data.size > 0) {
+          chunks.push(event.data);
+        }
+      };
+  
+      mediaRecorder.onstop = async () => {
+        // ✅ Convert recorded chunks to a Blob
+        const videoBlob = new Blob(chunks, { type: "video/webm" });
+  
+        // ✅ Generate a blob URL
+        const blobUrl = URL.createObjectURL(videoBlob);
+        console.log("Generated blob URL:", blobUrl);
+  
+        // ✅ Convert Blob to a base64 string (Optional if needed)
+        const reader = new FileReader();
+        reader.readAsDataURL(videoBlob);
+        reader.onloadend = async () => {
+          const base64data = reader.result as string; // Base64 string format
+  
+          // ✅ Send the base64 or blob URL to GraphQL
+          await Live({
+            variables: {
+              message: `${cookie.emailAddress} is Live`,
+              sender: cookie.emailAddress,
+              live: "true",
+              video: base64data, // Send as base64 string or use blobUrl
+            },
+          });
+        };
+      };
+  
+      // ✅ Start recording
+      mediaRecorder.start();
+      let streamId = stream.id;
+   dispatch(setStreaming({streamId,stream}))
+      // Stop recording after 10 seconds (adjust as needed)
+      setTimeout(() => mediaRecorder.stop(), 10000);
     } catch (error) {
-      console.error('Error in HandleLive:', error);
+      console.error("Error in HandleLive:", error);
     }
   };
-  
   const setupWebRTC = async () => {
     try {
       if (typeof window === 'undefined' || !navigator.mediaDevices) {
