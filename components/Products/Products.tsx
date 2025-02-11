@@ -28,7 +28,8 @@ import ProductViewLoading from './ProductView/ProductViewLoading';
 import { useRouter,usePathname } from 'next/navigation';
 import ReusableServerDown from 'components/UI/ReusableServerDown';
 const itemsPerPage = 20; // Move constant outside component
-
+import {ColumnSizer, Grid} from 'react-virtualized';
+import 'react-virtualized/styles.css'; // only needs to be imported once
 const Products: React.FC = () => {
   const dispatch = useDispatch();
   const router = useRouter();

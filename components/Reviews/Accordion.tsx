@@ -1,6 +1,7 @@
 import { Icon } from '@iconify/react';
 import UniversalPagination from 'components/Partial/Pagination/UniversalPagination';
 import Ratings from 'components/Partial/Ratings/Ratings';
+import ReusableLabel from 'components/UI/ReusableLabel';
 import { useCallback, useMemo, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setcurrentPage } from 'Redux/currentPageSlice';
@@ -36,11 +37,8 @@ const Accordion = ({ data }) => {
     }, [dispatch]);
 
     return (
-        <div className="">
-            <div className="LabelHead carouselLabel">
-                <Icon icon="mdi:cart" />
-                <span>Products Feedback</span>
-            </div>
+        <div className="" style={{ position: 'relative' }}>
+            <ReusableLabel icn='' label='Products Feedback'/>
             <div className="faq-accordion">
                 {paginatedProducts.map((rev, index) => (
                     <div className="faq-item" key={index}>

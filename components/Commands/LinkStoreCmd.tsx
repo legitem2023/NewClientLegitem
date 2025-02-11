@@ -9,7 +9,7 @@ type PropsEmail = {
 const LinkStoreCmd:React.FC<PropsEmail> = ({emailAddress}) => {
     const path = process.env.NEXT_PUBLIC_PATH || '';
     return (
-    <Link  href={path+"Store/"+encode(emailAddress)}>
+    <Link  href={path+"/Store/"+encode(emailAddress)}>
         <Icon icon='ic:baseline-home' className='LikeStyle'/>
     </Link>
   )

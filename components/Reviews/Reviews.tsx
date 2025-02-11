@@ -5,14 +5,14 @@ import { READ_FEEDBACK } from 'graphql/queries';
 import React from 'react'
 import Accordion from './Accordion';
 import ReusableMainLayout from 'components/Layout/ReusableMainLayout';
+import ReusableCenterLayout from 'components/Layout/ReusableCenterLayout';
 
 const Reviews: React.FC = () => {
     const { data: feedBackData, loading: feedBackLoading, error: feedBackError } = useQuery(READ_FEEDBACK);
     if(feedBackLoading) return <Loading/>
     if(feedBackError) return
   return (
-    <ReusableMainLayout childA={()=>(<></>)} childB={()=>(<Accordion data={feedBackData} />)} childC={()=>(<></>)}/>
-
+    <ReusableCenterLayout child1={()=>(<Accordion data={feedBackData} />)} child2={()=>(<></>)} child3={()=>(<></>)} child4={()=>(<></>)} />
   )
 }
 

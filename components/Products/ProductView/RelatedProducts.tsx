@@ -5,6 +5,7 @@ import Element from 'components/UI/Element';
 import Name from 'components/UI/Name';
 import Price from 'components/UI/Price';
 import Price_strike from 'components/UI/Price_strike';
+import ReusableLabel from 'components/UI/ReusableLabel';
 import Sold from 'components/UI/Sold';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -50,7 +51,7 @@ const RelatedProducts: React.FC<RelatedProductsProps> = ({ data }) => {
 
   return (
     <div className='MainView_Rchild'>
-      <div className='LabelHead'>Related Product</div>
+      <ReusableLabel icn='' label='Related Product'/>
       <div className='MainView_RelatedProducts'>
         <div>
           {data.slice(0, take).map((item: any, idx) => (

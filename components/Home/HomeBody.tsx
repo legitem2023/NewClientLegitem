@@ -11,27 +11,15 @@ import Loading from 'components/Partial/LoadingAnimation/Loading'
 import { useQuery } from '@apollo/client'
 import { GET_CATEGORY } from 'graphql/queries'
 import { useSelector } from 'react-redux'
+import ReusableMainLayout from 'components/Layout/ReusableMainLayout'
+import Home from './Home'
 const HomeBody:React.FC = () => {
-  const drawerState = useSelector((state:any)=> state.drawer.drawer);//'';//useGlobalState("drawer");
-  const { data:Category, loading, error } = useQuery(GET_CATEGORY);
-  if(loading) return <Loading/>
-  if(error) return "Connection Error";
-  return (
-    <div className='body'>
-      <div className={`${drawerState ? 'LeftWing' : 'LeftWing_'}`}>
-        <Menu />
-      </div>
-      <div className='middlecontainer'>
-      <div className='LabelHead carouselLabel'><Icon icon="dashicons:store" /> Stores</div>
-        {/* <ViewGallery/> */}
-        <div className='carousel'>
-          <Carousel data={Category?.getCategory} fromData={'Category'}></Carousel>
-        </div>
-      </div>
-      <div className='RightWing'>
 
-      </div>
-    </div>
+  return (
+     <ReusableMainLayout childA={()=>(<Menu/>)} 
+     childB={()=>(<Home/>
+     )}
+     childC={()=><></>}/>
   )
 }
 

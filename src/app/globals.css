@@ -103,7 +103,7 @@
   display: grid;
   grid-template-columns: 20% auto 20%;
   /* background-color: #00a380; */
-  background-color: rgb(231 255 246)
+  background-color: rgb(255 246 229);
 
 }
 .LeftWing,
@@ -467,10 +467,10 @@ input[type='date']{
 .iconify_cart{
   padding:5px;
   font-size: 20px;
-  color:#006454;
+  color:rgb(87, 39, 0);
   border-radius: 5px;
   width:auto;
-  border:solid 2px #006454;
+  border:solid 2px rgb(87, 39, 0);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -515,15 +515,15 @@ input[type='date']{
   display: grid;
   grid-template-columns: 98% 2%;
   padding:10px!important;
-  background-color: #f1f1f1;
+  background-color: #f5e4d5;
 }
 .faq-item{
-  background-color: #f1f1f1;
+  background-color: #f5e4d5;
   margin:2px;
   padding:2px;
 }
 .faq-answer{
-  background-color: #67ccb6;
+  background-color: #f5e4d5;
   padding:5px!important;
   line-height: 25px;
 }
@@ -860,7 +860,7 @@ input[type='date']{
 
 .OrderStages span{
   z-index:2;
-  background-color: #00a380;
+  background-color: rgb(255 190 137);
   cursor: pointer;
 }
 .stagesLine{
@@ -1225,7 +1225,7 @@ input[type='date']{
   font-size: 30px;
   left: 0px;
   right: 0px;
-  background-color: #00a380;
+  background-color: rgb(255 190 137);
 }
 
 .MainView {
@@ -1243,11 +1243,11 @@ input[type='date']{
 .MainView_Lchild {
   display: flex;
   flex-direction: column;
-  background-color: rgb(231 255 246)
+  background-color: rgb(255 246 229);
 }
 
 .LabelHead {
-  background: linear-gradient(to right, rgba(206, 219, 233, 1) 0%, rgba(57, 191, 144, 1) 0%, rgba(97, 198, 154, 1) 30%, rgba(67, 216, 151, 1) 44%, rgba(76, 239, 158, 1) 61%, rgba(58, 196, 148, 1) 84%, rgba(39, 140, 74, 1) 100%);
+  background: rgb(255 190 137);
   padding: 10px;
   border-top: solid 3px #004127;
   border-bottom: solid 3px #004127;
@@ -1259,7 +1259,7 @@ input[type='date']{
   display: grid;
   grid-template-columns: 50% 50%;
   padding: 5px;
-  background-color: rgb(231 255 246)
+  background-color: rgb(255 246 229);
 
 }
 
@@ -1276,7 +1276,7 @@ input[type='date']{
   transition: ease 0.5s;
   overflow: hidden;
   align-items: center;
-  border:solid 4px #027e63;
+  border:solid 4px #027e6300;
   padding:5px;
 }
 
@@ -1317,7 +1317,7 @@ input[type='date']{
 } */
 
 .MainView_RelatedProducts {
-  background-color: rgb(231 255 246)
+  background-color: rgb(255 246 229);
 }
 
 .MainView_RelatedProductsThumbs img {
@@ -1353,7 +1353,7 @@ input[type='date']{
 }
 
 .MainView_Rchild {
-  background-color: #00a380;
+  background-color: rgb(255 190 137);
   /* overflow-y: auto; */
 }
 .feedbackattachment{
@@ -1454,7 +1454,7 @@ input[type='date']{
   /* box-shadow: 0.5px 0.5px 3px #000; */
   /* background: linear-gradient(to bottom, rgba(206, 219, 233, 1) 0%, rgba(57, 191, 144, 1) 0%, rgba(97, 198, 154, 1) 30%, rgba(67, 216, 151, 1) 44%, rgba(76, 239, 158, 1) 61%, rgba(58, 196, 148, 1) 84%, rgba(39, 140, 74, 1) 100%); */
   /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-  background-color: rgb(0, 139, 86);
+  background-color: rgb(255 190 137);
 }
 
 .Logo {
@@ -1477,7 +1477,7 @@ input[type='date']{
   box-shadow: 0.5px 0.5px 3px #000000;
   margin-bottom:5px;
   height: 50px;
-  /* background:linear-gradient(to right, rgba(206, 219, 233, 1) 0%, rgba(57, 191, 144, 1) 0%, rgba(97, 198, 154, 1) 30%, rgba(67, 216, 151, 1) 44%, rgba(76, 239, 158, 1) 61%, rgba(58, 196, 148, 1) 84%, rgba(39, 140, 74, 1) 100%); */
+  /* background:rgb(255 190 137); */
 }
 .searchContaier div {
   width:100%;
@@ -1524,12 +1524,12 @@ input[type='date']{
 
 .footer {
   width: 100%;
-  background-color: #00a380;
+  background-color: rgb(255 190 137);
   display: grid;
   grid-template-rows: auto auto auto;
   grid-template-columns: 100%;
   text-align: center;
-  color: #002c23;
+  color: rgb(87, 39, 0);
 }
 .FootHeader,
 .FootFooter {
@@ -1571,7 +1571,7 @@ input[type='date']{
 }
 .FootCenter a{
   text-decoration: none;
-  color: #002c23;
+  color:  rgb(87, 39, 0);
 }
 
 
@@ -1647,7 +1647,7 @@ input[type='date']{
 }
 
 .Menu_label {
-  background: linear-gradient(to right, rgba(206, 219, 233, 1) 0%, rgba(57, 191, 144, 1) 0%, rgba(97, 198, 154, 1) 30%, rgba(67, 216, 151, 1) 44%, rgba(76, 239, 158, 1) 61%, rgba(58, 196, 148, 1) 84%, rgba(39, 140, 74, 1) 100%);
+  background: rgb(255 190 137);
   /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
   padding: 1px;
   border: solid 3px #004127;
@@ -1713,7 +1713,7 @@ input[type='date']{
   padding-left: 0px;
   padding: 10px;
   margin: 0px;
-  color: rgb(2, 51, 1);
+  color: rgb(87, 39, 0);
 }
 
 .Menu li {
@@ -1731,7 +1731,7 @@ input[type='date']{
 
 .menu_li,
 .category_li {
-  border-bottom: solid 4px rgb(30, 145, 28);
+  border-bottom: solid 2px rgb(255 190 137);
   overflow: hidden; /* Hide any overflowed text */
   text-overflow: ellipsis; /* Add ellipsis (...) when the text overflows */
 }
@@ -1745,7 +1745,7 @@ input[type='date']{
 }
 
 .Menu li:hover {
-  background-color: #00bf72;
+  background-color:rgb(248, 165, 96);
 }
 
 #collapsecategory1:checked~.category_list {
@@ -1909,7 +1909,7 @@ input[type='date']{
 }
 
 .category_list li:hover {
-  background-color: #009356;
+  background-color: rgb(255, 205, 164);
 }
 
 .category_list_div {
@@ -1978,7 +1978,7 @@ input[type='date']{
   box-shadow: 0.5px 0.5px 3px #000;
   background: rgb(255, 255, 255);
   transition: ease 0.5s;
-  height:350px;
+  height:280px;
   border: solid 5px transparent;
 }
 
@@ -2053,7 +2053,7 @@ input[type='date']{
   display: flex;
   position: absolute;
   font-size: 35px;
-  color:#8400ff;
+  color:#8f4300;
   top:0px;
   left:0px;
   margin:5px;
@@ -2383,7 +2383,7 @@ input[type='date']{
 }
 
 .DroppedDown {
-  background-color: #53e2ab;
+  background-color: rgb(255 246 229);
   position: absolute;
   top: 8vh;
   z-index: 999999;
@@ -2439,13 +2439,13 @@ input[type='date']{
 
 .DroppedDown ul li:hover {
   transition: ease 0.5s;
-  background: linear-gradient(to bottom, rgb(206, 219, 233) 0%, rgb(57, 191, 144) 0%, rgb(97, 198, 154) 30%, rgb(67, 216, 151) 44%, rgb(76, 239, 158) 61%, rgb(58, 196, 148) 84%, rgb(39, 140, 74) 100%);
+  /* background: linear-gradient(to bottom, rgb(206, 219, 233) 0%, rgb(57, 191, 144) 0%, rgb(97, 198, 154) 30%, rgb(67, 216, 151) 44%, rgb(76, 239, 158) 61%, rgb(58, 196, 148) 84%, rgb(39, 140, 74) 100%); */
 }
 .Menu li{
   border-top: none;
   border-left: none;
   border-right: none;
-  border-bottom:solid 4px rgb(30, 145, 28);
+  border-bottom: solid 2px rgb(255 190 137);
 }
 .Navigation {
   display: grid;
@@ -2478,11 +2478,11 @@ input[type='date']{
   align-items: center;
   text-decoration: none;
   font-size: 21px;
-  color: rgb(2, 51, 1);
+  color: rgb(87, 39, 0);
 }
 
 .Navigation a:hover {
-  background-color: #005c373d;
+  background-color: rgb(255, 183, 124);
 }
 
 .Navigation nav {
@@ -2493,11 +2493,11 @@ input[type='date']{
   align-items: center;
   text-decoration: none;
   font-size: 19px;
-  color: rgb(2, 51, 1);
+  color: rgb(87, 39, 0);
 }
 
 .Navigation nav:hover {
-  background-color: #005c373d;
+  background-color: rgb(255, 183, 124);
 }
 
 .carousel {
@@ -3517,7 +3517,7 @@ input[type='date']{
   justify-content: center;
 }
 .ClassRed{
-  background-color: #00a380;
+  background-color: rgb(255 190 137);
   color:#ffffff;
   border:none;
   border-radius:2px;
@@ -3629,7 +3629,7 @@ input[type='date']{
   margin:5px;
 }
 .orderName{
-  background: linear-gradient(to right, rgba(206, 219, 233, 1) 0%, rgba(57, 191, 144, 1) 0%, rgba(97, 198, 154, 1) 30%, rgba(67, 216, 151, 1) 44%, rgba(76, 239, 158, 1) 61%, rgba(58, 196, 148, 1) 84%, rgba(39, 140, 74, 1) 100%);
+  background: rgb(255 190 137);
   padding:5px;
   border-top: solid 3px #004127;
   border-bottom: solid 3px #004127;

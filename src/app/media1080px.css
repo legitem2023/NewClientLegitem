@@ -82,7 +82,7 @@
         width: 100vw;
         text-align: center;
         box-shadow: 0.5px 0.5px 3px #000;
-        background-color: #00795f;
+        background-color: rgb(255 190 137);
         transform: scale(1);
     }
     .FootRoutes a{   
@@ -91,7 +91,7 @@
         right:0px;
         margin:auto;
         padding: 15px;
-        color: #002c23;
+        color:  rgb(87, 39, 0);
     }
     .dropdown {
         display: flex;
