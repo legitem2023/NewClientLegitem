@@ -95,7 +95,7 @@ const Messages = () => {
         ) : null
       }
       child3={() => (
-        <div style={{ minHeight: '100vh', height: 'auto', width: '100%'}}>
+        <div style={{ minHeight: '92vh', height: 'auto', width: '100%'}}>
                   <ReusableMessageInput textRef={textareaRef} event={handleSubmit} loading={isLoading} />
 
           <AutoSizer>

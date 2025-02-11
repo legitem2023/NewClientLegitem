@@ -16,7 +16,7 @@ import Home from './Home'
 const HomeBody:React.FC = () => {
 
   return (
-     <ReusableMainLayout childA={()=>(<Menu/>)} 
+     <ReusableMainLayout childA={()=>(<></>)} 
      childB={()=>(<Home/>
      )}
      childC={()=><></>}/>

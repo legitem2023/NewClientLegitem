@@ -1,5 +1,6 @@
 import { useQuery } from '@apollo/client';
 import Carousel from 'components/Carousel';
+import Messages from 'components/Crowd/Messages';
 import ReusableCenterLayout from 'components/Layout/ReusableCenterLayout'
 import Loading from 'components/Partial/LoadingAnimation/Loading';
 import Menu from 'components/Partial/Menu';
@@ -12,9 +13,10 @@ const Home = () => {
     if(error) return "Connection Error";
   return (
     <ReusableCenterLayout
-      child1={()=>(<Menu/>)}
+      child1={()=>(         <Carousel data={Category?.getCategory} fromData={"Category"}></Carousel>
+      )}
       child2={()=>(
-              <Carousel data={Category?.getCategory} fromData={"Category"}></Carousel>
+        <></>
       )}
       child3={()=>(<></>)}
       child4={()=>(<></>)}

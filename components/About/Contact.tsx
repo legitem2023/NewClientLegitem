@@ -4,6 +4,8 @@ import { useMutation } from '@apollo/client';
 import { CONTACT_US } from 'graphql/mutation';
 import DataManager from 'utils/DataManager';
 import ReusableBody from 'components/UI/ReusableBody';
+import ReusableMainLayout from 'components/Layout/ReusableMainLayout';
+import ReusableCenterLayout from 'components/Layout/ReusableCenterLayout';
 const Contact = () => {
     const Manager = new DataManager();
     const [errors, setErrors]:any = useState();
@@ -66,12 +68,21 @@ const Contact = () => {
     }
   }
     return (
-      <ReusableBody
-      childA={()=>""}
-      childB={()=>(
-        <ContactUs handleSubmit={handleSubmit} handleInputChange={handleInputChange} errors={errors} setLoading={setLoading} isLoading={isLoading}/>
-      )}
-      childC={()=>""}/>
+      // <ReusableBody
+      // childA={()=>""}
+      // childB={()=>(
+      //   <ContactUs handleSubmit={handleSubmit} handleInputChange={handleInputChange} errors={errors} setLoading={setLoading} isLoading={isLoading}/>
+      // )}
+      // childC={()=>""}/>
+      <ReusableMainLayout 
+          childA={()=><></>} 
+          childB={()=><ReusableCenterLayout
+            child1={()=>(<ContactUs handleSubmit={handleSubmit} handleInputChange={handleInputChange} errors={errors} setLoading={setLoading} isLoading={isLoading}/>)}
+            child2={()=>(<></>)}
+            child3={()=>(<></>)}
+            child4={()=>(<></>)}
+          />} 
+          childC={()=><></>}/>
     );
 }
 
