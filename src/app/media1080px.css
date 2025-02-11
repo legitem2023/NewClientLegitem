@@ -148,18 +148,20 @@
         left: -100vw;
         position: absolute;
         transition: ease 0.5s;
-        background-color: rgb(3, 128, 90);
         z-index: 99999;
         width:100vw;
+        background-color: rgb(255 246 229);
+        box-shadow: 0.5px 0.5px 3px #000;
     }
 
     .LeftWing_ {
         left: 0!important;
         position: absolute;
         transition: ease 0.5s;
-        background-color: rgb(3, 128, 90);
         z-index: 99999;
         width:100vw;
+        background-color: rgb(255 246 229);
+        box-shadow: 0.5px 0.5px 3px #000;
       }
 
 
