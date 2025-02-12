@@ -53,8 +53,8 @@ const Messages = () => {
 
   useEffect(() => {
     if (listRef.current) {
-      //listRef.current.recomputeRowHeights();
-      //listRef.current.forceUpdate();
+      listRef.current.recomputeRowHeights();
+      listRef.current.forceUpdate();
     }
   }, [posts]);
 
