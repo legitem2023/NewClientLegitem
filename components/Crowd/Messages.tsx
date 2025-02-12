@@ -121,8 +121,7 @@ const Messages = () => {
                           padding: "10px 0",
                           display: "flex",
                           flexDirection: "column",
-                          width: "100%",
-                          transition: "ease 0.5s"
+                          width: "100%"
                         }}
                         onLoad={measure}
                       >
