@@ -1,7 +1,7 @@
-/* @tailwind base;
+@tailwind base;
 @tailwind components;
 @tailwind utilities;
- */
+
  .ServerDown{
   display: flex;
   width:100%;
@@ -860,7 +860,7 @@ input[type='date']{
 
 .OrderStages span{
   z-index:2;
-  background-color: rgb(255 190 137);
+  background-color: rgb(249 220 206);
   cursor: pointer;
 }
 .stagesLine{
@@ -1225,7 +1225,7 @@ input[type='date']{
   font-size: 30px;
   left: 0px;
   right: 0px;
-  background-color: rgb(255 190 137);
+  background-color: rgb(249 220 206);
 }
 
 .MainView {
@@ -1247,7 +1247,7 @@ input[type='date']{
 }
 
 .LabelHead {
-  background: rgb(255 190 137);
+  background: rgb(249 220 206);
   padding: 10px;
   border-top: solid 3px #004127;
   border-bottom: solid 3px #004127;
@@ -1355,7 +1355,7 @@ input[type='date']{
 }
 
 .MainView_Rchild {
-  background-color: rgb(255 190 137);
+  background-color: rgb(249 220 206);
   /* overflow-y: auto; */
 }
 .feedbackattachment{
@@ -1456,16 +1456,17 @@ input[type='date']{
   /* box-shadow: 0.5px 0.5px 3px #000; */
   /* background: linear-gradient(to bottom, rgba(206, 219, 233, 1) 0%, rgba(57, 191, 144, 1) 0%, rgba(97, 198, 154, 1) 30%, rgba(67, 216, 151, 1) 44%, rgba(76, 239, 158, 1) 61%, rgba(58, 196, 148, 1) 84%, rgba(39, 140, 74, 1) 100%); */
   /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-  background-color: rgb(255 190 137);
+  background-color: rgb(249 220 206);
 }
 
 .Logo {
-  background-image: url('https://hokei-storage.s3.ap-northeast-1.amazonaws.com/images/Legit/IconImages/Legitem-svg.svg');
+  background-image: url('/image/Legitem-svg.svg');
   background-size: auto 70%;
   background-position: center;
   background-repeat: no-repeat;
   cursor: pointer;
   color: transparent;
+  height: 100%;
 }
 .CartImageImage{
   width:100%!important;
@@ -1473,13 +1474,13 @@ input[type='date']{
 }
 .searchContaier {
   display: grid;
-  grid-template-columns: 70% 20% 10%;
+  grid-template-columns: 60% 20% 20%;
   justify-content: center;
   align-items: center;
   box-shadow: 0.5px 0.5px 3px #000000;
   margin-bottom:5px;
   height: 50px;
-  /* background:rgb(255 190 137); */
+  /* background:rgb(249 220 206); */
 }
 .searchContaier div {
   width:100%;
@@ -1526,7 +1527,7 @@ input[type='date']{
 
 .footer {
   width: 100%;
-  background-color: rgb(255 190 137);
+  background-color: rgb(249 220 206);
   display: grid;
   grid-template-rows: auto auto auto;
   grid-template-columns: 100%;
@@ -1649,7 +1650,7 @@ input[type='date']{
 }
 
 .Menu_label {
-  background: rgb(255 190 137);
+  background: rgb(249 220 206);
   /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
   padding: 1px;
   border: solid 3px #004127;
@@ -1733,7 +1734,7 @@ input[type='date']{
 
 .menu_li,
 .category_li {
-  border-bottom: solid 2px rgb(255 190 137);
+  border-bottom: solid 2px rgb(249 220 206);
   overflow: hidden; /* Hide any overflowed text */
   text-overflow: ellipsis; /* Add ellipsis (...) when the text overflows */
 }
@@ -2226,9 +2227,17 @@ input[type='date']{
   cursor: pointer;
 }
 .Header {
-  display: grid;
-  grid-template-columns: 20% auto 20%;
+  display: flex;
+  flex-direction: row;
   box-shadow: 0.5px 0.5px 3px #000000;
+}
+.HeaderLeft{
+  display:flex;
+  flex-direction: row;
+}
+.HeaderLeft,.HeaderRight{
+  flex:1;
+  width: 100%;
 }
 .media {
   margin: 0px!important;
@@ -2451,12 +2460,29 @@ input[type='date']{
   border-top: none;
   border-left: none;
   border-right: none;
-  border-bottom: solid 2px rgb(255 190 137);
+  border-bottom: solid 2px rgb(249 220 206);
 }
 .Navigation {
-  display: grid;
-  grid-template-columns: 20% 20% 20% 20% 20%;
+  display: flex;
+  width: 100%;
+  /* display: grid; */
+  /* grid-template-columns: 20% 20% 20% 20% 20%; */
   /* position: relative; */
+}
+.Navigation  a{
+flex:1;
+  /* display: grid; */
+  /* grid-template-columns: 20% 20% 20% 20% 20%; */
+  /* position: relative; */
+}
+.Navigation  nav{
+  flex:1;
+    /* display: grid; */
+    /* grid-template-columns: 20% 20% 20% 20% 20%; */
+    /* position: relative; */
+  }
+.Navigation div {
+  flex: 1;
 }
 .HeaderNav{
   display: flex;
@@ -2470,7 +2496,7 @@ input[type='date']{
   justify-content: center;
   align-items: center;
   text-decoration: none;
-  font-size: 30px;
+  font-size: 25px;
   color: rgb(87, 39, 0);
 }
 
@@ -3523,7 +3549,7 @@ input[type='date']{
   justify-content: center;
 }
 .ClassRed{
-  background-color: rgb(255 190 137);
+  background-color: rgb(249 220 206);
   color:#ffffff;
   border:none;
   border-radius:2px;
@@ -3635,7 +3661,7 @@ input[type='date']{
   margin:5px;
 }
 .orderName{
-  background: rgb(255 190 137);
+  background: rgb(249 220 206);
   padding:5px;
   border-top: solid 3px #004127;
   border-bottom: solid 3px #004127;

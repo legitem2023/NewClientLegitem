@@ -40,12 +40,15 @@ const PageHeader: React.FC = () => {
     <>
       <InstallPWAButton/>
     <div className='Header'>
+      <div className='HeaderRight'>
+        <span className='Logo openDrawer' onClick={()=>redirect.push('/Home')}></span>        
+      </div>
+      <div className='HeaderLeft'>
+      <div className='Navigation'>
         <div className='HeaderNav'>
           <Icon icon='iconamoon:menu-burger-horizontal-duotone' onClick={()=>{drawer()}}>
           </Icon>
         </div>
-        <span className='Logo openDrawer' onClick={()=>redirect.push('/Home')}></span>
-      <div className='Navigation'>
         {Navigation.map((item: any, idx: any) => (
           item.Name === 'Account' ? 
           <nav key={idx} className={item.Name === 'Account' ? 'Account' : ''}>
@@ -77,8 +80,6 @@ const PageHeader: React.FC = () => {
 
         ))}
       </div>
-      <div>
-        
       </div>
     </div>
     </>

@@ -10,16 +10,19 @@ type PropsAddCartCmdView = {
     stock:any
 }
 const AddCartCmdView:React.FC<PropsAddCartCmdView> = ({viewedProduct,quantity,stock}) => {
+   
+   console.log(viewedProduct,"lll");
     const Manager = new DataManager();
-    const cart = viewedProduct.map((item:any)=>{
-    return {"id": item.id, // You can change this to number if IDs are numeric
-        "productCode":item.productCode,
-        "image":item.thumbnail,
-        "name": item.name,
-        "color":item.color,
-        "size":item.size,
-        "price": item.price,
-        "quantity": quantity
+    const cart = [viewedProduct]?.map((item:any)=>{
+    return {
+        id: item.id, // You can change this to number if IDs are numeric
+        productCode:item.productCode,
+        image:item.image,
+        name: item.name,
+        color:item.color,
+        size:item.size,
+        price: parseInt(item.price),
+        quantity: 1
         }
     })
     const dispatch = useDispatch();

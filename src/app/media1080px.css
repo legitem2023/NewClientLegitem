@@ -20,7 +20,7 @@
         margin:10px;
     }
     .Navigation a,.Navigation nav,.HeaderNav{
-        font-size: 25px;
+        font-size: 20px;
     }
     .thumbnailTextContainer{
         font-size: 13px;
@@ -33,6 +33,10 @@
     }
     .LoginDiv,.SignupDiv{
         width:90vw;
+    }
+    .Logo{
+        height: 100%;
+        width: 100%;
     }
     .ThreeJS {
         position: relative;
@@ -67,9 +71,12 @@
     } */
 
     .Header {
-        grid-template-columns: 16.70vw 83.33vw 0vw;
+        /* grid-template-columns: 16.70vw 83.33vw 0vw; */
+        flex-direction: column;
         height: 8vh;
+        border-bottom: solid 4px rgb(180, 77, 45);
     }
+
     .FootRoutes{
         display: grid;
         grid-template-columns: 20% 20% 20% 20% 20%;
@@ -82,7 +89,7 @@
         width: 100vw;
         text-align: center;
         box-shadow: 0.5px 0.5px 3px #000;
-        background-color: rgb(255 190 137);
+        background-color:rgb(249 220 206);
         transform: scale(1);
     }
     .FootRoutes a{   
@@ -97,9 +104,6 @@
         display: flex;
     }
 
-    .Navigation {
-        grid-template-columns: 16.66vw 16.6vw 16.66vw 16.66vw 16.66vw;
-    }
 
     .hideInmobile {
         display: none;
