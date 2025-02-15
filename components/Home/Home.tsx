@@ -4,7 +4,6 @@ import Messages from 'components/Crowd/Messages';
 import ReusableCenterLayout from 'components/Layout/ReusableCenterLayout'
 import Loading from 'components/Partial/LoadingAnimation/Loading';
 import Menu from 'components/Partial/Menu';
-import ThreeJS from 'components/Partial/ThreeJS/ThreeJS';
 import { GET_CATEGORY } from 'graphql/queries';
 import React from 'react'
 
