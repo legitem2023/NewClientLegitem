@@ -1,16 +1,16 @@
-import React, { useEffect, useState } from 'react';
-import DataManager from 'utils/DataManager';
+// import React, { useEffect, useState } from 'react';
+// import DataManager from 'utils/DataManager';
 
-const useProductView = () => {
-  const [ipaddresses, setIpaddresses] = useState<any>(null);
-  const Manager = new DataManager();
+// const useProductView = () => {
+//   const [ipaddresses, setIpaddresses] = useState<any>(null);
+//   const Manager = new DataManager();
 
-  useEffect(() => {
-    const ipAddress = Manager.Ipaddress();
-    setIpaddresses(ipAddress); // Update the state
-  }, [Manager]); // Only run once when the component mounts
+//   useEffect(() => {
+//     const ipAddress = Manager.Ipaddress();
+//     setIpaddresses(ipAddress); // Update the state
+//   }, [Manager]); // Only run once when the component mounts
 
-  return { ipaddresses };
-};
+//   return { ipaddresses };
+// };
 
-export default useProductView;
+// export default useProductView;

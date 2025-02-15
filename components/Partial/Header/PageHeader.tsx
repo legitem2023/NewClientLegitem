@@ -1,21 +1,16 @@
 'use client'
-import React, { useCallback, useEffect, useState } from 'react'
+import React, { useCallback, useEffect, useMemo, useState } from 'react'
 import Navigation from '../../../json/navigation.json'
 import Link from 'next/link'
 import { Icon } from '@iconify/react';
-// import { setGlobalState, useGlobalState } from 'state';
 import { deletecookies } from 'components/cookies/cookie';
 import { usePathname, useRouter } from 'next/navigation';
 import OrderNotification from 'components/Notification/OrderNotification'
-
 import InstallPWAButton from '../InstallationApp/InstallPWAButton';
 import Dropdown from './Dropdown';
 import { useDispatch, useSelector } from 'react-redux';
 import { setDrawer } from 'Redux/drawerSlice';
-import ReusableNotification from 'components/UI/ReusableNotification';
-import Cookie from 'components/cookies/Cookie';
 import Image from 'next/image';
-import ReusableSearch from 'components/UI/ReusableSearch';
 import { setSearch } from 'Redux/searchSlice';
 import { throttle } from 'lodash';
 const PageHeader: React.FC = () => {
@@ -55,24 +50,12 @@ const PageHeader: React.FC = () => {
     }
   }
 
-
- // Throttled search engine function
- const throttledSearchEngine = useCallback(
-  throttle((inputValue: any) => {
-    inputValue.preventDefault();
+  
+  const searchEngine = (inputValue: any) => {
+    // throttledSearchEngine(inputValue);
     const searchData = inputValue.target.value;
-    if (inputValue === '') {
-      dispatch(setSearch(''));
-    } else {
-      dispatch(setSearch(searchData));
-    }
-  }, 2000), // Throttle delay of 300ms
-  []
-);
-
-const searchEngine = (inputValue: any) => {
-  throttledSearchEngine(inputValue); // Call the throttled function
-};
+    dispatch(setSearch(searchData || ''));
+  };
 
 
 

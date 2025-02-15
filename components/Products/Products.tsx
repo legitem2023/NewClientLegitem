@@ -44,7 +44,6 @@ const Products: React.FC = () => {
   const productType = useSelector((state: any) => state.productType.productType);
   const sortBy = useSelector((state: any) => state.sortBy.sortBy);
   const sortDirection = useSelector((state: any) => state.sortDirection.sortDirection);
-  console.log(search,"<<<<");
   const path = process.env.NEXT_PUBLIC_PATH || '';
 
   const { data: ProductsData, loading: productsLoading, error: productsError } = useQuery(GET_CHILD_INVENTORY);
@@ -210,7 +209,7 @@ const Products: React.FC = () => {
               <></>
             ):
             <h3 style={{ textAlign: 'center', padding: '10px' }}>
-              You've reached the end of the data.</h3>
+              Youve reached the end of the data.</h3>
           )}
         </div>
       )}
