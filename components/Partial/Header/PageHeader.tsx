@@ -46,7 +46,7 @@ const PageHeader: React.FC = () => {
     dispatch(setDrawer(!drawerState));
   };
 
-  const throttledSearchEngine = useCallback(
+  const throttledSearchEngine =  () => {
     throttle((inputValue: any) => {
       inputValue.preventDefault();
       const searchData = inputValue.target.value;
@@ -56,8 +56,8 @@ const PageHeader: React.FC = () => {
         dispatch(setSearch(searchData));
       }
     }, 2000),
-    [dispatch]
-  );
+    
+    };
 
   const searchEngine = (inputValue: any) => {
     throttledSearchEngine(inputValue);
