@@ -82,7 +82,7 @@ const Products: React.FC = () => {
   const containerRef = useRef<HTMLDivElement | null>(null); // Reference to the container for scroll events
 
   // Function to load more items
-  const loadMoreItems = useCallback(() => {
+  const loadMoreItems = () => {
     if (visibleItems >= NewItemData.length) return; // Don't load more if all items are already visible
 
     setIsLoadingMore(true); // Set loading state to true
@@ -92,7 +92,7 @@ const Products: React.FC = () => {
       setVisibleItems((prev) => prev + itemsPerPage); // Increase the number of visible items
       setIsLoadingMore(false); // Set loading state to false
     }, 1000); // Adjust the delay as needed
-  }, [visibleItems, NewItemData.length]);
+  };
 
   // Scroll Event Listener for Infinite Scroll
   useEffect(() => {
