@@ -345,7 +345,9 @@
         height: auto !important;
         position: relative;
     }
-
+   #textarea{
+       height:40px;
+   }
     #canvas {
         width: 100vw !important;
         height: auto !important;
