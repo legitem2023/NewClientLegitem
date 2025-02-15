@@ -74,6 +74,7 @@
     "@types/apollo-upload-client": "^18.0.0",
     "@types/imagesloaded": "^4.1.6",
     "@types/jsonwebtoken": "^9.0.5",
+    "@types/lodash": "^4.17.15",
     "@types/masonry-layout": "^4.2.8",
     "@types/node": "^20",
     "@types/react": "^18",

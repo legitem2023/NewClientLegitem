@@ -11,7 +11,7 @@ type FirstLetterImageProps = {
 const ReusableFirstLetterImage: React.FC<FirstLetterImageProps> = ({
   text,
   size = 100,
-  bgColor = "#007bff",
+  bgColor = "rgb(87, 39, 0)",
   textColor = "#ffffff",
 }) => {
   const [imageUrl, setImageUrl] = useState<string>("");
@@ -36,7 +36,9 @@ const ReusableFirstLetterImage: React.FC<FirstLetterImageProps> = ({
 
         // Draw text
         ctx.fillStyle = textColor;
+        
         ctx.font = `${size / 2}px Arial`;
+        
         ctx.textAlign = "center";
         ctx.textBaseline = "middle";
         ctx.fillText(text.charAt(0).toUpperCase(), size / 2, size / 2);

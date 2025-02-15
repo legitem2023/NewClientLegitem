@@ -15,7 +15,6 @@ const ProductLoading = () => {
                 <div className='searchContaier' style={{height:"45px",gap:"5px"}}>
                     <div className='loading-screen' style={{boxSizing:"border-box"}}></div>
                     <div className='loading-screen' style={{boxSizing:"border-box"}}></div>
-                    <div className='loading-screen'  style={{boxSizing:"border-box"}}></div>
                 </div>)}
                 child3={()=>(
                     <div className="Thumbnails">

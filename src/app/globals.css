@@ -713,10 +713,8 @@ input[type='date']{
 
 #textarea {
   width: 100%;
-  height: 50px;
-  
+  height: 50px;  
   padding: 10px;
-  margin-bottom:10px;
   display: flex;
   align-items: center;
   outline: 0;
@@ -766,7 +764,20 @@ input[type='date']{
   background-color: #00d684;
   box-shadow: 0.5px 0.5px 3px #000000;
 }
-
+.searchEngine{
+  padding:10px;
+  width: 100%;
+  border: none;
+  margin-right: 10px;
+  box-shadow: inset 0.5px 0.5px 5px #000000;
+  outline: 0;
+}
+.searchEngine:active + .searchContaier{
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.5);
+}
 #GalleryBut {
   margin: 5px;
   padding: 5px;
@@ -1448,25 +1459,18 @@ input[type='date']{
 .Header {
   height: 8vh;
   width: 100vw;
-  /* background-color: #008793; */
-  /* background-image: url('https://hokei-storage.s3.ap-northeast-1.amazonaws.com/images/Legit/IconImages/Legitem-svg.svg');
-  background-size: auto 90%;
-  background-position: 1% 1%;
-  background-repeat: no-repeat; */
-  /* box-shadow: 0.5px 0.5px 3px #000; */
-  /* background: linear-gradient(to bottom, rgba(206, 219, 233, 1) 0%, rgba(57, 191, 144, 1) 0%, rgba(97, 198, 154, 1) 30%, rgba(67, 216, 151, 1) 44%, rgba(76, 239, 158, 1) 61%, rgba(58, 196, 148, 1) 84%, rgba(39, 140, 74, 1) 100%); */
-  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  display: flex;
   background-color: rgb(249 220 206);
 }
 
 .Logo {
-  background-image: url('/image/Legitem-svg.svg');
-  background-size: auto 70%;
-  background-position: center;
-  background-repeat: no-repeat;
+  position: relative;
   cursor: pointer;
   color: transparent;
-  height: 100%;
+  width:40%;
+  height:auto;
+  filter: drop-shadow(0.5px 0.5px 1px rgb(248, 125, 94));
+  margin-left:20px;
 }
 .CartImageImage{
   width:100%!important;
@@ -1474,7 +1478,7 @@ input[type='date']{
 }
 .searchContaier {
   display: grid;
-  grid-template-columns: 60% 20% 20%;
+  grid-template-columns: 50% 50%;
   justify-content: center;
   align-items: center;
   box-shadow: 0.5px 0.5px 3px #000000;
@@ -1482,6 +1486,7 @@ input[type='date']{
   height: 50px;
   /* background:rgb(249 220 206); */
 }
+
 .searchContaier div {
   width:100%;
   height:100%;
@@ -1974,16 +1979,16 @@ input[type='date']{
 .thumbnail {
   display: grid;
   grid-template-columns: 100%;
-  grid-template-rows:55% 45%;
+  grid-template-rows:60% 40%;
   /* border-radius: 10px; */
   padding:3px;
   /* border:solid 5px #ffffff00; */
   box-shadow: 0.5px 0.5px 3px #000;
   background: rgb(255, 255, 255);
   transition: ease 0.5s;
-  min-height: 350px;
+  min-height: 300px;
   height:auto;
-  border: solid 5px transparent;
+  border: solid 5px #ffd7a8;
 }
 
 .thumbnailParent{
@@ -2008,7 +2013,7 @@ input[type='date']{
 }
 
 .thumbnailImage {
-  height: 100%;
+  height: 250px;
   width: auto;
   transition: ease 0.5s;
   cursor: pointer;
@@ -2038,7 +2043,7 @@ input[type='date']{
   /* background: linear-gradient(to top,  #00ffbf, rgb(0, 190, 143)); */
   width: 100%;
   height: auto;
-  border-radius: 0px 0px 8px 8px;
+  /* border-radius: 0px 0px 8px 8px; */
   overflow: hidden;
   overflow: hidden; /* Hide any overflowed text */
   text-overflow: ellipsis; /* Add ellipsis (...) when the text overflows */
@@ -2079,7 +2084,7 @@ input[type='date']{
 }
 .thumbElements{
   padding:1px;
-  border-radius: 20px;
+  /* border-radius: 20px; */
   display: grid;
   /* text-overflow:ellipsis; */
   justify-content: flex-start!important;
@@ -2092,7 +2097,7 @@ input[type='date']{
 }
 .thumbnailTextContainer > div{
   display:grid;
-  grid-template-columns: 45% 45%;
+  grid-template-columns: 50% 50%;
   width: 100%;
   box-sizing: border-box;
   padding:1px;
@@ -2160,7 +2165,7 @@ input[type='date']{
 
 .thumbnailImageContainer {
   overflow: hidden;
-  border-radius: 8px 8px 0px 0px;
+  /* border-radius: 8px 8px 0px 0px; */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -2239,6 +2244,17 @@ input[type='date']{
   flex:1;
   width: 100%;
 }
+.HeaderRight{
+  display: flex;
+  flex-direction: row;
+  position: relative;
+}
+.HeaderRight div {
+  flex:1;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
 .media {
   margin: 0px!important;
 }
@@ -2258,7 +2274,7 @@ input[type='date']{
   justify-content: center;
   align-items: center;
   font-size: 20px;
-  background-color: #d66700;
+  background-color: rgb(250, 168, 124);
   border:none;
   margin:4px;
   text-align: center;
@@ -2405,6 +2421,7 @@ input[type='date']{
   width: 12vw;
   transition: ease 0.5s;
   transform: scaleX(0);
+  /* box-shadow: 0.5px 0.5px 3px #000; */
 }
 
 .DroppedDown ul {
@@ -2717,14 +2734,10 @@ flex:1;
   height: 300px;
   display: grid;
   box-shadow: 0.5px 0.5px 3px #000000;
-  /* border-left:solid 10px transparent;
-  border-right:solid 10px transparent; */
   flex-direction: column;
   grid-template-rows: 51px auto auto auto auto auto;
-  /* justify-content: center; */
   align-items: center;
-  /* position: absolute; */
-  background-color: #85afa5;
+  background-color: #ffd2b4;
 }
 .forgot{
   justify-content: flex-start!important;
@@ -2813,7 +2826,7 @@ flex:1;
   align-items: center;
   /* position: absolute; */
   padding-bottom: 10px;
-  background-color: #85afa5;
+  background-color: #ffd2b4;
 }
 
 .SignupDiv .div {
@@ -2828,7 +2841,7 @@ flex:1;
   position: relative;
   justify-content: center;
   align-items: center;
-  background-color: #65867f;
+  background-color: #ffb889;
   height: 50px;
   margin-bottom: 10px;
 }

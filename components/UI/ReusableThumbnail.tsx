@@ -40,6 +40,7 @@ const ReusableThumbnail: React.FC<ReusableThumbnailProps> = ({
         {item.discount > 0?(<Discounted_/>):""}
           <Image
             src={imageSource(item)}
+            loading='lazy'
             height="200"
             width="200"
             quality={1}
@@ -52,15 +53,15 @@ const ReusableThumbnail: React.FC<ReusableThumbnailProps> = ({
       <div className="thumbnailTextContainer">
         <Element Label="Name" value={item.name} />
         {item.discount > 0?(<Price_strike item={item}/>):(<Price item={item}/>)}
-        {item.discount > 0?(<Discounted item={item}/>):""}
+        {/* {item.discount > 0?(<Discounted item={item}/>):""} */}
         <Element Label="Sold" value={item.TotalSoldItems ? item.TotalSoldItems : '0'} />
         <div className='Thumbnails_rating_cart'>
           <span>
             <Ratings data={item.TotalRatings > 0 ? item.TotalRatings : 0} count={item}/>
           </span>
-          <span className='thumbElements_addCart'>
+          {/* <span className='thumbElements_addCart'>
             {addcart()}
-          </span>        
+          </span>         */}
         </div>
       </div>
     </div>

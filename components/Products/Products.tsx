@@ -1,11 +1,8 @@
 'use client'
-import React, { useCallback, useEffect, useMemo, useState } from 'react';
+import React, { useCallback, useMemo, useEffect, useRef, useState } from 'react';
 import { useQuery } from '@apollo/client';
 import { GET_CATEGORY, GET_CHILD_INVENTORY } from 'graphql/queries';
-import Loading from 'components/Partial/LoadingAnimation/Loading';
-// import { setGlobalState, useGlobalState } from 'state';
 import { handleError, handleLoading } from 'utils/scripts';
-import UniversalPagination from 'components/Partial/Pagination/UniversalPagination';
 import Thumbnail from 'components/UI/Thumbnail';
 import ReusableThumbnail from 'components/UI/ReusableThumbnail';
 import AddCartCmd from 'components/Commands/AddCartCmd';
@@ -18,65 +15,57 @@ import Modal from './Modal';
 import ProductView from 'components/Products/ProductView/ProductView';
 import { setmodal } from 'Redux/modalSlice';
 import ReusableCenterLayout from 'components/Layout/ReusableCenterLayout';
-import Carousel from 'components/Carousel';
 import { setviewed } from 'Redux/viewedSlice';
-import { HomeGallery } from 'components/Gallery/HomeGallery';
 import { setViewedProd } from 'Redux/viewedProdSlice';
-import { setcurrentPage } from 'Redux/currentPageSlice';
 import ProductLoading from './ProductLoading';
-import ProductViewLoading from './ProductView/ProductViewLoading';
-import { useRouter,usePathname } from 'next/navigation';
+import { useRouter, usePathname } from 'next/navigation';
 import ReusableServerDown from 'components/UI/ReusableServerDown';
-const itemsPerPage = 20; // Move constant outside component
-import {ColumnSizer, Grid} from 'react-virtualized';
-import 'react-virtualized/styles.css'; // only needs to be imported once
+import { Icon } from '@iconify/react';
+
+const itemsPerPage = 10; // Number of items to load per "page"
+
 const Products: React.FC = () => {
   const dispatch = useDispatch();
   const router = useRouter();
-  const pathname = usePathname
-  const isModalOpen = useSelector((state:any) => state.modal.modal); // Access category state
+  const pathname = usePathname();
+  const isModalOpen = useSelector((state: any) => state.modal.modal);
 
-  const openModal = (id:string,items:any) => {
+  const openModal = (id: string, items: any) => {
     dispatch(setviewed(id));
     dispatch(setmodal(true));
     dispatch(setViewedProd([items]));
-  }; // Update category state
+  };
 
-  const thumbnailDiscounted = useSelector((state:any) => state.discounted.discounted);//useGlobalState('thumbnailDiscounted');
-  const thumbnailNewData = useSelector((state:any) => state.new.new);
+  const thumbnailDiscounted = useSelector((state: any) => state.discounted.discounted);
+  const thumbnailNewData = useSelector((state: any) => state.new.new);
 
-  const category = useSelector((state:any) => state.category.category); // Access category state
-  const search = useSelector((state:any) => state.search.search);
-  const productType = useSelector((state:any) => state.productType.productType);
-  const sortBy =  useSelector((state:any) => state.sortBy.sortBy);
-  const sortDirection =  useSelector((state:any) => state.sortDirection.sortDirection);
-
-
+  const category = useSelector((state: any) => state.category.category);
+  const search = useSelector((state: any) => state.search.search);
+  const productType = useSelector((state: any) => state.productType.productType);
+  const sortBy = useSelector((state: any) => state.sortBy.sortBy);
+  const sortDirection = useSelector((state: any) => state.sortDirection.sortDirection);
+  console.log(search,"<<<<");
   const path = process.env.NEXT_PUBLIC_PATH || '';
-  const CurrentPage = useSelector((state:any) => state.currentPage.currentPage);//useGlobalState('CurrentPage');
 
   const { data: ProductsData, loading: productsLoading, error: productsError } = useQuery(GET_CHILD_INVENTORY);
-
-  const { data:Category, loading, error } = useQuery(GET_CATEGORY);
-
+  const { data: Category, loading, error } = useQuery(GET_CATEGORY);
 
   const filteredProducts = useMemo(() => {
     if (!ProductsData) return [];
-    
+
     return ProductsData?.getChildInventory
       ?.filter((item: any) =>
         item?.name?.toLowerCase()?.includes(search.toLowerCase())
       )
       ?.filter((item: any) =>
         item?.category?.toLowerCase()?.includes(category.toLowerCase())
-      )
-  }, [ProductsData, search, category,productType]);
+      );
+  }, [ProductsData, search, category, productType]);
 
   const sortedProducts = useMemo(() => {
     if (!filteredProducts) return [];
 
     return filteredProducts.sort((a: any, b: any) => {
-
       if (sortBy === 'price') {
         return sortDirection === 'asc' ? a.price - b.price : b.price - a.price;
       } else if (sortBy === 'name') {
@@ -86,116 +75,153 @@ const Products: React.FC = () => {
       }
       return 0;
     });
-  }, [filteredProducts, sortBy, sortDirection]);  
-
-  const handlePageChange = useCallback((page: number) => {
-    // setGlobalState('CurrentPage', page);
-    dispatch(setcurrentPage(page));
-  }, []);
+  }, [filteredProducts, sortBy, sortDirection]);
 
   const DiscountedData = useMemo(() => {
-    return thumbnailDiscounted==="" ? sortedProducts :sortedProducts?.filter((item: any) => item?.discount > 0);
-  }, [sortedProducts,thumbnailDiscounted]);
-
+    return thumbnailDiscounted === "" ? sortedProducts : sortedProducts?.filter((item: any) => item?.discount > 0);
+  }, [sortedProducts, thumbnailDiscounted]);
 
   const NewItemData = useMemo(() => {
-    return thumbnailNewData==="" ? DiscountedData :DiscountedData?.filter((post:any) => {
+    return thumbnailNewData === "" ? DiscountedData : DiscountedData?.filter((post: any) => {
       const postDate = new Date(parseInt(post?.dateUpdated));
       return postDate.toDateString() === new Date().toDateString();
     });
-  }, [DiscountedData,thumbnailNewData]);
+  }, [DiscountedData, thumbnailNewData]);
 
-  const itemsPerPage = 20;
-  
-  const paginatedProducts = NewItemData.slice(
-      (CurrentPage - 1) * itemsPerPage,
-      CurrentPage * itemsPerPage);
+  // Infinite Scroll State
+  const [visibleItems, setVisibleItems] = useState(itemsPerPage); // Number of items currently visible
+  const [isLoadingMore, setIsLoadingMore] = useState(false); // Loading state for infinite scroll
+  const containerRef = useRef<HTMLDivElement | null>(null); // Reference to the container for scroll events
 
-  const totalPages = useMemo(() => {
-    return Math.ceil((NewItemData?.length || 0) / itemsPerPage);
-  }, [NewItemData]);
+  // Function to load more items
+  const loadMoreItems = useCallback(() => {
+    if (visibleItems >= NewItemData.length) return; // Don't load more if all items are already visible
 
-  const searchEngine = (inputValue:any) => {
-  inputValue.preventDefault();
-  const searchData = inputValue.target.value;
-  if(inputValue===''){
-  dispatch(setSearch('')); // Update category state
-  }else{
-  dispatch(setSearch(searchData)); // Update category state
-  }
+    setIsLoadingMore(true); // Set loading state to true
+
+    // Simulate loading delay (e.g., API call or processing)
+    setTimeout(() => {
+      setVisibleItems((prev) => prev + itemsPerPage); // Increase the number of visible items
+      setIsLoadingMore(false); // Set loading state to false
+    }, 1000); // Adjust the delay as needed
+  }, [visibleItems, NewItemData.length]);
+
+  // Scroll Event Listener for Infinite Scroll
+  useEffect(() => {
+    const container = containerRef.current;
+
+    const handleScroll = () => {
+      if (container) {
+        const { scrollTop, scrollHeight, clientHeight } = container;
+        const isNearBottom = scrollTop + clientHeight >= scrollHeight - 100; // Load more when 100px from the bottom
+
+        if (isNearBottom && !isLoadingMore && visibleItems < NewItemData.length) {
+          console.log('Loading more items...');
+          loadMoreItems();
+        }
+      }
+    };
+
+    if (container) {
+      container.addEventListener('scroll', handleScroll);
+    }
+
+    return () => {
+      if (container) {
+        container.removeEventListener('scroll', handleScroll);
+      }
+    };
+  }, [visibleItems, NewItemData.length, isLoadingMore, loadMoreItems]);
+
+  // Slice the data to only show visible items
+  const visibleProducts = NewItemData.slice(0, visibleItems);
+
+  const searchEngine = (inputValue: any) => {
+    inputValue.preventDefault();
+    const searchData = inputValue.target.value;
+    if (inputValue === '') {
+      dispatch(setSearch(''));
+    } else {
+      dispatch(setSearch(searchData));
+    }
   };
-  
+
   const sort = ((e: any) => {
-    dispatch(setsortBy(e.target.value))
-  })
+    dispatch(setsortBy(e.target.value));
+  });
 
   const handleSortBy = (column) => {
-    dispatch(setsortBy(column))
-
+    dispatch(setsortBy(column));
   };
-  
+
   const sortTrigger = (() => {
-      if(sortDirection === 'asc'){
-        // setGlobalState("sortDirection", 'desc');
-        dispatch(setsortDirection('desc'));
-      }else{
-        // setGlobalState("sortDirection", 'asc');
-        dispatch(setsortDirection('asc'));
-      }
-  }) 
+    if (sortDirection === 'asc') {
+      dispatch(setsortDirection('desc'));
+    } else {
+      dispatch(setsortDirection('asc'));
+    }
+  });
 
   if (productsLoading) return <ProductLoading />;
-  if (productsError) return <ReusableServerDown/>;
-
-  
-
+  if (productsError) return <ReusableServerDown />;
 
   return (
-    
-    <ReusableCenterLayout 
-      child1={()=>(
+    <ReusableCenterLayout
+      child1={() => (
         <></>
-      // <Carousel data={Category?.getCategory} fromData={"Category"}></Carousel>
       )}
-      child2={()=>(
-        <ReusableSearch search={searchEngine} sort={sort} trigger={sortTrigger}/>
+      child2={() => (
+        <ReusableSearch search={searchEngine} sort={sort} trigger={sortTrigger} />
       )}
-      child3={()=>(
-        <div className="Thumbnails">
-        {paginatedProducts.length > 0 ? (
-          paginatedProducts.map((item: any, idx: number) => (
-            <ReusableThumbnail
-              key={idx}
-              item={item}
-              path={path}
-              view={()=>openModal(item.id,item)}
-              addcart={()=>(<AddCartCmd item={item}/>)}
-              handleLoading={handleLoading}
-              handleError={handleError}
-            />
-          ))
-        ) : (
-          <h2>No Data</h2>
-        )}
-        <div className="viewmore">
-          <UniversalPagination
-            currentPage={CurrentPage}
-            totalPages={totalPages}
-            onPageChange={handlePageChange}
-          />
+      child3={() => (
+        <div
+          ref={containerRef}
+          style={{ overflowY: 'auto', height: '100vh',scrollbarWidth: 'none' }} // Make the container scrollable
+        >
+          <div className="Thumbnails">
+          {visibleProducts.length > 0 ? (
+            visibleProducts.map((item: any, idx: number) => (
+              <div key={idx}>
+                <ReusableThumbnail
+                  item={item}
+                  path={path}
+                  view={() => openModal(item.id, item)}
+                  addcart={() => (<AddCartCmd item={item} />)}
+                  handleLoading={handleLoading}
+                  handleError={handleError}
+                />
+              </div>
+            ))
+          ) : (
+            <h2>No Data</h2>
+          )}
+          </div>
+
+          {/* Loading Indicator */}
+          {isLoadingMore && (
+            <div style={{ textAlign: 'center', padding: '10px' }}>
+             <Icon icon="eos-icons:loading" width="24" height="24"  style={{color: "#803d2a"}} />
+            </div>
+          )}
+
+          {/* End of Data Message */}
+          {visibleItems >= NewItemData.length && !isLoadingMore && (
+            visibleProducts.length < 1?(
+              <></>
+            ):
+            <h3 style={{ textAlign: 'center', padding: '10px' }}>
+              You've reached the end of the data.</h3>
+          )}
         </div>
-      </div>
       )}
-      child4={()=>(
+      child4={() => (
         <Modal isOpen={isModalOpen}>
-          <ProductView/>
+          <ProductView />
         </Modal>
       )}
     >
-      
     </ReusableCenterLayout>
   );
 };
-
 
 export default Products;

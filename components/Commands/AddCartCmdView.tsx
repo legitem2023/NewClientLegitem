@@ -11,7 +11,6 @@ type PropsAddCartCmdView = {
 }
 const AddCartCmdView:React.FC<PropsAddCartCmdView> = ({viewedProduct,quantity,stock}) => {
    
-   console.log(viewedProduct,"lll");
     const Manager = new DataManager();
     const cart = [viewedProduct]?.map((item:any)=>{
     return {

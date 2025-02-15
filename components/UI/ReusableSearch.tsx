@@ -8,7 +8,7 @@ type ReusableSearchProps = {
 const ReusableSearch:FC<ReusableSearchProps> = ({search,sort,trigger}) => {
   return (
         <div className='searchContaier'>
-            <div><input type='text' placeholder='Search' onChange={(e: any) => search(e)}></input></div>
+            {/* <div><input type='text' placeholder='Search' onChange={(e: any) => search(e)}></input></div> */}
             <div>
             <label htmlFor="mySelect" className='hidden'>Choose an option:</label>
             <select onChange={(e:any) => sort(e)}>

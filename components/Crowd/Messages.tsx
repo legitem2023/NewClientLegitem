@@ -1,4 +1,3 @@
-'use client'
 import React, { useEffect, useRef, useState, useCallback } from 'react';
 import { useQuery, useMutation } from '@apollo/client';
 import { GET_MESSAGES } from 'graphql/queries';
@@ -14,17 +13,21 @@ import ReusableServerDown from 'components/UI/ReusableServerDown';
 
 const Messages = () => {
   const cookie = useSelector((state: any) => state.cookie.cookie);
-  const { activeStream, streamId } = useSelector((state: any) => state.streaming);
+  const { activeStream } = useSelector((state: any) => state.streaming);
 
   const videoRef = useRef(null);
   const cache = useRef(new CellMeasurerCache({ defaultHeight: 300, fixedWidth: true, fixedHeight: false }));
 
   const [posts, setPosts] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
+  const [isListLoading, setIsListLoading] = useState(true);
+  const [isMessageLoading, setIsMessageLoading] = useState(false);
   const textareaRef = useRef(null);
   const listRef = useRef(null);
 
-  const { loading, error, data, subscribeToMore } = useQuery(GET_MESSAGES);
+  const { loading, error, data, subscribeToMore } = useQuery(GET_MESSAGES, {
+    onCompleted: () => setIsListLoading(false), 
+  });
+
   const [insertMessage] = useMutation(SEND_MESSAGE);
 
   useEffect(() => {
@@ -47,16 +50,12 @@ const Messages = () => {
   }, [subscribeToMore]);
 
   useEffect(() => {
-    if (data) setPosts(data.messages || []);
+    if (data) {
+      setPosts(data.messages || []);
+      setIsListLoading(false);
+    }
     if (videoRef.current && activeStream) videoRef.current.srcObject = activeStream;
   }, [data, activeStream]);
-
-  useEffect(() => {
-    if (listRef.current) {
-      listRef.current.recomputeRowHeights();
-      listRef.current.forceUpdate();
-    }
-  }, [posts]);
 
   if (!cookie) return <div>No cookie found</div>;
 
@@ -64,7 +63,7 @@ const Messages = () => {
     e.preventDefault();
     const message = textareaRef.current?.value;
     if (message) {
-      setIsLoading(true);
+      setIsMessageLoading(true);
       try {
         await insertMessage({
           variables: { message, sender: cookie.emailAddress, live: '', video: '' },
@@ -73,7 +72,7 @@ const Messages = () => {
       } catch (err) {
         console.error('Error sending message', err);
       } finally {
-        setIsLoading(false);
+        setIsMessageLoading(false);
       }
     } else {
       textareaRef.current?.focus();
@@ -88,49 +87,58 @@ const Messages = () => {
       child1={() => <></>}
       child2={() =>
         activeStream ? (
-          <div className='messagesLI'>
-            <video ref={videoRef} className='messageVideo' autoPlay playsInline muted />
+          <div className="messagesLI">
+            <video ref={videoRef} className="messageVideo" autoPlay playsInline muted />
           </div>
         ) : null
       }
       child3={() => (
         <div style={{ minHeight: '92vh', height: 'auto', width: '100%' }}>
-          <ReusableMessageInput textRef={textareaRef} event={handleSubmit} loading={isLoading} />
+          <ReusableMessageInput textRef={textareaRef} event={handleSubmit} loading={isMessageLoading} />
           <AutoSizer>
             {({ height, width }) => (
-              <List
-                height={height}
-                width={width}
-                rowHeight={cache.current.rowHeight}
-                deferredMeasurementCache={cache.current}
-                rowCount={posts.length}
-                ref={listRef}
-                rowRenderer={({ key, index, style, parent }) => (
-                  <CellMeasurer
-                    key={key}
-                    cache={cache.current}
-                    columnIndex={0}
-                    rowIndex={index}
-                    parent={parent}
-                  >
-                    {({ measure }) => (
-                      <div
-                        style={{
-                          ...style,
-                          marginBottom: "15px",
-                          padding: "10px 0",
-                          display: "flex",
-                          flexDirection: "column",
-                          width: "100%"
-                        }}
-                        onLoad={measure}
-                      >
-                        <ReusableMessage data={posts[index]} onChange={measure} />
-                      </div>
-                    )}
-                  </CellMeasurer>
-                )}
-              />
+              isListLoading ? (
+                <CrowdLoading />
+              ) : (
+                <List
+                  height={height}
+                  width={width}
+                  rowHeight={cache.current.rowHeight}
+                  deferredMeasurementCache={cache.current}
+                  rowCount={posts.length}
+                  ref={listRef}
+                  rowRenderer={({ key, index, style, parent }) => (
+                    <CellMeasurer
+                      key={key}
+                      cache={cache.current}
+                      columnIndex={0}
+                      rowIndex={index}
+                      parent={parent}
+                    >
+                      {({ measure }) => (
+                        <div
+                          style={{
+                            ...style,
+                            marginBottom: '15px',
+                            padding: '10px 0',
+                            display: 'flex',
+                            flexDirection: 'column',
+                            width: '100%',
+                            scrollSnapType: 'both mandatory',
+                          }}
+                          onLoad={measure}
+                        >
+                          {isListLoading ? (
+                            <div className="skeleton-loader" style={{ height: '50px', background: '#f0f0f0' }} />
+                          ) : (
+                            <ReusableMessage data={posts[index]} onChange={measure} />
+                          )}
+                        </div>
+                      )}
+                    </CellMeasurer>
+                  )}
+                />
+              )
             )}
           </AutoSizer>
         </div>

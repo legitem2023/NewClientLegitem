@@ -67,7 +67,7 @@ const ReusableMessage: FC<ReusableMessageProps> = ({ data, onChange }) => {
       <div>
         <div className="messageSender">
           <div className={`messageSenderImgcont ` + border(data)}>
-            <ReusableFirstLetterImage text={data.Sender} size={100} bgColor="#007bff" textColor="#ffffff" />
+            <ReusableFirstLetterImage text={data.Sender} size={100} bgColor="rgb(87, 39, 0)" textColor="#ffffff" />
           </div>
           <b className="messageSenderName">{data.Sender}</b>
           <div className="messageSenderTime">

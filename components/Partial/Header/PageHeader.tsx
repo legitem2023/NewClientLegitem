@@ -1,5 +1,5 @@
 'use client'
-import React, { useEffect, useState } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import Navigation from '../../../json/navigation.json'
 import Link from 'next/link'
 import { Icon } from '@iconify/react';
@@ -14,6 +14,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import { setDrawer } from 'Redux/drawerSlice';
 import ReusableNotification from 'components/UI/ReusableNotification';
 import Cookie from 'components/cookies/Cookie';
+import Image from 'next/image';
+import ReusableSearch from 'components/UI/ReusableSearch';
+import { setSearch } from 'Redux/searchSlice';
+import { throttle } from 'lodash';
 const PageHeader: React.FC = () => {
   const path = process.env.NEXT_PUBLIC_PATH;
   const dispatch = useDispatch();
@@ -22,6 +26,20 @@ const PageHeader: React.FC = () => {
   const [loadingLink, setLoadingLink] = useState<string | null>(null);
   const currentPath = usePathname();
   const redirect = useRouter();
+
+  const [isFocused, setIsFocused] = useState(false); // State to track focus
+
+  // Handle focus event
+  const handleFocus = () => {
+    setIsFocused(true);
+  };
+
+  // Handle blur event
+  const handleBlur = () => {
+    setIsFocused(false);
+  };
+
+
 
   const handleClick = (item: any) => {
     if (item.Link !== currentPath) {
@@ -36,12 +54,55 @@ const PageHeader: React.FC = () => {
       dispatch(setDrawer(true));
     }
   }
+
+
+ // Throttled search engine function
+ const throttledSearchEngine = useCallback(
+  throttle((inputValue: any) => {
+    inputValue.preventDefault();
+    const searchData = inputValue.target.value;
+    if (inputValue === '') {
+      dispatch(setSearch(''));
+    } else {
+      dispatch(setSearch(searchData));
+    }
+  }, 2000), // Throttle delay of 300ms
+  []
+);
+
+const searchEngine = (inputValue: any) => {
+  throttledSearchEngine(inputValue); // Call the throttled function
+};
+
+
+
   return (
     <>
       <InstallPWAButton/>
     <div className='Header'>
       <div className='HeaderRight'>
-        <span className='Logo openDrawer' onClick={()=>redirect.push('/Home')}></span>        
+        <div>
+           <Image src="/image/Crowd.svg" alt="Logo" width={874} height={373} className='Logo' onClick={()=>redirect.push('/Home')}/>
+        </div>
+        <div>
+          <div style={{
+        width:'100%', // Change width based on focus
+        height:'100%', // Change width based on focus
+        transition: 'ease 0.3s', // Smooth transition
+      }}>
+            <input type='text' 
+                   style={{
+                    width: '95%',
+                    top:"0px",
+                    transition:"ease 0.5s",
+                    margin:"10px",
+                    boxSizing:"border-box"}}
+                    
+                    placeholder='Search' 
+                   onFocus={handleFocus} // Trigger on focus
+                   onBlur={handleBlur} className='searchEngine' onChange={searchEngine}/>
+          </div>
+        </div> 
       </div>
       <div className='HeaderLeft'>
       <div className='Navigation'>
