@@ -17,7 +17,7 @@ const Home = () => {
       child1={()=>(         <Carousel data={Category?.getCategory} fromData={"Category"}></Carousel>
       )}
       child2={()=>(
-        <ThreeJS/>
+        <></></>
       )}
       child3={()=>(<></>)}
       child4={()=>(<></>)}
