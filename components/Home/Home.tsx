@@ -2,6 +2,8 @@ import { useQuery } from '@apollo/client';
 import Carousel from 'components/Carousel';
 import ReusableCenterLayout from 'components/Layout/ReusableCenterLayout'
 import Loading from 'components/Partial/LoadingAnimation/Loading';
+
+import Menu from 'components/Partial/Menu';
 import { GET_CATEGORY } from 'graphql/queries';
 import React from 'react'
 
