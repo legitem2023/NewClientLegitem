@@ -56,7 +56,7 @@ const PageHeader: React.FC = () => {
         dispatch(setSearch(searchData));
       }
     }, 2000),
-    []
+    [dispatch]
   );
 
   const searchEngine = (inputValue: any) => {
