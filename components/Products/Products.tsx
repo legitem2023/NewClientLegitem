@@ -1,5 +1,5 @@
 'use client'
-import React, { useCallback, useMemo, useEffect, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { useQuery } from '@apollo/client';
 import { GET_CATEGORY, GET_CHILD_INVENTORY } from 'graphql/queries';
 import { handleError, handleLoading } from 'utils/scripts';
@@ -50,43 +50,31 @@ const Products: React.FC = () => {
   const { data: ProductsData, loading: productsLoading, error: productsError } = useQuery(GET_CHILD_INVENTORY);
   const { data: Category, loading, error } = useQuery(GET_CATEGORY);
 
-  const filteredProducts = useMemo(() => {
-    if (!ProductsData) return [];
+  const filteredProducts = ProductsData?.getChildInventory
+    ?.filter((item: any) =>
+      item?.name?.toLowerCase()?.includes(search.toLowerCase())
+    )
+    ?.filter((item: any) =>
+      item?.category?.toLowerCase()?.includes(category.toLowerCase())
+    ) || [];
 
-    return ProductsData?.getChildInventory
-      ?.filter((item: any) =>
-        item?.name?.toLowerCase()?.includes(search.toLowerCase())
-      )
-      ?.filter((item: any) =>
-        item?.category?.toLowerCase()?.includes(category.toLowerCase())
-      );
-  }, [ProductsData, search, category, productType]);
+  const sortedProducts = filteredProducts.sort((a: any, b: any) => {
+    if (sortBy === 'price') {
+      return sortDirection === 'asc' ? a.price - b.price : b.price - a.price;
+    } else if (sortBy === 'name') {
+      return sortDirection === 'asc'
+        ? a.name.localeCompare(b.name)
+        : b.name.localeCompare(a.name);
+    }
+    return 0;
+  });
 
-  const sortedProducts = useMemo(() => {
-    if (!filteredProducts) return [];
+  const DiscountedData = thumbnailDiscounted === "" ? sortedProducts : sortedProducts?.filter((item: any) => item?.discount > 0);
 
-    return filteredProducts.sort((a: any, b: any) => {
-      if (sortBy === 'price') {
-        return sortDirection === 'asc' ? a.price - b.price : b.price - a.price;
-      } else if (sortBy === 'name') {
-        return sortDirection === 'asc'
-          ? a.name.localeCompare(b.name)
-          : b.name.localeCompare(a.name);
-      }
-      return 0;
-    });
-  }, [filteredProducts, sortBy, sortDirection]);
-
-  const DiscountedData = useMemo(() => {
-    return thumbnailDiscounted === "" ? sortedProducts : sortedProducts?.filter((item: any) => item?.discount > 0);
-  }, [sortedProducts, thumbnailDiscounted]);
-
-  const NewItemData = useMemo(() => {
-    return thumbnailNewData === "" ? DiscountedData : DiscountedData?.filter((post: any) => {
-      const postDate = new Date(parseInt(post?.dateUpdated));
-      return postDate.toDateString() === new Date().toDateString();
-    });
-  }, [DiscountedData, thumbnailNewData]);
+  const NewItemData = thumbnailNewData === "" ? DiscountedData : DiscountedData?.filter((post: any) => {
+    const postDate = new Date(parseInt(post?.dateUpdated));
+    return postDate.toDateString() === new Date().toDateString();
+  });
 
   // Infinite Scroll State
   const [visibleItems, setVisibleItems] = useState(itemsPerPage); // Number of items currently visible
