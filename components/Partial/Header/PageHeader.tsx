@@ -45,7 +45,7 @@ const PageHeader: React.FC = () => {
   const toggleDrawer = () => {
     dispatch(setDrawer(!drawerState));
   }
-
+/*
   const throttledSearchEngine = useCallback(
   throttle((inputValue: any) => {
     inputValue.preventDefault();
@@ -62,7 +62,7 @@ const PageHeader: React.FC = () => {
 const searchEngine = (inputValue: any) => {
   throttledSearchEngine(inputValue); // Call the throttled function
 };
-
+*/
   return (
     <>
       <InstallPWAButton />
@@ -100,7 +100,6 @@ const searchEngine = (inputValue: any) => {
                 onFocus={handleFocus}
                 onBlur={handleBlur}
                 className='searchEngine'
-                onChange={searchEngine}
               />
             </div>
           </div>
