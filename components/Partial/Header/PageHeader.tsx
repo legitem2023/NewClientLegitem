@@ -44,24 +44,24 @@ const PageHeader: React.FC = () => {
 
   const toggleDrawer = () => {
     dispatch(setDrawer(!drawerState));
-  };
+  }
 
-  const throttledSearchEngine =  () => {
-    throttle((inputValue: any) => {
-      inputValue.preventDefault();
-      const searchData = inputValue.target.value;
-      if (inputValue === '') {
-        dispatch(setSearch(''));
-      } else {
-        dispatch(setSearch(searchData));
-      }
-    }, 2000),
-    
-    };
+  const throttledSearchEngine = useCallback(
+  throttle((inputValue: any) => {
+    inputValue.preventDefault();
+    const searchData = inputValue.target.value;
+    if (inputValue === '') {
+      dispatch(setSearch('')); // Fix extra parenthesis
+    } else {
+      dispatch(setSearch(searchData)); // Fix extra parenthesis
+    }
+  }, 2000),
+  [dispatch]
+);
 
-  const searchEngine = (inputValue: any) => {
-    throttledSearchEngine(inputValue);
-  };
+const searchEngine = (inputValue: any) => {
+  throttledSearchEngine(inputValue); // Call the throttled function
+};
 
   return (
     <>
