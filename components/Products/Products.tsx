@@ -49,7 +49,15 @@ const Products: React.FC = () => {
   const { data: ProductsData, loading: productsLoading, error: productsError } = useQuery(GET_CHILD_INVENTORY);
   const { data: Category, loading, error } = useQuery(GET_CATEGORY);
 
-  const filteredProducts = ProductsData?.getChildInventory
+  // Function to multiply the array
+  function multiplyArray(data, times) {
+    return Array(times).fill(data).flat();
+  }
+
+  // Apply the multiplyArray function to ProductsData?.getChildInventory
+  const multipliedProducts = multiplyArray(ProductsData?.getChildInventory || [], 300);
+
+  const filteredProducts = multipliedProducts
     ?.filter((item: any) =>
       item?.name?.toLowerCase()?.includes(search.toLowerCase())
     )
@@ -152,14 +160,6 @@ const Products: React.FC = () => {
   if (productsLoading) return <ProductLoading />;
   if (productsError) return <ReusableServerDown />;
 
-function multiplyArray(data, times) {
-  return Array(times).fill(data).flat();
-}
-
-const result = multiplyArray(visibleProducts, 30);
-
-console.log(result);
-  
   return (
     <ReusableCenterLayout
       child1={() => (
@@ -171,41 +171,43 @@ console.log(result);
       child3={() => (
         <div
           ref={containerRef}
-          style={{ overflowY: 'auto', height: '100vh',scrollbarWidth: 'none' }} // Make the container scrollable
+          style={{ overflowY: 'auto', height: '100vh', scrollbarWidth: 'none' }} // Make the container scrollable
         >
           <div className="Thumbnails">
-          {result.length > 0 ? (
-            result.map((item: any, idx: number) => (
-              <div key={idx}>
-                <ReusableThumbnail
-                  item={item}
-                  path={path}
-                  view={() => openModal(item.id, item)}
-                  addcart={() => (<AddCartCmd item={item} />)}
-                  handleLoading={handleLoading}
-                  handleError={handleError}
-                />
-              </div>
-            ))
-          ) : (
-            <h2>No Data</h2>
-          )}
+            {visibleProducts.length > 0 ? (
+              visibleProducts.map((item: any, idx: number) => (
+                <div key={idx}>
+                  <ReusableThumbnail
+                    item={item}
+                    path={path}
+                    view={() => openModal(item.id, item)}
+                    addcart={() => (<AddCartCmd item={item} />)}
+                    handleLoading={handleLoading}
+                    handleError={handleError}
+                  />
+                </div>
+              ))
+            ) : (
+              <h2>No Data</h2>
+            )}
           </div>
 
           {/* Loading Indicator */}
           {isLoadingMore && (
             <div style={{ textAlign: 'center', padding: '10px' }}>
-             <Icon icon="eos-icons:loading" width="24" height="24"  style={{color: "#803d2a"}} />
+              <Icon icon="eos-icons:loading" width="24" height="24" style={{ color: "#803d2a" }} />
             </div>
           )}
 
           {/* End of Data Message */}
           {visibleItems >= NewItemData.length && !isLoadingMore && (
-            result.length < 1?(
+            visibleProducts.length < 1 ? (
               <></>
-            ):
-            <h3 style={{ textAlign: 'center', padding: '10px' }}>
-              Youve reached the end of the data.</h3>
+            ) : (
+              <h3 style={{ textAlign: 'center', padding: '10px' }}>
+                You've reached the end of the data.
+              </h3>
+            )
           )}
         </div>
       )}
