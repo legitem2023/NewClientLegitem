@@ -172,7 +172,7 @@ const Products: React.FC = () => {
               <button
                 onClick={loadMoreItems}
                 style={{
-                  padding: '10px 20px',
+                  padding: '10px',
                   backgroundColor: '#803d2a',
                   color: '#fff',
                   border: 'none',
@@ -182,7 +182,7 @@ const Products: React.FC = () => {
               >
                 View More 
                 {isLoadingMore && (
-              <Icon icon="eos-icons:loading" width="16" height="16" style={{ color: "#803d2a" }} />
+                <Icon icon="line-md:loading-alt-loop" width="24" height="24" style={{ color:'#ffffff' }}/>
           )}
               </button>
             </div>
