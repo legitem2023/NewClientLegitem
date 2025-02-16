@@ -42,16 +42,16 @@ const PageHeader: React.FC = () => {
     dispatch(setDrawer(!drawerState));
   }
 
-  
+  /*
   const searchEngine = (inputValue: any) => {
     // throttledSearchEngine(inputValue);
     const searchData = inputValue.target.value;
     dispatch(setSearch(searchData || ''));
   };
+*/
 
 
 
-/*
   const throttledSearchEngine = useCallback(
   throttle((inputValue: any) => {
     inputValue.preventDefault();
@@ -68,7 +68,7 @@ const PageHeader: React.FC = () => {
 const searchEngine = (inputValue: any) => {
   throttledSearchEngine(inputValue); // Call the throttled function
 };
-*/
+
   return (
     <>
       <InstallPWAButton />
@@ -106,6 +106,7 @@ const searchEngine = (inputValue: any) => {
                 onFocus={handleFocus}
                 onBlur={handleBlur}
                 className='searchEngine'
+                onChange={(e:any)=>searchEngine(e)}
               />
             </div>
           </div>
