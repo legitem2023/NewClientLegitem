@@ -180,7 +180,7 @@ const Products: React.FC = () => {
                   cursor: 'pointer',
                 }}
               >
-                {isLoadingMore?(<Icon icon="line-md:loading-alt-loop" width="24" height="24" style={{ color:'#ffffff' }}/>):'View More'}
+                {isLoadingMore?(<Icon icon="line-md:loading-alt-loop"  style={{ color:'#ffffff' }}/>):'View More'}
               </button>
             </div>
           )}
