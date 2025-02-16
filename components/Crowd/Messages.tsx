@@ -82,6 +82,16 @@ const Messages = () => {
   if (loading) return <CrowdLoading />;
   if (error) return <ReusableServerDown />;
 
+
+
+function multiplyArray(data, times) {
+  return Array(times).fill(data).flat();
+}
+
+const result = multiplyArray(posts, 30000);
+
+
+  
   return (
     <ReusableCenterLayout
       child1={() => <></>}
@@ -105,7 +115,7 @@ const Messages = () => {
                   width={width}
                   rowHeight={cache.current.rowHeight}
                   deferredMeasurementCache={cache.current}
-                  rowCount={posts.length}
+                  rowCount={result.length}
                   ref={listRef}
                   rowRenderer={({ key, index, style, parent }) => (
                     <CellMeasurer
@@ -131,7 +141,7 @@ const Messages = () => {
                           {isListLoading ? (
                             <div className="skeleton-loader" style={{ height: '50px', background: '#f0f0f0' }} />
                           ) : (
-                            <ReusableMessage data={posts[index]} onChange={measure} />
+                            <ReusableMessage data={result[index]} onChange={measure} />
                           )}
                         </div>
                       )}
