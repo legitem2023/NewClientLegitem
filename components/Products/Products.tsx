@@ -22,7 +22,7 @@ import { useRouter, usePathname } from 'next/navigation';
 import ReusableServerDown from 'components/UI/ReusableServerDown';
 import { Icon } from '@iconify/react';
 
-const itemsPerPage = 10; // Number of items to load per "page"
+const itemsPerPage = 50; // Number of items to load per "page"
 
 const Products: React.FC = () => {
   const dispatch = useDispatch();
