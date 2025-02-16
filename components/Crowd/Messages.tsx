@@ -116,6 +116,7 @@ const result = multiplyArray(posts, 30000);
                   rowHeight={cache.current.rowHeight}
                   deferredMeasurementCache={cache.current}
                   rowCount={result.length}
+                  overscanRowCount={3}
                   ref={listRef}
                   rowRenderer={({ key, index, style, parent }) => (
                     <CellMeasurer
