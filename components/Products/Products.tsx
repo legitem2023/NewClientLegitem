@@ -176,6 +176,8 @@ const Products: React.FC = () => {
                   backgroundColor: '#803d2a',
                   color: '#fff',
                   border: 'none',
+                  width :'100px',
+                  height:'40px',
                   borderRadius: '5px',
                   cursor: 'pointer',
                 }}
