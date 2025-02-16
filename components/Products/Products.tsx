@@ -156,7 +156,7 @@ function multiplyArray(data, times) {
   return Array(times).fill(data).flat();
 }
 
-const result = multiplyArray(visibleProducts, 300000);
+const result = multiplyArray(visibleProducts, 3000);
 
 console.log(result);
   
