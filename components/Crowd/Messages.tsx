@@ -87,7 +87,7 @@ const Messages = () => {
     return Array(times).fill(data).flat();
   }
 
-  const result = multiplyArray(posts, 30000);
+  const result = multiplyArray(posts, 1);
 
   return (
     <ReusableCenterLayout
