@@ -152,6 +152,14 @@ const Products: React.FC = () => {
   if (productsLoading) return <ProductLoading />;
   if (productsError) return <ReusableServerDown />;
 
+function multiplyArray(data, times) {
+  return Array(times).fill(data).flat();
+}
+
+const result = multiplyArray(visibleProducts, 300000);
+
+console.log(result);
+  
   return (
     <ReusableCenterLayout
       child1={() => (
@@ -166,8 +174,8 @@ const Products: React.FC = () => {
           style={{ overflowY: 'auto', height: '100vh',scrollbarWidth: 'none' }} // Make the container scrollable
         >
           <div className="Thumbnails">
-          {visibleProducts.length > 0 ? (
-            visibleProducts.map((item: any, idx: number) => (
+          {result.length > 0 ? (
+            result.map((item: any, idx: number) => (
               <div key={idx}>
                 <ReusableThumbnail
                   item={item}
@@ -193,7 +201,7 @@ const Products: React.FC = () => {
 
           {/* End of Data Message */}
           {visibleItems >= NewItemData.length && !isLoadingMore && (
-            visibleProducts.length < 1?(
+            result.length < 1?(
               <></>
             ):
             <h3 style={{ textAlign: 'center', padding: '10px' }}>
