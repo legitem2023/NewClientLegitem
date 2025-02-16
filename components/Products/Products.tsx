@@ -55,7 +55,7 @@ const Products: React.FC = () => {
   }
 
   // Apply the multiplyArray function to ProductsData?.getChildInventory
-  const multipliedProducts = multiplyArray(ProductsData?.getChildInventory || [], 300);
+  const multipliedProducts = multiplyArray(ProductsData?.getChildInventory || [], 30);
 
   const filteredProducts = multipliedProducts
     ?.filter((item: any) =>
@@ -89,7 +89,7 @@ const Products: React.FC = () => {
   const containerRef = useRef<HTMLDivElement | null>(null); // Reference to the container for scroll events
 
   // Function to load more items
-  const loadMoreItems = () => {
+  const loadMoreItems = useCallback(() => {
     if (visibleItems >= NewItemData.length) return; // Don't load more if all items are already visible
 
     setIsLoadingMore(true); // Set loading state to true
@@ -99,7 +99,7 @@ const Products: React.FC = () => {
       setVisibleItems((prev) => prev + itemsPerPage); // Increase the number of visible items
       setIsLoadingMore(false); // Set loading state to false
     }, 1000); // Adjust the delay as needed
-  };
+  }, [visibleItems, NewItemData.length]);
 
   // Scroll Event Listener for Infinite Scroll
   useEffect(() => {
@@ -205,7 +205,7 @@ const Products: React.FC = () => {
               <></>
             ) : (
               <h3 style={{ textAlign: 'center', padding: '10px' }}>
-                You've reached the end of the data.
+                You&apos;ve reached the end of the data.
               </h3>
             )
           )}
