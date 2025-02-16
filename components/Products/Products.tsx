@@ -55,7 +55,7 @@ const Products: React.FC = () => {
   }
 
   // Apply the multiplyArray function to ProductsData?.getChildInventory
-  const multipliedProducts = multiplyArray(ProductsData?.getChildInventory || [], 30000);
+  const multipliedProducts = multiplyArray(ProductsData?.getChildInventory || [], 3000000);
 
   const filteredProducts = multipliedProducts
     ?.filter((item: any) =>
