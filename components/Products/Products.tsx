@@ -163,12 +163,8 @@ const Products: React.FC = () => {
             )}
           </div>
 
-          {/* Loading Indicator */}
-          {isLoadingMore && (
-            <div style={{ textAlign: 'center', padding: '10px' }}>
-              <Icon icon="eos-icons:loading" width="24" height="24" style={{ color: "#803d2a" }} />
-            </div>
-          )}
+          
+          
 
           {/* "View More" Button */}
           {visibleItems < NewItemData.length && (
@@ -184,7 +180,10 @@ const Products: React.FC = () => {
                   cursor: 'pointer',
                 }}
               >
-                View More
+                View More 
+                {isLoadingMore && (
+              <Icon icon="eos-icons:loading" width="16" height="16" style={{ color: "#803d2a" }} />
+          )}
               </button>
             </div>
           )}
