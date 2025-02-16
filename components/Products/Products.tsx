@@ -1,5 +1,5 @@
 'use client'
-import React, { useCallback, useEffect, useRef, useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import { useQuery } from '@apollo/client';
 import { GET_CATEGORY, GET_CHILD_INVENTORY } from 'graphql/queries';
 import { handleError, handleLoading } from 'utils/scripts';
@@ -86,7 +86,6 @@ const Products: React.FC = () => {
   // Infinite Scroll State
   const [visibleItems, setVisibleItems] = useState(itemsPerPage); // Number of items currently visible
   const [isLoadingMore, setIsLoadingMore] = useState(false); // Loading state for infinite scroll
-  const containerRef = useRef<HTMLDivElement | null>(null); // Reference to the container for scroll events
 
   // Function to load more items
   const loadMoreItems = useCallback(() => {
@@ -100,33 +99,6 @@ const Products: React.FC = () => {
       setIsLoadingMore(false); // Set loading state to false
     }, 1000); // Adjust the delay as needed
   }, [visibleItems, NewItemData.length]);
-
-  // Scroll Event Listener for Infinite Scroll
-  useEffect(() => {
-    const container = containerRef.current;
-
-    const handleScroll = () => {
-      if (container) {
-        const { scrollTop, scrollHeight, clientHeight } = container;
-        const isNearBottom = scrollTop + clientHeight >= scrollHeight - 100; // Load more when 100px from the bottom
-
-        if (isNearBottom && !isLoadingMore && visibleItems < NewItemData.length) {
-          console.log('Loading more items...');
-          loadMoreItems();
-        }
-      }
-    };
-
-    if (container) {
-      container.addEventListener('scroll', handleScroll);
-    }
-
-    return () => {
-      if (container) {
-        container.removeEventListener('scroll', handleScroll);
-      }
-    };
-  }, [visibleItems, NewItemData.length, isLoadingMore, loadMoreItems]);
 
   // Slice the data to only show visible items
   const visibleProducts = NewItemData.slice(0, visibleItems);
@@ -170,8 +142,7 @@ const Products: React.FC = () => {
       )}
       child3={() => (
         <div
-          ref={containerRef}
-          style={{ overflowY: 'auto', height: '100vh', scrollbarWidth: 'none' }} // Make the container scrollable
+          style={{ overflowY: 'auto', height: 'auto', scrollbarWidth: 'none' }} // Set height to auto
         >
           <div className="Thumbnails">
             {visibleProducts.length > 0 ? (
@@ -196,6 +167,25 @@ const Products: React.FC = () => {
           {isLoadingMore && (
             <div style={{ textAlign: 'center', padding: '10px' }}>
               <Icon icon="eos-icons:loading" width="24" height="24" style={{ color: "#803d2a" }} />
+            </div>
+          )}
+
+          {/* "View More" Button */}
+          {visibleItems < NewItemData.length && (
+            <div style={{ textAlign: 'center', padding: '10px' }}>
+              <button
+                onClick={loadMoreItems}
+                style={{
+                  padding: '10px 20px',
+                  backgroundColor: '#803d2a',
+                  color: '#fff',
+                  border: 'none',
+                  borderRadius: '5px',
+                  cursor: 'pointer',
+                }}
+              >
+                View More
+              </button>
             </div>
           )}
 
