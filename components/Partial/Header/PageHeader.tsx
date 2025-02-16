@@ -66,7 +66,7 @@ const PageHeader: React.FC = () => {
 );
 
 const searchEngine = (inputValue: any) => {
-  throttledSearchEngine(inputValue); // Call the throttled function
+  throttledSearchEngine(inputValue.target.value); // Call the throttled function
 };
 
   return (
