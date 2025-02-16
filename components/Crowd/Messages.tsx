@@ -120,7 +120,7 @@ const Messages = () => {
                         <div
                           style={{
                             ...style,
-                            marginBottom: '15px',
+                            marginBottom: '5px',
                             padding: '10px 0',
                             display: 'flex',
                             flexDirection: 'column',
