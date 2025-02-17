@@ -109,7 +109,7 @@ const ProductTabs:React.FC<PropsProductTabs> = ({data}:any) =>{
       <div className="flex w-full flex-col">
         <div className="grid grid-cols-3 gap-4">
           {optional_rendering_button_gallery()}
-          {/* {optional_rendering_button_3D_model()} */}
+          {optional_rendering_button_3D_model()}
           {/* {optional_rendering_button_3D_vto()} */}
         </div>
         <div id="Gallery" className="tabcontent">
