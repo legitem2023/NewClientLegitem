@@ -1896,7 +1896,8 @@ input[type='date']{
 }
 .UniversalLabels{
   display: flex;
-  flex-direction:row
+  flex-direction:row;
+  padding:5px;
 }
 
 .UniversalContainerFooter{
