@@ -2086,7 +2086,10 @@ input[type='date']{
 .thumbElements{
   padding:1px;
   /* border-radius: 20px; */
-  display: grid;
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* Limit to 2 lines */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
   /* text-overflow:ellipsis; */
   justify-content: flex-start!important;
   align-items: center!important;
