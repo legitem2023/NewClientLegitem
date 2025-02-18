@@ -2045,12 +2045,6 @@ input[type='date']{
   /* background: linear-gradient(to top,  #00ffbf, rgb(0, 190, 143)); */
   width: 100%;
   height: auto;
-  /* border-radius: 0px 0px 8px 8px; */
-  overflow: hidden;
-  overflow: hidden; /* Hide any overflowed text */
-  text-overflow: ellipsis; /* Add ellipsis (...) when the text overflows */
-  white-space: nowrap; /* Ensure the text doesn't wrap to a new line */
-  display: block;
   font-size: 0.9vw;
 }
 .Price{
