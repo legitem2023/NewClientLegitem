@@ -29,7 +29,7 @@ export const Gallery:React.FC<PropsGallery> = ({data,length,slidesPerView,spaceB
       modules={[Pagination]}
       loop={true}>
       {length.length > 0?
-        data.getRelatedProduct.map((item:any, i:any) => (
+        data.map((item:any, i:any) => (
         <SwiperSlide key={i}>
             <Image key={i} 
                    src={imageSourceGallery(item)} 
