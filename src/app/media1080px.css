@@ -348,6 +348,9 @@
    #textarea{
        height:40px;
    }
+    .searchEngine{
+        padding:5px;
+    }
     #canvas {
         width: 100vw !important;
         height: auto !important;
