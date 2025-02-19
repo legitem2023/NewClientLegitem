@@ -89,7 +89,7 @@ const ProductTabs:React.FC<PropsProductTabs> = ({data}:any) =>{
   const optional_rendering_tab_gallery = () =>{
     if (isActive === "Gallery") {
       return (
-        <Gallery data={data.subImageFieldOut} length={data} slidesPerView={1} spaceBetween={50}/>
+        <Gallery data={data} length={data} slidesPerView={1} spaceBetween={50}/>
       );
     }
   }
