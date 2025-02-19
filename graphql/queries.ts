@@ -343,6 +343,12 @@ query GetRelatedProduct {
     TotalRatings
     dateCreated
     dateUpdated
+    subImageFieldOut {
+      ImagePath
+      id
+      subImageRelationChild
+      subImageRelationParent
+    }
     Ratings {
       Ratings
       productCode
