@@ -51,7 +51,7 @@ const ProductView: React.FC = () => {
   };
 
   if (viewedProd.length < 1) return null; // Return null if no viewed products
-comsole.log(viewedProd + "prod")
+comsole.log(viewedProd + "prod");
   return (
     <Suspense fallback={<Loading />}>
       {viewedProd.length > 0 && viewedProd.map((viewItem: any, idx: any) => (
