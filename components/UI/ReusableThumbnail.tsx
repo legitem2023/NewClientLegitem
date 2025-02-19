@@ -14,6 +14,7 @@ import Discounted from './Discounted';
 import Name from './Name';
 import Sold from './Sold';
 import Element from './Element';
+import { CldImage } from 'next-cloudinary';
 
 type ReusableThumbnailProps = {
   item: any;
@@ -38,11 +39,12 @@ const ReusableThumbnail: React.FC<ReusableThumbnailProps> = ({
       <div className="thumbnailImageContainer">
         {item.model===null?"":(<Optional3D/>)}
         {item.discount > 0?(<Discounted_/>):""}
-          <Image
+          <CldImage
             src={imageSource(item)}
             loading='lazy'
             height="200"
             width="200"
+            removeBackground
             quality={100}
             alt={item.id}
             onClick={view}
