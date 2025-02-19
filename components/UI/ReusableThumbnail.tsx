@@ -44,7 +44,6 @@ const ReusableThumbnail: React.FC<ReusableThumbnailProps> = ({
             loading='lazy'
             height="200"
             width="200"
-            removeBackground
             quality={100}
             alt={item.id}
             onClick={view}
