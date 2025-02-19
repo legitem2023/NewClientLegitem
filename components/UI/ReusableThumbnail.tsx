@@ -39,7 +39,7 @@ const ReusableThumbnail: React.FC<ReusableThumbnailProps> = ({
       <div className="thumbnailImageContainer">
         {item.model===null?"":(<Optional3D/>)}
         {item.discount > 0?(<Discounted_/>):""}
-          <CldImage
+          <Image
             src={imageSource(item)}
             loading='lazy'
             height="200"
