@@ -86,7 +86,7 @@ const Messages = () => {
       child3={() => (
         <div style={{ height: '92vh', width: '100%', display: 'flex', flexDirection: 'column' }}>
           <ReusableMessageInput textRef={textareaRef} event={handleSubmit} loading={isMessageLoading} />
-          <div ref={containerRef} style={{ flex: 1, overflowY: 'auto' }}>
+          <div ref={containerRef} style={{ flex: 1, height: 'auto' }}>
             {posts.slice(0, visibleItems).map((message) => (
               <ReusableMessage key={message.id} data={message} />
             ))}
