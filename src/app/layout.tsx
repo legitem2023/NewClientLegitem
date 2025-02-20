@@ -22,6 +22,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <head>
+        <SEO/>
         <link rel="manifest" href='/manifest.json' sizes="any" />
       </head>
       <body className={inter.className}>
