@@ -15,7 +15,7 @@ import { setViewedProd } from 'Redux/viewedProdSlice';
 import { formatter, imageSource } from 'utils/scripts';
 import { RelatedProductsProps } from 'utils/types/types';
 
-const RelatedProducts: React.FC<RelatedProductsProps> = ({ data }) => {
+const RelatedProducts = ({ data }) => {
   const path = process.env.NEXT_PUBLIC_PATH;
   const [take, setTake] = useState(10);
   const dispatch = useDispatch();
