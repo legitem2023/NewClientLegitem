@@ -6,7 +6,7 @@ import './media1080px.css'
 import ReduxWrapper from 'components/ApolloProvider/ReduxWrapper'
 import { ShoppingCartProvider } from 'components/context/ShoppingCartProvider'
 import * as React from "react";
-import SEO from 'components/Partial/Header/SEO';
+import SEO from 'components/Partial/Header/Seo';
 import { NotificationProvider } from 'components/context/NotificationContext'
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
