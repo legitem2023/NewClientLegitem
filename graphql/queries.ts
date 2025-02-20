@@ -297,6 +297,12 @@ query GetChildInventory_details($styleCode: String) {
     TotalRatings
     dateCreated
     dateUpdated
+    subImageFieldOut {
+      ImagePath
+      id
+      subImageRelationChild
+      subImageRelationParent
+    }
     Ratings {
       Ratings
       productCode
