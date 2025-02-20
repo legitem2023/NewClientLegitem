@@ -92,6 +92,7 @@ const Messages = () => {
 
   return (
     <ReusableCenterLayout
+      child1={() =><></>}
       child2={() => activeStream && (
         <div className="messagesLI">
           <video ref={videoRef} className="messageVideo" autoPlay playsInline muted />
@@ -139,6 +140,7 @@ const Messages = () => {
           </AutoSizer>
         </div>
       )}
+      child4={() =><></>}
     />
   );
 };
