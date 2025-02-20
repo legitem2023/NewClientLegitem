@@ -8,7 +8,6 @@ import ReusableCenterLayout from 'components/Layout/ReusableCenterLayout';
 import ReusableMessage from 'components/UI/ReusableMessage';
 import { useSelector } from 'react-redux';
 import ReusableMessageInput from 'components/UI/ReusableMessageInput';
-import { List, AutoSizer, CellMeasurer, CellMeasurerCache } from 'react-virtualized';
 import CrowdLoading from './CrowdLoading';
 import ReusableServerDown from 'components/UI/ReusableServerDown';
 
@@ -17,24 +16,14 @@ const Messages = () => {
   const { activeStream } = useSelector((state: any) => state.streaming);
 
   const videoRef = useRef(null);
-  const cache = useRef(new CellMeasurerCache({ 
-    defaultHeight: 100, // More conservative default height
-    fixedWidth: true, 
-    fixedHeight: false 
-  }));
-
   const [posts, setPosts] = useState([]);
-  const [isListLoading, setIsListLoading] = useState(true);
   const [isMessageLoading, setIsMessageLoading] = useState(false);
   const textareaRef = useRef(null);
-  const listRef = useRef(null);
+  const [visibleItems, setVisibleItems] = useState(20);
+  const containerRef = useRef<HTMLDivElement>(null);
 
   const { loading, error, data, subscribeToMore } = useQuery(GET_MESSAGES, {
-    onCompleted: () => {
-      setIsListLoading(false);
-      // Reset cache when initial data loads
-      cache.current.clearAll();
-    },
+    onCompleted: () => setIsListLoading(false),
   });
 
   const [insertMessage] = useMutation(SEND_MESSAGE);
@@ -45,11 +34,6 @@ const Messages = () => {
       updateQuery: (prev, { subscriptionData }) => {
         if (!subscriptionData.data) return prev;
         const newMessage = subscriptionData.data.messageAdded;
-        if (!newMessage?.id) return prev;
-
-        // Clear cache when new messages arrive
-        cache.current.clearAll();
-        
         return {
           ...prev,
           messages: prev.messages ? [newMessage, ...prev.messages] : [newMessage],
@@ -60,11 +44,7 @@ const Messages = () => {
   }, [subscribeToMore]);
 
   useEffect(() => {
-    if (data) {
-      setPosts(data.messages || []);
-      // Reset list measurements when data changes
-      listRef.current?.recomputeRowHeights();
-    }
+    if (data) setPosts(data.messages || []);
     if (videoRef.current && activeStream) videoRef.current.srcObject = activeStream;
   }, [data, activeStream]);
 
@@ -86,58 +66,50 @@ const Messages = () => {
     }
   };
 
+  const loadMore = () => {
+    setVisibleItems(prev => Math.min(prev + 20, posts.length));
+  };
+
   if (!cookie) return <div>No cookie found</div>;
   if (loading) return <CrowdLoading />;
   if (error) return <ReusableServerDown />;
 
   return (
     <ReusableCenterLayout
-      child1={() =><></>}
+      child1={() => <></>}
       child2={() => activeStream && (
         <div className="messagesLI">
           <video ref={videoRef} className="messageVideo" autoPlay playsInline muted />
         </div>
       )}
       child3={() => (
-        <div style={{ height: '92vh', width: '100%' }}> {/* Fixed height container */}
+        <div style={{ height: '92vh', width: '100%', display: 'flex', flexDirection: 'column' }}>
           <ReusableMessageInput textRef={textareaRef} event={handleSubmit} loading={isMessageLoading} />
-          <AutoSizer>
-            {({ height, width }) => (
-              <List
-                height={height}
-                width={width}
-                deferredMeasurementCache={cache.current}
-                rowHeight={cache.current.rowHeight}
-                rowCount={posts.length}
-                rowKey={({ index }) => posts[index]?.id || index} // Stable row keys
-                ref={listRef}
-                rowRenderer={({ key, index, style, parent }) => {
-                  const message = posts[index];
-                  return (
-                    <CellMeasurer
-                      key={message?.id || key} // Use message ID for cache identity
-                      cache={cache.current}
-                      columnIndex={0}
-                      rowIndex={index}
-                      parent={parent}
-                    >
-                      {({ measure }) => (
-                        <div
-                          style={{ ...style, padding: '10px 0' }}
-                          onLoad={measure}
-                        >
-                          <ReusableMessage data={message} onChange={measure} />
-                        </div>
-                      )}
-                    </CellMeasurer>
-                  );
-                }}
-              />
+          <div ref={containerRef} style={{ flex: 1, overflowY: 'auto' }}>
+            {posts.slice(0, visibleItems).map((message) => (
+              <ReusableMessage key={message.id} data={message} />
+            ))}
+            {visibleItems < posts.length && (
+              <div style={{ textAlign: 'center', padding: '10px' }}>
+                <button 
+                  onClick={loadMore}
+                  style={{
+                    padding: '8px 16px',
+                    backgroundColor: '#0070f3',
+                    color: 'white',
+                    border: 'none',
+                    borderRadius: '4px',
+                    cursor: 'pointer'
+                  }}
+                >
+                  View More
+                </button>
+              </div>
             )}
-          </AutoSizer>
+          </div>
         </div>
       )}
-      child4={() =><></>}
+      child4={() => <></>}
     />
   );
 };
