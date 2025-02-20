@@ -1,11 +1,11 @@
 {
-    "theme_color": "#35f644",
-    "background_color": "#35f665",
+    "theme_color": "#ffcc99",
+    "background_color": "#ffcc99",
     "display": "fullscreen",
     "scope": "/",
     "start_url": "/",
-    "name": "Legitem.com.ph",
-    "short_name": "Legitem",
+    "name": "e-crowd.com.ph",
+    "short_name": "e-crowd",
     "icons": [
         {
             "src": "/icon-192x192.png",
