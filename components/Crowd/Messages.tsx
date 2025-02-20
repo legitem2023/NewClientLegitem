@@ -126,10 +126,7 @@ const Messages = () => {
                           style={{ ...style, padding: '10px 0' }}
                           onLoad={measure}
                         >
-                          <ReusableMessage 
-                            data={message} 
-                            onContentResize={measure} // Trigger measure on content changes
-                          />
+                          <ReusableMessage data={message} onChange={measure} />
                         </div>
                       )}
                     </CellMeasurer>
