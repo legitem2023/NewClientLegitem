@@ -19,6 +19,7 @@ const Messages = () => {
   const [posts, setPosts] = useState([]);
   const [isMessageLoading, setIsMessageLoading] = useState(false);
   const textareaRef = useRef(null);
+  const [isListLoading, setIsListLoading] = useState(true);
   const [visibleItems, setVisibleItems] = useState(20);
   const containerRef = useRef<HTMLDivElement>(null);
 
