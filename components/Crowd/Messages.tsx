@@ -17,7 +17,11 @@ const Messages = () => {
   const { activeStream } = useSelector((state: any) => state.streaming);
 
   const videoRef = useRef(null);
-  const cache = useRef(new CellMeasurerCache({ defaultHeight: 300, fixedWidth: true, fixedHeight: false }));
+  const cache = useRef(new CellMeasurerCache({ 
+    defaultHeight: 100, // More conservative default height
+    fixedWidth: true, 
+    fixedHeight: false 
+  }));
 
   const [posts, setPosts] = useState([]);
   const [isListLoading, setIsListLoading] = useState(true);
@@ -26,7 +30,11 @@ const Messages = () => {
   const listRef = useRef(null);
 
   const { loading, error, data, subscribeToMore } = useQuery(GET_MESSAGES, {
-    onCompleted: () => setIsListLoading(false),
+    onCompleted: () => {
+      setIsListLoading(false);
+      // Reset cache when initial data loads
+      cache.current.clearAll();
+    },
   });
 
   const [insertMessage] = useMutation(SEND_MESSAGE);
@@ -37,28 +45,28 @@ const Messages = () => {
       updateQuery: (prev, { subscriptionData }) => {
         if (!subscriptionData.data) return prev;
         const newMessage = subscriptionData.data.messageAdded;
-        if (newMessage.id === null || newMessage.Sender === null) return prev;
+        if (!newMessage?.id) return prev;
 
+        // Clear cache when new messages arrive
+        cache.current.clearAll();
+        
         return {
           ...prev,
           messages: prev.messages ? [newMessage, ...prev.messages] : [newMessage],
         };
       },
     });
-    return () => {
-      unsubscribe();
-    };
+    return () => unsubscribe();
   }, [subscribeToMore]);
 
   useEffect(() => {
     if (data) {
       setPosts(data.messages || []);
-      setIsListLoading(false);
+      // Reset list measurements when data changes
+      listRef.current?.recomputeRowHeights();
     }
     if (videoRef.current && activeStream) videoRef.current.srcObject = activeStream;
   }, [data, activeStream]);
-
-  if (!cookie) return <div>No cookie found</div>;
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -75,76 +83,62 @@ const Messages = () => {
       } finally {
         setIsMessageLoading(false);
       }
-    } else {
-      textareaRef.current?.focus();
     }
   };
 
+  if (!cookie) return <div>No cookie found</div>;
   if (loading) return <CrowdLoading />;
   if (error) return <ReusableServerDown />;
 
-  function multiplyArray(data, times) {
-    return Array(times).fill(data).flat();
-  }
-
-  const result = multiplyArray(posts, 1);
-
   return (
     <ReusableCenterLayout
-      child1={() => <></>}
-      child2={() =>
-        activeStream ? (
-          <div className="messagesLI">
-            <video ref={videoRef} className="messageVideo" autoPlay playsInline muted />
-          </div>
-        ) : null
-      }
+      child2={() => activeStream && (
+        <div className="messagesLI">
+          <video ref={videoRef} className="messageVideo" autoPlay playsInline muted />
+        </div>
+      )}
       child3={() => (
-        <div style={{ minHeight: '92vh', height: 'auto', width: '100%' }}>
+        <div style={{ height: '92vh', width: '100%' }}> {/* Fixed height container */}
           <ReusableMessageInput textRef={textareaRef} event={handleSubmit} loading={isMessageLoading} />
           <AutoSizer>
-            {({ height, width }) =>
-              isListLoading ? (
-                <CrowdLoading />
-              ) : (
-                <List
-                  height={height}
-                  width={width}
-                  rowHeight={cache.current.rowHeight}
-                  deferredMeasurementCache={cache.current}
-                  rowCount={result.length}
-                  ref={listRef}
-                  rowRenderer={({ key, index, style, parent }) => (
-                    <CellMeasurer key={key} cache={cache.current} columnIndex={0} rowIndex={index} parent={parent}>
+            {({ height, width }) => (
+              <List
+                height={height}
+                width={width}
+                deferredMeasurementCache={cache.current}
+                rowHeight={cache.current.rowHeight}
+                rowCount={posts.length}
+                rowKey={({ index }) => posts[index]?.id || index} // Stable row keys
+                ref={listRef}
+                rowRenderer={({ key, index, style, parent }) => {
+                  const message = posts[index];
+                  return (
+                    <CellMeasurer
+                      key={message?.id || key} // Use message ID for cache identity
+                      cache={cache.current}
+                      columnIndex={0}
+                      rowIndex={index}
+                      parent={parent}
+                    >
                       {({ measure }) => (
                         <div
-                          style={{
-                            ...style,
-                            marginBottom: '5px',
-                            padding: '10px 0',
-                            display: 'flex',
-                            flexDirection: 'column',
-                            width: '100%',
-                            scrollSnapType: 'both mandatory',
-                          }}
+                          style={{ ...style, padding: '10px 0' }}
                           onLoad={measure}
                         >
-                          {isListLoading ? (
-                            <div className="skeleton-loader" style={{ height: '50px', background: '#f0f0f0' }} />
-                          ) : (
-                            <ReusableMessage data={result[index]} onChange={measure} />
-                          )}
+                          <ReusableMessage 
+                            data={message} 
+                            onContentResize={measure} // Trigger measure on content changes
+                          />
                         </div>
                       )}
                     </CellMeasurer>
-                  )}
-                />
-              )
-            }
+                  );
+                }}
+              />
+            )}
           </AutoSizer>
         </div>
       )}
-      child4={() => <></>}
     />
   );
 };
