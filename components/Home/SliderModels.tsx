@@ -15,13 +15,13 @@ const SliderModels = () => {
             }}
             modules={[Pagination]}
             loop={false}>
-              <SwiperSlide className="border-2 border-gray-300" onClick={()=>view(item)}>
+              <SwiperSlide className="border-2 border-gray-300">
                  <ModelViewer data="/modern_luxury_villa_house_building_home.glb"/> 
               </SwiperSlide>
-              <SwiperSlide className="border-2 border-gray-300" onClick={()=>view(item)}>
+              <SwiperSlide className="border-2 border-gray-300" >
                  <ModelViewer data="/modern_luxury_villa_house_building_home.glb"/> 
               </SwiperSlide>
-              <SwiperSlide  className="border-2 border-gray-300" onClick={()=>view(item)}>
+              <SwiperSlide  className="border-2 border-gray-300" >
                  <ModelViewer data="/modern_luxury_villa_house_building_home.glb"/> 
               </SwiperSlide>
           </Swiper>
