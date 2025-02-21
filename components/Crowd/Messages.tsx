@@ -90,7 +90,7 @@ const Messages = () => {
       child3={() => (
         <div style={{ minHeight:'90vh',height: 'auto', width: '100%', display: 'flex', flexDirection: 'column' }}>
           <ReusableMessageInput textRef={textareaRef} event={handleSubmit} loading={isMessageLoading} />
-          <div ref={containerRef} style={{ flex: 1, height: 'auto' }}>
+          <div ref={containerRef} style={{ flex: 1, height: 'auto',marginBottom:'5px' }}>
             {posts.slice(0, visibleItems).map((message) => (
              /* <ReusableMessage key={message.id} data={message} />*/
               <MemoizedMessage key={message.id}data={message} />
