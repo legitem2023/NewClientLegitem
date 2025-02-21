@@ -9,7 +9,7 @@ const SliderModels = () => {
     
     return (
             <Swiper
-            slidesPerView={3}
+            slidesPerView={1}
             pagination={{
               clickable: true,
             }}
