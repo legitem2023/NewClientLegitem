@@ -151,7 +151,7 @@ const Products: React.FC = () => {
                   <ReusableThumbnail
                     item={item}
                     path={path}
-                    view={() => openModal(item.id, item)}
+                    view={() => openModal(item.thumbnail, item)}
                     addcart={() => (<AddCartCmd item={item} />)}
                     handleLoading={handleLoading}
                     handleError={handleError}
