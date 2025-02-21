@@ -92,7 +92,7 @@ const Messages = () => {
           <ReusableMessageInput textRef={textareaRef} event={handleSubmit} loading={isMessageLoading} />
           <div ref={containerRef} style={{ flex: 1, height: 'auto' }}>
             {posts.slice(0, visibleItems).map((message) => (
-              <ReusableMessage key={message.id} data={message} />
+             /* <ReusableMessage key={message.id} data={message} />*/
               <MemoizedMessage key={message.id}data={message} />
             ))}
             {visibleItems < posts.length && (
