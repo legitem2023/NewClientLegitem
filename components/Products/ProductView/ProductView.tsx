@@ -51,7 +51,6 @@ const ProductView: React.FC = () => {
   };
 
   if (viewedProd.length < 1) return null; // Return null if no viewed products
-console.log(viewedProd);
   return (
     <Suspense fallback={<Loading />}>
       {viewedProd.length > 0 && viewedProd.map((viewItem: any, idx: any) => (
@@ -63,7 +62,7 @@ console.log(viewedProd);
               <Icon icon="ic:sharp-double-arrow" rotate={2} className='backIcon' /> Back
             </div>
             <div className='MainView_LchildGallery'>
-              <ProductTabs data={viewItem.subImageFieldOut} />
+              <ProductTabs data={viewItem} />
               <div className='MainView_LchildGalleryDetails'>
                 <Element Label="Name" value={viewItem.name} />
                 <Element Label="Price" value={formatter.format(viewItem.price)} />

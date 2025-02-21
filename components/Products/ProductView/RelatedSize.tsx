@@ -7,6 +7,11 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { useDispatch } from 'react-redux'
 import { setViewedProd } from 'Redux/viewedProdSlice'
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Pagination } from 'swiper/modules';
+import 'swiper/css/pagination';
+import 'swiper/css';
+import 'swiper/css/scrollbar';
 const RelatedSize = ({styleCode}) => {
     const {data,loading,error} = useQuery(GET_CHILD_INVENTORY_RELATED_COLOR_SIZE,{
         variables:{
@@ -24,13 +29,27 @@ const RelatedSize = ({styleCode}) => {
         dispatch(setViewedProd([item]))
       }
     return (
-    <div className='colorSelection'>{
-        data.getChildInventory_details.map((item:any)=>(
-            <div key={item.id} onClick={()=>view(item)}>
-                {item.size}
-            </div>
-        ))
-    }</div>
+            <Swiper
+            slidesPerView={3}
+            pagination={{
+              clickable: true,
+            }}
+            modules={[Pagination]}
+            loop={false}>
+            {data.getChildInventory_details.map((item:any, i:any) => (
+              <SwiperSlide key={i} onClick={()=>view(item)}>
+                  {item.size}
+              </SwiperSlide>
+            ))
+            }
+          </Swiper>
+    // <div className='colorSelection'>{
+    //     data.getChildInventory_details.map((item:any)=>(
+    //         <div key={item.id} onClick={()=>view(item)}>
+    //             {item.size}
+    //         </div>
+    //     ))
+    // }</div>
   )
 }
 

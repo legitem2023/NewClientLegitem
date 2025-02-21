@@ -1980,7 +1980,7 @@ input[type='date']{
 .thumbnail {
   display: grid;
   grid-template-columns: 100%;
-  grid-template-rows:60% 40%;
+  grid-template-rows:auto auto;
   /* border-radius: 10px; */
   padding:3px;
   border:solid 5px #ffffff;
@@ -2167,6 +2167,8 @@ input[type='date']{
   justify-content: center;
   align-items: center;
   position: relative;
+  height:200px;
+  width: auto;
 }
 
 .thumbnailImageContainer a {

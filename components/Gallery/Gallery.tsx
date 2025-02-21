@@ -19,17 +19,21 @@ export const Gallery:React.FC<PropsGallery> = ({data,length,slidesPerView,spaceB
   const imgPath = process.env.NEXT_PUBLIC_SERVER_PRODUCT_IMAGE_PATH || '';
   const viewedID = useSelector((state:any) => state.viewed.viewed); // Access category state
 
+  const initialSlideIndex = data.subImageFieldOut.findIndex((img) => img.id.toString() === viewedID.toString());
+  console.log(data.subImageFieldOut);
+  console.log(viewedID);
   return (
       <Swiper
       spaceBetween={spaceBetween}
       slidesPerView={slidesPerView}
+      initialSlide={initialSlideIndex !== -1 ? initialSlideIndex : 0}
       pagination={{
         clickable: true,
       }}
       modules={[Pagination]}
       loop={true}>
-      {length.length > 0?
-        data.map((item:any, i:any) => (
+      {length.subImageFieldOut.length > 0?
+        data.subImageFieldOut.map((item:any, i:any) => (
         <SwiperSlide key={i}>
             <Image key={i} 
                    src={imageSourceGallery(item)} 

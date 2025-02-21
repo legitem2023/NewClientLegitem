@@ -48,7 +48,6 @@ const RelatedProducts = ({ data }) => {
     console.log([item]);
     dispatch(setViewedProd([item]));
   };
-
   return (
     <div className='MainView_Rchild'>
       <ReusableLabel icn='' label='Related Product'/>
