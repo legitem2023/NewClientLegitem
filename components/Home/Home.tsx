@@ -2,7 +2,7 @@ import { useQuery } from '@apollo/client';
 import Carousel from 'components/Carousel';
 import ReusableCenterLayout from 'components/Layout/ReusableCenterLayout'
 import Loading from 'components/Partial/LoadingAnimation/Loading';
-import SliderModel from 'SliderModel';
+import SliderModels from 'SliderModels';
 import Menu from 'components/Partial/Menu';
 import { GET_CATEGORY } from 'graphql/queries';
 import React from 'react'
@@ -16,7 +16,7 @@ const Home = () => {
       child1={()=>(         <Carousel data={Category?.getCategory} fromData={"Category"}></Carousel>
       )}
       child2={()=>(
-        <SliderModel/>
+        <SliderModels/>
       )}
       child3={()=>(<></>)}
       child4={()=>(<></>)}
