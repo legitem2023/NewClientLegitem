@@ -37,7 +37,7 @@ const RelatedSize = ({styleCode}) => {
             modules={[Pagination]}
             loop={false}>
             {data.getChildInventory_details.map((item:any, i:any) => (
-              <SwiperSlide key={i} onClick={()=>view(item)}>
+              <SwiperSlide key={i} className="border-2 border-gray-300" onClick={()=>view(item)}>
                   {item.size}
               </SwiperSlide>
             ))
