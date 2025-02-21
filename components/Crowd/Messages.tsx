@@ -75,6 +75,10 @@ const Messages = () => {
   if (loading) return <CrowdLoading />;
   if (error) return <ReusableServerDown />;
 
+  const MemoizedMessage = React.memo(ReusableMessage);
+
+// Usage in list
+
   return (
     <ReusableCenterLayout
       child1={() => <></>}
@@ -89,6 +93,7 @@ const Messages = () => {
           <div ref={containerRef} style={{ flex: 1, height: 'auto' }}>
             {posts.slice(0, visibleItems).map((message) => (
               <ReusableMessage key={message.id} data={message} />
+              <MemoizedMessage key={message.id}data={message} />
             ))}
             {visibleItems < posts.length && (
               <div style={{ textAlign: 'center', padding: '10px' }}>
