@@ -16,13 +16,13 @@ const SliderModels = () => {
             modules={[Pagination]}
             loop={false}>
               <SwiperSlide className="border-2 border-gray-300">
-                 <ModelViewer data="/modern_luxury_villa_house_building_home.glb"/> 
+                 <ModelViewer data="https://new-client-legitem.vercel.app/modern_luxury_villa_house_building_home.glb"/> 
               </SwiperSlide>
               <SwiperSlide className="border-2 border-gray-300" >
-                 <ModelViewer data="/modern_luxury_villa_house_building_home.glb"/> 
+                 <ModelViewer data="https://new-client-legitem.vercel.app/modern_luxury_villa_house_building_home.glb"/> 
               </SwiperSlide>
               <SwiperSlide  className="border-2 border-gray-300" >
-                 <ModelViewer data="/modern_luxury_villa_house_building_home.glb"/> 
+                 <ModelViewer data="https://new-client-legitem.vercel.app/modern_luxury_villa_house_building_home.glb"/> 
               </SwiperSlide>
           </Swiper>
   )
