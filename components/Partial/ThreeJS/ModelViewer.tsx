@@ -32,7 +32,7 @@ const ModelViewer = ({data}) => {
                     src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"
                     strategy="lazyOnload"/>
             <model-viewer
-                src={data[0].model}
+                src={data}
                 alt="A 3D model"
                 ar
                 ar-scale="fixed"
