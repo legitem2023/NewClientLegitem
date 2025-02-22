@@ -31,6 +31,7 @@ const Store: React.FC = () => {
   const { data:Category, loading, error } = useQuery(GET_CATEGORY);
 
   const dispatch = useDispatch();
+const isModalOpen = useSelector((state: any) => state.modal.modal);
 
   const thumbnailCategory = useSelector((state:any) => state.category.category); // Access category state
   const thumbnailSearch = useSelector((state:any) => state.search.search);
