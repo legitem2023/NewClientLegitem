@@ -15,6 +15,7 @@
         flex-direction: column;
         justify-content: center;
         align-items: flex-start;
+        background-color:rgb(249 220 206);
     }
     .FootCenter div{
         margin:10px;
