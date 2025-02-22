@@ -6,7 +6,7 @@ import { handleError, handleLoading } from 'utils/scripts';
 import Thumbnail from 'components/UI/Thumbnail';
 import ReusableThumbnail from 'components/UI/ReusableThumbnail';
 import AddCartCmd from 'components/Commands/AddCartCmd';
-import {ViewedProduct} 'types/types';
+import {ViewedProduct} from 'types/types';
 import { useDispatch, useSelector } from 'react-redux';
 import ReusableSearch from 'components/UI/ReusableSearch';
 import { setSearch } from 'Redux/searchSlice';
