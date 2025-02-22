@@ -9,6 +9,7 @@ import UniversalPagination from 'components/Partial/Pagination/UniversalPaginati
 import { useRouter,useParams } from 'next/navigation';
 
 import Thumbnail from 'components/UI/Thumbnail';
+import ProductLoading from 'components/Products/ProductLoading';
 import { decode } from 'js-base64';
 import { useDispatch, useSelector } from 'react-redux';
 import { setcurrentPage } from 'Redux/currentPageSlice';
@@ -123,7 +124,7 @@ const Store: React.FC = () => {
   }) 
 
 
-  if (productsLoading) return <Loading />;
+  if (productsLoading) return <ProductLoading />;
   if (productsError) return <h1>Connection Error</h1>;
 
   return (
