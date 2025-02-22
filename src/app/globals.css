@@ -1398,7 +1398,7 @@ input[type='date']{
   top: 0px;
   height: 23vw;
   width: 33vw;
-  background: radial-gradient(ellipse at center, #63756c 0%, #007239 0%, #008975 34%, #00916d 50%, #009e79 67%, #29a086 78%, #00a380 100%);
+  background: radial-gradient(ellipse at center, #f5d7b4 0%, #f2c095 34%, #e8a97e 50%, #e0996e 67%, #d98b60 78%, #d07d55 100%);
 }
 
 .ThreeJS {
