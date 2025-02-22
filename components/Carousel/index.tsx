@@ -44,7 +44,7 @@ export default function Carousel({data,fromData}) {
                     margin:"10px",
                     padding:"5px",
                     boxShadow:"0.5px 0.5px 3px #000000",
-                    backgroundColor:"#00a380" }}>{data[dataIndex].Name}</span>
+                    backgroundColor:"rgb(249 220 206)" }}>{data[dataIndex].Name}</span>
       </div>
       </div>
     );

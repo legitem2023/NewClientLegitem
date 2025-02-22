@@ -30,7 +30,7 @@ const ProductLoading = () => {
                         </div>
                         <div className='thumbnail'>
                             <div className='thumbnailImageContainer'>
-                                <div className='loading-screen'>Free Tier has cold start expect 30 delay</div>
+                                <div className='loading-screen'></div>
                             </div>
                             <div className='labels'>
                                     <div className='loading-screen'></div>    

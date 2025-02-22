@@ -102,9 +102,9 @@
 .body {
   display: grid;
   grid-template-columns: 20% auto 20%;
-  /* background-color: #00a380; */
   background-color: rgb(255 246 229);
-
+  width: 100%;
+  position: relative;
 }
 .LeftWing,
 .RightWing {
@@ -206,7 +206,6 @@
 
 html,
 body {
-  max-width: 100vw;
   overflow-y: auto;
 }
 .PopCover{
@@ -594,7 +593,9 @@ input[type='date']{
   background-size: 75px auto;
 }
 
-
+.homeContainer{
+  position: relative;
+}
 .messagesUL {
   list-style-type: none;
   width: 100%!important;
@@ -1393,12 +1394,44 @@ input[type='date']{
   padding: 10px;
 }
 
+.swiper {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+
+  /* Center slide text vertically */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 .canvas {
   /* position: absolute; */
   top: 0px;
-  height: 23vw;
-  width: 33vw;
-  background: radial-gradient(ellipse at center, #fdece4 0%, #fbd4c8 34%, #f5bfb0 50%, #f0a899 67%, #e99a8c 78%, #e08b7f 100%);
+  height:auto;
+  width: 100%;
+  background: radial-gradient(
+    ellipse at center, 
+    #fff6f2 0%,  /* Mas light na peach */
+    #fde3d9 34%, 
+    #fcd3c6 50%, 
+    #fbc4b5 67%, 
+    #f7b2a4 78%, 
+    #f3a093 100%
+  );
   }
 
 .ThreeJS {
@@ -3763,7 +3796,15 @@ flex:1;
   .my-slide-component img{
     /* border: solid 2px #000000;
      */
-     background:radial-gradient(ellipse, #ceffed, #00b43c, rgb(1, 139, 54)) ;
+     background:radial-gradient(
+      ellipse at center, 
+      #fff6f2 0%,  /* Mas light na peach */
+      #fde3d9 34%, 
+      #fcd3c6 50%, 
+      #fbc4b5 67%, 
+      #f7b2a4 78%, 
+      #f3a093 100%
+    );
   }
 
 

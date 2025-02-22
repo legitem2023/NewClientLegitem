@@ -49,6 +49,7 @@ const ReusableThumbnail: React.FC<ReusableThumbnailProps> = ({
             onClick={view}
             onError={handleError}
             className="thumbnailImage"
+
           />
       </div>
       <div className="thumbnailTextContainer">
