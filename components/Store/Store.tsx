@@ -24,7 +24,7 @@ import { setsortBy } from 'Redux/sortBySlice';
 import { setsortDirection } from 'Redux/sortDirectionSlice';
 import Carousel from 'components/Carousel';
 import Modal from 'components/Products/Modal';
-import ProductView from 'components/Products/ProductView';
+import ProductView from 'components/Products/ProductView/ProductView';
 const Store: React.FC = () => {
   const param:any = useParams();
   const [isVisible, setIsVisible] = useState(false);
