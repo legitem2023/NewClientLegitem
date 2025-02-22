@@ -21,6 +21,7 @@ import ProductLoading from './ProductLoading';
 import { useRouter, usePathname } from 'next/navigation';
 import ReusableServerDown from 'components/UI/ReusableServerDown';
 import { Icon } from '@iconify/react';
+import ReusableLabel from 'components/UI/ReusableLabel';
 
 const itemsPerPage = 50; // Number of items to load per "page"
 
@@ -144,6 +145,7 @@ const Products: React.FC = () => {
         <div
           style={{ overflowY: 'auto', height: 'auto', scrollbarWidth: 'none' }} // Set height to auto
         >
+          <ReusableLabel icn='bi:tags-fill' label='Products'/>
           <div className="Thumbnails">
             {visibleProducts.length > 0 ? (
               visibleProducts.map((item: any, idx: number) => (

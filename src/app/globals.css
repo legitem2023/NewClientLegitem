@@ -407,7 +407,7 @@ input[type='date']{
   flex-direction: row;
   justify-content: flex-end;
   align-items: center;
-  margin:15px;
+  margin:10px;
   font-size: 35px;
   gap:5px;
   box-sizing: border-box;
@@ -423,7 +423,7 @@ input[type='date']{
   align-items: center;
   padding:5px;
   border-radius: 5px;
-  color:#00361b;
+  color:#3f1b1b;
   /* box-shadow: 0.5px 0.5px 3px #000; */
   text-shadow: 0.5px 0.5px 2px #000;
   box-sizing: border-box;
@@ -659,12 +659,11 @@ input[type='date']{
   justify-content: center;
   padding-left: 0px;
   box-shadow: 0.5px 0.5px 3px #707070;
-  margin-bottom: 20px;
+  margin-bottom: 10px!important;
   transition: ease 0.5s;
   background-color: #f1f1f1;
   width:100%!important;
   height:auto!important;
-  margin:2px;
 }
 
 
@@ -1261,10 +1260,11 @@ input[type='date']{
 .LabelHead {
   background: rgb(249 220 206);
   padding: 10px;
-  border-top: solid 3px #004127;
-  border-bottom: solid 3px #004127;
+  border-top: solid 3px rgb(87, 39, 0);
+  border-bottom: solid 3px rgb(87, 39, 0);
   font-size: 20px;
   font-weight: bold;
+  color:rgb(87, 39, 0);
 }
 
 .MainView_LchildGallery {
