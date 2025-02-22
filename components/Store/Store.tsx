@@ -4,7 +4,7 @@ import { useQuery } from '@apollo/client';
 import { GET_CATEGORY, GET_CHILD_INVENTORY } from 'graphql/queries';
 import Loading from 'components/Partial/LoadingAnimation/Loading';
 import ReusableThumbnail from 'components/UI/ReusableThumbnail';
-
+import AddCartCmd from 'components/Commands/AddCartCmd';
 import { handleError, handleLoading } from 'utils/scripts';
 import UniversalPagination from 'components/Partial/Pagination/UniversalPagination';
 import { useRouter,useParams } from 'next/navigation';
