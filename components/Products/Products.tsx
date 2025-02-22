@@ -175,8 +175,6 @@ const saveRecentlyVisited = (product:ViewedProduct ) => {
           </div>
           <ReusableLabel icn='bi:tags-fill' label='Products'/>
           <div className="Thumbnails">
-
-            <RecentlyVisited/>
             {visibleProducts.length > 0 ? (
               visibleProducts.map((item: any, idx: number) => (
                 <div key={idx}>
