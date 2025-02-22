@@ -2016,9 +2016,9 @@ input[type='date']{
   grid-template-rows:auto auto;
   /* border-radius: 10px; */
   padding:3px;
-  border:solid 5px #ffffff;
-  /*box-shadow: 0.5px 0.5px 3px #000;*/
-  background: rgb(255, 255, 255);
+  border:solid 5px rgb(255 246 229);
+  box-shadow: 0.5px 0.5px 3px #964b4b;
+  background: rgb(255 246 229);
   transition: ease 0.5s;
   min-height: 300px;
   height:auto;
@@ -2074,7 +2074,7 @@ input[type='date']{
 } */
 
 .thumbnailTextContainer {
-  background-color: rgb(255, 255, 255);
+  background-color: rgb(255 246 229);
   /* background: linear-gradient(to top,  #00ffbf, rgb(0, 190, 143)); */
   width: 100%;
   height: auto;
@@ -2126,8 +2126,10 @@ input[type='date']{
   justify-content: flex-end;
 }
 .thumbnailTextContainer > div{
-  display:grid;
-  grid-template-columns: 50% 50%;
+  display:flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
   width: 100%;
   box-sizing: border-box;
   padding:1px;
