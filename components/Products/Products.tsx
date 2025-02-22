@@ -169,7 +169,7 @@ const saveRecentlyVisited = (product:ViewedProduct ) => {
           style={{ overflowY: 'auto', height: 'auto', scrollbarWidth: 'none' }} // Set height to auto
         >
           
-          <ReusableLabel icn='carbon:recently-viewed' label='Recently Visited'/>
+          <ReusableLabel icn='carbon:recently-viewed' label='Recently Visited Products'/>
           <div className="Thumbnails">
           <RecentlyVisited/>
           </div>
