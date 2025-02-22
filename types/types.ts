@@ -32,6 +32,22 @@ export type ReusableMainLayoutProps = {
     qty:number
   }
 
+
+type SubImageFieldOut = {
+  ImagePath: string;
+  id: string;
+  subImageRelationChild: string | null;
+  subImageRelationParent: string | null;
+};
+
+type View = {
+  [key: string]: any; // Replace `any` with the actual type if known
+};
+
+type Rating = {
+  [key: string]: any; // Replace `any` with the actual type if known
+};
+
 export type ViewedProduct = {
   TotalRatings: number;
   TotalSoldItems: number;
