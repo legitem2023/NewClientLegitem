@@ -343,8 +343,8 @@
     }
 
     .canvas {
-        width: 100vw !important;
-        height: auto !important;
+        width: 100% !important;
+        height: 300px !important;
         position: relative;
     }
    #textarea{
