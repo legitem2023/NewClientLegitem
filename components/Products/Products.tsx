@@ -31,6 +31,25 @@ const Products: React.FC = () => {
   const pathname = usePathname();
   const isModalOpen = useSelector((state: any) => state.modal.modal);
 
+
+  
+const saveRecentlyVisited = (product: { id: string }) => {
+  if (typeof window === "undefined") return;
+  try {
+    const visited = JSON.parse(localStorage.getItem("recentlyVisited") || "[]");
+    if (!Array.isArray(visited)) return;
+    // Remove duplicate entries
+    const filtered = visited.filter((p) => p.id !== product.id);
+    // Add the new product at the beginning
+    filtered.unshift(product);
+    // Keep only the last 10 visited items
+    localStorage.setItem("recentlyVisited", JSON.stringify(filtered.slice(0, 10)));
+  } catch (error) {
+    console.error("Failed to update recently visited products:", error);
+  }
+};
+
+  
   const openModal = (id: string, items: any) => {
     dispatch(setviewed(id));
     dispatch(setmodal(true));
