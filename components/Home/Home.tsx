@@ -27,7 +27,11 @@ const Home = () => {
         </div>
         
       )}
-      child3={()=>(<></>)}
+      child3={()=>(
+        <div className='homeContainer'>
+        <ReusableLabel icn='carbon:recently-viewed' label='Most Viewed'/>
+      </div>
+      )}
       child4={()=>(<></>)}
     />
   )
