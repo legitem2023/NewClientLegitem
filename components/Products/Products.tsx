@@ -6,6 +6,7 @@ import { handleError, handleLoading } from 'utils/scripts';
 import Thumbnail from 'components/UI/Thumbnail';
 import ReusableThumbnail from 'components/UI/ReusableThumbnail';
 import AddCartCmd from 'components/Commands/AddCartCmd';
+import {ViewedProduct} 'types/types';
 import { useDispatch, useSelector } from 'react-redux';
 import ReusableSearch from 'components/UI/ReusableSearch';
 import { setSearch } from 'Redux/searchSlice';
@@ -33,7 +34,7 @@ const Products: React.FC = () => {
 
 
   
-const saveRecentlyVisited = (product: { id: string }) => {
+const saveRecentlyVisited = (product:ViewedProduct ) => {
   if (typeof window === "undefined") return;
   try {
     const visited = JSON.parse(localStorage.getItem("recentlyVisited") || "[]");
@@ -42,6 +43,7 @@ const saveRecentlyVisited = (product: { id: string }) => {
     const filtered = visited.filter((p) => p.id !== product.id);
     // Add the new product at the beginning
     filtered.unshift(product);
+    console.log(product);
     // Keep only the last 10 visited items
     localStorage.setItem("recentlyVisited", JSON.stringify(filtered.slice(0, 10)));
   } catch (error) {
@@ -54,6 +56,7 @@ const saveRecentlyVisited = (product: { id: string }) => {
     dispatch(setviewed(id));
     dispatch(setmodal(true));
     dispatch(setViewedProd([items]));
+    saveRecentlyVisited(items)
   };
 
   const thumbnailDiscounted = useSelector((state: any) => state.discounted.discounted);
