@@ -6,16 +6,16 @@ const ProductLoading = () => {
   return (
             <ReusableCenterLayout
                 child1={()=>(
-                    <></>
-                // <div className='card' style={{height:"30vh",marginBottom:"5px",boxShadow:"0.5px 0.5px 3px #000000"}}>
-                //     <div className='loading-screen'></div>
-                // </div>
+                <div  className='searchContaier'  style={{height:"45px",gap:"2px"}}>
+                    <div className='loading-screen' style={{boxSizing:"border-box"}}></div>
+                    <div className='loading-screen' style={{boxSizing:"border-box"}}></div>
+                </div>
                 )}
                 child2={()=>(
-                <div className='searchContaier' style={{height:"45px",gap:"2px"}}>
+                <div  style={{height:"45px",gap:"2px"}}>
                     <div className='loading-screen' style={{boxSizing:"border-box"}}></div>
-                    <div className='loading-screen' style={{boxSizing:"border-box"}}></div>
-                </div>)}
+                </div>
+                )}
                 child3={()=>(
                     <div className="Thumbnails">
                         <div className='thumbnail'>
