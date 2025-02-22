@@ -7,7 +7,7 @@ import { setmodal } from 'Redux/modalSlice';
 import { setviewed } from 'Redux/viewedSlice';
 import { setViewedProd } from 'Redux/viewedProdSlice';
 
-
+import { useDispatch, useSelector } from 'react-redux';
 
 const RecentlyVisited = () => {
  const dispatch = useDispatch();
