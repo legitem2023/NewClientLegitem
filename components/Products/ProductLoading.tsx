@@ -12,7 +12,7 @@ const ProductLoading = () => {
                 // </div>
                 )}
                 child2={()=>(
-                <div className='searchContaier' style={{height:"45px",gap:"5px"}}>
+                <div className='searchContaier' style={{height:"45px",gap:"2px"}}>
                     <div className='loading-screen' style={{boxSizing:"border-box"}}></div>
                     <div className='loading-screen' style={{boxSizing:"border-box"}}></div>
                 </div>)}
