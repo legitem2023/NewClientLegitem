@@ -13,6 +13,7 @@ import { setSearch } from 'Redux/searchSlice';
 import { setsortBy } from 'Redux/sortBySlice';
 import { setsortDirection } from 'Redux/sortDirectionSlice';
 import Modal from './Modal';
+import RecentlyVisited from './RecentlyVisited';
 import ProductView from 'components/Products/ProductView/ProductView';
 import { setmodal } from 'Redux/modalSlice';
 import ReusableCenterLayout from 'components/Layout/ReusableCenterLayout';
@@ -169,6 +170,8 @@ const saveRecentlyVisited = (product:ViewedProduct ) => {
         >
           <ReusableLabel icn='bi:tags-fill' label='Products'/>
           <div className="Thumbnails">
+
+            <RecentlyVisited/>
             {visibleProducts.length > 0 ? (
               visibleProducts.map((item: any, idx: number) => (
                 <div key={idx}>
