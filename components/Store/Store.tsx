@@ -3,10 +3,14 @@ import React, { useCallback, useMemo, useState } from 'react';
 import { useQuery } from '@apollo/client';
 import { GET_CATEGORY, GET_CHILD_INVENTORY } from 'graphql/queries';
 import Loading from 'components/Partial/LoadingAnimation/Loading';
+import ReusableThumbnail from 'components/UI/ReusableThumbnail';
 
 import { handleError, handleLoading } from 'utils/scripts';
 import UniversalPagination from 'components/Partial/Pagination/UniversalPagination';
 import { useRouter,useParams } from 'next/navigation';
+import { setmodal } from 'Redux/modalSlice';
+import { setviewed } from 'Redux/viewedSlice';
+import { setViewedProd } from 'Redux/viewedProdSlice';
 
 import Thumbnail from 'components/UI/Thumbnail';
 import ProductLoading from 'components/Products/ProductLoading';
@@ -18,8 +22,9 @@ import ReusableSearch from 'components/UI/ReusableSearch';
 import { setSearch } from 'Redux/searchSlice';
 import { setsortBy } from 'Redux/sortBySlice';
 import { setsortDirection } from 'Redux/sortDirectionSlice';
-import Carousel from 'components/Carousel'
-
+import Carousel from 'components/Carousel';
+import Modal from 'components/Products/Modal';
+import ProductView 'components/Products/ProductView';
 const Store: React.FC = () => {
   const param:any = useParams();
   const [isVisible, setIsVisible] = useState(false);
@@ -41,7 +46,11 @@ const Store: React.FC = () => {
     fetchPolicy: 'cache-and-network',
   });
 
-
+  const openModal = (id: string, items: any) => {
+    dispatch(setviewed(id));
+    dispatch(setmodal(true));
+    dispatch(setViewedProd([items]));
+  };
   const filteredProducts = useMemo(() => {
     if (!ProductsData) return [];
     
@@ -138,11 +147,14 @@ const Store: React.FC = () => {
     child3={()=>(
       <div className="Thumbnails">
       {paginatedProducts.length > 0?paginatedProducts.map((item: any, idx: number) => (
-        <Thumbnail key={idx} 
-                   item={item} 
-                   path={path} 
-                   handleLoading={handleLoading}
-                   handleError={handleError}/>
+        <ReusableThumbnail
+                    item={item}
+                    path={path}
+                    view={() => openModal(item.thumbnail, item)}
+                    addcart={() => (<AddCartCmd item={item} />)}
+                    handleLoading={handleLoading}
+                    handleError={handleError}
+                  />
       )):(<h2>No Data</h2>)}
       <div className="viewmore">
         <UniversalPagination
@@ -153,7 +165,11 @@ const Store: React.FC = () => {
       </div>
     </div>
     )}
-    child4={()=>(<></>)}
+    child4={()=>(
+      <Modal isOpen={isModalOpen}>
+          <ProductView />
+      </Modal>
+    )}
     />    
   );
 };
