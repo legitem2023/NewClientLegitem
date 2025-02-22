@@ -147,7 +147,8 @@ const Store: React.FC = () => {
     child3={()=>(
       <div className="Thumbnails">
       {paginatedProducts.length > 0?paginatedProducts.map((item: any, idx: number) => (
-        <ReusableThumbnail
+              <div key={idx}>
+                  <ReusableThumbnail
                     item={item}
                     path={path}
                     view={() => openModal(item.thumbnail, item)}
@@ -155,6 +156,7 @@ const Store: React.FC = () => {
                     handleLoading={handleLoading}
                     handleError={handleError}
                   />
+                </div>
       )):(<h2>No Data</h2>)}
       <div className="viewmore">
         <UniversalPagination
