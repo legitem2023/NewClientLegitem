@@ -7,10 +7,10 @@ import Menu from 'components/Partial/Menu';
 import { GET_CATEGORY } from 'graphql/queries';
 import React from 'react'
 import ReusableLabel from 'components/UI/ReusableLabel';
-
+import HomeLoading from './HomeLoading';
 const Home = () => {
     const { data:Category, loading, error } = useQuery(GET_CATEGORY);
-    if(loading) return <Loading/>
+    if(loading) return <HomeLoading/>
     if(error) return "Connection Error";
   return (
     <ReusableCenterLayout
