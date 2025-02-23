@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from 'react-redux';
-import { setIpAddress } from 'Redux/ipAddress';
+import { setIpAddress } from 'Redux/ipSlice';
 
 export default function ClientIP() {
   const [ip, setIp] = useState("Loading...");
