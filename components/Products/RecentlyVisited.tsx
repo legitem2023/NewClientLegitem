@@ -16,7 +16,7 @@ useEffect(()=>{
  if (typeof window === "undefined") return;
  const localstorage = JSON.parse(localStorage.getItem('recentlyVisited'));
    setVisited(localstorage)
-},[localStorage])
+},[])
  const path = process.env.NEXT_PUBLIC_PATH || '';
    const openModal = (id: string, items: any) => {
     dispatch(setviewed(id));
