@@ -27,7 +27,7 @@ useEffect(()=>{
   if(!visited) return
   return <>{(
     <>
-      <ReusableLabel icn='carbon:recently-viewed' label='Recently Visited Products'/>
+      <ReusableLabel icn='svg-spinners:clock' label='Recently Visited Products'/>
         <div className="Thumbnails">
         {visited.map((item: any, idx: number) => (
                 <div key={idx}>
