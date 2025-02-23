@@ -8,6 +8,7 @@ import { setviewed } from 'Redux/viewedSlice';
 import { setViewedProd } from 'Redux/viewedProdSlice';
 
 import { useDispatch, useSelector } from 'react-redux';
+import ReusableLabel from "components/UI/ReusableLabel";
 
 const RecentlyVisited = () => {
  const dispatch = useDispatch();
@@ -23,8 +24,12 @@ useEffect(()=>{
     dispatch(setmodal(true));
     dispatch(setViewedProd([items])); 
   };
-  return <>{visited.length > 0 ? (
-              visited.map((item: any, idx: number) => (
+  if(!visited) return
+  return <>{(
+    <>
+      <ReusableLabel icn='carbon:recently-viewed' label='Recently Visited Products'/>
+        <div className="Thumbnails">
+        {visited.map((item: any, idx: number) => (
                 <div key={idx}>
                   <ReusableThumbnail
                     item={item}
@@ -35,9 +40,9 @@ useEffect(()=>{
                     handleError={null}
                   />
                 </div>
-              ))
-            ) : (
-              <h2>No Data</h2>
+              ))}
+        </div>
+    </>
             )}</>
 };
 

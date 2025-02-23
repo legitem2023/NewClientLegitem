@@ -10,20 +10,14 @@ const HomeLoading = () => {
             <></>
         )}
         child2={()=>(
-            <div style={{display:"flex",flexDirection:"column"}} className="Messenger_inputs">
-                <div className='Messenger_inputs_fdiv'>
-                    <div className='loading-screen' style={{boxSizing:"border-box",height:"45px"}}></div>
-                </div>
-            </div>
+            <>
+            </>
     )}
         child3={()=>(
             <div className='messagesUL'>
-                <div className='messagesLI' style={{marginBottom:"25px"}}>
+                <div className='messagesLI' >
                     <div>
                         <div className='messageSender'>
-                            <div className='messageSenderImgcont'>
-                                <div className='loading-screen' style={{width:"50px",height:"50px",borderRadius:"100%"}}></div>
-                            </div>
                             <div className='loading-screen' style={{boxSizing:"border-box",height:"30px",width:"100%"}}></div>
                             <div className='loading-screen' style={{boxSizing:"border-box",height:"30px",width:"100%"}}></div>
                         </div>
@@ -38,12 +32,9 @@ const HomeLoading = () => {
                         </div>
                     </div>
                 </div>
-                <div className='messagesLI' style={{marginBottom:"25px"}}>
+                <div className='messagesLI' >
                     <div>
                         <div className='messageSender'>
-                            <div className='messageSenderImgcont'>
-                            <div className='loading-screen' style={{width:"50px",height:"50px",borderRadius:"100%"}}></div>
-                            </div>
                             <div className='loading-screen' style={{boxSizing:"border-box",height:"30px",width:"100%"}}></div>
                             <div className='loading-screen' style={{boxSizing:"border-box",height:"30px",width:"100%"}}></div>
                         </div>
@@ -58,12 +49,9 @@ const HomeLoading = () => {
                         </div>
                     </div>
                 </div>
-                <div className='messagesLI' style={{marginBottom:"25px"}}>
+                <div className='messagesLI' >
                     <div>
                         <div className='messageSender'>
-                            <div className='messageSenderImgcont'>
-                            <div className='loading-screen' style={{width:"50px",height:"50px",borderRadius:"100%"}}></div>
-                            </div>
                             <div className='loading-screen' style={{boxSizing:"border-box",height:"30px",width:"100%"}}></div>
                             <div className='loading-screen' style={{boxSizing:"border-box",height:"30px",width:"100%"}}></div>
                         </div>

@@ -6,7 +6,7 @@ import { handleError, handleLoading } from 'utils/scripts';
 import Thumbnail from 'components/UI/Thumbnail';
 import ReusableThumbnail from 'components/UI/ReusableThumbnail';
 import AddCartCmd from 'components/Commands/AddCartCmd';
-import {ViewedProduct} from 'types/types';
+import { ViewedProduct } from 'types/types';
 import { useDispatch, useSelector } from 'react-redux';
 import ReusableSearch from 'components/UI/ReusableSearch';
 import { setSearch } from 'Redux/searchSlice';
@@ -168,11 +168,7 @@ const saveRecentlyVisited = (product:ViewedProduct ) => {
         <div
           style={{ overflowY: 'auto', height: 'auto', scrollbarWidth: 'none' }} // Set height to auto
         >
-          
-          <ReusableLabel icn='carbon:recently-viewed' label='Recently Visited Products'/>
-          <div className="Thumbnails">
           <RecentlyVisited/>
-          </div>
           <ReusableLabel icn='bi:tags-fill' label='Products'/>
           <div className="Thumbnails">
             {visibleProducts.length > 0 ? (

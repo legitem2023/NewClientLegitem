@@ -108,9 +108,8 @@ const ProductLoading = () => {
                         </div>
                         <div className='labels'>
                                     <div className='loading-screen'></div>    
-                                    <div className='loading-screen'></div>
-                                    
-                            </div>
+                                    <div className='loading-screen'></div> 
+                        </div>
                     </div>
                     </div>
                 )}

@@ -60,7 +60,8 @@
 .labels div{
   margin-top:5px;
   box-sizing:border-box!important;
-  height: 30px;
+  min-height: 40px;
+  height: 100%;
 }
 @keyframes shimmerEffect {
   0% {
@@ -2014,7 +2015,6 @@ input[type='date']{
   display: grid;
   grid-template-columns: 100%;
   grid-template-rows:auto auto;
-  /* border-radius: 10px; */
   padding:3px;
   border:solid 5px rgb(255 246 229);
   box-shadow: 0.5px 0.5px 3px #964b4b;
@@ -2022,8 +2022,6 @@ input[type='date']{
   transition: ease 0.5s;
   min-height: 300px;
   height:auto;
-  /*border: solid 5px #ffd7a8;*/
- 
 }
 
 .thumbnailParent{

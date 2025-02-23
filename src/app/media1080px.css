@@ -75,7 +75,7 @@
         display: flex;;
         flex-direction: column;
         height: 100%;
-        border-bottom: solid 4px rgb(180, 77, 45);
+        border-bottom: solid 3px rgb(87, 39, 0);
     }
     .searchEngine {
         padding:5px!important;
@@ -97,6 +97,9 @@
         box-shadow: 0.5px 0.5px 3px #000;
         background-color:rgb(249 220 206);
         transform: scale(1);
+    }
+    .FootFooter{
+        background-color:rgb(249 220 206);
     }
     .FootRoutes a{  
         display: flex;
@@ -163,7 +166,7 @@
         z-index: 99999;
         width:100vw;
         background-color: rgb(255 246 229);
-        box-shadow: 0.5px 0.5px 3px #000;
+        /* box-shadow: 0.5px 0.5px 3px rgb(87, 39, 0); */
     }
 
     .LeftWing_ {
@@ -173,7 +176,7 @@
         z-index: 99999;
         width:100vw;
         background-color: rgb(255 246 229);
-        box-shadow: 0.5px 0.5px 3px #000;
+        box-shadow: 0.5px 0.5px 3px rgb(87, 39, 0);
       }
 
 
