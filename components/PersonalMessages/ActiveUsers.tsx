@@ -34,7 +34,11 @@ console.log(UserActiveData);
   return (
     <ul className='Menu'>
     <li className='Menu_label'>Stranger</li>
-    <li className='Menu_label'><input type='text' style={{padding:'5px',boxShadow:'inset 0.5px 0.5px 3px #000000',border:'none',width:'100%'}}/></li>
+    <li className='Menu_label'><input type='text' style={{padding:'5px',
+                                                          boxShadow:'inset 0.5px 0.5px 3px #000000',
+                                                          border:'none',
+                                                          width:'100%',
+                                                          boxSizing:'border-box'}}/></li>
     <li className='Menu_label'>Active Users</li>
     {/* {ActiveUsers.length > 0?ActiveUsers?.map((item: any, index: any) => (
       <li key={index} className='menu_li' onClick={()=>drawer(item.accountEmail)} style={{display:item.accountEmail===email?"none":"block"}}>
