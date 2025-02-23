@@ -15,7 +15,7 @@ const StoreBody = () => {
 
   return (
     <ReusableMainLayout
-    childA={()=>(<></>)}
+    childA={()=>(<Menu/>)}
     childB={()=>(
         <Store/>
     )}
