@@ -24,6 +24,14 @@ const ProductLoading = () => {
                             <div className='labels'>
                                     <div className='loading-screen'></div>    
                                     <div className='loading-screen'></div>
+                            </div>
+                        </div>
+                        <div className='thumbnail'>
+                            <div className='thumbnailImageContainer'>
+                                <div className='loading-screen'></div>
+                            </div>
+                            <div className='labels'>
+                                    <div className='loading-screen'></div>    
                                     <div className='loading-screen'></div>
                             </div>
                         </div>
@@ -34,6 +42,14 @@ const ProductLoading = () => {
                             <div className='labels'>
                                     <div className='loading-screen'></div>    
                                     <div className='loading-screen'></div>
+                            </div>
+                        </div>
+                        <div className='thumbnail'>
+                            <div className='thumbnailImageContainer'>
+                                <div className='loading-screen'></div>
+                            </div>
+                            <div className='labels'>
+                                    <div className='loading-screen'></div>    
                                     <div className='loading-screen'></div>
                             </div>
                         </div>
@@ -44,27 +60,6 @@ const ProductLoading = () => {
                             <div className='labels'>
                                     <div className='loading-screen'></div>    
                                     <div className='loading-screen'></div>
-                                    <div className='loading-screen'></div>
-                            </div>
-                        </div>
-                        <div className='thumbnail'>
-                            <div className='thumbnailImageContainer'>
-                                <div className='loading-screen'></div>
-                            </div>
-                            <div className='labels'>
-                                    <div className='loading-screen'></div>    
-                                    <div className='loading-screen'></div>
-                                    <div className='loading-screen'></div>
-                            </div>
-                        </div>
-                        <div className='thumbnail'>
-                            <div className='thumbnailImageContainer'>
-                                <div className='loading-screen'></div>
-                            </div>
-                            <div className='labels'>
-                                    <div className='loading-screen'></div>    
-                                    <div className='loading-screen'></div>
-                                    <div className='loading-screen'></div>
                             </div>
                         </div>
                         <div className='thumbnail'>
@@ -74,7 +69,7 @@ const ProductLoading = () => {
                         <div className='labels'>
                                     <div className='loading-screen'></div>    
                                     <div className='loading-screen'></div>
-                                    <div className='loading-screen'></div>
+                                    
                             </div>
                     </div>
                     <div className='thumbnail'>
@@ -84,7 +79,7 @@ const ProductLoading = () => {
                         <div className='labels'>
                                     <div className='loading-screen'></div>    
                                     <div className='loading-screen'></div>
-                                    <div className='loading-screen'></div>
+                                    
                             </div>
                     </div>
                     <div className='thumbnail'>
@@ -94,7 +89,7 @@ const ProductLoading = () => {
                         <div className='labels'>
                                     <div className='loading-screen'></div>    
                                     <div className='loading-screen'></div>
-                                    <div className='loading-screen'></div>
+                                    
                             </div>
                     </div>
                     <div className='thumbnail'>
@@ -104,7 +99,7 @@ const ProductLoading = () => {
                         <div className='labels'>
                                     <div className='loading-screen'></div>    
                                     <div className='loading-screen'></div>
-                                    <div className='loading-screen'></div>
+                                  
                             </div>
                     </div>
                     <div className='thumbnail'>
@@ -114,7 +109,7 @@ const ProductLoading = () => {
                         <div className='labels'>
                                     <div className='loading-screen'></div>    
                                     <div className='loading-screen'></div>
-                                    <div className='loading-screen'></div>
+                                    
                             </div>
                     </div>
                     </div>
