@@ -25,6 +25,7 @@ import messagecountReducer from './messagecountSlice'
 import recieverReducer from './recieverSlice'
 import orderStageReducer from './orderStageSlice'
 import streamingReducer from './streamingSlice'
+import ipReducer from './ipSlice'
 const store = configureStore({
   reducer: {
     category: categoryReducer, // Add category slice to the store
@@ -45,7 +46,8 @@ const store = configureStore({
     messagecount:messagecountReducer,
     reciever:recieverReducer,
     orderStage:orderStageReducer,
-    streaming:streamingReducer
+    streaming:streamingReducer,
+    ipAddress:ipReducer
   },
 });
 
