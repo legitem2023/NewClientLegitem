@@ -1,7 +1,6 @@
 'use client'
 import React, { useCallback, useEffect, useMemo, useState } from 'react'
 import Navigation from '../../../json/navigation.json'
-import ClientIP from 'components/Commands/ClientIP';
 import Link from 'next/link'
 import { Icon } from '@iconify/react';
 import { deletecookies } from 'components/cookies/cookie';
@@ -73,7 +72,6 @@ const searchEngine = (inputValue: any) => {
   return (
     <>
       <InstallPWAButton />
-      <ClientIP/>
       <div className='Header'>
         <div className='HeaderRight'>
           <div>
