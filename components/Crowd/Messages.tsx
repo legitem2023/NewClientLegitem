@@ -35,6 +35,7 @@ const Messages = () => {
       updateQuery: (prev, { subscriptionData }) => {
         if (!subscriptionData.data) return prev;
         const newMessage = subscriptionData.data.messageAdded;
+        if(!newMessage) return;
         return {
           ...prev,
           messages: prev.messages ? [newMessage, ...prev.messages] : [newMessage],
