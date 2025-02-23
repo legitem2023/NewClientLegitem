@@ -13,6 +13,7 @@ const RecentlyVisited = () => {
  const dispatch = useDispatch();
 const [visited,setVisited] = useState([]);
 useEffect(()=>{
+ if (typeof window === "undefined") return;
  const localstorage = JSON.parse(localStorage.getItem('recentlyVisited'));
    setVisited(localstorage)
 },[localStorage])
