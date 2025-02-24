@@ -23,6 +23,8 @@ const PageHeader: React.FC = () => {
   const dispatch = useDispatch();
   const cookie = useSelector((state: any) => state.cookie.cookie);
   const drawerState = useSelector((state: any) => state.drawer.drawer);
+   const allItems = useSelector((state:any)=> state.suggestedItem.suggestedItem);//ProductsData?.getChildInventory || [];
+
   const [loadingLink, setLoadingLink] = useState<string | null>(null);
   const currentPath = usePathname();
   const redirect = useRouter();
@@ -30,8 +32,8 @@ const PageHeader: React.FC = () => {
   const [query, setQuery] = useState("");
   const [suggestions, setSuggestions] = useState<string[]>([]);
   
-  const { data: ProductsData, loading: productsLoading, error: productsError } = useQuery(GET_CHILD_INVENTORY);  // Mock data (You can replace this with API data) 
- if (productsLoading) return <div>Loading...</div>;
+ // const { data: ProductsData, loading: productsLoading, error: productsError } = useQuery(GET_CHILD_INVENTORY);  // Mock data (You can replace this with API data) 
+// if (productsLoading) return <div>Loading...</div>;
  
   
   const handleFocus = () => {
@@ -81,10 +83,9 @@ const searchEngine = (inputValue: any) => {
   throttledSearchEngine(inputValue.target.value); // Call the throttled function
 };
 
-if (productsError) return <div>Error loading products</div>;
+//if (productsError) return <div>Error loading products</div>;
   
   
-  const allItems = ProductsData?.getChildInventory || [];
 
   // Handle input change and filter suggestions
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
