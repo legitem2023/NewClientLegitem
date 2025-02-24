@@ -144,7 +144,7 @@ const searchEngine = (inputValue: any) => {
                 onChange={(e:any)=>handleChange(e)}
               />
                   {suggestions.length > 0 && (
-        <ul style={{listStyleType:'none',left:'0px',position:'relative'}}>
+        <ul style={{listStyleType:'none',left:'0px',position:'relative',display:isFocused?'block':none}}>
           {suggestions.map((item, index) => (
             <li
               key={index}
