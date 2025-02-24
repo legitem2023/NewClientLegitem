@@ -39,10 +39,11 @@ const Messages = ({reciever}) => {
           document: PERSONAL_MESSAGES_ADDED,
           variables: { emailAddress: cookie.emailAddress, reciever: SelectedReciever }, // Pass any necessary variables
           updateQuery: (prev, { subscriptionData }) => {
+            alert(subscriptionData?.data);
             if (!subscriptionData?.data) return;
             
             const newMessages = subscriptionData?.data?.messagesPersonal;
-            alert(newMessages);
+            
             // Filter messages for the correct sender/receiver pair
             const filteredNewMessages = newMessages?.filter(
               (item: any) => (item.Sender === SelectedReciever || item.Sender === cookie.emailAddress) &&
