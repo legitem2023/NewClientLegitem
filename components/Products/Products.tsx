@@ -155,10 +155,12 @@ const saveRecentlyVisited = (product:ViewedProduct ) => {
     }
   });
 
-useEffect(()=>{
-
- // dispatch(addSuggestedItems(multipliedProducts));
-},[dispatch,ProductsData])
+useEffect(() => {
+  if (ProductsData?.getChildInventory) {
+    const multipliedProducts = multiplyArray(ProductsData.getChildInventory, 1);
+    dispatch(addSuggestedItems(multipliedProducts));
+  }
+}, [dispatch, ProductsData]);
 
   
   if (productsLoading) return <ProductLoading />;
