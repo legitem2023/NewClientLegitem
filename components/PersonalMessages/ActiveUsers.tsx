@@ -38,7 +38,7 @@ const uniqueSenders = Array.from(
     <li className='Menu_label'>Conversations</li>
  {uniqueSenders.map((sender:any, idx:number) => (
       <li key={idx} 
-        style={{display:'flex',justifyContent:'flex-start',alignItems:'center'}}
+        style={{display:'flex',justifyContent:'flex-start',alignItems:'center',gap:'10px'}}
         onClick={()=>{
           dispatch(setreciever(sender));
           dispatch(setDrawer(true));
