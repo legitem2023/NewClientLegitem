@@ -28,9 +28,12 @@ const ActiveUsers = ({email}) => {
                                                           width:'100%',
                                                           boxSizing:'border-box'}}/></li>
     <li className='Menu_label'>Conversations</li>
-      {data.personalMessages.filter((itm:any)=>itm.Sender!=cookie.emailAddress).map((item:any,idx:number)=>(
-      <li key={idx}>{item.Sender}</li>
-      ))}
+      {[...new Set(data.personalMessages
+  .filter((itm: any) => itm.Sender !== cookie.emailAddress)
+  .map((item: any) => item.Sender)
+)].map((sender, idx) => (
+  <li key={idx}>{sender}</li>
+))}
     
     </ul> )
 }
