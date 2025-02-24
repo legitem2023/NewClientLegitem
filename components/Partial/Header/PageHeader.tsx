@@ -140,7 +140,7 @@ const searchEngine = (inputValue: any) => {
                 onFocus={handleFocus}
                 onBlur={handleBlur}
                 className='searchEngine'
-                onChange={(e:any)=>searchEngine(e)}
+                onChange={(e:any)=>handleChange(e)}
               />
                   {suggestions.length > 0 && (
         <ul>
