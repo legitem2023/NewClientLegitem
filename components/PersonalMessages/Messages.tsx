@@ -78,7 +78,7 @@ const Messages = ({reciever}) => {
       if (error) return <ReusableServerDown/>
 // Add necessary dependencies
 //########################## MUTATION PART START ##########################
-    const FilterReciever = data?.personalMessages.filter((item: any) => (item.Sender===reciever || item.Sender === cookie.emailAddress) && (item.Reciever===cookie.emailAddress || item.Reciever === reciever))
+    const FilterReciever = data?.personalMessages.filter((item: any) => (item.Sender===SelectedReciever || item.Sender === cookie.emailAddress) && (item.Reciever===cookie.emailAddress || item.Reciever === SelectedReciever)
         const filteredPosts = FilterReciever.filter((post: any) => {
       const postDate = new Date(parseInt(post.dateSent)); // Convert timestamp to date
       return (
