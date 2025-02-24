@@ -38,7 +38,7 @@ const uniqueSenders = Array.from(
                                                           width:'100%',
                                                           boxSizing:'border-box'}}/></li>
     <li className='Menu_label'>Conversations</li>
- {uniqueSenders.map((sender, idx) => (
+ {uniqueSenders.map((sender:any, idx:number) => (
       <li key={idx}>
         <ReusableFirstLetterImage
           text={sender}
