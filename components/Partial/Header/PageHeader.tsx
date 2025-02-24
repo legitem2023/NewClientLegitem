@@ -100,11 +100,13 @@ const searchEngine = (inputValue: any) => {
               left:'0px',
               right:'0px',
               top:'0px',
+              zIndex:'999',
               backgroundColor:isFocused?'#ffffff':'transparent'
             }}>
               <input
                 type='text'
                 style={{
+                  position:'relative',
                   width: '95%',
                   top: '0px',
                   transition: 'ease 0.5s',
