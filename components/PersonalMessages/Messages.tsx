@@ -69,6 +69,11 @@ const Messages = ({reciever}) => {
           unsubscribe();
         };
       }, [subscribeToMore, cookie.emailAddress, reciever]);
+  useEffect(() => {
+  if (SelectedReciever === "") {
+    dispatch(setDrawer(false));
+  }
+}, [SelectedReciever, dispatch]); // Include dispatch in the dependency array
       if (loading) return <CrowdLoading />
       if (error) return <ReusableServerDown/>
 // Add necessary dependencies
@@ -120,7 +125,7 @@ const Messages = ({reciever}) => {
     const getItemSize = (index: number) => {
       return Math.max(400, Math.ceil(filteredPosts[index].Messages.length / 30) * 30); 
     };
-  if(SelectedReciever==="") return dispatch(setDrawer(false));
+  
 //########################## MUTATION PART END ##########################
     return (
       <ReusableCenterLayout 
