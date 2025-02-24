@@ -25,7 +25,8 @@ const ActiveUsers = ({email}) => {
     <li className='Menu_label'><input type='text' style={{padding:'5px',
                                                           boxShadow:'inset 0.5px 0.5px 3px #000000',
                                                           border:'none',
-                                                          width:'100%'}}/>                                                         boxSizing:'border-box'}}/></li>
+                                                          width:'100%',
+                                                          boxSizing:'border-box'}}/></li>
     <li className='Menu_label'>Active Users</li>
     <li className='Menu_label'>Conversations</li>
     </ul> )
