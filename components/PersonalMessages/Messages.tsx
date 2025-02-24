@@ -11,7 +11,7 @@ import { setDrawer } from 'Redux/drawerSlice';
 import { POSTPERSONAL_MESSAGES } from 'graphql/mutation'
 import { PERSONAL_MESSAGES_ADDED } from 'graphql/subscriptions'
 import ReusableCenterLayout from 'components/Layout/ReusableCenterLayout'
-import { useSelector } from 'react-redux'
+import { useSelector,useDispatch } from 'react-redux'
 import ReusableMessageInput from 'components/UI/ReusableMessageInput'
 import ReusableMessage from 'components/UI/ReusableMessage'
 import { List, AutoSizer, CellMeasurer, CellMeasurerCache } from 'react-virtualized';
@@ -19,6 +19,7 @@ import CrowdLoading from 'components/Crowd/CrowdLoading';
 import ReusableServerDown from 'components/UI/ReusableServerDown'
 const Messages = ({reciever}) => {
   const cookie = useSelector((state:any)=> state.cookie.cookie);
+  const dispatch = useDispatch();
   const { loading, error, data, subscribeToMore } = useQuery(READ_PERSONAL_MESSAGES,{variables:{emailAddress:cookie.emailAddress}});
     const [insertMessage] = useMutation(POSTPERSONAL_MESSAGES,{
         onCompleted: (data) => {
