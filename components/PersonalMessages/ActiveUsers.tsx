@@ -19,6 +19,16 @@ const ActiveUsers = ({email}) => {
   if(loading) return
 
   console.log(data.personalMessages);
+
+const uniqueSenders = Array.from(
+  new Set(
+    data.personalMessages
+      .filter((itm: any) => itm.Sender !== cookie.emailAddress)
+      .map((itm: any) => itm.Sender)
+  )
+);
+
+  
   return (
     <ul className='Menu'>
     
@@ -28,17 +38,17 @@ const ActiveUsers = ({email}) => {
                                                           width:'100%',
                                                           boxSizing:'border-box'}}/></li>
     <li className='Menu_label'>Conversations</li>
-{Array.from(
-  new Set(
-    data.personalMessages
-      .filter((itm: any) => itm.Sender !== cookie.emailAddress)
-      .map((item: any) => item.Sender)
-  )
-).map((sender,idx) => (
-  <li key={idx}>
-      <ReusableFirstLetterImage text={sender} size={100} bgColor="rgb(87, 39, 0)" textColor="#ffffff" />
-    {sender}</li>
-))}    
+ {uniqueSenders.map((sender, idx) => (
+      <li key={idx}>
+        <ReusableFirstLetterImage
+          text={sender}
+          size={100}
+          bgColor="rgb(87, 39, 0)"
+          textColor="#ffffff"
+        />
+        {sender}
+      </li>
+    ))}    
     </ul> )
 }
 
