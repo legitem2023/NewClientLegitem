@@ -24,11 +24,7 @@ const PageHeader: React.FC = () => {
   const currentPath = usePathname();
   const redirect = useRouter();
   const [isFocused, setIsFocused] = useState(false);
- const inputRef = useRef<HTMLInputElement>(null);
-
-  const handleFocusClick= () => {
-    inputRef.current?.focus();
-  };
+ 
   const [query, setQuery] = useState("");
   const [suggestions, setSuggestions] = useState<string[]>([]);
 
@@ -134,7 +130,6 @@ const searchEngine = (inputValue: any) => {
               <input
                 type='text'
                 style={{
-                  display:isFocused?'block':'none',
                   position:'relative',
                   width: '95%',
                   top: '0px',
@@ -146,15 +141,14 @@ const searchEngine = (inputValue: any) => {
                 onFocus={handleFocus}
                 onBlur={handleBlur}
                 className='searchEngine'
-                ref={inputRef}
                 onChange={(e:any)=>handleChange(e)}
               />
                   {suggestions.length > 0 && (
-        <ul>
+        <ul style={{listStyleType:'none',left:'0px'}}>
           {suggestions.map((item, index) => (
             <li
               key={index}
-              className="px-4 py-2 cursor-pointer hover:bg-gray-200"
+              style={{paddingLeft:'0px',padding:'10px'}}
               onClick={() => setQuery(item)}
             >
               {item}
