@@ -18,7 +18,7 @@ import { GET_CATEGORY, GET_CHILD_INVENTORY } from 'graphql/queries';
 
 const PageHeader: React.FC = () => {
   const { data: ProductsData, loading: productsLoading, error: productsError } = useQuery(GET_CHILD_INVENTORY);
-  if(productsLoading) return
+  
   const path = process.env.NEXT_PUBLIC_PATH;
   const dispatch = useDispatch();
   const cookie = useSelector((state: any) => state.cookie.cookie);
@@ -30,17 +30,20 @@ const PageHeader: React.FC = () => {
  
   const [query, setQuery] = useState("");
   const [suggestions, setSuggestions] = useState<string[]>([]);
-
+  const [useData,setData] = useState([]);
   // Mock data (You can replace this with API data)
+  
+useEffect(()=>{
   const allItems = ProductsData?.getChildInventory;
-
+  setData(allItems);
+},[ProductsData])
   // Handle input change and filter suggestions
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
     setQuery(value);
 
     if (value.length > 0) {
-      const filtered = allItems.filter((item) =>
+      const filtered = useData.filter((item) =>
         item.Name.toLowerCase().includes(value.toLowerCase())
       );
       setSuggestions(filtered);
