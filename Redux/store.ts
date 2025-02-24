@@ -26,6 +26,7 @@ import recieverReducer from './recieverSlice'
 import orderStageReducer from './orderStageSlice'
 import streamingReducer from './streamingSlice'
 import ipReducer from './IpSlice'
+import suggestedItemReducer from './suggestedItemSlice
 const store = configureStore({
   reducer: {
     category: categoryReducer, // Add category slice to the store
@@ -47,7 +48,8 @@ const store = configureStore({
     reciever:recieverReducer,
     orderStage:orderStageReducer,
     streaming:streamingReducer,
-    ipAddress:ipReducer
+    ipAddress:ipReducer,
+    suggestedItem:suggestedItemReducer
   },
 });
 
