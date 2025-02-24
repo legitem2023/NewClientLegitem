@@ -96,7 +96,7 @@ const searchEngine = (inputValue: any) => {
               width: '100%',
               height: '100%',
               transition: 'ease 0.3s',
-              position:isFocused?'absolute':'relative',
+              position:isFocused?'fixed':'relative',
               left:'0px',
               top:'0px'
             }}>
