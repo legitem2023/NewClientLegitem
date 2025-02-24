@@ -126,6 +126,7 @@ const searchEngine = (inputValue: any) => {
               top:'0px',
               display:'flex',
               flexDirection:'column',
+              justifyContent:'flex-start',
               zIndex:'999',
               backgroundColor:isFocused?'#ffffff':'transparent'
             }}>
