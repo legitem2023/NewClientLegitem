@@ -3,8 +3,7 @@ import { READ_ACTIVE_USER } from 'graphql/queries';
 import { READ_PERSONAL_MESSAGES,  } from 'graphql/queries'
 import { GROUP_SENDER } from 'graphql/queries';
 import { ACTIVE_USERS } from 'graphql/subscriptions';
-// import { setGlobalState, useGlobalState } from 'state';
-// import PersonalMSGNotification from './PersonalMSGNotification';
+import { setDrawer } from 'Redux/drawerSlice';
 import Image from 'next/image';
 import { useDispatch, useSelector } from 'react-redux';
 import { setreciever } from 'Redux/recieverSlice';
@@ -41,7 +40,10 @@ const uniqueSenders = Array.from(
  {uniqueSenders.map((sender:any, idx:number) => (
       <li key={idx} 
         style={{display:'flex',justifyContent:'flex-start',alignItems:'center'}}
-        onClick={()=>dispatch(setreciever(sender))}>
+        onClick={()=>{
+          dispatch(setreciever(sender));
+          dispath(setDrawer(true));
+        }}>
         <ReusableFirstLetterImage
           text={sender}
           size={100}
