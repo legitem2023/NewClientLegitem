@@ -18,7 +18,6 @@ import { throttle } from 'lodash';
 import { GET_CATEGORY, GET_CHILD_INVENTORY } from 'graphql/queries';
 
 const PageHeader: React.FC = () => {
-  const { data: ProductsData, loading: productsLoading, error: productsError } = useQuery(GET_CHILD_INVENTORY);
   
   const path = process.env.NEXT_PUBLIC_PATH;
   const dispatch = useDispatch();
@@ -28,13 +27,11 @@ const PageHeader: React.FC = () => {
   const currentPath = usePathname();
   const redirect = useRouter();
   const [isFocused, setIsFocused] = useState(false);
- 
   const [query, setQuery] = useState("");
   const [suggestions, setSuggestions] = useState<string[]>([]);
-  const [useData,setData] = useState([]);
-  // Mock data (You can replace this with API data)
-if(productsLoading) return
-
+  
+  const { data: ProductsData, loading: productsLoading, error: productsError } = useQuery(GET_CHILD_INVENTORY);  // Mock data (You can replace this with API data)
+  if(productsLoading) return; 
   const allItems = ProductsData?.getChildInventory;
   
 
