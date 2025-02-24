@@ -100,6 +100,8 @@ const searchEngine = (inputValue: any) => {
               left:'0px',
               right:'0px',
               top:'0px',
+              display:'flex',
+              flexDirection:'column',
               zIndex:'999',
               backgroundColor:isFocused?'#ffffff':'transparent'
             }}>
