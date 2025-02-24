@@ -32,27 +32,7 @@ const PageHeader: React.FC = () => {
   
   const { data: ProductsData, loading: productsLoading, error: productsError } = useQuery(GET_CHILD_INVENTORY);  // Mock data (You can replace this with API data) 
  if (productsLoading) return <div>Loading...</div>;
- if (productsError) return <div>Error loading products</div>;
-  
-  
-  const allItems = ProductsData?.getChildInventory || [];
-
-  // Handle input change and filter suggestions
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const value = e.target.value;
-    setQuery(value);
-
-    if (value.length > 0) {
-      const filtered = allItems.filter((item) =>
-        item.name.toLowerCase().includes(value.toLowerCase())
-      );
-      setSuggestions(filtered);
-     // dispatch(setSearch(filtered || ''));
-    } else {
-      setSuggestions([]);
-          //  dispatch(setSearch(''));
-    }
-  };
+ 
   
   const handleFocus = () => {
     if (window.innerWidth < 1080) {
@@ -101,6 +81,28 @@ const searchEngine = (inputValue: any) => {
   throttledSearchEngine(inputValue.target.value); // Call the throttled function
 };
 
+if (productsError) return <div>Error loading products</div>;
+  
+  
+  const allItems = ProductsData?.getChildInventory || [];
+
+  // Handle input change and filter suggestions
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+    setQuery(value);
+    dispatch(setSearch(value));
+    if (value.length > 0) {
+      const filtered = allItems.filter((item) =>
+        item.name.toLowerCase().includes(value.toLowerCase())
+      );
+      setSuggestions(filtered);
+     // dispatch(setSearch(filtered || ''));
+    } else {
+      setSuggestions([]);
+          //  dispatch(setSearch(''));
+    }
+  };
+  
   return (
     <>
       <InstallPWAButton />
