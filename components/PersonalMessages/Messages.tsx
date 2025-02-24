@@ -118,6 +118,7 @@ const Messages = ({reciever}) => {
     const getItemSize = (index: number) => {
       return Math.max(400, Math.ceil(filteredPosts[index].Messages.length / 30) * 30); 
     };
+  if(SelectedReciever==="") return
 //########################## MUTATION PART END ##########################
     return (
       <ReusableCenterLayout 
