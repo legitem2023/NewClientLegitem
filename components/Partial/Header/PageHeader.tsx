@@ -98,7 +98,9 @@ const searchEngine = (inputValue: any) => {
               transition: 'ease 0.3s',
               position:isFocused?'fixed':'relative',
               left:'0px',
-              top:'0px'
+              right:'0px',
+              top:'0px',
+              backgroundColor:isFocus?'#ffffff':'transparent'
             }}>
               <input
                 type='text'
