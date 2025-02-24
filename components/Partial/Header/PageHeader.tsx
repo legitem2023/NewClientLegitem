@@ -33,18 +33,18 @@ const PageHeader: React.FC = () => {
   const [suggestions, setSuggestions] = useState<string[]>([]);
   const [useData,setData] = useState([]);
   // Mock data (You can replace this with API data)
-  
-useEffect(()=>{
+if(productsLoading) return
+
   const allItems = ProductsData?.getChildInventory;
-  setData(allItems);
-},[ProductsData])
+  
+
   // Handle input change and filter suggestions
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
     setQuery(value);
 
     if (value.length > 0) {
-      const filtered = useData.filter((item) =>
+      const filtered = allItems.filter((item) =>
         item.name.toLowerCase().includes(value.toLowerCase())
       );
       setSuggestions(filtered);
