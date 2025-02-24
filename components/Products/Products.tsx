@@ -156,14 +156,14 @@ const saveRecentlyVisited = (product:ViewedProduct ) => {
   });
 
 useEffect(()=>{
-  console.log(ProductsData?.getChildInventory);
-  dispatch(addSuggestedItems(ProductsData?.getChildInventory));
+
+ // dispatch(addSuggestedItems(multipliedProducts));
 },[dispatch,ProductsData])
 
   
   if (productsLoading) return <ProductLoading />;
   if (productsError) return <ReusableServerDown />;
-
+ 
   return (
     <ReusableCenterLayout
       child1={() => (
