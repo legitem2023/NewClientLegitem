@@ -43,8 +43,8 @@ const Messages = ({reciever}) => {
             const newMessages = subscriptionData?.data?.messagesPersonal;
             // Filter messages for the correct sender/receiver pair
             const filteredNewMessages = newMessages?.filter(
-              (item: any) => (item.Sender === reciever || item.Sender === cookie.emailAddress) &&
-                             (item.Reciever === cookie.emailAddress || item.Reciever === reciever)
+              (item: any) => (item.Sender === SelectedReciever || item.Sender === cookie.emailAddress) &&
+                             (item.Reciever === cookie.emailAddress || item.Reciever === SelectedReciever)
             );
       
             if (!filteredNewMessages || filteredNewMessages.length === 0) return prev;
@@ -68,7 +68,7 @@ const Messages = ({reciever}) => {
         return () => {
           unsubscribe();
         };
-      }, [subscribeToMore, cookie.emailAddress, reciever]);
+      }, [subscribeToMore, cookie.emailAddress, SelectedReciever);
   useEffect(() => {
   if (SelectedReciever === "") {
     dispatch(setDrawer(false));
