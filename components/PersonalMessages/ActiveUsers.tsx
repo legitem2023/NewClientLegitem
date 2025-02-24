@@ -28,12 +28,14 @@ const ActiveUsers = ({email}) => {
                                                           width:'100%',
                                                           boxSizing:'border-box'}}/></li>
     <li className='Menu_label'>Conversations</li>
-{[...new Set(
-  data.personalMessages
-    .filter((itm: any) => itm.Sender !== cookie.emailAddress)
-    .map((item: any) => item.Sender)
-)].map((sender) => (
-  <li key={sender}>{sender}</li> // Use sender as key instead of index
+{Array.from(
+  new Set(
+    data.personalMessages
+      .filter((itm: any) => itm.Sender !== cookie.emailAddress)
+      .map((item: any) => item.Sender)
+  )
+).map((sender) => (
+  <li key={sender}>{sender}</li>
 ))}    
     </ul> )
 }
