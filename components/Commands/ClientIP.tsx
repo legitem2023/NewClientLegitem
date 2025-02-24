@@ -10,7 +10,7 @@ const dispatch = useDispatch();
       .then(res => res.json())
       .then(data => dispatch(setIpAddress(data.ip)))
       .catch(() => dispatch(setIpAddress("Failed to fetch IP")));
-  }, []);
+  }, [dispatch]);
 
   return <></>;
 }
