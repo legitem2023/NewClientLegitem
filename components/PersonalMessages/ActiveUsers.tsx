@@ -18,7 +18,7 @@ const ActiveUsers = ({email}) => {
 
   if(loading) return
 
-  console.log(data);
+  console.log(data.personalMessages);
   return (
     <ul className='Menu'>
     
@@ -27,8 +27,11 @@ const ActiveUsers = ({email}) => {
                                                           border:'none',
                                                           width:'100%',
                                                           boxSizing:'border-box'}}/></li>
-    <li className='Menu_label'>Active Users</li>
     <li className='Menu_label'>Conversations</li>
+      {data.personalMessages.map((item:any,idx:number)=>(
+      <li key={idx}>{item.Reciever}</li>
+      ))}
+    
     </ul> )
 }
 
