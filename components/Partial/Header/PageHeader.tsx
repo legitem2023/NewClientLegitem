@@ -23,7 +23,7 @@ const PageHeader: React.FC = () => {
   const dispatch = useDispatch();
   const cookie = useSelector((state: any) => state.cookie.cookie);
   const drawerState = useSelector((state: any) => state.drawer.drawer);
-   const allItems = useSelector((state:any)=> state.suggestedItem.suggestedItems);//ProductsData?.getChildInventory || [];
+   const allItems = useSelector((state:any)=> state.suggestedItems.suggestedItems);//ProductsData?.getChildInventory || [];
 
   const [loadingLink, setLoadingLink] = useState<string | null>(null);
   const currentPath = usePathname();
