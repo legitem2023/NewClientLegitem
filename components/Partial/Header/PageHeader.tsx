@@ -30,8 +30,10 @@ const PageHeader: React.FC = () => {
   const [query, setQuery] = useState("");
   const [suggestions, setSuggestions] = useState<string[]>([]);
   
-  const { data: ProductsData, loading: productsLoading, error: productsError } = useQuery(GET_CHILD_INVENTORY);  // Mock data (You can replace this with API data)
-  if(productsLoading) return; 
+  const { data: ProductsData, loading: productsLoading, error: productsError } = useQuery(GET_CHILD_INVENTORY);  // Mock data (You can replace this with API data) 
+ if (productsLoading) return <div>Loading...</div>;
+ if (productsError) return <div>Error loading products</div>;
+  
   const allItems = ProductsData?.getChildInventory;
   
 
