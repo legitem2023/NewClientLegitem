@@ -14,8 +14,11 @@ import { setDrawer } from 'Redux/drawerSlice';
 import Image from 'next/image';
 import { setSearch } from 'Redux/searchSlice';
 import { throttle } from 'lodash';
+import { GET_CATEGORY, GET_CHILD_INVENTORY } from 'graphql/queries';
 
 const PageHeader: React.FC = () => {
+  const { data: ProductsData, loading: productsLoading, error: productsError } = useQuery(GET_CHILD_INVENTORY);
+  if(productsLoading) return
   const path = process.env.NEXT_PUBLIC_PATH;
   const dispatch = useDispatch();
   const cookie = useSelector((state: any) => state.cookie.cookie);
@@ -29,7 +32,7 @@ const PageHeader: React.FC = () => {
   const [suggestions, setSuggestions] = useState<string[]>([]);
 
   // Mock data (You can replace this with API data)
-  const allItems = ["Apple", "Banana", "Orange", "Grapes", "Mango"];
+  const allItems = ProductsData?.getChildInventory;
 
   // Handle input change and filter suggestions
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -38,7 +41,7 @@ const PageHeader: React.FC = () => {
 
     if (value.length > 0) {
       const filtered = allItems.filter((item) =>
-        item.toLowerCase().includes(value.toLowerCase())
+        item.Name.toLowerCase().includes(value.toLowerCase())
       );
       setSuggestions(filtered);
      // dispatch(setSearch(filtered || ''));
