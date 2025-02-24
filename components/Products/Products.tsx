@@ -156,7 +156,8 @@ const saveRecentlyVisited = (product:ViewedProduct ) => {
   });
 
 useEffect(()=>{
-  dispatch(addSuggestedItems(ProductsData?.getChildInventory));
+  console.log(ProductsData?.getChildInventory);
+  //dispatch(addSuggestedItems(ProductsData?.getChildInventory));
 },[dispatch])
 
   
