@@ -129,6 +129,7 @@ const searchEngine = (inputValue: any) => {
               <input
                 type='text'
                 style={{
+                  display:isFocused?'block':'none',
                   position:'relative',
                   width: '95%',
                   top: '0px',
@@ -142,6 +143,7 @@ const searchEngine = (inputValue: any) => {
                 className='searchEngine'
                 onChange={(e:any)=>handleChange(e)}
               />
+              <Icon icon="material-symbols:search" width="24" height="24" />
                   {suggestions.length > 0 && (
         <ul>
           {suggestions.map((item, index) => (
