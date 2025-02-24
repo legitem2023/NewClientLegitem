@@ -31,11 +31,10 @@ const uniqueSenders = Array.from(
   return (
     <ul className='Menu'>
     
-    <li className='Menu_label'><input type='text' style={{padding:'5px',
-                                                          boxShadow:'inset 0.5px 0.5px 3px #000000',
-                                                          border:'none',
-                                                          width:'100%',
-                                                          boxSizing:'border-box'}}/></li>
+    <li><input type='text' style={{padding:'5px',
+                                   boxShadow:'inset 0.5px 0.5px 3px #000000',
+                                   border:'none',                                                      width:'100%',
+                                   boxSizing:'border-box'}}/></li>
     <li className='Menu_label'>Conversations</li>
  {uniqueSenders.map((sender:any, idx:number) => (
       <li key={idx} 
