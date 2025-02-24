@@ -86,18 +86,7 @@ const Messages = ({reciever}) => {
       );
     });
 
-  const goToPreviousDay = () => {
-    const newDate = new Date(currentDay);
-    newDate.setDate(currentDay.getDate() - 1);
-    setCurrentDay(newDate);
-  };
-
-  const goToNextDay = () => {
-    const newDate = new Date(currentDay);
-    newDate.setDate(currentDay.getDate() + 1);
-    setCurrentDay(newDate);
-  };
-
+  
   const JumpToDate = (date: any) => {
     setCurrentDay(date);
   }
@@ -181,13 +170,7 @@ const Messages = ({reciever}) => {
         </div>
         )}
 
-        child3={()=><>
-          <ul className='messagesUL'>
-      <li className='messages_pagination'>
-        <button className='universalButtonStyle' onClick={goToPreviousDay}>Previous Day</button>
-        <button className='universalButtonStyle' onClick={goToNextDay}>Next Day</button>
-      </li>
-      </ul></>}
+        child3={()=><></>}
         
         child4={()=><></>}
       />
