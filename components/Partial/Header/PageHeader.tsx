@@ -45,7 +45,7 @@ useEffect(()=>{
 
     if (value.length > 0) {
       const filtered = useData.filter((item) =>
-        item.Name.toLowerCase().includes(value.toLowerCase())
+        item.name.toLowerCase().includes(value.toLowerCase())
       );
       setSuggestions(filtered);
      // dispatch(setSearch(filtered || ''));
