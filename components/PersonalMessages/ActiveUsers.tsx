@@ -34,8 +34,10 @@ const ActiveUsers = ({email}) => {
       .filter((itm: any) => itm.Sender !== cookie.emailAddress)
       .map((item: any) => item.Sender)
   )
-).map((sender) => (
-  <li key={sender}>{sender}</li>
+).map((sender,idx) => (
+  <li key={idx}>
+      <ReusableFirstLetterImage text={sender} size={100} bgColor="rgb(87, 39, 0)" textColor="#ffffff" />
+    {sender}</li>
 ))}    
     </ul> )
 }
