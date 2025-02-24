@@ -49,7 +49,7 @@ const store = configureStore({
     orderStage:orderStageReducer,
     streaming:streamingReducer,
     ipAddress:ipReducer,
-    suggestedItem:suggestedItemReducer
+    suggestedItems:suggestedItemReducer
   },
 });
 
