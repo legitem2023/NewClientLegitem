@@ -25,6 +25,27 @@ const PageHeader: React.FC = () => {
   const redirect = useRouter();
   const [isFocused, setIsFocused] = useState(false);
 
+  const [query, setQuery] = useState("");
+  const [suggestions, setSuggestions] = useState<string[]>([]);
+
+  // Mock data (You can replace this with API data)
+  const allItems = ["Apple", "Banana", "Orange", "Grapes", "Mango"];
+
+  // Handle input change and filter suggestions
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+    setQuery(value);
+
+    if (value.length > 0) {
+      const filtered = allItems.filter((item) =>
+        item.toLowerCase().includes(value.toLowerCase())
+      );
+      setSuggestions(filtered);
+    } else {
+      setSuggestions([]);
+    }
+  };
+  
   const handleFocus = () => {
     if (window.innerWidth < 1080) {
     setIsFocused(true)
