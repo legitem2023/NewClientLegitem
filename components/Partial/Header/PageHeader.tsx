@@ -31,7 +31,7 @@ const PageHeader: React.FC = () => {
   const [isFocused, setIsFocused] = useState(false);
   const [query, setQuery] = useState("");
   const [suggestions, setSuggestions] = useState<string[]>([]);
-  console.log(allItems);
+ // console.log(allItems);
  // const { data: ProductsData, loading: productsLoading, error: productsError } = useQuery(GET_CHILD_INVENTORY);  // Mock data (You can replace this with API data) 
 // if (productsLoading) return <div>Loading...</div>;
  
@@ -92,7 +92,7 @@ const searchEngine = (inputValue: any) => {
     const value = e.target.value;
     setQuery(value);
     dispatch(setSearch(value));
-    console.log(allItems);
+//    console.log(allItems);
     if (value.length > 0) {
       const filtered = [allItems].filter((item) =>
         item.name.toLowerCase().includes(value.toLowerCase())
