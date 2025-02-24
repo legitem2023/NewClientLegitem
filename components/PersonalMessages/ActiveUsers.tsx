@@ -8,7 +8,7 @@ import { ACTIVE_USERS } from 'graphql/subscriptions';
 import Image from 'next/image';
 import { useDispatch, useSelector } from 'react-redux';
 import { setreciever } from 'Redux/recieverSlice';
-
+import ReusableFirstLetterImage from 'components/UI/ReusableFirstLetterImage';
 const ActiveUsers = ({email}) => {
   const dispatch = useDispatch();
 
