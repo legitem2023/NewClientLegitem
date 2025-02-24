@@ -68,7 +68,7 @@ const Messages = ({reciever}) => {
         return () => {
           unsubscribe();
         };
-      }, [subscribeToMore, cookie.emailAddress, SelectedReciever);
+      }, [subscribeToMore, cookie.emailAddress, SelectedReciever]);
   useEffect(() => {
   if (SelectedReciever === "") {
     dispatch(setDrawer(false));
