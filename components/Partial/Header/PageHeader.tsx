@@ -34,8 +34,8 @@ const PageHeader: React.FC = () => {
  if (productsLoading) return <div>Loading...</div>;
  if (productsError) return <div>Error loading products</div>;
   
-  const allItems = ProductsData?.getChildInventory;
   
+  const allItems = ProductsData?.getChildInventory || [];
 
   // Handle input change and filter suggestions
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
