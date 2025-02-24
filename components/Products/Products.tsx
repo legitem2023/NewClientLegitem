@@ -157,7 +157,7 @@ const saveRecentlyVisited = (product:ViewedProduct ) => {
 
 useEffect(()=>{
   console.log(ProductsData?.getChildInventory);
-  //dispatch(addSuggestedItems(ProductsData?.getChildInventory));
+  dispatch(addSuggestedItems(ProductsData?.getChildInventory));
 },[dispatch])
 
   
