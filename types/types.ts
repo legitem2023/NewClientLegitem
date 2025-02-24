@@ -71,6 +71,16 @@ export type ViewedProduct = {
   subImageFieldOut: SubImageFieldOut; // Updated with proper type
   thumbnail: string | null;
 };
+
+export type SuggestedItems = {
+  brandname: string;
+  category: string;
+  id: string;
+  name: string;
+  productCode: string;
+  productType: string;
+};
+
   export type CartItemWithFunc = {
     id: string, // You can change this to number if IDs are numeric
     productCode: string,
