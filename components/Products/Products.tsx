@@ -76,7 +76,7 @@ const saveRecentlyVisited = (product:ViewedProduct ) => {
 
   // Function to multiply the array
   function multiplyArray(data, times) {
-    dispatch(addSuggestedItem(data));
+    
     return Array(times).fill(data).flat();
   }
 
@@ -155,6 +155,11 @@ const saveRecentlyVisited = (product:ViewedProduct ) => {
     }
   });
 
+useEffect(()=>{
+  dispatch(addSuggestedItem(ProductsData?.getChildInventory));
+},[dispatch])
+
+  
   if (productsLoading) return <ProductLoading />;
   if (productsError) return <ReusableServerDown />;
 
