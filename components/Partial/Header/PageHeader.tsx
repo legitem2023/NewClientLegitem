@@ -41,10 +41,10 @@ const PageHeader: React.FC = () => {
         item.toLowerCase().includes(value.toLowerCase())
       );
       setSuggestions(filtered);
-      dispatch(setSearch(filtered || ''));
+     // dispatch(setSearch(filtered || ''));
     } else {
       setSuggestions([]);
-            dispatch(setSearch(''));
+          //  dispatch(setSearch(''));
     }
   };
   
