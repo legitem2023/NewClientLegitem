@@ -26,7 +26,9 @@ const PageHeader: React.FC = () => {
   const [isFocused, setIsFocused] = useState(false);
 
   const handleFocus = () => {
-    setIsFocused(true);
+    if (window.innerWidth < 1080) {
+    setIsFocused(true)
+    };
   };
 
   const handleBlur = () => {
@@ -94,6 +96,9 @@ const searchEngine = (inputValue: any) => {
               width: '100%',
               height: '100%',
               transition: 'ease 0.3s',
+              position:isFocused?'absolute':'relative',
+              left:'0px',
+              top:'0px'
             }}>
               <input
                 type='text'
