@@ -1,8 +1,8 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { CartItem } from "./../types/types";
+import { ViewedProduct } from "./../types/types";
 
 interface SuggestedItemState {
-  suggestedItems: CartItem[];
+  suggestedItems: ViewedProduct[];
 }
 
 const initialState: SuggestedItemState = {
@@ -13,7 +13,7 @@ const suggestedItemSlice = createSlice({
   name: "suggestedItems",
   initialState,
   reducers: {
-    addSuggestedItems: (state, action: PayloadAction<CartItem[]>) => {
+    addSuggestedItems: (state, action: PayloadAction<ViewedProduct[]>) => {
       action.payload.forEach((newItem) => {
         const existingItem = state.suggestedItems.find(
           (item) => item.id === newItem.id
