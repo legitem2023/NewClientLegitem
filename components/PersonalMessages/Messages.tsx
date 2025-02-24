@@ -26,7 +26,7 @@ const Messages = ({reciever}) => {
         },
     });
     const [isLoading, setIsLoading] = useState(false);
-    const SelectedReciever = "";//useGlobalState("SelectedReciever");
+    const SelectedReciever = useSelector((state:any)=>state.reciever.reciever);
     const textareaRef = useRef<HTMLTextAreaElement>(null);
       const cache = useRef(new CellMeasurerCache({ defaultHeight: 300, fixedWidth: true,fixedHeight:false }));
       const listRef = useRef(null);
