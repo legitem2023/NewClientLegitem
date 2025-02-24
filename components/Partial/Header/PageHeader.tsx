@@ -1,5 +1,6 @@
 'use client'
-import React, { useCallback, useEffect, useMemo, useState,useRef } from 'react'
+import React, { useCallback, useEffect, useMemo, useState,useRef } from 'react';
+import { useQuery } from '@apollo/client';
 import Navigation from '../../../json/navigation.json';
 import Link from 'next/link';
 import ClientIP from 'components/Commands/ClientIP';
