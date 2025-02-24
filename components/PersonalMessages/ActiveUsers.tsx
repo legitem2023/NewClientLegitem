@@ -39,7 +39,7 @@ const uniqueSenders = Array.from(
                                                           boxSizing:'border-box'}}/></li>
     <li className='Menu_label'>Conversations</li>
  {uniqueSenders.map((sender:any, idx:number) => (
-      <li key={idx}>
+      <li key={idx} onClick={()=>dispatch(setreciever(sender))}>
         <ReusableFirstLetterImage
           text={sender}
           size={100}
