@@ -26,7 +26,7 @@ import recieverReducer from './recieverSlice'
 import orderStageReducer from './orderStageSlice'
 import streamingReducer from './streamingSlice'
 import ipReducer from './IpSlice'
-import suggestedItemReducer from './suggestedItemSlice
+import suggestedItemReducer from './suggestedItemSlice';
 const store = configureStore({
   reducer: {
     category: categoryReducer, // Add category slice to the store
