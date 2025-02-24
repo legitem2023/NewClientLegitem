@@ -37,7 +37,7 @@ const Messages = ({reciever}) => {
     useEffect(() => {
         const unsubscribe = subscribeToMore({
           document: PERSONAL_MESSAGES_ADDED,
-          variables: { emailAddress: cookie.emailAddress, reciever: reciever }, // Pass any necessary variables
+          variables: { emailAddress: cookie.emailAddress, reciever: SelectedReciever }, // Pass any necessary variables
           updateQuery: (prev, { subscriptionData }) => {
             if (!subscriptionData?.data) return;
             const newMessages = subscriptionData?.data?.messagesPersonal;
