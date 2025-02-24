@@ -1,5 +1,6 @@
 import {  useQuery, useSubscription } from '@apollo/client'
 import { READ_ACTIVE_USER } from 'graphql/queries';
+import { READ_PERSONAL_MESSAGES,  } from 'graphql/queries'
 import { GROUP_SENDER } from 'graphql/queries';
 import { ACTIVE_USERS } from 'graphql/subscriptions';
 // import { setGlobalState, useGlobalState } from 'state';
@@ -10,30 +11,17 @@ import { setreciever } from 'Redux/recieverSlice';
 
 const ActiveUsers = ({email}) => {
   const dispatch = useDispatch();
-  const {data:Userdata,loading:Userloading} = useQuery(GROUP_SENDER,{
-    variables:{
-      emailAddress:email
-    }
-  })
-
-  const {data:UserActiveData,loading:UserActiveLoading} = useSubscription(ACTIVE_USERS)
 
   const cookie = useSelector((state:any)=> state.cookie.cookie);
 
+  const { loading, error, data, subscribeToMore } = useQuery(READ_PERSONAL_MESSAGES,{variables:{emailAddress:cookie.emailAddress}});
 
-  const [ActiveUsers]:any = [cookie.emailAddress]
-  if(Userloading) return
+  if(loading) return
 
-  const drawer = (data:any) =>{
-    dispatch(setreciever(data));
-  }
-  const deletePersonalMSGCount = (Reciever:any) => {
-    localStorage.removeItem(`personalMSGCount_${Reciever}`);
-  };
-console.log(UserActiveData);
+  console.log(data);
   return (
     <ul className='Menu'>
-    <li className='Menu_label'>Stranger</li>
+    
     <li className='Menu_label'><input type='text' style={{padding:'5px',
                                                           boxShadow:'inset 0.5px 0.5px 3px #000000',
                                                           border:'none',
