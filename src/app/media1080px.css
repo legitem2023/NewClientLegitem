@@ -2,6 +2,10 @@
     body {
         overflow: hidden;
     }
+
+    .HeaderLeft{
+        background-color:rgba(189, 152, 149);
+    }
     .UniversalContainerItem{
         grid-template-columns: 50% 50%;
       }
