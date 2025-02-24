@@ -24,7 +24,11 @@ const PageHeader: React.FC = () => {
   const currentPath = usePathname();
   const redirect = useRouter();
   const [isFocused, setIsFocused] = useState(false);
+ const inputRef = useRef<HTMLInputElement>(null);
 
+  const handleFocusClick= () => {
+    inputRef.current?.focus();
+  };
   const [query, setQuery] = useState("");
   const [suggestions, setSuggestions] = useState<string[]>([]);
 
@@ -141,9 +145,10 @@ const searchEngine = (inputValue: any) => {
                 onFocus={handleFocus}
                 onBlur={handleBlur}
                 className='searchEngine'
+                ref={inputRef}
                 onChange={(e:any)=>handleChange(e)}
               />
-              <Icon icon="material-symbols:search" width="24" height="24" />
+              <Icon icon="material-symbols:search" width="24" height="24" onClick={handleFocusClick} />
                   {suggestions.length > 0 && (
         <ul>
           {suggestions.map((item, index) => (
