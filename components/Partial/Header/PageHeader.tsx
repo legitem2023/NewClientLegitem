@@ -142,6 +142,19 @@ const searchEngine = (inputValue: any) => {
                 className='searchEngine'
                 onChange={(e:any)=>searchEngine(e)}
               />
+                  {suggestions.length > 0 && (
+        <ul>
+          {suggestions.map((item, index) => (
+            <li
+              key={index}
+              className="px-4 py-2 cursor-pointer hover:bg-gray-200"
+              onClick={() => setQuery(item)}
+            >
+              {item}
+            </li>
+          ))}
+        </ul>
+      )}
             </div>
           </div>
         </div>
