@@ -117,6 +117,7 @@ const searchEngine = (inputValue: any) => {
             />
           </div>
           <div>
+            <Icon icon="material-symbols:search" width="24" height="24" onClick={handleFocusClick} />
             <div style={{
               width: '100%',
               height: '100%',
@@ -148,7 +149,6 @@ const searchEngine = (inputValue: any) => {
                 ref={inputRef}
                 onChange={(e:any)=>handleChange(e)}
               />
-              <Icon icon="material-symbols:search" width="24" height="24" onClick={handleFocusClick} />
                   {suggestions.length > 0 && (
         <ul>
           {suggestions.map((item, index) => (
