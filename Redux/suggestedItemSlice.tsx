@@ -19,9 +19,7 @@ const suggestedItemSlice = createSlice({
           (item) => item.id === newItem.id
         );
 
-        if (!existingItem) {
-          state.suggestedItems.push({ ...newItem, quantity: 1 });
-        }
+        
       });
     },
 
