@@ -100,7 +100,7 @@ const searchEngine = (inputValue: any) => {
               left:'0px',
               right:'0px',
               top:'0px',
-              backgroundColor:isFocus?'#ffffff':'transparent'
+              backgroundColor:isFocused?'#ffffff':'transparent'
             }}>
               <input
                 type='text'
