@@ -39,7 +39,7 @@ const Messages = ({reciever}) => {
           document: PERSONAL_MESSAGES_ADDED,
           variables: { emailAddress: cookie.emailAddress, reciever: SelectedReciever }, // Pass any necessary variables
           updateQuery: (prev, { subscriptionData }) => {
-            alert(subscriptionData?.data);
+            
             if (!subscriptionData?.data) return;
             
             const newMessages = subscriptionData?.data?.messagesPersonal;
