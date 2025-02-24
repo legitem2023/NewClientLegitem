@@ -6,6 +6,7 @@ import { Icon } from '@iconify/react'
 import Image from 'next/image'
 import { setTime } from 'utils/cookie'
 import Loading from 'components/Partial/LoadingAnimation/Loading'
+import { setDrawer } from 'Redux/drawerSlice';
 // import { useGlobalState } from 'state'
 import { POSTPERSONAL_MESSAGES } from 'graphql/mutation'
 import { PERSONAL_MESSAGES_ADDED } from 'graphql/subscriptions'
@@ -118,7 +119,7 @@ const Messages = ({reciever}) => {
     const getItemSize = (index: number) => {
       return Math.max(400, Math.ceil(filteredPosts[index].Messages.length / 30) * 30); 
     };
-  if(SelectedReciever==="") return
+  if(SelectedReciever==="") return dispatch(setDrawer(false));
 //########################## MUTATION PART END ##########################
     return (
       <ReusableCenterLayout 
