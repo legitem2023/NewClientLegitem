@@ -29,7 +29,7 @@ const ActiveUsers = ({email}) => {
                                                           boxSizing:'border-box'}}/></li>
     <li className='Menu_label'>Conversations</li>
       {data.personalMessages.map((item:any,idx:number)=>(
-      <li key={idx}>{item.Reciever}</li>
+      <li key={idx}>{item.Sender}</li>
       ))}
     
     </ul> )
