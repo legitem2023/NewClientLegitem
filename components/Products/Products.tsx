@@ -12,7 +12,7 @@ import ReusableSearch from 'components/UI/ReusableSearch';
 import { setSearch } from 'Redux/searchSlice';
 import { setsortBy } from 'Redux/sortBySlice';
 import { setsortDirection } from 'Redux/sortDirectionSlice';
-import { addSuggestedItem } from 'Redux/suggestedItemSlice';
+import { addSuggestedItems } from 'Redux/suggestedItemSlice';
 import Modal from './Modal';
 import RecentlyVisited from './RecentlyVisited';
 import ProductView from 'components/Products/ProductView/ProductView';
@@ -156,7 +156,7 @@ const saveRecentlyVisited = (product:ViewedProduct ) => {
   });
 
 useEffect(()=>{
-  dispatch(addSuggestedItem(ProductsData?.getChildInventory));
+  dispatch(addSuggestedItems(ProductsData?.getChildInventory));
 },[dispatch])
 
   
