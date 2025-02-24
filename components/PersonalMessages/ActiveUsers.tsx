@@ -42,7 +42,7 @@ const uniqueSenders = Array.from(
         style={{display:'flex',justifyContent:'flex-start',alignItems:'center'}}
         onClick={()=>{
           dispatch(setreciever(sender));
-          dispath(setDrawer(true));
+          dispatch(setDrawer(true));
         }}>
         <ReusableFirstLetterImage
           text={sender}
