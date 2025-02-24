@@ -94,7 +94,7 @@ const Messages = () => {
           <div ref={containerRef} style={{ flex: 1, height: 'auto',marginBottom:'5px' }}>
             {posts.slice(0, visibleItems).map((message) => (
              /* <ReusableMessage key={message.id} data={message} />*/
-              <MemoizedMessage key={message.id}data={message} />
+              <ReusableMessage key={message.id}data={message} />
             ))}
             {visibleItems < posts.length && (
               <div style={{ textAlign: 'center', padding: '10px' }}>
