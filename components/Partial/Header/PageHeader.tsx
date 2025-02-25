@@ -31,7 +31,7 @@ const PageHeader: React.FC = () => {
   const [isFocused, setIsFocused] = useState(false);
   const [query, setQuery] = useState("");
   const [suggestions, setSuggestions] = useState<string[]>([]);
-  console.log([allItems].map((item)=>return item.name));
+  console.log(allItems.map((item)=>return item.name));
  // const { data: ProductsData, loading: productsLoading, error: productsError } = useQuery(GET_CHILD_INVENTORY);  // Mock data (You can replace this with API data) 
 // if (productsLoading) return <div>Loading...</div>;
  
