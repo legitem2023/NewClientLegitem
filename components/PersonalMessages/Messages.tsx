@@ -14,7 +14,7 @@ import { useSelector } from 'react-redux'
 import ReusableMessageInput from 'components/UI/ReusableMessageInput'
 import ReusableMessage from 'components/UI/ReusableMessage'
 import { List, AutoSizer, CellMeasurer, CellMeasurerCache } from 'react-virtualized';
-
+import CrowdLoading from 'components/Crowd/CrowdLoading';
 import ReusableServerDown from 'components/UI/ReusableServerDown'
 const Messages = ({reciever}) => {
   const cookie = useSelector((state:any)=> state.cookie.cookie);
@@ -67,7 +67,7 @@ const Messages = ({reciever}) => {
           unsubscribe();
         };
       }, [subscribeToMore, cookie.emailAddress, reciever]);
-      if (loading) return <Loading />
+      if (loading) return <CrowdLoading/>
       if (error) return <ReusableServerDown/>
 // Add necessary dependencies
 //########################## MUTATION PART START ##########################
