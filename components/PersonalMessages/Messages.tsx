@@ -6,20 +6,18 @@ import { Icon } from '@iconify/react'
 import Image from 'next/image'
 import { setTime } from 'utils/cookie'
 import Loading from 'components/Partial/LoadingAnimation/Loading'
-import { setDrawer } from 'Redux/drawerSlice';
 // import { useGlobalState } from 'state'
 import { POSTPERSONAL_MESSAGES } from 'graphql/mutation'
 import { PERSONAL_MESSAGES_ADDED } from 'graphql/subscriptions'
 import ReusableCenterLayout from 'components/Layout/ReusableCenterLayout'
-import { useSelector,useDispatch } from 'react-redux'
+import { useSelector } from 'react-redux'
 import ReusableMessageInput from 'components/UI/ReusableMessageInput'
 import ReusableMessage from 'components/UI/ReusableMessage'
 import { List, AutoSizer, CellMeasurer, CellMeasurerCache } from 'react-virtualized';
-import CrowdLoading from 'components/Crowd/CrowdLoading';
+
 import ReusableServerDown from 'components/UI/ReusableServerDown'
 const Messages = ({reciever}) => {
   const cookie = useSelector((state:any)=> state.cookie.cookie);
-  const dispatch = useDispatch();
   const { loading, error, data, subscribeToMore } = useQuery(READ_PERSONAL_MESSAGES,{variables:{emailAddress:cookie.emailAddress}});
     const [insertMessage] = useMutation(POSTPERSONAL_MESSAGES,{
         onCompleted: (data) => {
@@ -28,7 +26,7 @@ const Messages = ({reciever}) => {
         },
     });
     const [isLoading, setIsLoading] = useState(false);
-    const SelectedReciever = useSelector((state:any)=>state.reciever.reciever);
+    const SelectedReciever = "";//useGlobalState("SelectedReciever");
     const textareaRef = useRef<HTMLTextAreaElement>(null);
       const cache = useRef(new CellMeasurerCache({ defaultHeight: 300, fixedWidth: true,fixedHeight:false }));
       const listRef = useRef(null);
@@ -37,17 +35,14 @@ const Messages = ({reciever}) => {
     useEffect(() => {
         const unsubscribe = subscribeToMore({
           document: PERSONAL_MESSAGES_ADDED,
-          variables: { emailAddress: cookie.emailAddress, reciever: SelectedReciever }, // Pass any necessary variables
+          variables: { emailAddress: cookie.emailAddress, reciever: reciever }, // Pass any necessary variables
           updateQuery: (prev, { subscriptionData }) => {
-            
             if (!subscriptionData?.data) return;
-            
             const newMessages = subscriptionData?.data?.messagesPersonal;
-            
             // Filter messages for the correct sender/receiver pair
             const filteredNewMessages = newMessages?.filter(
-              (item: any) => (item.Sender === SelectedReciever || item.Sender === cookie.emailAddress) &&
-                             (item.Reciever === cookie.emailAddress || item.Reciever === SelectedReciever)
+              (item: any) => (item.Sender === reciever || item.Sender === cookie.emailAddress) &&
+                             (item.Reciever === cookie.emailAddress || item.Reciever === reciever)
             );
       
             if (!filteredNewMessages || filteredNewMessages.length === 0) return prev;
@@ -71,17 +66,12 @@ const Messages = ({reciever}) => {
         return () => {
           unsubscribe();
         };
-      }, [subscribeToMore, cookie.emailAddress, SelectedReciever]);
-  useEffect(() => {
-  if (SelectedReciever === "") {
-    dispatch(setDrawer(false));
-  }
-}, [SelectedReciever, dispatch]); // Include dispatch in the dependency array
-      if (loading) return <CrowdLoading />
+      }, [subscribeToMore, cookie.emailAddress, reciever]);
+      if (loading) return <Loading />
       if (error) return <ReusableServerDown/>
 // Add necessary dependencies
 //########################## MUTATION PART START ##########################
-    const FilterReciever = data?.personalMessages.filter((item: any) => (item.Sender===SelectedReciever || item.Sender === cookie.emailAddress) && (item.Reciever===cookie.emailAddress || item.Reciever === SelectedReciever))
+    const FilterReciever = data?.personalMessages.filter((item: any) => (item.Sender===reciever || item.Sender === cookie.emailAddress) && (item.Reciever===cookie.emailAddress || item.Reciever === reciever))
         const filteredPosts = FilterReciever.filter((post: any) => {
       const postDate = new Date(parseInt(post.dateSent)); // Convert timestamp to date
       return (
@@ -89,7 +79,18 @@ const Messages = ({reciever}) => {
       );
     });
 
-  
+  const goToPreviousDay = () => {
+    const newDate = new Date(currentDay);
+    newDate.setDate(currentDay.getDate() - 1);
+    setCurrentDay(newDate);
+  };
+
+  const goToNextDay = () => {
+    const newDate = new Date(currentDay);
+    newDate.setDate(currentDay.getDate() + 1);
+    setCurrentDay(newDate);
+  };
+
   const JumpToDate = (date: any) => {
     setCurrentDay(date);
   }
@@ -114,10 +115,6 @@ const Messages = ({reciever}) => {
     }
 
 
-    const getItemSize = (index: number) => {
-      return Math.max(400, Math.ceil(filteredPosts[index].Messages.length / 30) * 30); 
-    };
-  if (SelectedReciever === "") return
 //########################## MUTATION PART END ##########################
     return (
       <ReusableCenterLayout 
@@ -144,7 +141,6 @@ const Messages = ({reciever}) => {
                 rowHeight={cache.current.rowHeight}
                 deferredMeasurementCache={cache.current}
                 rowCount={FilterReciever.length}
-                // className='messagesUL'
                 ref={listRef}
                 rowRenderer={({ key, index, style, parent }) => (
                   <CellMeasurer 
@@ -161,6 +157,7 @@ const Messages = ({reciever}) => {
                         display: "flex",
                         flexDirection: "column",
                         width: "100%",
+                        scrollSnapType:"both mandatory",
                       }} onLoad={measure}>
                         <ReusableMessage data={FilterReciever[index]} onChange={measure}/>
                       </div>
@@ -173,7 +170,13 @@ const Messages = ({reciever}) => {
         </div>
         )}
 
-        child3={()=><></>}
+        child3={()=><>
+          <ul className='messagesUL'>
+      <li className='messages_pagination'>
+        <button className='universalButtonStyle' onClick={goToPreviousDay}>Previous Day</button>
+        <button className='universalButtonStyle' onClick={goToNextDay}>Next Day</button>
+      </li>
+      </ul></>}
         
         child4={()=><></>}
       />

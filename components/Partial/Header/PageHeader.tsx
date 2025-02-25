@@ -23,7 +23,7 @@ const PageHeader: React.FC = () => {
   const dispatch = useDispatch();
   const cookie = useSelector((state: any) => state.cookie.cookie);
   const drawerState = useSelector((state: any) => state.drawer.drawer);
-   const allItems = useSelector((state:any)=> state.suggestedItems.suggestedItems[0]);//ProductsData?.getChildInventory || [];
+   const allItems = useSelector((state:any)=> state.suggestedItems.suggestedItems);//ProductsData?.getChildInventory || [];
 
   const [loadingLink, setLoadingLink] = useState<string | null>(null);
   const currentPath = usePathname();
@@ -31,10 +31,7 @@ const PageHeader: React.FC = () => {
   const [isFocused, setIsFocused] = useState(false);
   const [query, setQuery] = useState("");
   const [suggestions, setSuggestions] = useState<string[]>([]);
-  console.log(allItems[0]);
- // const { data: ProductsData, loading: productsLoading, error: productsError } = useQuery(GET_CHILD_INVENTORY);  // Mock data (You can replace this with API data) 
-// if (productsLoading) return <div>Loading...</div>;
- 
+  const Ref = useRef<HTMLInputElement>(null);
   
   const handleFocus = () => {
     if (window.innerWidth < 1080) {
@@ -56,35 +53,6 @@ const PageHeader: React.FC = () => {
     dispatch(setDrawer(!drawerState));
   }
 
-  /*
-  const searchEngine = (inputValue: any) => {
-    // throttledSearchEngine(inputValue);
-    const searchData = inputValue.target.value;
-    dispatch(setSearch(searchData || ''));
-  };
-*/
-
-
-
-  const throttledSearchEngine = useCallback(
-  throttle((inputValue: any) => {
-    inputValue.preventDefault();
-    const searchData = inputValue.target.value;
-    if (inputValue === '') {
-      dispatch(setSearch('')); // Fix extra parenthesis
-    } else {
-      dispatch(setSearch(searchData)); // Fix extra parenthesis
-    }
-  }, 2000),
-  [dispatch]
-);
-
-const searchEngine = (inputValue: any) => {
-  throttledSearchEngine(inputValue.target.value); // Call the throttled function
-};
-
-//if (productsError) return <div>Error loading products</div>;
-  
   
 
   // Handle input change and filter suggestions
@@ -94,10 +62,10 @@ const searchEngine = (inputValue: any) => {
     dispatch(setSearch(value));
 //    console.log(allItems);
     if (value.length > 0) {
-      const filtered = allItems;/*.filter((item) =>
+      const filtered = allItems.filter((item:any) =>
         item.name.toLowerCase().includes(value.toLowerCase())
-      );*/
-      console.log(filtered);
+      );
+      
       setSuggestions(filtered);
      // dispatch(setSearch(filtered || ''));
     } else {
@@ -106,6 +74,12 @@ const searchEngine = (inputValue: any) => {
     }
   };
   
+  const FillText = (item: any) => {
+    setQuery(item);
+    console.log(item);
+    Ref.current.value = item;
+  }
+
   return (
     <>
       <InstallPWAButton />
@@ -151,6 +125,7 @@ const searchEngine = (inputValue: any) => {
                   margin: '10px',
                   boxSizing: 'border-box',
                 }}
+                ref={Ref}
                 placeholder='Search'
                 onFocus={handleFocus}
                 onBlur={handleBlur}
@@ -158,14 +133,14 @@ const searchEngine = (inputValue: any) => {
                 onChange={(e:any)=>handleChange(e)}
               />
                   {suggestions.length > 0 && (
-        <ul style={{listStyleType:'none',left:'0px',position:'relative',display:isFocused?'block':'none',backgroundColor:"red"}}>
-          {suggestions.map((item, index) => (
+        <ul style={{width:'100%',listStyleType:'none',left:'0px',position:'relative',display:isFocused?'block':'none',paddingLeft:"0px"}}>
+          {suggestions.map((item:any, index:number) => (
             <li
               key={index}
-              style={{paddingLeft:'0px',padding:'10px'}}
-              onClick={() => setQuery(item)}
+              style={{padding:'10px',cursor:'pointer'}}
+              onClick={() => FillText(item.name)}
             >
-              {item}
+              {item.name}
             </li>
           ))}
         </ul>
