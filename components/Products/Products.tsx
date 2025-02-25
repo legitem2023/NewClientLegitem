@@ -157,8 +157,8 @@ const saveRecentlyVisited = (product:ViewedProduct ) => {
 
 useEffect(() => {
   if (ProductsData?.getChildInventory) {
-    const multipliedProducts = multiplyArray(ProductsData.getChildInventory, 1);
-    dispatch(addSuggestedItems(multipliedProducts));
+    //const multipliedProducts = multiplyArray(ProductsData.getChildInventory, 1);
+    dispatch(addSuggestedItems(ProductsData?.getChildInventory));
   }
 }, [dispatch, ProductsData]);
 
