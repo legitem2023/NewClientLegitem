@@ -75,10 +75,12 @@ const PageHeader: React.FC = () => {
   };
   
   const FillText = (item: any) => {
-    setQuery(item);
-    console.log(item);
+  setQuery(item);
+  
+  if (Ref.current) {
     Ref.current.value = item;
   }
+};
 
   return (
     <>
