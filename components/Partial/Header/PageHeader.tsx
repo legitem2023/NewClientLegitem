@@ -60,28 +60,21 @@ const PageHeader: React.FC = () => {
     const value = e.target.value;
     setQuery(value);
     dispatch(setSearch(value));
-//    console.log(allItems);
     if (value.length > 0) {
       const filtered = allItems.filter((item:any) =>
         item.name.toLowerCase().includes(value.toLowerCase())
       );
-      
       setSuggestions(filtered);
-     // dispatch(setSearch(filtered || ''));
     } else {
       setSuggestions([]);
-          //  dispatch(setSearch(''));
     }
-  };
-  
+  }; 
   const FillText = (item: any) => {
-  setQuery(item);
-  
+  setQuery(item); 
   if (Ref.current) {
     Ref.current.value = item;
   }
 };
-
   return (
     <>
       <InstallPWAButton />
