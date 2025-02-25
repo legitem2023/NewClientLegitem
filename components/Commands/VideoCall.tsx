@@ -127,10 +127,10 @@ const VideoCall = () => {
       }
     };
   }, []);
+ //    <Icon icon="bxs:video" width="24" height="24" onClick={handleStartCall} />
 
   return (
     <div className="VideoCallButton">
-      <Icon icon="bxs:video" width="24" height="24" onClick={handleStartCall} />
     </div>
   );
 };
