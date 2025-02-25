@@ -14,9 +14,9 @@ const ReusableMessageInput:FC<ReusableMessageInputProps> = ({textRef,event,loadi
                 <div className='Messenger_inputs_fdiv'>
                     <input type='text' ref={textRef} id='textarea' placeholder="Message"/>
                 </div>
-               /* <div className='Messenger_inputs_sdiv'>
+               <div className='Messenger_inputs_sdiv'>
                 <VideoCall/>
-                <div>*/
+                <div>
                     <Icon icon={loading?"eos-icons:loading":"material-symbols-light:send-rounded"} onClick={(e)=>event(e)} />
                 </div>
                 </div>
