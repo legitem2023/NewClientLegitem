@@ -94,7 +94,7 @@ const searchEngine = (inputValue: any) => {
     dispatch(setSearch(value));
 //    console.log(allItems);
     if (value.length > 0) {
-      const filtered = [allItems];/*.filter((item) =>
+      const filtered = allItems;/*.filter((item) =>
         item.name.toLowerCase().includes(value.toLowerCase())
       );*/
       console.log(filtered);
