@@ -23,7 +23,7 @@ const PageHeader: React.FC = () => {
   const dispatch = useDispatch();
   const cookie = useSelector((state: any) => state.cookie.cookie);
   const drawerState = useSelector((state: any) => state.drawer.drawer);
-   const allItems = useSelector((state:any)=> state.suggestedItems.suggestedItems);//ProductsData?.getChildInventory || [];
+   const allItems = useSelector((state:any)=> state.suggestedItems.suggestedItems[0]);//ProductsData?.getChildInventory || [];
 
   const [loadingLink, setLoadingLink] = useState<string | null>(null);
   const currentPath = usePathname();
@@ -31,7 +31,7 @@ const PageHeader: React.FC = () => {
   const [isFocused, setIsFocused] = useState(false);
   const [query, setQuery] = useState("");
   const [suggestions, setSuggestions] = useState<string[]>([]);
-  console.log(allItems.map((item)=>return item[0].name));
+  console.log(allItems);
  // const { data: ProductsData, loading: productsLoading, error: productsError } = useQuery(GET_CHILD_INVENTORY);  // Mock data (You can replace this with API data) 
 // if (productsLoading) return <div>Loading...</div>;
  
