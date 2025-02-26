@@ -17,12 +17,12 @@ const AddCartCmdView:React.FC<PropsAddCartCmdView> = ({viewedProduct,quantity,st
     return {
         id: item.id, // You can change this to number if IDs are numeric
         productCode:item.productCode,
-        image:item.image,
+        image:item.thumbnail,
         name: item.name,
         color:item.color,
         size:item.size,
         price: parseInt(item.price),
-        quantity: 1
+        quantity: quantity
         }
     })
     const dispatch = useDispatch();
