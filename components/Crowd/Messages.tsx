@@ -29,20 +29,22 @@ const Messages = () => {
 
   const [insertMessage] = useMutation(SEND_MESSAGE);
 
+  // subscribeToMore should be inside useEffect to ensure it's called only once
   useEffect(() => {
     const unsubscribe = subscribeToMore({
       document: MESSAGE_ADDED,
       updateQuery: (prev, { subscriptionData }) => {
         if (!subscriptionData.data) return prev;
         const newMessage = subscriptionData.data.messageAdded;
-        if(!newMessage) return;
         return {
           ...prev,
           messages: prev.messages ? [newMessage, ...prev.messages] : [newMessage],
         };
       },
     });
-    return () => unsubscribe();
+    return () => {
+      unsubscribe();
+    };
   }, [subscribeToMore]);
 
   useEffect(() => {
