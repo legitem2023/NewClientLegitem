@@ -52,23 +52,38 @@ const Messages = () => {
     if (videoRef.current && activeStream) videoRef.current.srcObject = activeStream;
   }, [data, activeStream]);
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    const message = textareaRef.current?.value;
-    if (message) {
-      setIsMessageLoading(true);
-      try {
-        await insertMessage({
-          variables: { message, sender: cookie.emailAddress, live: '', video: '' },
-        });
-        textareaRef.current.value = '';
-      } catch (err) {
-        console.error('Error sending message', err);
-      } finally {
-        setIsMessageLoading(false);
-      }
-    }
-  };
+const handleSubmit = async (e) => {
+  e.preventDefault();
+  
+  const message = textareaRef.current?.value.trim(); // Trim whitespace
+  
+  if (!message) {
+    alert('Message cannot be empty.');
+    return;
+  }
+
+  if (message.length < 2) {
+    alert('Message must be at least 2 characters long.');
+    return;
+  }
+
+  if (message.length > 500) {
+    alert('Message cannot exceed 500 characters.');
+    return;
+  }
+
+  setIsMessageLoading(true);
+  try {
+    await insertMessage({
+      variables: { message, sender: cookie.emailAddress, live: '', video: '' },
+    });
+    textareaRef.current.value = '';
+  } catch (err) {
+    console.error('Error sending message', err);
+  } finally {
+    setIsMessageLoading(false);
+  }
+};
 
   const loadMore = () => {
     setVisibleItems(prev => Math.min(prev + 20, posts.length));
