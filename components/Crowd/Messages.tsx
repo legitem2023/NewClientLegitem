@@ -38,6 +38,7 @@ const Messages = () => {
         if (!subscriptionData.data) return prev;
         const newMessage = subscriptionData.data.messageAdded;
         console.log(newMessage);
+        if(newMessage.id === null) return;
         return {
           ...prev,
           messages: prev.messages ? [newMessage, ...prev.messages] : [newMessage],
