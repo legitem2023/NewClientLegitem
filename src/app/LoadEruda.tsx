@@ -7,14 +7,17 @@ const LoadEruda = () => {
       const script = document.createElement("script");
       script.src = "https://cdn.jsdelivr.net/npm/eruda";
       script.onload = () => {
-        // I-cast sa `any` para maiwasan ang TypeScript error
-        (window as any).eruda && (window as any).eruda.init();
+        const eruda = (window as any).eruda;
+        if (!eruda._isInit) {
+          eruda.init();
+          eruda.add(eruda.get("console")); // ✅ Enable console plugin for persistent logs
+        }
       };
       document.body.appendChild(script);
     }
   }, []);
 
-  return null; // Wala itong UI, pero ia-append ang script sa page
+  return null;
 };
 
 export default LoadEruda;
