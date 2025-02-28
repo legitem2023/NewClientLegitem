@@ -10,7 +10,7 @@ import { POSTPERSONAL_MESSAGES } from 'graphql/mutation'
 import { PERSONAL_MESSAGES_ADDED } from 'graphql/subscriptions'
 import ReusableCenterLayout from 'components/Layout/ReusableCenterLayout'
 import { useSelector,useDispatch } from 'react-redux';
-import {setmessagescount} from 'Redux/messagecountSlice';
+import {setmessagecount} from 'Redux/messagecountSlice';
 import ReusableMessageInput from 'components/UI/ReusableMessageInput'
 import ReusableMessage from 'components/UI/ReusableMessage'
 import { List, AutoSizer, CellMeasurer, CellMeasurerCache } from 'react-virtualized';
