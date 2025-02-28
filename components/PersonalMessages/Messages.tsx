@@ -51,7 +51,7 @@ const Messages = () => {
         const uniqueNewMessages = filteredNewMessages.filter(
           (newMsg: any) => !prev.personalMessages.some((prevMsg: any) => prevMsg.id === newMsg.id)
         );
-
+        console.log(uniqueNewMessages);
         return {
           ...prev,
           personalMessages: prev.personalMessages ? [uniqueNewMessages, ...prev.personalMessages] : [uniqueNewMessages],
