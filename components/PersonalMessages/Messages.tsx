@@ -62,7 +62,10 @@ const Messages = () => {
     return () => unsubscribe();
   }, [subscribeToMore, cookie.emailAddress, SelectedReciever]);
 
-  if (SelectedReciever === null || SelectedReciever === undefined || SelectedReciever === "") return dispatch(setDrawer(false));
+  useEffect(()=>{
+      if (SelectedReciever === null || SelectedReciever === undefined || SelectedReciever === "") return dispatch(setDrawer(false));
+  },[SelectedReciever])
+  
   if (SelectedReciever === null || SelectedReciever === undefined || SelectedReciever === "") return null;
   if (loading) return <CrowdLoading />;
   if (error) return <ReusableServerDown />;
