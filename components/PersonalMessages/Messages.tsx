@@ -54,7 +54,7 @@ const Messages = () => {
 
         return {
           ...prev,
-          personalMessages: ...prev.personalMessages?[uniqueNewMessages,...prev.personalMessages]:[uniqueNewMessages]
+          personalMessages: prev.personalMessages ? [uniqueNewMessages,...prev.personalMessages]:[uniqueNewMessages]
         };
       },
     });
