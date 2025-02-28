@@ -2,19 +2,18 @@ import { useEffect } from "react";
 
 const LoadEruda = () => {
   useEffect(() => {
-    // I-check kung nasa mobile bago i-load
     if (typeof window !== "undefined" && /Android|iPhone/i.test(navigator.userAgent)) {
       const script = document.createElement("script");
       script.src = "https://cdn.jsdelivr.net/npm/eruda";
       script.onload = () => {
-        // Hintayin matapos ang pag-load bago i-initialize
-        window.eruda && window.eruda.init();
+        // I-cast sa `any` para maiwasan ang TypeScript error
+        (window as any).eruda && (window as any).eruda.init();
       };
       document.body.appendChild(script);
     }
   }, []);
 
-  return null; // Wala itong UI, pero ilalagay nito ang script sa page
+  return null; // Wala itong UI, pero ia-append ang script sa page
 };
 
 export default LoadEruda;
