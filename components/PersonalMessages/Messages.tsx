@@ -46,7 +46,7 @@ const Messages = () => {
             (item.Reciever === cookie.emailAddress || item.Reciever === SelectedReciever)
         );
 
-        console.log(filteredNewMessages,<-===);
+        console.log(filteredNewMessages,"<-===");
         return {
           ...prev,
           personalMessages: prev.personalMessages ? [filteredNewMessages, ...prev.personalMessages] : [filteredNewMessages],
