@@ -36,6 +36,7 @@ const Messages = () => {
 
   
   useEffect(() => {
+    if (SelectedReciever === null || SelectedReciever === undefined || SelectedReciever === "") return dispatch(setDrawer(false));
     const unsubscribe = subscribeToMore({
       document: PERSONAL_MESSAGES_ADDED,
       variables: { emailAddress: cookie.emailAddress, reciever: SelectedReciever },
@@ -62,9 +63,7 @@ const Messages = () => {
     return () => unsubscribe();
   }, [subscribeToMore, cookie.emailAddress, SelectedReciever]);
 
-  useEffect(()=>{
-      if (SelectedReciever === null || SelectedReciever === undefined || SelectedReciever === "") return dispatch(setDrawer(false));
-  },[dispatch,SelectedReciever])
+  
   
   if (SelectedReciever === null || SelectedReciever === undefined || SelectedReciever === "") return null;
   if (loading) return <CrowdLoading />;
