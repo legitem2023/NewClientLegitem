@@ -42,7 +42,7 @@ const Messages = () => {
         const newMessages = subscriptionData.data.messagesPersonal;
         
         if(newMessages[0].id===null) return;
-        console.log(newMessages,"<-===");
+        console.log(newMessages[0],"<-===");
         const filteredNewMessages = newMessages?.filter(
           (item: any) => (item.Sender === SelectedReciever || item.Sender === cookie.emailAddress) &&
             (item.Reciever === cookie.emailAddress || item.Reciever === SelectedReciever)
