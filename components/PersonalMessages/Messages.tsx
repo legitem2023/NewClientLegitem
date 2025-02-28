@@ -9,7 +9,8 @@ import Loading from 'components/Partial/LoadingAnimation/Loading'
 import { POSTPERSONAL_MESSAGES } from 'graphql/mutation'
 import { PERSONAL_MESSAGES_ADDED } from 'graphql/subscriptions'
 import ReusableCenterLayout from 'components/Layout/ReusableCenterLayout'
-import { useSelector } from 'react-redux'
+import { useSelector,useDispatch } from 'react-redux';
+import {setmessagescount} from 'Redux/messagecountSlice';
 import ReusableMessageInput from 'components/UI/ReusableMessageInput'
 import ReusableMessage from 'components/UI/ReusableMessage'
 import { List, AutoSizer, CellMeasurer, CellMeasurerCache } from 'react-virtualized';
@@ -25,6 +26,7 @@ const Messages = () => {
       setIsLoading(false);
     },
   });
+  const dispatch = useDispatch();
   const [isLoading, setIsLoading] = useState(false);
   const SelectedReciever = useSelector((state: any) => state.reciever.reciever);
   const textareaRef = useRef<HTMLTextAreaElement>(null);
@@ -42,6 +44,7 @@ const Messages = () => {
         const newMessages = subscriptionData.data.messagesPersonal;
         
         if(newMessages[0].id===null) return;
+        dispatch(setmessagecount(newMessages.length));
         console.log(newMessages[0],"<-===");
         const filteredNewMessages = newMessages?.filter(
           (item: any) => (item.Sender === SelectedReciever || item.Sender === cookie.emailAddress) &&
