@@ -1,6 +1,6 @@
 'use client'
 import React, { useEffect, useRef, useState, useCallback } from 'react';
-import { useQuery, useMutation } from '@apollo/client';
+import { useQuery, useMutation,useSubscription } from '@apollo/client';
 import { GET_MESSAGES } from 'graphql/queries';
 import { MESSAGE_ADDED } from 'graphql/subscriptions';
 import { SEND_MESSAGE } from 'graphql/mutation';
@@ -22,7 +22,8 @@ const Messages = () => {
   const [isListLoading, setIsListLoading] = useState(true);
   const [visibleItems, setVisibleItems] = useState(20);
   const containerRef = useRef<HTMLDivElement>(null);
-
+  const ddd  = useSubscription(MESSAGE_ADDED);
+  console.log(ddd);
   const { loading, error, data, subscribeToMore } = useQuery(GET_MESSAGES, {
     onCompleted: () => setIsListLoading(false),
   });
