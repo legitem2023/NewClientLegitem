@@ -220,8 +220,7 @@ const Messages = () => {
   const listRef = useRef(null);
   const [currentDay, setCurrentDay] = useState(new Date());
 
-  if (SelectedReciever === null || SelectedReciever === undefined || SelectedReciever === "") return null;
-
+  
   useEffect(() => {
     const unsubscribe = subscribeToMore({
       document: PERSONAL_MESSAGES_ADDED,
@@ -256,6 +255,7 @@ const Messages = () => {
 
   if (loading) return <CrowdLoading />;
   if (error) return <ReusableServerDown />;
+  if (SelectedReciever === null || SelectedReciever === undefined || SelectedReciever === "") return null;
 
   // Filter messages by participants and date
   const FilterReciever = data.personalMessages.filter((item: any) => 
