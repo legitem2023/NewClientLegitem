@@ -16,7 +16,7 @@ import ReusableMessage from 'components/UI/ReusableMessage'
 import { List, AutoSizer, CellMeasurer, CellMeasurerCache } from 'react-virtualized';
 import CrowdLoading from 'components/Crowd/CrowdLoading';
 import ReusableServerDown from 'components/UI/ReusableServerDown'
-
+import { setDrawer } from 'Redux/drawerSlice';
 const Messages = () => {
   const cookie = useSelector((state: any) => state.cookie.cookie);
   const { loading, error, data, subscribeToMore } = useQuery(READ_PERSONAL_MESSAGES, { variables: { emailAddress: cookie.emailAddress } });
@@ -62,9 +62,10 @@ const Messages = () => {
     return () => unsubscribe();
   }, [subscribeToMore, cookie.emailAddress, SelectedReciever]);
 
+  if (SelectedReciever === null || SelectedReciever === undefined || SelectedReciever === "") return dispatch(setDrawer(false));
+  if (SelectedReciever === null || SelectedReciever === undefined || SelectedReciever === "") return null;
   if (loading) return <CrowdLoading />;
   if (error) return <ReusableServerDown />;
-  if (SelectedReciever === null || SelectedReciever === undefined || SelectedReciever === "") return null;
 
   // Filter messages by participants and date
   const FilterReciever = data.personalMessages.filter((item: any) => 
