@@ -7,12 +7,12 @@ import { useSelector } from 'react-redux'
 
 const PersonalMessages = () => {
     const cookie = useSelector((state:any)=> state.cookie.cookie);
-    const SelectedReciever = useSelector((state:any)=> state.reciever.reciever);
+    
 
     return (
         <ReusableMainLayout
             childA={()=><ActiveUsers email={SelectedReciever}/>}
-            childB={()=>(<Messages reciever={SelectedReciever}/>
+            childB={()=>(<Messages/>
             )}
             childC={()=><></>}
         />
