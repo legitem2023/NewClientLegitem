@@ -40,8 +40,9 @@ const Messages = () => {
       updateQuery: (prev, { subscriptionData }) => {
         if (!subscriptionData?.data) return prev;
         const newMessages = subscriptionData.data.messagesPersonal;
-        console.log(newMessages,"<-===");
+        
         if(newMessages[0].id===null) return;
+        console.log(newMessages,"<-===");
         const filteredNewMessages = newMessages?.filter(
           (item: any) => (item.Sender === SelectedReciever || item.Sender === cookie.emailAddress) &&
             (item.Reciever === cookie.emailAddress || item.Reciever === SelectedReciever)
