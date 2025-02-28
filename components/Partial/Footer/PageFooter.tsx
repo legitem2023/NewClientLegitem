@@ -2,14 +2,16 @@
 import { Icon } from '@iconify/react'
 import React, { useState } from 'react'
 import Link from 'next/link'
-import Notification from 'components/Notification/Notification'
+import Notification from 'components/Notification/Notification';
+import ReusableNotification from 'components/UI/ReusableNotification';
+import {useSelector} from 'react-redux';
 const PageFooter:React.FC = () => {
   const path = process.env.NEXT_PUBLIC_PATH
   const [showNotification, setShowNotification] = useState(true);
   const handleCloseNotification = () => {
     setShowNotification(false);
   };
-
+ const messageCount = useSelector((state:any)=>state.messagecount.messagecount);
   return (
     <div className='footer'>
       <div className='FootRoutes'>
@@ -26,7 +28,8 @@ const PageFooter:React.FC = () => {
           <Icon icon="ic:baseline-message" />
         </Link>
         <Link href={path+`/Cart`}>
-          <Icon icon="mdi:cart" />        
+          <Icon icon="mdi:cart" />
+          <ReusableNotification number={messageCount}/>
         </Link>
       </div>
       {showNotification && (
