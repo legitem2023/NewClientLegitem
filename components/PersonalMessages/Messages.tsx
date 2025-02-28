@@ -33,7 +33,6 @@ const Messages = () => {
   const cache = useRef(new CellMeasurerCache({ defaultHeight: 300, fixedWidth: true, fixedHeight: false }));
   const listRef = useRef(null);
   const [currentDay, setCurrentDay] = useState(new Date());
-
   
   useEffect(() => {
     if (SelectedReciever === null || SelectedReciever === undefined || SelectedReciever === "") return dispatch(setDrawer(false));
@@ -48,13 +47,10 @@ const Messages = () => {
         
         if(newMessages[0].id===null) return;
         dispatch(setmessagecount(newMessages.length));
-        console.log(newMessages[0],"<-===");
         const filteredNewMessages = newMessages?.filter(
           (item: any) => (item.Sender === SelectedReciever || item.Sender === cookie.emailAddress) &&
             (item.Reciever === cookie.emailAddress || item.Reciever === SelectedReciever)
         );
-
-        
         return {
           ...prev,
           personalMessages: prev.personalMessages ? [filteredNewMessages[0], ...prev.personalMessages] : [filteredNewMessages[0]],
