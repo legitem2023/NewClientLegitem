@@ -51,7 +51,7 @@ const Messages = () => {
         
         return {
           ...prev,
-          personalMessages: prev.personalMessages ? [filteredNewMessages, ...prev.personalMessages] : [filteredNewMessages],
+          personalMessages: prev.personalMessages ? [filteredNewMessages[0], ...prev.personalMessages] : [filteredNewMessages[0]],
         };
       },
     });
