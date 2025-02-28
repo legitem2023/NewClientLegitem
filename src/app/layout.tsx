@@ -23,8 +23,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en">
       <head>
         <SEO/>
-        <script src="https://cdn.jsdelivr.net/npm/eruda"></script>
-        <script>eruda.init();</script>
+        
         <link rel="manifest" href='/manifest.json' sizes="any" />
       </head>
       <body className={inter.className}>
