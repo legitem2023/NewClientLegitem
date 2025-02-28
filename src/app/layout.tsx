@@ -3,7 +3,7 @@ import { Inter } from 'next/font/google'
 import './globals.css'
 import './media600px.css'
 import './media1080px.css'
-import LoadEruda './LoadEruda';
+import LoadEruda from './LoadEruda';
 import ReduxWrapper from 'components/ApolloProvider/ReduxWrapper'
 import { ShoppingCartProvider } from 'components/context/ShoppingCartProvider'
 import * as React from "react";
