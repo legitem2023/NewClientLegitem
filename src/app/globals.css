@@ -88,7 +88,7 @@
   margin-bottom:40px;
   animation: bell-shake 0.5s infinite;
 }
-.ReusableNotification div{
+.ReusableNotification span{
   position: absolute;
   display: flex;
   justify-content: center;
