@@ -16,7 +16,7 @@ import ReusableMessage from 'components/UI/ReusableMessage'
 import { List, AutoSizer, CellMeasurer, CellMeasurerCache } from 'react-virtualized';
 import CrowdLoading from 'components/Crowd/CrowdLoading';
 import ReusableServerDown from 'components/UI/ReusableServerDown'
-const Messages = ({reciever}) => {
+const Messages = () => {
   const cookie = useSelector((state:any)=> state.cookie.cookie);
   const { loading, error, data, subscribeToMore } = useQuery(READ_PERSONAL_MESSAGES,{variables:{emailAddress:cookie.emailAddress}});
     const [insertMessage] = useMutation(POSTPERSONAL_MESSAGES,{
@@ -26,7 +26,7 @@ const Messages = ({reciever}) => {
         },
     });
     const [isLoading, setIsLoading] = useState(false);
-    const SelectedReciever = "";//useGlobalState("SelectedReciever");
+    const SelectedReciever = useSelector((state:any)=> state.reciever.reciever);
     const textareaRef = useRef<HTMLTextAreaElement>(null);
       const cache = useRef(new CellMeasurerCache({ defaultHeight: 300, fixedWidth: true,fixedHeight:false }));
       const listRef = useRef(null);
@@ -35,14 +35,14 @@ const Messages = ({reciever}) => {
     useEffect(() => {
         const unsubscribe = subscribeToMore({
           document: PERSONAL_MESSAGES_ADDED,
-          variables: { emailAddress: cookie.emailAddress, reciever: reciever }, // Pass any necessary variables
+          variables: { emailAddress: cookie.emailAddress, reciever: SelectedReciever }, // Pass any necessary variables
           updateQuery: (prev, { subscriptionData }) => {
             if (!subscriptionData?.data) return;
             const newMessages = subscriptionData?.data?.messagesPersonal;
             // Filter messages for the correct sender/receiver pair
             const filteredNewMessages = newMessages?.filter(
-              (item: any) => (item.Sender === reciever || item.Sender === cookie.emailAddress) &&
-                             (item.Reciever === cookie.emailAddress || item.Reciever === reciever)
+              (item: any) => (item.Sender === SelectedReciever || item.Sender === cookie.emailAddress) &&
+                             (item.Reciever === cookie.emailAddress || item.Reciever === SelectedReciever)
             );
       
             if (!filteredNewMessages || filteredNewMessages.length === 0) return prev;
@@ -66,12 +66,12 @@ const Messages = ({reciever}) => {
         return () => {
           unsubscribe();
         };
-      }, [subscribeToMore, cookie.emailAddress, reciever]);
+      }, [subscribeToMore, cookie.emailAddress, SelectedReciever]);
       if (loading) return <CrowdLoading/>
       if (error) return <ReusableServerDown/>
 // Add necessary dependencies
 //########################## MUTATION PART START ##########################
-    const FilterReciever = data?.personalMessages.filter((item: any) => (item.Sender===reciever || item.Sender === cookie.emailAddress) && (item.Reciever===cookie.emailAddress || item.Reciever === reciever))
+    const FilterReciever = data?.personalMessages.filter((item: any) => (item.Sender===SelectedReciever || item.Sender === cookie.emailAddress) && (item.Reciever===cookie.emailAddress || item.Reciever === SelectedReciever))
         const filteredPosts = FilterReciever.filter((post: any) => {
       const postDate = new Date(parseInt(post.dateSent)); // Convert timestamp to date
       return (
