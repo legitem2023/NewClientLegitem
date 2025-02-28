@@ -26,10 +26,10 @@ const PageFooter:React.FC = () => {
         </Link>
         <Link href={path+`/Messages`}>
           <Icon icon="ic:baseline-message" />
+        <ReusableNotification number={messageCount}/>
         </Link>
         <Link href={path+`/Cart`}>
           <Icon icon="mdi:cart" />
-          <ReusableNotification number={messageCount}/>
         </Link>
       </div>
       {showNotification && (
