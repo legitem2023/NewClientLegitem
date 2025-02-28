@@ -46,15 +46,10 @@ const Messages = () => {
             (item.Reciever === cookie.emailAddress || item.Reciever === SelectedReciever)
         );
 
-        if (!filteredNewMessages?.length) return prev;
-
-        const uniqueNewMessages = filteredNewMessages.filter(
-          (newMsg: any) => !prev.personalMessages.some((prevMsg: any) => prevMsg.id === newMsg.id)
-        );
-        console.log(uniqueNewMessages);
+        console.log(filteredNewMessages,<-===);
         return {
           ...prev,
-          personalMessages: prev.personalMessages ? [uniqueNewMessages, ...prev.personalMessages] : [uniqueNewMessages],
+          personalMessages: prev.personalMessages ? [filteredNewMessages, ...prev.personalMessages] : [filteredNewMessages],
         };
       },
     });
