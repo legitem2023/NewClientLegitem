@@ -64,7 +64,7 @@ const Messages = () => {
 
   useEffect(()=>{
       if (SelectedReciever === null || SelectedReciever === undefined || SelectedReciever === "") return dispatch(setDrawer(false));
-  },[SelectedReciever])
+  },[dispatch,SelectedReciever])
   
   if (SelectedReciever === null || SelectedReciever === undefined || SelectedReciever === "") return null;
   if (loading) return <CrowdLoading />;
