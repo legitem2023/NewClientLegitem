@@ -3,14 +3,14 @@ import React from 'react'
 
 const ReusableNotification = ({number}) => {
   return (
-    <span className='ReusableNotification'>
-        <span>
+    <div className='ReusableNotification'>
+        <div>
             <Icon icon="mdi:bell" width="30" height="30"/>
-        </span>
-        <span>
+        </dov>
+        <div>
             {number}
-        </span>
-    </span>
+        </div>
+    </div>
   )
 }
 
