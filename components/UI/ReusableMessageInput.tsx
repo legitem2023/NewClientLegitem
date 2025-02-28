@@ -12,7 +12,7 @@ const ReusableMessageInput:FC<ReusableMessageInputProps> = ({textRef,event,loadi
   return (
               <div className='Messenger_inputs'>
                 <div className='Messenger_inputs_fdiv'>
-                    <input type='text' ref={textRef} id='textarea' placeholder="Message"/>
+                    <input type='text' ref={textRef} id='textarea' placeholder="Message" maxLength={1000}/>
                 </div>
                <div className='Messenger_inputs_sdiv'>
                 <VideoCall/>
