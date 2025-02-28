@@ -35,9 +35,10 @@ const Messages = () => {
   const [currentDay, setCurrentDay] = useState(new Date());
   
   useEffect(() => {
-    if (SelectedReciever === null || SelectedReciever === undefined || SelectedReciever === "") return dispatch(setDrawer(false));
-    if (SelectedReciever === null || SelectedReciever === undefined || SelectedReciever === "") return;
-
+   if (!SelectedReciever) {
+     dispatch(setDrawer(false));
+     return; // Explicitly return void
+  }
     const unsubscribe = subscribeToMore({
       document: PERSONAL_MESSAGES_ADDED,
       variables: { emailAddress: cookie.emailAddress, reciever: SelectedReciever },
@@ -65,6 +66,7 @@ const Messages = () => {
   
   if (loading) return <CrowdLoading />;
   if (error) return <ReusableServerDown />;
+  if (SelectedReciever === null || SelectedReciever === undefined || SelectedReciever === "") return;
 
   // Filter messages by participants and date
   const FilterReciever = data.personalMessages.filter((item: any) => 
