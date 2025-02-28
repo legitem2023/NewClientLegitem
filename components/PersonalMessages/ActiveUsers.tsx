@@ -17,7 +17,6 @@ const ActiveUsers = ({email}) => {
 
   if(loading) return
 
-  console.log(data.personalMessages);
 
 const uniqueSenders = Array.from(
   new Set(
