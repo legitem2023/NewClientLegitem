@@ -5,7 +5,7 @@ import { i } from 'vitest/dist/reporters-yx5ZTtEV'
 import { imageSourceGallery } from 'utils/scripts'
 import Image from 'next/image'
 import Link from 'next/link'
-import ReusableFirstLetterImage from '../../components/UI/ReusableFirstLetterImage';
+import ReusableFirstLetterImage from '../components/UI/ReusableFirstLetterImage';
 import { useDispatch } from 'react-redux'
 import { setViewedProd } from 'Redux/viewedProdSlice'
 const RelatedColor = ({styleCode}) => {
