@@ -12,6 +12,7 @@ import { Pagination } from 'swiper/modules';
 import 'swiper/css/pagination';
 import 'swiper/css';
 import 'swiper/css/scrollbar';
+import ReusableFirstLetterImage from 'components/UI/ReusableFirstLetterImage';
 const RelatedSize = ({styleCode}) => {
     const {data,loading,error} = useQuery(GET_CHILD_INVENTORY_RELATED_COLOR_SIZE,{
         variables:{
@@ -29,7 +30,7 @@ const RelatedSize = ({styleCode}) => {
         dispatch(setViewedProd([item]))
       }
     return (
-            <Swiper
+        /*    <Swiper
             slidesPerView={3}
             pagination={{
               clickable: true,
@@ -42,14 +43,19 @@ const RelatedSize = ({styleCode}) => {
               </SwiperSlide>
             ))
             }
-          </Swiper>
-    // <div className='colorSelection'>{
-    //     data.getChildInventory_details.map((item:any)=>(
-    //         <div key={item.id} onClick={()=>view(item)}>
-    //             {item.size}
-    //         </div>
-    //     ))
-    // }</div>
+          </Swiper>*/
+     <div className='colorSelection'>{
+         data.getChildInventory_details.map((item:any)=>(
+             <div key={item.id} onClick={()=>view(item)}>
+                <ReusableFirstLetterImage
+                  text={item.size}
+                  size={100}
+                  bgColor="rgb(87, 39, 0)"
+                  textColor="#ffffff"
+                />
+             </div>
+         ))
+     }</div>
   )
 }
 
