@@ -21,7 +21,6 @@
     "@mui/styled-engine-sc": "^6.0.0-alpha.18",
     "@nextui-org/react": "^2.2.9",
     "@prisma/client": "^5.12.1",
-    "@react-navigation/native-stack": "^7.0.0-alpha.7",
     "@reduxjs/toolkit": "^2.5.0",
     "@testing-library/jest-dom": "^6.4.6",
     "@testing-library/react": "^16.0.0",
