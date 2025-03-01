@@ -271,6 +271,7 @@ body {
 .colorSelection{
   display: flex;
   flex-direction: row;
+  justify-content:'space-between';
   align-items: left;
 }
 .colorSelection a{
