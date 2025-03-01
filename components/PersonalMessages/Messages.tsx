@@ -38,7 +38,9 @@ const Messages = () => {
    if (!SelectedReciever) {
      dispatch(setDrawer(false));
      return; // Explicitly return void
-  }
+  }else{
+     dispatch(setDrawer(true));
+   }
     const unsubscribe = subscribeToMore({
       document: PERSONAL_MESSAGES_ADDED,
       variables: { emailAddress: cookie.emailAddress, reciever: SelectedReciever },
