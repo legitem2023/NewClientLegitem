@@ -32,12 +32,13 @@ const uniqueSenders = Array.from(
     
     <li><input type='text' style={{padding:'5px',
                                    boxShadow:'inset 0.5px 0.5px 3px #000000',
-                                   border:'none',                                                      width:'100%',
+                                   border:'none',
+                                   width:'100%',
                                    boxSizing:'border-box'}}/></li>
     <li className='Menu_label'>Conversations</li>
  {uniqueSenders.map((sender:any, idx:number) => (
       <li key={idx} 
-        style={{display:'flex',justifyContent:'flex-start',alignItems:'center',gap:'10px'}}
+        style={{display:'flex',justifyContent:'flex-start',alignItems:'center',gap:'10px',overflow:'hidden'}}
         onClick={()=>{
           dispatch(setreciever(sender));
           dispatch(setDrawer(true));
