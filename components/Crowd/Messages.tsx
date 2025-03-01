@@ -37,7 +37,6 @@ const Messages = () => {
       updateQuery: (prev, { subscriptionData }) => {
         if (!subscriptionData.data) return prev;
         const newMessage = subscriptionData.data.messageAdded;
-        console.log(newMessage);
         if(newMessage.id === null) return;
         return {
           ...prev,
@@ -56,22 +55,20 @@ const Messages = () => {
   }, [data, activeStream]);
 
 const handleSubmit = async (e) => {
-  e.preventDefault();
-  
-  const message = textareaRef.current?.value.trim(); // Trim whitespace
-  
+  e.preventDefault(); 
+  const message = textareaRef.current?.value.trim(); // Trim whitespace 
   if (!message) {
-    alert('Message cannot be empty.');
+   // alert('Message cannot be empty.');
     return;
   }
 
   if (message.length < 2) {
-    alert('Message must be at least 2 characters long.');
+   // alert('Message must be at least 2 characters long.');
     return;
   }
 
   if (message.length > 500) {
-    alert('Message cannot exceed 500 characters.');
+    //alert('Message cannot exceed 500 characters.');
     return;
   }
 
