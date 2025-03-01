@@ -165,7 +165,7 @@
 .messageReactions{
   display: flex;
   flex-direction: row;
-  gap:10px;
+  gap:5px;
   border-top: solid 1px #707070;
 }
 .messageReactions div{
@@ -176,7 +176,7 @@
 }
 
 .messageReactions svg{
-  margin:5px;
+  margin:3px;
 }
 
 .messageSender{
