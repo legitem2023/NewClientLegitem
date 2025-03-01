@@ -46,7 +46,6 @@
     "next-share": "^0.27.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-native" :"0.72.6",
     "react-image-crop": "^11.0.4",
     "react-image-gallery": "^1.3.0",
     "react-infinite-grid": "^0.4.0",
