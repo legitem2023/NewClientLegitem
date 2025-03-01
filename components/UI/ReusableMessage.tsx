@@ -61,7 +61,7 @@ const ReusableMessage: FC<ReusableMessageProps> = ({ data, onChange }) => {
       return
     }
   }
-  console.log(border(data))
+  
   return (
     <li className="messagesLI">
       <div>
