@@ -28,8 +28,12 @@ const RelatedColor = ({styleCode}) => {
     <div className='colorSelection'>{
         data.getChildInventory_details.map((item:any)=>(
             <div key={item.id} onClick={()=>view(item)}>
-                <Image src={imageSourceGallery(item)} height='50' width='50' alt={item.id} />
-                {item.color}
+                <ReusableFirstLetterImage
+                  text={item.color}
+                  size={100}
+                  bgColor="rgb(87, 39, 0)"
+                  textColor="#ffffff"
+                />
             </div>
         ))
     }</div>
