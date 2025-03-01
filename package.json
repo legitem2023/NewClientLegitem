@@ -3,10 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "build": "next build",
     "start": "next start",
     "dev": "next dev",
     "dev-ssl": "local-ssl-proxy --source 8080 --target 3000 & next start",
-    "build": "next build",
     "lint": "next lint",
     "test": "vitest"
   },
