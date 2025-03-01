@@ -96,7 +96,8 @@
   height: 35px;
   width: 35px;
   color:'#ffffff';
-  background-color:red!important;
+  transform:'scale(0.5)';                
+  background-color:transparent!important;
 }
 
 
