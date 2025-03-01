@@ -6,7 +6,7 @@ const ReusableNotification = ({number}) => {
     <div className='ReusableNotification'>
         <div>
             <Icon icon="mdi:bell" width="30" height="30"/>
-        </dov>
+        </div>
         <div>
             {number}
         </div>
