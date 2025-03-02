@@ -32,7 +32,7 @@ const RelatedSize = ({styleCode}) => {
          data.getChildInventory_details.map((item:any)=>{
              item.size.length > 10?(
              <div key={item.id} style={{display:'flex',flexDirection:'column'}} onClick={()=>view(item)}>
-                <button>item.size</button>
+                <button>{item.size}</button>
              </div>    
              ):(
                <div key={item.id} onClick={()=>view(item)}>
