@@ -8,7 +8,7 @@ import Link from 'next/link'
 import ReusableFirstLetterImage from 'components/UI/ReusableFirstLetterImage';
 import { useDispatch } from 'react-redux'
 import { setViewedProd } from 'Redux/viewedProdSlice'
-const RelatedColor = ({styleCode}) => {
+const RelatedColor = ({styleCode,currentcolor}) => {
     const {data,loading,error} = useQuery(GET_CHILD_INVENTORY_RELATED_COLOR_SIZE,{
         variables:{
             styleCode:styleCode
@@ -30,7 +30,8 @@ const RelatedColor = ({styleCode}) => {
   key={item.id} 
   style={{ 
     display: 'flex', 
-    border:'solid 1px #000000',
+    border:{currentcolor===item.color?'solid 2px brown':'solid 2px transparent'},
+    borderRadius:'100%',
     flexDirection: 'column', 
     justifyContent: 'center', 
     alignItems: 'center' // 'top' is invalid, use 'flex-start' 
