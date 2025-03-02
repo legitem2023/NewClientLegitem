@@ -71,7 +71,7 @@ const ReusableMessage: FC<ReusableMessageProps> = ({ data, onChange }) => {
             <ReusableFirstLetterImage text={data.Sender} size={100} bgColor="rgb(87, 39, 0)" textColor="#ffffff" />
           </div>
           <div className="messageSenderName">
-            <ReusableDropdown Name={data.Sender} child1={()=>(<button></button>)} child1={()=>(<></>)}/>
+            <ReusableDropdown Name={data.Sender} child1={()=>(<button></button>)} child2={()=>(<></>)}/>
             {data.Sender}
           </div>
           <div className="messageSenderTime">
