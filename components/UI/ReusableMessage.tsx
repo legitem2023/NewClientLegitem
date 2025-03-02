@@ -75,7 +75,7 @@ const ReusableMessage: FC<ReusableMessageProps> = ({ data, onChange }) => {
           </div>
           <div className="messageSenderName">
             <ReusableDropdown Name={data.Sender} 
-                              child1={()=>(<button onClick={()=>Message(data.Sender)  }</button>>Message</button>)} 
+                              child1={()=>(<button onClick={()=>Message(data.Sender)}>Message</button>)} 
                               child2={()=>(<></>)}/>
           </div>
           <div className="messageSenderTime">
