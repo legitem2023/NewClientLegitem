@@ -31,7 +31,7 @@ const RelatedSize = ({styleCode}) => {
      <div className='colorSelection' style={{backgroundColor:'red'}}>{
          data.getChildInventory_details.map((item:any)=>{
              item.size.length > 10?(
-             <div key={item.id} style={{display:flex,flexDirection:column}} onClick={()=>view(item)}>
+             <div key={item.id} style={{display:'flex',flexDirection:column}} onClick={()=>view(item)}>
                 <button>item.size</button>
              </div>    
              ):(
