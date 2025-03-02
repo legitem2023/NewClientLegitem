@@ -26,15 +26,24 @@ const RelatedColor = ({styleCode}) => {
     return (
     <div className='colorSelection' style={{display:'flex',flexDirection:'row', justifyContent:'space-between',height:'100px'}}>{
         data.getChildInventory_details.map((item:any)=>(
-            <div key={item.id} style={{display:'flex',flexDirection:'column',justifyContent:'center',alignItems:'top'}} onClick={()=>view(item)}>
-                <ReusableFirstLetterImage
-                  text={item.color}
-                  size={100}
-                  bgColor="rgb(87, 39, 0)"
-                  textColor="#ffffff"
-                />
-                {item.color}
-            </div>
+            <div 
+  key={item.id} 
+  style={{ 
+    display: 'flex', 
+    flexDirection: 'column', 
+    justifyContent: 'center', 
+    alignItems: 'flex-start' // 'top' is invalid, use 'flex-start' 
+  }} 
+  onClick={() => view(item)}
+>
+  <ReusableFirstLetterImage
+    text={item.color}
+    size={100}
+    bgColor="rgb(87, 39, 0)"
+    textColor="#ffffff"
+  />
+  {item.color}
+</div>
         ))
     }</div>
   )
