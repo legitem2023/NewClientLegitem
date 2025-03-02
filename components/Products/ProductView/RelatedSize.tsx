@@ -27,7 +27,7 @@ const RelatedSize = ({styleCode}) => {
         dispatch(setViewedProd([item]))
       }
     return (
-     <div className="colorSelection" style={{ display:'flex',flexDirection:'row' }}>
+     <div className="colorSelection" style={{ display:'flex',flexDirection:'column' }}>
   {data.getChildInventory_details.map((item: any) => (
       <div key={item.id} style={{ display: "flex", flexDirection: "column" }} onClick={() => view(item)}>
         <button>{item.size}</button>
