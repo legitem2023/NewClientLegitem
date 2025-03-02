@@ -64,11 +64,14 @@ const ProductView: React.FC = () => {
             <div className='MainView_LchildGallery'>
               <ProductTabs data={viewItem} />
               <div className='MainView_LchildGalleryDetails'>
-                <Element Label="Name" value={viewItem.name} />
-                <Element Label="Price" value={formatter.format(viewItem.price)} />
+                Name :<Element Label="Name" value={viewItem.name} />
+                Price :<Element Label="Price" value={formatter.format(viewItem.price)} />
+                
                 <Element Label="Available Sizes" value={""} />
+                
                 <RelatedSize styleCode={viewItem.style_Code}/>
                 <Element Label="Available Colors" value={""} />
+                
                 <RelatedColor styleCode={viewItem.style_Code}/>
                 <Element Label="Available Stock" value={viewItem.stock} />
                 <Element Label="Quantity" value={""} />
