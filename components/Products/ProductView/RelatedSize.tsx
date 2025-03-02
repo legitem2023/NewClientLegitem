@@ -20,9 +20,7 @@ const RelatedSize = ({styleCode}) => {
         }
     })
     const dispatch = useDispatch();
-
     const path = process.env.NEXT_PUBLIC_PATH;
-
     if(loading) return;
     if(error) return
       const view = (item:any) =>{
@@ -30,33 +28,25 @@ const RelatedSize = ({styleCode}) => {
         dispatch(setViewedProd([item]))
       }
     return (
-        /*    <Swiper
-            slidesPerView={3}
-            pagination={{
-              clickable: true,
-            }}
-            modules={[Pagination]}
-            loop={false}>
-            {data.getChildInventory_details.map((item:any, i:any) => (
-              <SwiperSlide key={i} className="border-2 border-gray-300" onClick={()=>view(item)}>
-                  {item.size}
-              </SwiperSlide>
-            ))
-            }
-          </Swiper>*/
      <div className='colorSelection' style={{backgroundColor:'red'}}>{
-         data.getChildInventory_details.map((item:any)=>(
-             <div key={item.id} onClick={()=>view(item)}>
+         data.getChildInventory_details.map((item:any)=>{
+             item.size.length > 10?(
+             <div key={item.id} style={{display:flex,flexDirection:column}} onClick={()=>view(item)}>
+                <button>item.size</button>
+             </div>    
+             ):(
+               <div key={item.id} onClick={()=>view(item)}>
                 <ReusableFirstLetterImage
                   text={item.size}
                   size={100}
                   bgColor="rgb(87, 39, 0)"
                   textColor="#ffffff"
                 />
-             </div>
-         ))
+             </div>  
+             )
+           }     
+         )
      }</div>
   )
 }
-
 export default RelatedSize
