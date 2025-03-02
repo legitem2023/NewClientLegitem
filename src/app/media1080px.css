@@ -213,7 +213,7 @@
     }
    .MainView_LchildGalleryDetails div {
     padding: 3px!important;
-    backgroundColor:'red';
+    backgroundColor:'green'!important;
    }
     /* .Thumbnails{
     grid-gap:0.7vw;
