@@ -72,7 +72,6 @@ const ReusableMessage: FC<ReusableMessageProps> = ({ data, onChange }) => {
           </div>
           <div className="messageSenderName">
             <ReusableDropdown Name={data.Sender} child1={()=>(<button></button>)} child2={()=>(<></>)}/>
-            {data.Sender}
           </div>
           <div className="messageSenderTime">
             <Icon icon="svg-spinners:clock" width="15" height="15" style={{ marginLeft: '5px' }} />
