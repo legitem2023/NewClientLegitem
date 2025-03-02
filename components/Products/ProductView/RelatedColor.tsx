@@ -42,7 +42,7 @@ const RelatedColor = ({styleCode}) => {
     bgColor="rgb(87, 39, 0)"
     textColor="#ffffff"
   />
-  {item.color}
+  
 </div>
         ))
     }</div>
