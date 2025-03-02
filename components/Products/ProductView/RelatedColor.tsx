@@ -30,9 +30,10 @@ const RelatedColor = ({styleCode}) => {
   key={item.id} 
   style={{ 
     display: 'flex', 
+    border:'solid 1px #000000',
     flexDirection: 'column', 
     justifyContent: 'center', 
-    alignItems: 'flex-start' // 'top' is invalid, use 'flex-start' 
+    alignItems: 'center' // 'top' is invalid, use 'flex-start' 
   }} 
   onClick={() => view(item)}
 >
