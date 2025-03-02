@@ -211,7 +211,10 @@
         flex-direction: column;
         padding: 0px;
     }
-
+   .MainView_LchildGalleryDetails div {
+    padding: 3px!important;
+    backgroundColor:'red';
+   }
     /* .Thumbnails{
     grid-gap:0.7vw;
     grid-template-columns: 49.5vw 49.5vw;
@@ -236,7 +239,7 @@
     }
 
     .CartCols {
-        grid-template-columns: 50% 50%;
+         grid-template-columns: 50% 50%;
     }
 
     .CartImage {
