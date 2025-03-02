@@ -67,13 +67,13 @@ const ProductView: React.FC = () => {
                 <Element Label="Name" value={'Name :'+ viewItem.name} />
                 <Element Label="Price" value={'Price :' + formatter.format(viewItem.price)} />
                 
-                <Element Label="Available Sizes" value={""} />
+                <Element Label="Available Sizes" value={"Available Sizes :"} />
                 
                 <RelatedSize styleCode={viewItem.style_Code}/>
-                <Element Label="Available Colors" value={""} />
+                <Element Label="Available Colors" value={"Available Colors :"} />
                 
                 <RelatedColor styleCode={viewItem.style_Code}/>
-                <Element Label="Available Stock" value={viewItem.stock} />
+                <Element Label="Available Stock" value={'Stock :'+ viewItem.stock} />
                 <Element Label="Quantity" value={""} />
                 <div className='ShareQuantity'>
                   <button onClick={() => setQuantity(quantity + 1)}>+</button>
