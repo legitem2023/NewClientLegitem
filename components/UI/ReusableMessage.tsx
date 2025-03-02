@@ -3,7 +3,7 @@ import ExpandableText from 'components/Crowd/ExpandableText';
 import Image from 'next/image';
 import React, { FC, useEffect, useState } from 'react';
 import ReusableFirstLetterImage from './ReusableFirstLetterImage';
-import ReusableDropdownProps from './ReusableDropdownProps';
+import ReusableDropdown from './ReusableDropdown';
 import LiveStreamPlayer from './LiveStreamPlayer';
 import { useSelector } from 'react-redux';
 
@@ -71,7 +71,7 @@ const ReusableMessage: FC<ReusableMessageProps> = ({ data, onChange }) => {
             <ReusableFirstLetterImage text={data.Sender} size={100} bgColor="rgb(87, 39, 0)" textColor="#ffffff" />
           </div>
           <div className="messageSenderName">
-            <ReusableDropdownProps Name={data.Sender} child1={()=>(<button></button>)} child1={()=>(<></>)}/>
+            <ReusableDropdown Name={data.Sender} child1={()=>(<button></button>)} child1={()=>(<></>)}/>
             {data.Sender}
           </div>
           <div className="messageSenderTime">
