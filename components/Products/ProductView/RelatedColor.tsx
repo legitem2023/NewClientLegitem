@@ -20,14 +20,13 @@ const RelatedColor = ({styleCode}) => {
     if(error) return
 
       const view = (item:any) =>{
-        console.log([item]);
         dispatch(setViewedProd([item]))
       }
 
     return (
-    <div className='colorSelection' style={{display:'flex',flexDirection:'row', justifyContent:'space-between'}}>{
+    <div className='colorSelection' style={{display:'flex',flexDirection:'row', justifyContent:'space-between',height:'100px'}}>{
         data.getChildInventory_details.map((item:any)=>(
-            <div key={item.id} style={{display:'flex',flexDirection:'column',justifyContent:'center',height:'100px'}} onClick={()=>view(item)}>
+            <div key={item.id} style={{display:'flex',flexDirection:'column',justifyContent:'center'}} onClick={()=>view(item)}>
                 <ReusableFirstLetterImage
                   text={item.color}
                   size={100}
