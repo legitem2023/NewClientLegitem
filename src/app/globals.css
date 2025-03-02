@@ -89,10 +89,6 @@
   animation: bell-shake 0.5s infinite;
   color:red;
 }
-.ReusableNotification svg{
- margin-left:10px;
- margin-bottom:10px;
-}
 .ReusableNotification div{
   position: absolute;
   display: flex;
@@ -110,7 +106,7 @@
   align-items: center;
   height: 35px;
   width: 35px;
-  color:'#ffffff!important';
+  color:#ffffff!important;
   transform:'scale(0.5)';  
   z-index:9;
   background-color:transparent!important;
