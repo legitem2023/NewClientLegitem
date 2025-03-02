@@ -69,7 +69,7 @@ const ProductView: React.FC = () => {
                 
                 <Element Label="Available Sizes" value={"Available Sizes :"} />
                 
-                <RelatedSize styleCode={viewItem.style_Code}/>
+                <RelatedSize styleCode={viewItem.style_Code} currentsize={viewItem.size}/>
                 <Element Label="Available Colors" value={"Available Colors :"} />
                 
                 <RelatedColor styleCode={viewItem.style_Code}/>
