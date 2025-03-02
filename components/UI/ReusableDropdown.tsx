@@ -1,17 +1,14 @@
-import React, { useState, useRef, useEffect, useCallback } from 'react';
+import React,{ useRef,useCallback,useEffect,useState,ReactNode,ReactElement,FC} from "react";
 
-type DropdownProps = {
-  options: string[];
-  text: string;
-  onSelect: (selected: string) => void;
-  children?: React.ReactNode; // Allows custom button content
+type ReusableDropdownProps = {
+  Name:string,
+  child1:() => ReactElement,
+  child2:() => ReactElement,
 };
 
-const ReusableDropdown: React.FC<DropdownProps> = ({ options, text, onSelect, children }) => {
+const ReusableDropdown:FC<ReusableDropdownProps> = ({child1,child2,Name}) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [selectedOption, setSelectedOption] = useState(text);
-  const dropdownRef = useRef<HTMLDivElement>(null);
-
+ const dropdownRef = useRef<HTMLDivElement>(null);
   // Handle click outside dropdown
   const handleClickOutside = useCallback((event: MouseEvent) => {
     if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
@@ -23,36 +20,28 @@ const ReusableDropdown: React.FC<DropdownProps> = ({ options, text, onSelect, ch
     document.addEventListener('mousedown', handleClickOutside);
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, [handleClickOutside]);
-
-  // Handle selection
-  const handleSelect = (option: string) => {
-    setSelectedOption(option);
-    onSelect(option);
-    setIsOpen(false);
-  };
-
+  
   return (
-    <div className="relative w-60" ref={dropdownRef}>
+    <div ref={dropdownRef} className="relative inline-block text-left">
+      {/* Three Dots Button */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="text-sm w-full text-left bg-white shadow-sm flex justify-between items-center p-2 border rounded"
-      >
-        {children || selectedOption} {/* Allows custom button content */}
-        <span className="text-gray-500">&#9662;</span>
+        className="p-0 rounded-full w-[30px] border h-[30px] bg-gray-100 hover:bg-gray-200 focus:outline-none">
+        <span className="text-xl">{Name}</span>
       </button>
 
+      {/* Dropdown Menu */}
       {isOpen && (
-        <ul className="absolute left-0 w-full bg-white border rounded-lg shadow-lg z-10">
-          {options.map((option) => (
-            <li
-              key={option}
-              onClick={() => handleSelect(option)}
-              className="text-sm p-2 cursor-pointer hover:bg-gray-100"
-            >
-              {option}
+        <div className="absolute right-0 w-[auto] bg-white border border-gray-200 rounded-md shadow-lg">
+          <ul className="py-1">
+            <li className="p-1 flex flex-col items-center justify-center">
+              {child1()}
             </li>
-          ))}
-        </ul>
+            <li className="p-1 flex flex-col items-center justify-center">
+              {child2()}
+            </li>
+          </ul>
+        </div>
       )}
     </div>
   );
