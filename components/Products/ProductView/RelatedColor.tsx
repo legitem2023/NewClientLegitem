@@ -27,7 +27,7 @@ const RelatedColor = ({styleCode}) => {
     return (
     <div className='colorSelection' style={{display:'flex',flexDirection:'row', justifyContent:'space-between'}}>{
         data.getChildInventory_details.map((item:any)=>(
-            <div key={item.id} style={{display:'flex',flexDirection:'column',justifyContent:'center',Height:'100px'}} onClick={()=>view(item)}>
+            <div key={item.id} style={{display:'flex',flexDirection:'column',justifyContent:'center',height:'100px'}} onClick={()=>view(item)}>
                 <ReusableFirstLetterImage
                   text={item.color}
                   size={100}
