@@ -28,25 +28,24 @@ const RelatedSize = ({styleCode}) => {
         dispatch(setViewedProd([item]))
       }
     return (
-     <div className='colorSelection' style={{backgroundColor:'red'}}>{
-         data.getChildInventory_details.map((item:any)=>{
-             item.size.length > 10?(
-             <div key={item.id} style={{display:'flex',flexDirection:'column'}} onClick={()=>view(item)}>
-                <button>{item.size}</button>
-             </div>    
-             ):(
-               <div key={item.id} onClick={()=>view(item)}>
-                <ReusableFirstLetterImage
-                  text={item.size}
-                  size={100}
-                  bgColor="rgb(87, 39, 0)"
-                  textColor="#ffffff"
-                />
-             </div>  
-             )
-           }     
-         )
-     }</div>
+     <div className="colorSelection" style={{ backgroundColor: "red" }}>
+  {data.getChildInventory_details.map((item: any) => 
+    item.size.length > 10 ? (
+      <div key={item.id} style={{ display: "flex", flexDirection: "column" }} onClick={() => view(item)}>
+        <button>{item.size}</button>
+      </div>
+    ) : (
+      <div key={item.id} onClick={() => view(item)}>
+        <ReusableFirstLetterImage
+          text={item.size}
+          size={100}
+          bgColor="rgb(87, 39, 0)"
+          textColor="#ffffff"
+        />
+      </div>
+    )
+  )}
+</div>
   )
 }
 export default RelatedSize
