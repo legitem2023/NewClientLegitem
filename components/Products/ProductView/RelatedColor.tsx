@@ -30,7 +30,6 @@ const RelatedColor = ({styleCode,currentcolor}) => {
   key={item.id} 
   style={{ 
     display: 'flex', 
-    border:{currentcolor===item.color?'solid 2px brown':'solid 2px transparent'},
     borderRadius:'100%',
     flexDirection: 'column', 
     justifyContent: 'center', 
@@ -41,7 +40,7 @@ const RelatedColor = ({styleCode,currentcolor}) => {
   <ReusableFirstLetterImage
     text={item.color}
     size={100}
-    bgColor="rgb(87, 39, 0)"
+    bgColor={currentcolor===item.color?'#ff9999':'rgb(87, 39, 0)'}
     textColor="#ffffff"
   />
   
