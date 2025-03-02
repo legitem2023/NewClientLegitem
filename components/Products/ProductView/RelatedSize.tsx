@@ -44,7 +44,7 @@ const RelatedSize = ({styleCode}) => {
             ))
             }
           </Swiper>*/
-     <div className='colorSelection'>{
+     <div className='colorSelection' style={{backgroundColor:'red'}}>{
          data.getChildInventory_details.map((item:any)=>(
              <div key={item.id} onClick={()=>view(item)}>
                 <ReusableFirstLetterImage
