@@ -5,7 +5,8 @@ import React, { FC, useEffect, useState } from 'react';
 import ReusableFirstLetterImage from './ReusableFirstLetterImage';
 import ReusableDropdown from './ReusableDropdown';
 import LiveStreamPlayer from './LiveStreamPlayer';
-import { useSelector } from 'react-redux';
+import { useSelector,useDispatch } from 'react-redux';
+import { setreciever } from 'Redux/recieverSlice';
 
 interface Message {
   Sender: string;
@@ -24,7 +25,7 @@ const ReusableMessage: FC<ReusableMessageProps> = ({ data, onChange }) => {
 
   const { activeStream, streamId } = useSelector((state: any) => state.streaming);
   const isLiveStream = data.Video && data.Video === streamId;
-
+  const dispatch = useDispatch();
   // ✅ Auto-expand when live stream starts, but allow manual toggling
   useEffect(() => {
     if (isLiveStream && activeStream) {
@@ -62,7 +63,9 @@ const ReusableMessage: FC<ReusableMessageProps> = ({ data, onChange }) => {
       return
     }
   }
-  
+  const Message = (reciever) =>{
+    dispatch(setreciever(reciever))
+  }
   return (
     <li className="messagesLI">
       <div>
@@ -71,7 +74,9 @@ const ReusableMessage: FC<ReusableMessageProps> = ({ data, onChange }) => {
             <ReusableFirstLetterImage text={data.Sender} size={100} bgColor="rgb(87, 39, 0)" textColor="#ffffff" />
           </div>
           <div className="messageSenderName">
-            <ReusableDropdown Name={data.Sender} child1={()=>(<button></button>)} child2={()=>(<></>)}/>
+            <ReusableDropdown Name={data.Sender} 
+                              child1={()=>(<button onClick={()=>Message(data.Sender)  }</button>>Message</button>)} 
+                              child2={()=>(<></>)}/>
           </div>
           <div className="messageSenderTime">
             <Icon icon="svg-spinners:clock" width="15" height="15" style={{ marginLeft: '5px' }} />
