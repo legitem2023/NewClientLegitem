@@ -41,6 +41,7 @@ const ReusableCollapse:React.FC<ReusableCollapseProps> = ({NameIcon,child1}) => 
       {isOpen && (
         <div  style={{position: "absolute",
                       width: "auto", 
+                      left:"0px",
                       backgroundColor: "white",
                       border: "1px solid #E5E7EB", // gray-200
                       padding:'3px', // rounded-md
