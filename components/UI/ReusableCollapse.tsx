@@ -43,11 +43,10 @@ const ReusableCollapse:React.FC<ReusableCollapseProps> = ({NameIcon,child1}) => 
                       width: "auto", 
                       left:"0px",
                       backgroundColor: "white",
-                      border: "1px solid #E5E7EB", // gray-200
-                      padding:'3px', // rounded-md
+                      borderRadius:'50px',
                       boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.06)", // shadow-lg
                     }}>
-          <div style={{paddingLeft:'0px',padding:'0px'}}>
+          <div style={{paddingLeft:'0px',padding:'0px',borderRadius:'50px'}}>
             {child1()}
           </div>
         </div>
