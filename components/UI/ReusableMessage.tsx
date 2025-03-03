@@ -72,12 +72,12 @@ const router = useRouter();
 
 
 const reactions = [
-  { name: "Like", icon: "mdi:thumb-up" },
-  { name: "Heart", icon: "mdi:heart" },
-  { name: "Smile", icon: "mdi:emoticon-happy" },
-  { name: "Laugh", icon: "mdi:emoticon-excited" },
-  { name: "Mock", icon: "mdi:emoticon-wink" },
-  { name: "Angry", icon: "mdi:emoticon-angry" },
+  { name: "Like", icon: "mdi:thumb-up", color: "#1877F2" }, // Blue (Facebook-like)
+  { name: "Heart", icon: "mdi:heart", color: "#E0245E" }, // Red (Love)
+  { name: "Smile", icon: "mdi:emoticon-happy", color: "#FFD700" }, // Yellow (Happy)
+  { name: "Laugh", icon: "mdi:emoticon-excited", color: "#FFA500" }, // Orange (Excited)
+  { name: "Mock", icon: "mdi:emoticon-wink", color: "#8A2BE2" }, // Purple (Playful)
+  { name: "Angry", icon: "mdi:emoticon-angry", color: "#FF0000" }, // Red (Angry)
 ];
   
   return (
@@ -130,7 +130,7 @@ const reactions = [
         style={{ padding: '3px', display: 'flex', alignItems: 'center' }} 
         onClick={() => Message(data.Sender)}
       >
-        <Icon icon={reaction.icon} style={{ marginRight: '5px' }} />
+        <Icon icon={reaction.icon} style={{ marginRight: '5px',color:reaction.color}} />
         {reaction.name}
       </button>
     </li>
