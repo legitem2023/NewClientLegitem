@@ -40,8 +40,7 @@ const ReusableCollapse:React.FC<ReusableCollapseProps> = ({NameIcon,child1}) => 
       {/* Dropdown Menu */}
       {isOpen && (
         <div  style={{position: "relative",
-                      width: "auto",
-                      
+                      width: "auto", 
                       backgroundColor: "white",
                       border: "1px solid #E5E7EB", // gray-200
                       padding:'3px', // rounded-md
