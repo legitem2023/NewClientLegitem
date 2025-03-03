@@ -26,15 +26,12 @@ const ReusableDropdown:FC<ReusableDropdownProps> = ({child1,child2,Name}) => {
       {/* Three Dots Button */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        style={{
-  padding: 0,
-  borderRadius: "9999px", // rounded-full
-  width: "30px",
-  height: "30px",
-  border: "1px solid", // border (default color depends on parent styles)
-  backgroundColor: "#F3F4F6", // bg-gray-100
-  outline: "none", // focus:outline-none
-  transition: "background-color 0.2s ease-in-out", // Smooth hover effect
+        style={{padding: 0,
+                borderRadius: "9999px", // rounded-full
+                border: "1px solid", // border (default color depends on parent styles)
+                backgroundColor: "#F3F4F6", // bg-gray-100
+                outline: "none", // focus:outline-none
+                transition: "background-color 0.2s ease-in-out", // Smooth hover effect
 }}
         >
         <span className="text-xl">{Name}</span>
@@ -42,34 +39,27 @@ const ReusableDropdown:FC<ReusableDropdownProps> = ({child1,child2,Name}) => {
 
       {/* Dropdown Menu */}
       {isOpen && (
-        <div  style={{
-  position: "absolute",
-  right: 0,
-  width: "auto",
-  backgroundColor: "white",
-  border: "1px solid #E5E7EB", // gray-200
-  borderRadius: "0.375rem", // rounded-md
-  boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.06)", // shadow-lg
-}}
-  >
+        <div  style={{position: "absolute",
+                      width: "auto",
+                      backgroundColor: "white",
+                      border: "1px solid #E5E7EB", // gray-200
+                      borderRadius: "0.375rem", // rounded-md
+                      boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.06)", // shadow-lg
+                    }}>
           <ul>
-            <li style={{
-  padding: "0.25rem", // p-1
-  display: "flex",
-  flexDirection: "column",
-  alignItems: "center",
-  justifyContent: "center",
-}} >
-              {child1()}
+            <li style={{padding: "0.25rem", // p-1
+                        display: "flex",
+                        flexDirection: "column",
+                        alignItems: "center",
+                        justifyContent: "center",
+             }} >{child1()}
             </li>
-            <li style={{
-  padding: "0.25rem", // p-1
-  display: "flex",
-  flexDirection: "column",
-  alignItems: "center",
-  justifyContent: "center",
-}}>
-              {child2()}
+            <li style={{padding: "0.25rem", // p-1
+                        display: "flex",
+                        flexDirection: "column",
+                        alignItems: "center",
+                        justifyContent: "center"
+              }}>{child2()}
             </li>
           </ul>
         </div>
