@@ -22,7 +22,7 @@ const ReusableCollapse:React.FC<ReusableCollapseProps> = ({NameIcon,child1}) => 
   }, [handleClickOutside]);
   
   return (
-    <div ref={dropdownRef} className="relative inline-block text-left">
+    <div ref={dropdownRef} style={{display:'flex',position:"relative",flexDirection:'column',alignItems:'flex-end'}}className="relative inline-block text-left">
       {/* Three Dots Button */}
       <div
         onClick={() => setIsOpen(!isOpen)}
@@ -39,9 +39,9 @@ const ReusableCollapse:React.FC<ReusableCollapseProps> = ({NameIcon,child1}) => 
 
       {/* Dropdown Menu */}
       {isOpen && (
-        <div  style={{position: "relative",
+        <div  style={{position: "absolute",
                       width: "auto",
-                      marginTop:'70px',
+                      
                       backgroundColor: "white",
                       border: "1px solid #E5E7EB", // gray-200
                       padding:'3px', // rounded-md
