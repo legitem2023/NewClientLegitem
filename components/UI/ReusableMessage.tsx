@@ -112,9 +112,9 @@ const router = useRouter();
     </>
   )} 
   child1={() => (
-    <ul>
+    <ul style={{listStyleType:'none',paddingLeft:'0px',padding:'0px'}}>
       {["Like", "Heart", "Smile", "Laugh", "Mock", "Angry"].map((reaction, index) => (
-        <li key={index}>
+        <li style={{paddingLeft:'0px'}} key={index}>
           <button 
             style={{ padding: '3px', display: 'flex', alignItems: 'center' }} 
             onClick={() => Message(data.Sender)}
