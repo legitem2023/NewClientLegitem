@@ -49,14 +49,14 @@ const ReusableDropdown:FC<ReusableDropdownProps> = ({child1,child2,Name}) => {
                     }}>
           <ul style={{paddingLeft:'0px'}}>
             <li style={{paddingLeft:'0px',
-                        padding: "0.25rem", // p-1
+                        padding: "0px", // p-1
                         display: "flex",
                         flexDirection: "column",
                         alignItems: "center",
                         justifyContent: "center",
              }} >{child1()}
             </li>
-            <li style={{padding: "0.25rem", // p-1
+            <li style={{padding: "0px", // p-1
                         display: "flex",
                         flexDirection: "column",
                         alignItems: "center",
