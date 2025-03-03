@@ -22,13 +22,13 @@ const ReusableCollapse:React.FC<ReusableCollapseProps> = ({NameIcon,child1}) => 
   }, [handleClickOutside]);
   
   return (
-    <div ref={dropdownRef} style={{display:'flex',position:"relative",flexDirection:'column',alignItems:'flex-end'}}className="relative inline-block text-left">
+    <div ref={dropdownRef} style={{display:'flex',position:"relative",flexDirection:'column',alignItems:'flex-end',borderRadius:"50px"}}className="relative inline-block text-left">
       {/* Three Dots Button */}
       <div
         onClick={() => setIsOpen(!isOpen)}
         style={{padding: 0,
                 border:'none',
-                borderRadius: "9999px", // rounded-full
+                borderRadius: "50px", // rounded-full
                 backgroundColor: "#F3F4F6", // bg-gray-100
                 outline: "none", // focus:outline-none
                 transition: "background-color 0.2s ease-in-out", // Smooth hover effect
@@ -41,7 +41,6 @@ const ReusableCollapse:React.FC<ReusableCollapseProps> = ({NameIcon,child1}) => 
       {isOpen && (
         <div  style={{position: "absolute",
                       width: "auto", 
-                      marginTop:'240%',
                       backgroundColor: "white",
                       border: "1px solid #E5E7EB", // gray-200
                       padding:'3px', // rounded-md
