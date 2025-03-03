@@ -123,9 +123,9 @@ const reactions = [
     </>
   )} 
   child1={() => (
-<ul style={{ listStyleType: 'none', paddingLeft: '0px', padding: '0px',display:"flex",flexDirection:"row",justifyContent:"space-between",boxShadow:"0.5px 0.5px 3px #000000",borderRadius:"50px"}}>
+<ul style={{ listStyleType: 'none', paddingLeft: '0px', padding: '1px',display:"flex",flexDirection:"row",justifyContent:"space-between",boxShadow:"0.5px 0.5px 3px #000000",borderRadius:"50px"}}>
   {reactions.map((reaction, index) => (
-    <li style={{ paddingLeft: '0px',backgroundColor:"#c0c0c0",borderRadius:"100%",margin:'1px' }} key={index}>
+    <li style={{ paddingLeft: '0px',backgroundColor:"#a0a0a0",borderRadius:"100%",margin:'1px' }} key={index}>
       <button 
         style={{ padding: '3px', display: 'flex', alignItems: 'center',border:'none',borderRadius:"50px" }} 
         onClick={() => Message(data.Sender)}
