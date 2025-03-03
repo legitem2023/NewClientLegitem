@@ -127,11 +127,11 @@ const reactions = [
   {reactions.map((reaction, index) => (
     <li style={{ paddingLeft: '0px' }} key={index}>
       <button 
-        style={{ padding: '3px', display: 'flex', alignItems: 'center' }} 
+        style={{ padding: '3px', display: 'flex', alignItems: 'center',border:'none' }} 
         onClick={() => Message(data.Sender)}
       >
-        <Icon icon={reaction.icon} style={{ marginRight: '5px',color:reaction.color}} />
-        {reaction.name}
+        <Icon icon={reaction.icon} style={{ marginRight: '5px',color:reaction.color,fontSize:'25px'}} />
+        
       </button>
     </li>
   ))}
