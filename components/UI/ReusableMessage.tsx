@@ -1,6 +1,7 @@
 import { Icon } from '@iconify/react';
 import ExpandableText from 'components/Crowd/ExpandableText';
 import Image from 'next/image';
+import { useRouter } from "next/navigation";
 import React, { FC, useEffect, useState } from 'react';
 import ReusableFirstLetterImage from './ReusableFirstLetterImage';
 import ReusableDropdown from './ReusableDropdown';
@@ -22,7 +23,7 @@ interface ReusableMessageProps {
 
 const ReusableMessage: FC<ReusableMessageProps> = ({ data, onChange }) => {
   const [expanded, setExpanded] = useState(false);
-
+const router = useRouter();
   const { activeStream, streamId } = useSelector((state: any) => state.streaming);
   const isLiveStream = data.Video && data.Video === streamId;
   const dispatch = useDispatch();
@@ -64,7 +65,8 @@ const ReusableMessage: FC<ReusableMessageProps> = ({ data, onChange }) => {
     }
   }
   const Message = (reciever) =>{
-    dispatch(setreciever(reciever))
+    dispatch(setreciever(reciever));
+    router.push('/Messages');
   }
   return (
     <li className="messagesLI">
