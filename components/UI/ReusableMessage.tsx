@@ -106,7 +106,27 @@ const router = useRouter();
           <div className="messageReactionsIcons">
             <Icon icon="material-symbols:add-reaction" width="24" height="24" />
             <ReusableDropdown Name={'React()'} 
-                              child1={()=>(<button style={{padding:'3px',display:'flex',alignItems:'center'}}onClick={()=>Message(data.Sender)}><Icon icon="ic:baseline-message" /> Message</button>)} 
+                              child1={()=>(
+                                <ul>
+                                  <li>
+                                        <button style={{padding:'3px',display:'flex',alignItems:'center'}}onClick={()=>Message(data.Sender)}><Icon icon="ic:baseline-message" /> Like</button>)} 
+                                  </li>
+                                  <li>
+                                        <button style={{padding:'3px',display:'flex',alignItems:'center'}}onClick={()=>Message(data.Sender)}><Icon icon="ic:baseline-message" /> Heart</button>)} 
+                                  </li>
+                                  <li>
+                                        <button style={{padding:'3px',display:'flex',alignItems:'center'}}onClick={()=>Message(data.Sender)}><Icon icon="ic:baseline-message" /> Smile</button>)} 
+                                  </li>
+                                  <li>
+                                        <button style={{padding:'3px',display:'flex',alignItems:'center'}}onClick={()=>Message(data.Sender)}><Icon icon="ic:baseline-message" /> Laugh</button>)} 
+                                  </li>
+                                  <li>
+                                        <button style={{padding:'3px',display:'flex',alignItems:'center'}}onClick={()=>Message(data.Sender)}><Icon icon="ic:baseline-message" /> Mock</button>)} 
+                                  </li>
+                                  <li>
+                                        <button style={{padding:'3px',display:'flex',alignItems:'center'}}onClick={()=>Message(data.Sender)}><Icon icon="ic:baseline-message" /> Angry</button>)} 
+                                  </li>
+                                </ul>
                               child2={()=>(<></>)}/>
           
           </div>
