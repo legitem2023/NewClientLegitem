@@ -1,5 +1,5 @@
 import React,{ useRef,useCallback,useEffect,useState,ReactNode,ReactElement,FC} from "react";
-
+import { Icon } from '@iconify/react'
 type ReusableDropdownProps = {
   Name:string,
   child1:() => ReactElement,
@@ -34,7 +34,7 @@ const ReusableDropdown:FC<ReusableDropdownProps> = ({child1,child2,Name}) => {
                 transition: "background-color 0.2s ease-in-out", // Smooth hover effect
 }}
         >
-        <span className="text-xl">{Name}</span>
+       <Icon icon="ic:baseline-message" /> {Name}
       </button>
 
       {/* Dropdown Menu */}
