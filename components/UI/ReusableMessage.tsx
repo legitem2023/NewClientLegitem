@@ -123,7 +123,7 @@ const reactions = [
     </>
   )} 
   child1={() => (
-<ul style={{ listStyleType: 'none', paddingLeft: '0px', padding: '0px' }}>
+<ul style={{ listStyleType: 'none', paddingLeft: '0px', padding: '0px',display:"flex",flexDirection:"row",justifyContent:"space-between" }}>
   {reactions.map((reaction, index) => (
     <li style={{ paddingLeft: '0px' }} key={index}>
       <button 
