@@ -89,9 +89,12 @@ const reactions = [
             <ReusableFirstLetterImage text={data.Sender} size={100} bgColor="rgb(87, 39, 0)" textColor="#ffffff" />
           </div>
           <div className="messageSenderName">
-            <ReusableDropdown Name={data.Sender} 
+            {cookie.emailAddress===data.Sender?data.Sender:(
+      <ReusableDropdown Name={data.Sender} 
                               child1={()=>(<button style={{padding:'3px',display:'flex',alignItems:'center'}}onClick={()=>Message(data.Sender)}><Icon icon="ic:baseline-message" /> Message</button>)} 
                               child2={()=>(<></>)}/>
+            )}
+            
           </div>
           <div className="messageSenderTime">
             <Icon icon="svg-spinners:clock" width="15" height="15" style={{ marginLeft: '5px' }} />
