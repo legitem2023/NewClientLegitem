@@ -25,7 +25,7 @@ interface ReusableMessageProps {
 const ReusableMessage: FC<ReusableMessageProps> = ({ data, onChange }) => {
   const [expanded, setExpanded] = useState(false);
 const router = useRouter();
-  const cookie = useSelecter((state:any)=> state.cookie.cookie);
+  const cookie = useSelector((state:any)=> state.cookie.cookie);
   const { activeStream, streamId } = useSelector((state: any) => state.streaming);
   const isLiveStream = data.Video && data.Video === streamId;
   const dispatch = useDispatch();
