@@ -108,7 +108,7 @@ const router = useRouter();
             <ReusableCollapse 
   NameIcon={() => (
     <>
-          <Icon icon="material-symbols:add-reaction" width="24" height="24" />
+          <Icon icon="material-symbols:add-reaction" width="24" height="24" /> React()
     </>
   )} 
   child1={() => (
