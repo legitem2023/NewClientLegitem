@@ -26,18 +26,49 @@ const ReusableDropdown:FC<ReusableDropdownProps> = ({child1,child2,Name}) => {
       {/* Three Dots Button */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="p-0 rounded-full w-[30px] border h-[30px] bg-gray-100 hover:bg-gray-200 focus:outline-none">
+        style={{
+  padding: 0,
+  borderRadius: "9999px", // rounded-full
+  width: "30px",
+  height: "30px",
+  border: "1px solid", // border (default color depends on parent styles)
+  backgroundColor: "#F3F4F6", // bg-gray-100
+  outline: "none", // focus:outline-none
+  transition: "background-color 0.2s ease-in-out", // Smooth hover effect
+}}
+        >
         <span className="text-xl">{Name}</span>
       </button>
 
       {/* Dropdown Menu */}
       {isOpen && (
-        <div className="absolute right-0 w-[auto] bg-white border border-gray-200 rounded-md shadow-lg">
-          <ul className="py-1">
-            <li className="p-1 flex flex-col items-center justify-center">
+        <div  style={{
+  position: "absolute",
+  right: 0,
+  width: "auto",
+  backgroundColor: "white",
+  border: "1px solid #E5E7EB", // gray-200
+  borderRadius: "0.375rem", // rounded-md
+  boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.06)", // shadow-lg
+}}
+  >
+          <ul>
+            <li style={{
+  padding: "0.25rem", // p-1
+  display: "flex",
+  flexDirection: "column",
+  alignItems: "center",
+  justifyContent: "center",
+}} >
               {child1()}
             </li>
-            <li className="p-1 flex flex-col items-center justify-center">
+            <li style={{
+  padding: "0.25rem", // p-1
+  display: "flex",
+  flexDirection: "column",
+  alignItems: "center",
+  justifyContent: "center",
+}}>
               {child2()}
             </li>
           </ul>
