@@ -123,11 +123,11 @@ const reactions = [
     </>
   )} 
   child1={() => (
-<ul style={{ listStyleType: 'none', paddingLeft: '0px', padding: '0px',display:"flex",flexDirection:"row",justifyContent:"space-between" }}>
+<ul style={{ listStyleType: 'none', paddingLeft: '0px', padding: '0px',display:"flex",flexDirection:"row",justifyContent:"space-between",boxShadow:"0.5px 0.5px 3px #000000",borderRadius:"50px"}}>
   {reactions.map((reaction, index) => (
     <li style={{ paddingLeft: '0px' }} key={index}>
       <button 
-        style={{ padding: '3px', display: 'flex', alignItems: 'center',border:'none' }} 
+        style={{ padding: '3px', display: 'flex', alignItems: 'center',border:'none',borderRadius:"50px" }} 
         onClick={() => Message(data.Sender)}
       >
         <Icon icon={reaction.icon} style={{ marginRight: '5px',color:reaction.color,fontSize:'25px'}} />
