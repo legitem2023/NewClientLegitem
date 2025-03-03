@@ -29,7 +29,7 @@ const ReusableCollapse:React.FC<ReusableCollapseProps> = ({NameIcon,child1}) => 
         style={{padding: 0,
                 border:'none',
                 borderRadius: "50px", // rounded-full
-                backgroundColor: "#F3F4F6", // bg-gray-100
+                backgroundColor: "transparent", // bg-gray-100
                 outline: "none", // focus:outline-none
                 transition: "background-color 0.2s ease-in-out", // Smooth hover effect
 }}
@@ -42,9 +42,8 @@ const ReusableCollapse:React.FC<ReusableCollapseProps> = ({NameIcon,child1}) => 
         <div  style={{position: "absolute",
                       width: "auto", 
                       left:"0px",
-                      backgroundColor: "white",
+                      backgroundColor: "transparent",
                       borderRadius:'50px',
-                      boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.06)", // shadow-lg
                     }}>
           <div style={{paddingLeft:'0px',padding:'0px',borderRadius:'50px'}}>
             {child1()}
