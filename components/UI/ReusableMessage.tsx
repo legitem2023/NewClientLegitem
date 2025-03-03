@@ -126,7 +126,7 @@ const router = useRouter();
                                   <li>
                                         <button style={{padding:'3px',display:'flex',alignItems:'center'}}onClick={()=>Message(data.Sender)}><Icon icon="ic:baseline-message" /> Angry</button>)} 
                                   </li>
-                              </ul>)/>
+                              </ul>)}/>
           
           </div>
           <div className="messageReactionsIcons">
