@@ -47,8 +47,9 @@ const ReusableDropdown:FC<ReusableDropdownProps> = ({child1,child2,Name}) => {
                       padding:'3px', // rounded-md
                       boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.06)", // shadow-lg
                     }}>
-          <ul>
-            <li style={{padding: "0.25rem", // p-1
+          <ul style={{paddingLeft:'0px'}}>
+            <li style={{paddingLeft:'0px',
+                        padding: "0.25rem", // p-1
                         display: "flex",
                         flexDirection: "column",
                         alignItems: "center",
