@@ -34,7 +34,7 @@ const ReusableDropdown:FC<ReusableDropdownProps> = ({child1,child2,Name}) => {
                 transition: "background-color 0.2s ease-in-out", // Smooth hover effect
 }}
         >
-       <Icon icon="ic:baseline-message" /> {Name}
+        {Name}
       </button>
 
       {/* Dropdown Menu */}
