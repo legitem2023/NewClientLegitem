@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import React, { FC, useEffect, useState } from 'react';
 import ReusableFirstLetterImage from './ReusableFirstLetterImage';
 import ReusableDropdown from './ReusableDropdown';
+import ReusableCollapse from './ReusableCollapse';
 import LiveStreamPlayer from './LiveStreamPlayer';
 import { useSelector,useDispatch } from 'react-redux';
 import { setreciever } from 'Redux/recieverSlice';
@@ -104,8 +105,9 @@ const router = useRouter();
 
         <div className="messageReactions">
           <div className="messageReactionsIcons">
-            <Icon icon="material-symbols:add-reaction" width="24" height="24" />
-            <ReusableDropdown Name={'React()'} 
+            ReusableCollapse NameIcon={()=>(
+              <Icon icon="material-symbols:add-reaction" width="24" height="24" />
+            )} 
                               child1={()=>(
                                 <ul>
                                   <li>
