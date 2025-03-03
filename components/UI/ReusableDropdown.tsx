@@ -28,7 +28,6 @@ const ReusableDropdown:FC<ReusableDropdownProps> = ({child1,child2,Name}) => {
         onClick={() => setIsOpen(!isOpen)}
         style={{padding: 0,
                 borderRadius: "9999px", // rounded-full
-                border: "1px solid", // border (default color depends on parent styles)
                 backgroundColor: "#F3F4F6", // bg-gray-100
                 outline: "none", // focus:outline-none
                 transition: "background-color 0.2s ease-in-out", // Smooth hover effect
@@ -41,6 +40,7 @@ const ReusableDropdown:FC<ReusableDropdownProps> = ({child1,child2,Name}) => {
       {isOpen && (
         <div  style={{position: "absolute",
                       width: "auto",
+                      marginTop:100%,
                       backgroundColor: "white",
                       border: "1px solid #E5E7EB", // gray-200
                       borderRadius: "0.375rem", // rounded-md
