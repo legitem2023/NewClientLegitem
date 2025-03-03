@@ -105,11 +105,9 @@ const router = useRouter();
 
         <div className="messageReactions">
           <div className="messageReactionsIcons">
-            <ReusableCollapse NameIcon={()=>(
-              <Icon icon="material-symbols:add-reaction" width="24" height="24" />
-            )} 
-                              child1={()=>(
-                                <ul>
+            <ReusableCollapse 
+              NameIcon={()=>(<Icon icon="material-symbols:add-reaction" width="24" height="24" />)} 
+              child1={()=>(<ul>
                                   <li>
                                         <button style={{padding:'3px',display:'flex',alignItems:'center'}}onClick={()=>Message(data.Sender)}><Icon icon="ic:baseline-message" /> Like</button>)} 
                                   </li>
@@ -128,8 +126,7 @@ const router = useRouter();
                                   <li>
                                         <button style={{padding:'3px',display:'flex',alignItems:'center'}}onClick={()=>Message(data.Sender)}><Icon icon="ic:baseline-message" /> Angry</button>)} 
                                   </li>
-                                </ul>
-                              />
+                              </ul>)/>
           
           </div>
           <div className="messageReactionsIcons">
