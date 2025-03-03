@@ -6,7 +6,7 @@ type ReusableCollapseProps = {
   child1:() => ReactElement,
 };
 
-const ReusableCollapse:React.FC<ReusableCollapseProps> = ({}) => {
+const ReusableCollapse:React.FC<ReusableCollapseProps> = ({NameIcon,child1}) => {
   const [isOpen, setIsOpen] = useState(false);
  const dropdownRef = useRef<HTMLDivElement>(null);
   // Handle click outside dropdown
@@ -48,7 +48,7 @@ const ReusableCollapse:React.FC<ReusableCollapseProps> = ({}) => {
                       boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.06)", // shadow-lg
                     }}>
           <div style={{paddingLeft:'0px',padding:'0px'}}>
-            {child()}
+            {child1()}
           </div>
         </div>
       )}
