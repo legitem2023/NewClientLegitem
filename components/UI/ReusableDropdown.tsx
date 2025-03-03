@@ -41,7 +41,7 @@ const ReusableDropdown:FC<ReusableDropdownProps> = ({child1,child2,Name}) => {
       {isOpen && (
         <div  style={{position: "absolute",
                       width: "auto",
-                      marginTop:'60px',
+                      marginTop:'80px',
                       backgroundColor: "white",
                       border: "1px solid #E5E7EB", // gray-200
                       padding:'3px', // rounded-md
