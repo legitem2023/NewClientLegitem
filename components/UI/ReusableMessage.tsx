@@ -69,6 +69,17 @@ const router = useRouter();
     dispatch(setreciever(reciever));
     router.push('/Messages');
   }
+
+
+const reactions = [
+  { name: "Like", icon: "mdi:thumb-up" },
+  { name: "Heart", icon: "mdi:heart" },
+  { name: "Smile", icon: "mdi:emoticon-happy" },
+  { name: "Laugh", icon: "mdi:emoticon-excited" },
+  { name: "Mock", icon: "mdi:emoticon-wink" },
+  { name: "Angry", icon: "mdi:emoticon-angry" },
+];
+  
   return (
     <li className="messagesLI">
       <div>
@@ -112,19 +123,19 @@ const router = useRouter();
     </>
   )} 
   child1={() => (
-    <ul style={{listStyleType:'none',paddingLeft:'0px',padding:'0px'}}>
-      {["Like", "Heart", "Smile", "Laugh", "Mock", "Angry"].map((reaction, index) => (
-        <li style={{paddingLeft:'0px'}} key={index}>
-          <button 
-            style={{ padding: '3px', display: 'flex', alignItems: 'center' }} 
-            onClick={() => Message(data.Sender)}
-          >
-            <Icon icon="ic:baseline-message" /> {reaction}
-          </button>
-        </li>
-      ))}
-    </ul>
-  )}
+<ul style={{ listStyleType: 'none', paddingLeft: '0px', padding: '0px' }}>
+  {reactions.map((reaction, index) => (
+    <li style={{ paddingLeft: '0px' }} key={index}>
+      <button 
+        style={{ padding: '3px', display: 'flex', alignItems: 'center' }} 
+        onClick={() => Message(data.Sender)}
+      >
+        <Icon icon={reaction.icon} style={{ marginRight: '5px' }} />
+        {reaction.name}
+      </button>
+    </li>
+  ))}
+</ul>)}
 />
           
           </div>
