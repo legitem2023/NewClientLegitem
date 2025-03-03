@@ -105,7 +105,7 @@ const router = useRouter();
 
         <div className="messageReactions">
           <div className="messageReactionsIcons">
-            ReusableCollapse NameIcon={()=>(
+            <ReusableCollapse NameIcon={()=>(
               <Icon icon="material-symbols:add-reaction" width="24" height="24" />
             )} 
                               child1={()=>(
