@@ -90,7 +90,7 @@
     .FootRoutes{
         display: grid;
         grid-template-columns: 20% 20% 20% 20% 20%;
-        font-size: 30px;
+        font-size:20px;
         justify-content: center;
         align-items: center;
         transition: ease 0.5s;
@@ -112,7 +112,7 @@
         left:0px;
         right:0px;
         margin:auto;
-        padding: 15px;
+        padding:3px;
         color:  rgb(87, 39, 0);
     }
     .dropdown {
