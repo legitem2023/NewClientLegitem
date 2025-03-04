@@ -104,6 +104,7 @@
     }
     .FootFooter{
         background-color:rgb(249 220 206);
+        font-size:20px;
     }
     .FootRoutes a{  
         display: flex;
