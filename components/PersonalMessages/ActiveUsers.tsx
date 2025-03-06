@@ -64,10 +64,10 @@ const uniqueSenders = Array.from(
   </div>
 
   {/* Sender Name */}
-  <div style={{ fontWeight: 'bold' }}>{sender.Sender}</div>
+  <div style={{ fontWeight: 'bold',alignItems:'center' }}>{sender.Sender}</div>
 
   {/* Message Preview */}
-  <div style={{ color: 'gray', fontSize: '14px' }}>
+  <div style={{ color: 'gray', fontSize: '14px',alignItems:'center' }}>
     <LimitedText text={sender.Messages} />
   </div>
 </li>
