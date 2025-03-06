@@ -20,11 +20,11 @@ const ActiveUsers = ({email}) => {
 
 
 const uniqueSenders = Array.from(
-  new Set(
+  new Map(
     data.personalMessages
       .filter((itm: any) => itm.Sender !== cookie.emailAddress)
-      .map((itm: any) => itm)
-  )
+      .map((itm: any) => [itm.Sender, itm]) // Use Sender as key in Map
+  ).values() // Extract only unique values (messages)
 );
 
   
