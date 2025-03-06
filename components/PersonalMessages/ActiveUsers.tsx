@@ -54,7 +54,7 @@ const uniqueSenders = Array.from(
   }}
 >
   {/* Profile Image */}
-  <div style={{ gridRow: '1 / span 2', display: 'flex', alignItems: 'center' }}>
+  <div style={{ gridRow: '1 / span 2', display: 'flex', alignItems: 'center',backgroundColor:'red' }}>
     <ReusableFirstLetterImage
       text={sender.Sender}
       size={50} // Mas maliit para mas maayos sa layout
@@ -64,10 +64,10 @@ const uniqueSenders = Array.from(
   </div>
 
   {/* Sender Name */}
-  <div style={{ fontWeight: 'bold',alignItems:'center' }}>{sender.Sender}</div>
+  <div style={{display:'flex', fontWeight: 'bold',alignItems:'center',backgroundColor:'green'}}>{sender.Sender}</div>
 
   {/* Message Preview */}
-  <div style={{ color: 'gray', fontSize: '14px',alignItems:'center' }}>
+  <div style={{ display:'flex',color: 'gray', fontSize: '14px',alignItems:'center',backgroundColor:'blue' }}>
     <LimitedText text={sender.Messages} />
   </div>
 </li>
