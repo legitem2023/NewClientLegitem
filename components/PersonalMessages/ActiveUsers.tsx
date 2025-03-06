@@ -43,7 +43,7 @@ const uniqueSenders = Array.from(
     display: 'grid',
     gridTemplateColumns: 'auto 1fr',
     gridTemplateRows: 'auto auto',
-    gap: '1px', // Mas maluwag na spacing
+    gap: '3px', // Mas maluwag na spacing
     alignItems: 'center', // Para pantay ang vertical alignment
     overflow: 'auto',
     padding: '3px', // Magdagdag ng padding para hindi dikit-dikit
