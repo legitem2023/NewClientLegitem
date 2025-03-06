@@ -18,15 +18,14 @@ const ActiveUsers = ({email}) => {
 
   if(loading) return
 
-
 const uniqueSenders = Array.from(
   new Map(
     data.personalMessages
       .filter((itm: any) => itm.Sender !== cookie.emailAddress)
-      .map((itm: any) => [itm.Sender, itm]) // Use Sender as key in Map
-  ).values() // Extract only unique values (messages)
+      .sort((a: any, b: any) => new Date(b.dateSent).getTime() - new Date(a.dateSent).getTime()) // Sort descending
+      .map((itm: any) => [itm.Sender, itm]) // Keep latest message per sender
+  ).values() // Extract unique messages
 );
-
   
   return (
     <ul className='Menu'>
