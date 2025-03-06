@@ -8,6 +8,7 @@ import Image from 'next/image';
 import { useDispatch, useSelector } from 'react-redux';
 import { setreciever } from 'Redux/recieverSlice';
 import ReusableFirstLetterImage from 'components/UI/ReusableFirstLetterImage';
+import LimitedText from 'components/UI/LimitedText';
 const ActiveUsers = ({email}) => {
   const dispatch = useDispatch();
 
@@ -50,6 +51,7 @@ const uniqueSenders = Array.from(
           textColor="#ffffff"
         />
         {sender}
+        <LimitedText text={sender}/>
       </li>
     ))}    
     </ul> )
