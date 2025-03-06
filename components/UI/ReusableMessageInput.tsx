@@ -1,18 +1,40 @@
 import { Icon } from '@iconify/react'
 import AudioRecorder from 'components/Commands/AudioRecorder'
 import VideoCall from 'components/Commands/VideoCall'
-import React, { FC } from 'react'
-
+import React, { FC,useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux';
+import useUserTyping from "./useUserTyping";
 type ReusableMessageInputProps = {
     textRef:any,
     event:(e:any)=> any,
     loading:any
 }
 const ReusableMessageInput:FC<ReusableMessageInputProps> = ({textRef,event,loading}) => {
-  return (
+  const dispatch = useDispatch();
+  const cookie = useSelector((state:any)=> state.cookie.cookie);
+  const SelectedReciever = useSelector((state: any) => state.reciever.reciever);
+  const { handleTyping } = useUserTyping();
+  const [message, setMessage] = useState("");
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setMessage(e.target.value);
+    handleTyping(cookie.emailAddress, SelectedReciever, true);
+  };
+
+  const handleBlur = () => {
+    handleTyping(cookie.emailAddress, SelectedReciever, false);
+  };
+    
+    return (
               <div className='Messenger_inputs'>
                 <div className='Messenger_inputs_fdiv'>
-                    <input type='text' ref={textRef} id='textarea' placeholder="Message" maxLength={1000}/>
+                    <input type='text' 
+                           ref={textRef} 
+                           id='textarea' 
+                           onChange={handleChange} 
+                           onBlur={handleBlur}
+                           placeholder="Message" 
+                           maxLength={1000}/>
                 </div>
                <div className='Messenger_inputs_sdiv'>
                 <VideoCall/>
