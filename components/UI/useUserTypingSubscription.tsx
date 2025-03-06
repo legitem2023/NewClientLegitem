@@ -14,7 +14,7 @@ const useUserTypingSubscription = (senderEmail: string, receiverEmail: string) =
   const { data } = useSubscription(USER_TYPING_SUBSCRIPTION, {
     variables: { senderEmail, receiverEmail },
   });
-
+console.log(data);
   return data?.userTyping;
 };
 
