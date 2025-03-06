@@ -70,6 +70,16 @@ subscription Subscription {
   }
 }`
 
+export const USER_TYPING_SUBSCRIPTION = gql`
+  subscription UserTyping($senderEmail: String!, $receiverEmail: String!) {
+    userTyping(senderEmail: $senderEmail, receiverEmail: $receiverEmail) {
+      senderEmail
+      receiverEmail
+      isTyping
+    }
+}`
+
+
 export const CALL_RECIEVE = gql`
 subscription CallReceived {
   callReceived {
