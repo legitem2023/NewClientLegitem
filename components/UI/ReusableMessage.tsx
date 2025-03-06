@@ -9,7 +9,7 @@ import ReusableCollapse from './ReusableCollapse';
 import LiveStreamPlayer from './LiveStreamPlayer';
 import { useSelector,useDispatch } from 'react-redux';
 import { setreciever } from 'Redux/recieverSlice';
-
+import TypingIndicator from './TypingIndicator';
 interface Message {
   Sender: string;
   dateSent: string | number;
@@ -26,6 +26,7 @@ const ReusableMessage: FC<ReusableMessageProps> = ({ data, onChange }) => {
   const [expanded, setExpanded] = useState(false);
 const router = useRouter();
   const cookie = useSelector((state:any)=> state.cookie.cookie);
+  const SelectedReciever = useSelector((state: any) => state.reciever.reciever);
   const { activeStream, streamId } = useSelector((state: any) => state.streaming);
   const isLiveStream = data.Video && data.Video === streamId;
   const dispatch = useDispatch();
@@ -84,6 +85,7 @@ const reactions = [
   return (
     <li className="messagesLI">
       <div>
+        <TypingIndicator senderEmail={cookie.emailAddress} receiverEmail={SelectedReciever}/>
         <div className="messageSender">
           <div className={`messageSenderImgcont ` + border(data)}>
             <ReusableFirstLetterImage text={data.Sender} size={100} bgColor="rgb(87, 39, 0)" textColor="#ffffff" />
