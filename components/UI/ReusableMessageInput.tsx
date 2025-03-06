@@ -32,7 +32,7 @@ const ReusableMessageInput:FC<ReusableMessageInputProps> = ({textRef,event,loadi
                            ref={textRef} 
                            id='textarea' 
                            onChange={handleChange} 
-                           onBlur={handleBlur}
+                           
                            placeholder="Message" 
                            maxLength={1000}/>
                 </div>
