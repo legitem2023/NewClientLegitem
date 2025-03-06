@@ -39,12 +39,12 @@ const uniqueSenders = Array.from(
     <li className='Menu_label'>Conversations</li>
  {uniqueSenders.map((sender:any, idx:number) => (
       <li key={idx} 
-        style={{display:'grid',gridTemplateColumns:'30% 70%',justifyContent:'flex-start',alignItems:'center',gap:'10px',overflow:'auto'}}
+        style={{display:'grid',gridTemplateColumns:'auto auto',gap:'3px',overflow:'auto'}}
         onClick={()=>{
           dispatch(setreciever(sender));
           dispatch(setDrawer(true));
         }}>
-        <div style={{gridRow:'1 / span 2'}}>
+        <div style={{gridRow:'1 / span 2',display:'flex'}}>
         <ReusableFirstLetterImage
           text={sender}
           size={100}
@@ -52,10 +52,10 @@ const uniqueSenders = Array.from(
           textColor="#ffffff"
         />
         </div>
-        <div>
+        <div style={{padding:'0px',display:'flex'}}>
             {sender}
         </div>
-        <div>
+        <div style={{padding:'0px',display:'flex'}}>
             <LimitedText text={sender}/>
         </div>
       </li>
