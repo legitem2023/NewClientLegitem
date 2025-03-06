@@ -12,7 +12,6 @@ const SET_USER_TYPING = gql`
 
 const useUserTyping = () => {
   const [setUserTyping] = useMutation(SET_USER_TYPING);
-console.log(setUserTyping);
   const handleTyping = (senderEmail: string, receiverEmail: string, isTyping: boolean) => {
     setUserTyping({
       variables: { senderEmail, receiverEmail, isTyping },
