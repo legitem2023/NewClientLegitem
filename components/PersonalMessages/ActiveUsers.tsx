@@ -37,27 +37,40 @@ const uniqueSenders = Array.from(
                                    boxSizing:'border-box'}}/></li>
     <li className='Menu_label'>Conversations</li>
  {uniqueSenders.map((sender:any, idx:number) => (
-      <li key={idx} 
-        style={{display:'grid',gridTemplateColumns:'auto auto',gap:'1px',justifyContent:'flex-start',overflow:'auto'}}
-        onClick={()=>{
-          dispatch(setreciever(sender.Sender));
-          dispatch(setDrawer(true));
-        }}>
-        <div style={{gridRow:'1 / span 2',display:'flex'}}>
-        <ReusableFirstLetterImage
-          text={sender.Sender}
-          size={100}
-          bgColor="rgb(87, 39, 0)"
-          textColor="#ffffff"
-        />
-        </div>
-        <div style={{padding:'0px',display:'flex'}}>
-            {sender.Sender}
-        </div>
-        <div style={{padding:'0px',display:'flex'}}>
-            <LimitedText text={sender.Messages}/>
-        </div>
-      </li>
+<li
+  key={idx}
+  style={{
+    display: 'grid',
+    gridTemplateColumns: 'auto 1fr',
+    gridTemplateRows: 'auto auto',
+    gap: '1px', // Mas maluwag na spacing
+    alignItems: 'center', // Para pantay ang vertical alignment
+    overflow: 'auto',
+    padding: '3px', // Magdagdag ng padding para hindi dikit-dikit
+  }}
+  onClick={() => {
+    dispatch(setreciever(sender.Sender));
+    dispatch(setDrawer(true));
+  }}
+>
+  {/* Profile Image */}
+  <div style={{ gridRow: '1 / span 2', display: 'flex', alignItems: 'center' }}>
+    <ReusableFirstLetterImage
+      text={sender.Sender}
+      size={50} // Mas maliit para mas maayos sa layout
+      bgColor="rgb(87, 39, 0)"
+      textColor="#ffffff"
+    />
+  </div>
+
+  {/* Sender Name */}
+  <div style={{ fontWeight: 'bold' }}>{sender.Sender}</div>
+
+  {/* Message Preview */}
+  <div style={{ color: 'gray', fontSize: '14px' }}>
+    <LimitedText text={sender.Messages} />
+  </div>
+</li>
     ))}    
     </ul> )
 }
