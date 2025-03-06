@@ -85,7 +85,7 @@ const reactions = [
   return (
     <li className="messagesLI">
       <div>
-        <TypingIndicator senderEmail={cookie.emailAddress} receiverEmail={SelectedReciever}/>
+        
         <div className="messageSender">
           <div className={`messageSenderImgcont ` + border(data)}>
             <ReusableFirstLetterImage text={data.Sender} size={100} bgColor="rgb(87, 39, 0)" textColor="#ffffff" />
