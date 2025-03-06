@@ -44,7 +44,7 @@ const uniqueSenders = Array.from(
           dispatch(setreciever(sender));
           dispatch(setDrawer(true));
         }}>
-        <div style={{gridRow:'1 / span 2',display:'flex',backgroundColor:'red'}}>
+        <div style={{gridRow:'1 / span 2',display:'flex'}}>
         <ReusableFirstLetterImage
           text={sender}
           size={100}
@@ -52,10 +52,10 @@ const uniqueSenders = Array.from(
           textColor="#ffffff"
         />
         </div>
-        <div style={{padding:'0px',display:'flex',backgroundColor:'blue'}}>
+        <div style={{padding:'0px',display:'flex'}}>
             {sender}
         </div>
-        <div style={{padding:'0px',display:'flex',backgroundColor:'green'}}>
+        <div style={{padding:'0px',display:'flex'}}>
             <LimitedText text={sender}/>
         </div>
       </li>
