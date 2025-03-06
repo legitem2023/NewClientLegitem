@@ -8,7 +8,7 @@ const LimitedText: React.FC<LimitedTextProps> = ({ text }) => {
   return (
     <div
       style={{
-        fontSize: "15px",
+        fontSize: "13px",
         color: "gray",
         padding: "1px",
         whiteSpace: "nowrap",
