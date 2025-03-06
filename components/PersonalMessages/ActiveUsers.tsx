@@ -23,7 +23,7 @@ const uniqueSenders = Array.from(
   new Set(
     data.personalMessages
       .filter((itm: any) => itm.Sender !== cookie.emailAddress)
-      .map((itm: any) => itm.Sender)
+      .map((itm: any) => itm)
   )
 );
 
@@ -41,22 +41,22 @@ const uniqueSenders = Array.from(
       <li key={idx} 
         style={{display:'grid',gridTemplateColumns:'auto auto',gap:'1px',justifyContent:'flex-start',overflow:'auto'}}
         onClick={()=>{
-          dispatch(setreciever(sender));
+          dispatch(setreciever(sender.sender));
           dispatch(setDrawer(true));
         }}>
         <div style={{gridRow:'1 / span 2',display:'flex'}}>
         <ReusableFirstLetterImage
-          text={sender}
+          text={sender.sender}
           size={100}
           bgColor="rgb(87, 39, 0)"
           textColor="#ffffff"
         />
         </div>
         <div style={{padding:'0px',display:'flex'}}>
-            {sender}
+            {sender.sender}
         </div>
         <div style={{padding:'0px',display:'flex'}}>
-            <LimitedText text={sender}/>
+            <LimitedText text={sender.Message}/>
         </div>
       </li>
     ))}    
