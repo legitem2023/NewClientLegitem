@@ -18,11 +18,11 @@ const ReusableMessageInput:FC<ReusableMessageInputProps> = ({textRef,event,loadi
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setMessage(e.target.value);
-    handleTyping(cookie.emailAddress, SelectedReciever, true);
+    handleTyping(SelectedReciever,cookie.emailAddress,true);
   };
 
   const handleBlur = () => {
-    handleTyping(cookie.emailAddress, SelectedReciever, false);
+    handleTyping(SelectedReciever,cookie.emailAddress, false);
   };
     
     return (
