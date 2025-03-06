@@ -6,7 +6,7 @@ interface LimitedTextProps {
 
 const LimitedText: React.FC<LimitedTextProps> = ({ text }) => {
   return (
-    <p
+    <div
       style={{
         fontSize: "15px",
         color: "gray",
@@ -17,7 +17,7 @@ const LimitedText: React.FC<LimitedTextProps> = ({ text }) => {
       }}
     >
       {text.slice(0, 20)}
-    </p>
+    </div>
   );
 };
 
