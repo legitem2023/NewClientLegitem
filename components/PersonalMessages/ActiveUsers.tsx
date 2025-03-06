@@ -41,19 +41,19 @@ const uniqueSenders = Array.from(
       <li key={idx} 
         style={{display:'grid',gridTemplateColumns:'auto auto',gap:'1px',justifyContent:'flex-start',overflow:'auto'}}
         onClick={()=>{
-          dispatch(setreciever(sender.sender));
+          dispatch(setreciever(sender.Sender));
           dispatch(setDrawer(true));
         }}>
         <div style={{gridRow:'1 / span 2',display:'flex'}}>
         <ReusableFirstLetterImage
-          text={sender.sender}
+          text={sender.Sender}
           size={100}
           bgColor="rgb(87, 39, 0)"
           textColor="#ffffff"
         />
         </div>
         <div style={{padding:'0px',display:'flex'}}>
-            {sender.sender}
+            {sender.Sender}
         </div>
         <div style={{padding:'0px',display:'flex'}}>
             <LimitedText text={sender.Messages}/>
