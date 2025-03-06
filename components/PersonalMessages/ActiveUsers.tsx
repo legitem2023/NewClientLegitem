@@ -56,7 +56,7 @@ const uniqueSenders = Array.from(
             {sender.sender}
         </div>
         <div style={{padding:'0px',display:'flex'}}>
-            <LimitedText text={sender.Message}/>
+            <LimitedText text={sender.Messages}/>
         </div>
       </li>
     ))}    
