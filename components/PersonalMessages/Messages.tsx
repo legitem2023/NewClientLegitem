@@ -10,6 +10,8 @@ import { POSTPERSONAL_MESSAGES } from 'graphql/mutation'
 import { PERSONAL_MESSAGES_ADDED } from 'graphql/subscriptions'
 import ReusableCenterLayout from 'components/Layout/ReusableCenterLayout'
 import { useSelector,useDispatch } from 'react-redux';
+import TypingIndicator from 'components/UI/TypingIndicator';
+
 import {setmessagecount} from 'Redux/messagecountSlice';
 import ReusableMessageInput from 'components/UI/ReusableMessageInput'
 import ReusableMessage from 'components/UI/ReusableMessage'
@@ -122,6 +124,7 @@ const Messages = () => {
 
       child2={() => (
         <div style={{ minHeight: '100vh', height: 'auto', width: '100%' }}>
+          <TypingIndicator senderEmail={cookie.emailAddress} receiverEmail={SelectedReciever}/>
           <AutoSizer>
             {({ height, width }) => (
               <List
