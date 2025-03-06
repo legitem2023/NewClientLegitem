@@ -2,6 +2,18 @@
 import { gql } from "@apollo/client"
 // import { gql } from 'http://localhost:4000/graphql/generated/gql'
 //*************** mutation ***************/
+
+export const SET_USER_TYPING = gql`
+  mutation SetUserTyping($senderEmail: String!, $receiverEmail: String!, $isTyping: Boolean!) {
+    setUserTyping(senderEmail: $senderEmail, receiverEmail: $receiverEmail, isTyping: $isTyping) {
+      senderEmail
+      receiverEmail
+      isTyping
+    }
+  }
+`;
+
+
 export const INSERT_INVENTORY = gql`
 mutation Mutation($emailAddress: String) {
   insertInventory(emailAddress: $emailAddress) {
