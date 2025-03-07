@@ -32,6 +32,11 @@ const PageHeader: React.FC = () => {
   const [query, setQuery] = useState("");
   const [suggestions, setSuggestions] = useState<string[]>([]);
   const Ref = useRef<HTMLInputElement>(null);
+
+
+ const result = currentPath.replace(/[^a-zA-Z]/g, ""); 
+console.log(result+"<==="); // "HeWrld"
+
   
   const handleFocus = () => {
     if (window.innerWidth < 1080) {
