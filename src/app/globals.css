@@ -2006,7 +2006,7 @@ input[type='date']{
   height: auto;
   grid-gap: 0.2vw;
   transition: ease 0.5s;
-  justify-content: center;
+  justify-content: 'flex-start';
   position: relative;
 }
 .thumbElements_tag{
