@@ -171,7 +171,7 @@ console.log(result+"<==="); // "HeWrld"
                     <Dropdown path={path} deletecookies={deletecookies} OrderNotification={OrderNotification} />
                   }
                 </nav> :
-                <Link style={{backgroundColor:result===item.Name?'red':'transparent'}}  onClick={() => handleClick(item)} href={path + item.Link} key={idx} className={item.Name === 'Account' ? 'Account' : ''}>
+                <Link style={{backgroundColor: result === item.Name || (['Account', 'Order', 'Return', 'Likes'].includes(result) && item.Name === 'Account') ? 'red' : 'transparent' }}  onClick={() => handleClick(item)} href={path + item.Link} key={idx} className={item.Name === 'Account' ? 'Account' : ''}>
                   {loadingLink === item.Name && item.Link !== "." + currentPath ? (
                     <Icon icon="eos-icons:loading" />
                   ) : (
