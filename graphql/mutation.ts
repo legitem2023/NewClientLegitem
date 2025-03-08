@@ -1,10 +1,7 @@
 
 import { gql } from "@apollo/client"
 // import { gql } from 'http://localhost:4000/graphql/generated/gql'
-//*************** mutation ***************/
-
-// graphql/webrtc.ts
-import { gql } from '@apollo/client';
+//*************** mutation ***************
 
 // Sender Side Operations
 export const CREATE_OFFER_MUTATION = gql`
