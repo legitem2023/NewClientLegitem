@@ -87,7 +87,7 @@ const Receiver = () => {
   }, [data]);
 
   return (
-    <div>
+    <div style={{position:'relative',display:'flex',justifyContent:'flex-start'}}>
   <video ref={remoteVideoRef} autoPlay />
   {error && <div className="error">{error}</div>}
   <div className="controls">
