@@ -3,6 +3,32 @@ import { gql } from "@apollo/client"
 // import { gql } from 'http://localhost:4000/graphql/generated/gql'
 //*************** mutation ***************/
 
+// graphql/webrtc.ts
+import { gql } from '@apollo/client';
+
+// Sender Side Operations
+export const CREATE_OFFER_MUTATION = gql`
+  mutation CreateOffer($offer: String!) {
+    createOffer(offer: $offer)
+  }
+`;
+
+export const ICE_CANDIDATE_MUTATION = gql`
+  mutation SendIceCandidate($candidate: String!) {
+    sendIceCandidate(candidate: $candidate)
+  }
+`;
+
+
+// Receiver Side Operations
+export const CREATE_ANSWER_MUTATION = gql`
+  mutation CreateAnswer($answer: String!) {
+    createAnswer(answer: $answer)
+  }
+`;
+
+
+
 export const SET_USER_TYPING = gql`
   mutation SetUserTyping($senderEmail: String!, $receiverEmail: String!, $isTyping: Boolean!) {
     setUserTyping(senderEmail: $senderEmail, receiverEmail: $receiverEmail, isTyping: $isTyping) {
