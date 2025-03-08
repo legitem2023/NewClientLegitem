@@ -14,7 +14,7 @@ const Receiver = () => {
   const [streaming, setStreaming] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [isSubscribed, setIsSubscribed] = useState(false);
-  const [showbutton,setshowbutton] useState(false);
+  const [showbutton,setshowbutton] = useState(false);
   // Subscribe to offers only when user clicks connect
   const { data } = useSubscription(OFFER_SUBSCRIPTION, {
     skip: !isSubscribed
