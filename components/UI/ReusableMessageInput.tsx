@@ -45,10 +45,6 @@ const ReusableMessageInput:FC<ReusableMessageInputProps> = ({textRef,event,loadi
                     <Icon icon={loading?"eos-icons:loading":"material-symbols-light:send-rounded"} onClick={(e)=>event(e)} />
                 </div>
                 </div>
-                  <div>
-                      <Sender/>
-                      <Receiver/>
-                  </div>
               </div>
   )
 }
