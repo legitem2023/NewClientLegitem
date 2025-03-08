@@ -1,5 +1,18 @@
 import { gql } from "@apollo/client"
 //*************** subscription ***************/
+export const ANSWER_SUBSCRIPTION = gql`
+  subscription AnswerSubscription {
+    answer
+  }
+`;
+
+export const OFFER_SUBSCRIPTION = gql`
+  subscription OfferSubscription {
+    offer
+  }
+`;
+
+
 export const ORDER_STATUS_SUBSCRIPTION = gql`
 subscription MessageToOrder {
   messageToOrder {
