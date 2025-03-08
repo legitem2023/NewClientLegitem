@@ -171,11 +171,11 @@ console.log(result+"<==="); // "HeWrld"
                     <Dropdown path={path} deletecookies={deletecookies} OrderNotification={OrderNotification} />
                   }
                 </nav> :
-                <Link style={{backgroundColor: result === item.Name || (['Account', 'Order', 'Return', 'Likes'].includes(result) && item.Name === 'Account') ? 'red' : 'transparent' }}  onClick={() => handleClick(item)} href={path + item.Link} key={idx} className={item.Name === 'Account' ? 'Account' : ''}>
+                <Link style={{backgroundColor: result === item.Name || (['Account', 'Order', 'Return', 'Likes'].includes(result) && item.Name === 'Account') ? 'rgb(87, 39, 0)' : 'transparent' }}  onClick={() => handleClick(item)} href={path + item.Link} key={idx} className={item.Name === 'Account' ? 'Account' : ''}>
                   {loadingLink === item.Name && item.Link !== "." + currentPath ? (
                     <Icon icon="eos-icons:loading" />
                   ) : (
-                    <Icon icon={item.icon} />
+                    <Icon icon={item.icon} style={{color: result === item.Name || (['Account', 'Order', 'Return', 'Likes'].includes(result) && item.Name === 'Account') ? '#ffffff' : 'rgb(87, 39, 0)' }}/>
                   )}
                   <span className='hideInmobile'>{item.Name}</span>
                 </Link>
