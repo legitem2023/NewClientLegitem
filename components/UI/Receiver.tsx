@@ -88,25 +88,23 @@ const Receiver = () => {
 
   return (
     <div>
-      <video ref={remoteVideoRef} autoPlay />
-      {error && <div className="error">{error}</div>}
-      <div className="controls">
-        {!isSubscribed ? (
-      {
-        showbutton?(
-          <button onClick={handleConnect} disabled={isSubscribed}>
-            Connect to Stream
-          </button>
-        ):<></>
-      }
-        ) : (
-          <button onClick={handleDisconnect} disabled={!isSubscribed}>
-            Disconnect
-          </button>
-        )}
-        {isSubscribed && !streaming && <div>Connecting...</div>}
-      </div>
-    </div>
+  <video ref={remoteVideoRef} autoPlay />
+  {error && <div className="error">{error}</div>}
+  <div className="controls">
+    {!isSubscribed ? (
+      showbutton ? (
+        <button onClick={handleConnect} disabled={isSubscribed}>
+          Connect to Stream
+        </button>
+      ) : null
+    ) : (
+      <button onClick={handleDisconnect} disabled={!isSubscribed}>
+        Disconnect
+      </button>
+    )}
+    {isSubscribed && !streaming && <div>Connecting...</div>}
+  </div>
+</div>
   );
 };
 export default Receiver;
