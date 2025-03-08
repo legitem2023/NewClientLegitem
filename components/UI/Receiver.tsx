@@ -14,7 +14,7 @@ const Receiver = () => {
   const [streaming, setStreaming] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [isSubscribed, setIsSubscribed] = useState(false);
-
+  const [showbutton,setshowbutton] useState(false);
   // Subscribe to offers only when user clicks connect
   const { data } = useSubscription(OFFER_SUBSCRIPTION, {
     skip: !isSubscribed
@@ -46,7 +46,7 @@ const Receiver = () => {
 
   useEffect(() => {
     if (!data?.offer) return;
-
+    setshowbutton(true);
     const setupPeerConnection = async () => {
       try {
         peerConnection.current = new RTCPeerConnection({
@@ -92,9 +92,13 @@ const Receiver = () => {
       {error && <div className="error">{error}</div>}
       <div className="controls">
         {!isSubscribed ? (
+      {
+        showbutton?(
           <button onClick={handleConnect} disabled={isSubscribed}>
             Connect to Stream
           </button>
+        ):<></>
+      }
         ) : (
           <button onClick={handleDisconnect} disabled={!isSubscribed}>
             Disconnect
