@@ -84,7 +84,7 @@ const Sender = () => {
   }, [data]);
 
   return (
-    <div style={{positiom:'relative',display:'flex',justifyContent:'flex-start'}}>
+    <div style={{position:'relative',display:'flex',justifyContent:'flex-start'}}>
       <video ref={localVideoRef} autoPlay muted  style={{transform:'scaleX(-1)',width:'100%'}}/>
       {error && <div className="error">{error}</div>}
       <div className="controls">
