@@ -4,6 +4,8 @@ import VideoCall from 'components/Commands/VideoCall'
 import React, { FC,useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import useUserTyping from "./useUserTyping";
+import Sender from "./Sender";
+import Receiver from "./Receiver";
 type ReusableMessageInputProps = {
     textRef:any,
     event:(e:any)=> any,
@@ -27,6 +29,8 @@ const ReusableMessageInput:FC<ReusableMessageInputProps> = ({textRef,event,loadi
     
     return (
               <div className='Messenger_inputs'>
+                  <Sender/>
+                  <Receiver/>
                 <div className='Messenger_inputs_fdiv'>
                     <input type='text' 
                            ref={textRef} 
