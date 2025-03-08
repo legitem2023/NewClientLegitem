@@ -1,7 +1,10 @@
 // components/Sender.tsx
 import { useEffect, useRef, useState } from 'react';
 import { useMutation, useSubscription } from '@apollo/client';
-import { CREATE_OFFER_MUTATION, ICE_CANDIDATE_MUTATION, ANSWER_SUBSCRIPTION } from '../graphql/webrtc';
+import { CREATE_OFFER_MUTATION, ICE_CANDIDATE_MUTATION } from 'graphql/mutation';
+import {  ANSWER_SUBSCRIPTION  } from 'graphql/subscriptions';
+
+
 
 const Sender = () => {
   const localVideoRef = useRef<HTMLVideoElement>(null);
