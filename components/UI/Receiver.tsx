@@ -2,7 +2,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { useMutation, useSubscription } from '@apollo/client';
 import { CREATE_ANSWER_MUTATION, ICE_CANDIDATE_MUTATION } from 'graphql/mutation';
-import { OFFER_SUBSCRIPTION } from 'graphql/subscription';
+import { OFFER_SUBSCRIPTION } from 'graphql/subscriptions';
 
 const Receiver = () => {
   const remoteVideoRef = useRef<HTMLVideoElement>(null);
