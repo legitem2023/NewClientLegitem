@@ -1,7 +1,7 @@
 // components/Receiver.tsx
 import { useEffect, useRef, useState } from 'react';
 import { useMutation, useSubscription } from '@apollo/client';
-import { CREATE_ANSWER_MUTATION, ICE_CANDIDATE_MUTATION, OFFER_SUBSCRIPTION } from 'graphql/mutation';
+import { CREATE_ANSWER_MUTATION, ICE_CANDIDATE_MUTATION } from 'graphql/mutation';
 import { OFFER_SUBSCRIPTION } from 'graphql/subscription';
 
 const Receiver = () => {
