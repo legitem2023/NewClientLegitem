@@ -1,6 +1,16 @@
 
 import { gql } from "@apollo/client"
 //*************** QUERIES ***************/
+// You might also want a query to get initial stream data
+export const GET_STREAMS_QUERY = gql`
+  query GetStreams {
+    streams {
+      id
+      title
+    }
+  }
+`
+
 export const READ_ORDERS = gql`
 query GetGroupedOrderHistory($emailAddress: String) {
   getGroupedOrderHistory(emailAddress: $emailAddress) {
