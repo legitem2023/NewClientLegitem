@@ -162,7 +162,7 @@ console.log(result+"<==="); // "HeWrld"
                       <span className='hideInmobile'>Login</span>
                     </Link>
                     :
-                    <div style={{backgroundColor: result === item.Name || (['Account', 'Order', 'Return', 'Likes'].includes(result) && item.Name === 'Account') ? 'rgb(87, 39, 0)' : 'transparent' }}>
+                    <div style={{backgroundColor: result === item.Name || (['Account', 'Order', 'Return', 'Likes'].includes(result) && item.Name === 'Account') ? 'rgb(87, 39, 0)' : 'transparent',width:'100%',height:'100%',display:'flex',justifyContent:'center',alignItems:'center' }}>
                       <Icon icon={item.icon} style={{color: result === item.Name || (['Account', 'Order', 'Return', 'Likes'].includes(result) && item.Name === 'Account') ? '#ffffff' : 'rgb(87, 39, 0)' }}/>
                       <span className='hideInmobile'>{item.Name}</span>
                     </div>
