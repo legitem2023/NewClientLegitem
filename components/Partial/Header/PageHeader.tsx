@@ -162,10 +162,10 @@ console.log(result+"<==="); // "HeWrld"
                       <span className='hideInmobile'>Login</span>
                     </Link>
                     :
-                    <>
-                      <Icon icon={item.icon} />
+                    <div style={{backgroundColor: result === item.Name || (['Account', 'Order', 'Return', 'Likes'].includes(result) && item.Name === 'Account') ? 'rgb(87, 39, 0)' : 'transparent' }}>
+                      <Icon icon={item.icon} style={{color: result === item.Name || (['Account', 'Order', 'Return', 'Likes'].includes(result) && item.Name === 'Account') ? '#ffffff' : 'rgb(87, 39, 0)' }}/>
                       <span className='hideInmobile'>{item.Name}</span>
-                    </>
+                    </div>
                   }
                   {cookie && item.Name === 'Account' &&
                     <Dropdown path={path} deletecookies={deletecookies} OrderNotification={OrderNotification} />
