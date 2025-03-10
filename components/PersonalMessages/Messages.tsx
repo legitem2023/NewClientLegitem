@@ -11,7 +11,7 @@ import { PERSONAL_MESSAGES_ADDED } from 'graphql/subscriptions'
 import ReusableCenterLayout from 'components/Layout/ReusableCenterLayout'
 import { useSelector,useDispatch } from 'react-redux';
 import TypingIndicator from 'components/UI/TypingIndicator';
-
+import SwiperTabs from 'components/UI/SwiperTabs';
 import {setmessagecount} from 'Redux/messagecountSlice';
 import ReusableMessageInput from 'components/UI/ReusableMessageInput'
 import ReusableMessage from 'components/UI/ReusableMessage'
@@ -164,7 +164,7 @@ const Messages = () => {
         </ul>
       )}
       
-      child4={() => <></>}
+      child4={() => <SwiperTabs/>}
     />
   )
 }
