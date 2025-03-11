@@ -1,49 +1,87 @@
-"use client";
+'use client'
+import { useQuery } from "@apollo/client";
+import { Icon } from "@iconify/react";
+import { GET_CATEGORY } from "graphql/queries";
+import Image from "next/image";
+import { usePathname } from "next/navigation";
+import React from "react";
+import {StackedCarousel,ResponsiveContainer} from "react-stacked-center-carousel";
+import { imageSource, imageSource_category } from "utils/scripts";
 
-import { useEffect,useState } from "react";
-import ReusableThumbnail from 'components/UI/ReusableThumbnail';
-import AddCartCmd from 'components/Commands/AddCartCmd';
-import { setmodal } from 'Redux/modalSlice';
-import { setviewed } from 'Redux/viewedSlice';
-import { setViewedProd } from 'Redux/viewedProdSlice';
+export default function RecentlyVisited({data,fromData}) {
+  const ref:any = React.useRef(StackedCarousel);
+  const imgPath = process.env.NEXT_PUBLIC_SERVER_PRODUCT_IMAGE_PATH || '';
+  const pathname = usePathname();
+  const Products = pathname.startsWith('/Products');
 
-import { useDispatch, useSelector } from 'react-redux';
-import ReusableLabel from "components/UI/ReusableLabel";
+  const Card = (props:any) => {
+    const { data, dataIndex }:any = props;
+    const { image } = data[dataIndex];
 
-const RecentlyVisited = () => {
- const dispatch = useDispatch();
-const [visited,setVisited] = useState([]);
-useEffect(()=>{
- if (typeof window === "undefined") return;
- const localstorage = JSON.parse(localStorage.getItem('recentlyVisited'));
-   setVisited(localstorage)
-},[])
- const path = process.env.NEXT_PUBLIC_PATH || '';
-   const openModal = (id: string, items: any) => {
-    dispatch(setviewed(id));
-    dispatch(setmodal(true));
-    dispatch(setViewedProd([items])); 
+    return (
+      <div>
+      <div
+        style={{
+          width: "100%",
+          height: 300,
+          userSelect: "none",
+        }}
+        className="my-slide-component"
+      >
+        <Image
+          height="100"
+          width="200"
+          alt={dataIndex}
+          className="carouselImage"
+          draggable={false}
+          priority={true}
+          src={image}
+        />
+        <span style={{ color: "#000000",
+                    position: "absolute", 
+                    top: "0px",
+                    right:"0px",
+                    margin:"10px",
+                    padding:"5px",
+                    boxShadow:"0.5px 0.5px 3px #000000",
+                    backgroundColor:"rgb(249 220 206)" }}>{data[dataIndex].Name}</span>
+      </div>
+      </div>
+    );
   };
-  if(!visited) return
-  return <>{(
-    <>
-      <ReusableLabel icn='svg-spinners:clock' label='Recently Visited Products'/>
-        <div className="Thumbnails">
-        {visited.map((item: any, idx: number) => (
-                <div key={idx}>
-                  <ReusableThumbnail
-                    item={item}
-                    path={path}
-                    view={() => openModal(item.thumbnail, item)}
-                    addcart={() => (<AddCartCmd item={item} />)}
-                    handleLoading={null}
-                    handleError={null}
-                  />
-                </div>
-              ))}
-        </div>
-    </>
-            )}</>
-};
 
-export default RecentlyVisited;
+
+// if(Products) return
+  return (
+  <div className="card">
+    <div style={{ width: "100%", position: "relative" }}>
+      <ResponsiveContainer
+        carouselRef={ref}
+        render={(parentWidth, carouselRef) => {
+          let currentVisibleSlide = 5;
+          return (
+            <StackedCarousel
+              ref={carouselRef}
+              slideComponent={Card}
+              slideWidth={parentWidth < 200 ? parentWidth : 400}
+              carouselWidth={parentWidth}
+              data={data}
+              customScales = {[1, 0.7, 0.5, 0.2, 0.1]}
+              currentVisibleSlide={currentVisibleSlide}
+              maxVisibleSlide={7}
+              useGrabCursor
+            />
+          );
+        }}
+      />
+        <div className="card-button left" onClick={() => ref.current?.goBack()}>
+              <Icon icon='ic:sharp-double-arrow' style={{ fontSize: 30 }} />
+        </div>
+        <div className="card-button right" onClick={() => ref.current?.goNext()}>
+              <Icon icon='ic:sharp-double-arrow' style={{ fontSize: 30 }} />
+        </div>
+    </div>
+  </div>
+
+  );
+}
