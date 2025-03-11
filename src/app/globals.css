@@ -86,6 +86,8 @@
   width: 35px;
   animation: bell-shake 0.5s infinite;
   color:red;
+  margin-left:30px;
+  margin-bottom:30px;
 }
 .ReusableNotification div{
   position: absolute;
