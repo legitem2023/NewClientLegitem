@@ -54,7 +54,7 @@ console.log(data);
       )):<SwiperSlide>
       <Image src={`${imgPath}`} 
              onError={handleError}
-             onClick={view}
+             
              alt={"alt" + 1} 
              width='400' height='350'/>
         </SwiperSlide>
