@@ -31,6 +31,9 @@ export const RecentlyViewed:React.FC<PropsRecentlyViewed> = ({data,length,slides
     const dispatch = useDispatch();
 
  const ViewData = (data) =>{
+    dispatch(setviewed(data.id));
+    dispatch(setmodal(true));
+    dispatch(setViewedProd([data]));
 console.log(data);
 }
   return (
