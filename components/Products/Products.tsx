@@ -161,7 +161,7 @@ useEffect(() => {
     //const multipliedProducts = multiplyArray(ProductsData.getChildInventory, 1);
     dispatch(addSuggestedItems(ProductsData?.getChildInventory));
 
-console.log(localStorage.getItem("recentlyVisited"));
+console.log(useSaved);
 
 setSaved(localStorage.getItem("recentlyVisited"))
 
