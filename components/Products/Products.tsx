@@ -204,6 +204,7 @@ const sampleData = [
           style={{ overflowY: 'auto', height: 'auto', scrollbarWidth: 'none' }} // Set height to auto
         >
         <RecentlyVisited data={useSaved}fromData={false}
+                    view={() => openModal(useSaved[0].thumbnail, useSaved)}
 />
           <ReusableLabel icn='bi:tags-fill' label='Products'/>
           <div className="Thumbnails">
