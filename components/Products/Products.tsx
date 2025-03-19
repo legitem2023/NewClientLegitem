@@ -163,7 +163,15 @@ useEffect(() => {
 
 console.log(useSaved);
 
-setSaved(localStorage.getItem("recentlyVisited"))
+const localData = localStorage.getItem("recentlyVisited")?.map((item:any) =>{
+return {
+  "image":item.thumbnail,
+  "Name":item.name
+}
+
+})
+
+setSaved(localData);
 
   }
 }, [dispatch, ProductsData]);
