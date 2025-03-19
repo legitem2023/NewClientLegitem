@@ -20,7 +20,7 @@ export default function RecentlyVisited({data,fromData}) {
   const imgPath = process.env.NEXT_PUBLIC_SERVER_PRODUCT_IMAGE_PATH || '';
   const pathname = usePathname();
   const Products = pathname.startsWith('/Products');
-
+const dispatch = useDispatch();
  const ViewData = (data) =>{
     dispatch(setviewed(data.id));
     dispatch(setmodal(true));
