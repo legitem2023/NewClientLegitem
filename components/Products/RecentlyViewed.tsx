@@ -49,7 +49,7 @@ console.log(data);
       {length.length > 0?
         data.map((item:any, i:any) => (
         <SwiperSlide key={i} onClick={()=>ViewData(item)}>
-            <Image            src={imageSourceGallery(item)} 
+            <Image     src={imageSourceGallery(item)} 
                    onError={handleError}
                    alt={"alt" + i} 
                    width='400' height='350'/>
