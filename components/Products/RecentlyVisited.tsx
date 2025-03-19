@@ -51,6 +51,7 @@ console.log(data);
           draggable={false}
           priority={true}
           src={image}
+          onClick={()=> ViewData(data[dataIndex])}
         />
         <span style={{ color: "#000000",
                     position: "absolute", 
