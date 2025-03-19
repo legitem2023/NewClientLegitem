@@ -5,6 +5,12 @@ import 'swiper/css/pagination';
 import 'swiper/css';
 import 'swiper/css/scrollbar';
 import Image from 'next/image';
+
+
+import { setmodal } from 'Redux/modalSlice';
+import { setviewed } from 'Redux/viewedSlice';
+import { setViewedProd } from 'Redux/viewedProdSlice';
+
 import { handleError, imageSourceGallery } from 'utils/scripts';
 import { useSelector } from 'react-redux';
 
