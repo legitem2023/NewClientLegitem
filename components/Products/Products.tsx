@@ -32,6 +32,7 @@ const Products: React.FC = () => {
   const dispatch = useDispatch();
   const router = useRouter();
   const pathname = usePathname();
+  const [useSaved,setSaved] = useState("");
   const isModalOpen = useSelector((state: any) => state.modal.modal);
 
 
@@ -159,6 +160,11 @@ useEffect(() => {
   if (ProductsData?.getChildInventory) {
     //const multipliedProducts = multiplyArray(ProductsData.getChildInventory, 1);
     dispatch(addSuggestedItems(ProductsData?.getChildInventory));
+
+console.log(localStorage.getItem("recentlyVisited"));
+
+setSaved(localStorage.getItem("recentlyVisited"))
+
   }
 }, [dispatch, ProductsData]);
 
@@ -173,7 +179,7 @@ const sampleData = [
   { image: "/images/sample3.jpg", Name: "Product 3" },
   { image: "/images/sample4.jpg", Name: "Product 4" },
 ];
-comsole.log(localStorage.getItem("recentlyVisited"));
+
 
   return (
     <ReusableCenterLayout
