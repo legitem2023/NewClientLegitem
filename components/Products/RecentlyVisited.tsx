@@ -5,6 +5,13 @@ import { GET_CATEGORY } from "graphql/queries";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import React from "react";
+
+import { useDispatch } from 'react-redux';
+
+import { setmodal } from 'Redux/modalSlice';
+import { setviewed } from 'Redux/viewedSlice';
+import { setViewedProd } from 'Redux/viewedProdSlice';
+
 import {StackedCarousel,ResponsiveContainer} from "react-stacked-center-carousel";
 import { imageSource, imageSource_category } from "utils/scripts";
 
