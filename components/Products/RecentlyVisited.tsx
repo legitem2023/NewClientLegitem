@@ -69,7 +69,7 @@ console.log(data);
 
 // if(Products) return
   return (
-  <div className="card">
+  <div className="card" style={{margin:"10px"}}>
     <div style={{ width: "100%", position: "relative" }}>
       <ResponsiveContainer
         carouselRef={ref}
