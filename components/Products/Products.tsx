@@ -173,6 +173,7 @@ const sampleData = [
   { image: "/images/sample3.jpg", Name: "Product 3" },
   { image: "/images/sample4.jpg", Name: "Product 4" },
 ];
+comsole.log(localStorage.getItem("recentlyVisited");
 
   return (
     <ReusableCenterLayout
