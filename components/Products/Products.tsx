@@ -166,8 +166,9 @@ console.log(useSaved);
 const localData = JSON.parse(localStorage.getItem("recentlyVisited") || "[]"); 
 
 const formattedData = localData.map((item: any) => ({
-  image: item.thumbnail,
-  Name: item.name,
+  ...item, // Keeps all existing properties
+  image: item.thumbnail, // Renaming 'thumbnail' to 'image'
+  Name: item.name, // Adjusting key format if needed
 }));
 
 setSaved(formattedData);
@@ -202,7 +203,8 @@ const sampleData = [
         <div
           style={{ overflowY: 'auto', height: 'auto', scrollbarWidth: 'none' }} // Set height to auto
         >
-          <RecentlyVisited data={useSaved} fromData={false}/>
+        <RecentlyVisited data={useSaved}fromData={false}
+/>
           <ReusableLabel icn='bi:tags-fill' label='Products'/>
           <div className="Thumbnails">
             {visibleProducts.length > 0 ? (
