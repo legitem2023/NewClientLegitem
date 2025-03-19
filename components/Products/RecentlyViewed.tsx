@@ -12,10 +12,11 @@ type PropsRecentlyViewed  = {
   data: (item: string) => void;
   length:any,
   slidesPerView:number,
-  spaceBetween:number
+  spaceBetween:number,
+  view: (event: React.SyntheticEvent<HTMLImageElement, Event>) => void;
 }
 
-export const RecentlyViewed:React.FC<PropsRecentlyViewed> = ({data,length,slidesPerView,spaceBetween}:any) => {
+export const RecentlyViewed:React.FC<PropsRecentlyViewed> = ({data,length,slidesPerView,spaceBetween,view}:any) => {
   const imgPath = process.env.NEXT_PUBLIC_SERVER_PRODUCT_IMAGE_PATH || '';
   const viewedID = useSelector((state:any) => state.viewed.viewed); // Access category state
 
@@ -36,7 +37,7 @@ export const RecentlyViewed:React.FC<PropsRecentlyViewed> = ({data,length,slides
         data.map((item:any, i:any) => (
         <SwiperSlide key={i}>
             <Image key={i} 
-                   src={imageSourceGallery(item)} 
+      onClick={view}             src={imageSourceGallery(item)} 
                    onError={handleError}
                    alt={"alt" + i} 
                    width='400' height='350' />
@@ -45,6 +46,7 @@ export const RecentlyViewed:React.FC<PropsRecentlyViewed> = ({data,length,slides
       )):<SwiperSlide>
       <Image src={`${imgPath}`} 
              onError={handleError}
+             onClick={view}
              alt={"alt" + 1} 
              width='400' height='350'/>
         </SwiperSlide>
