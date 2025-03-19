@@ -27,7 +27,9 @@ export const RecentlyViewed:React.FC<PropsRecentlyViewed> = ({data,length,slides
   const viewedID = useSelector((state:any) => state.viewed.viewed); // Access category state
 
   const initialSlideIndex = data.findIndex((img) => img.ImagePath === viewedID);
-  
+
+    const dispatch = useDispatch();
+
  const ViewData = (data) =>{
 console.log(data);
 }
