@@ -21,6 +21,14 @@ export default function RecentlyVisited({data,fromData}) {
   const pathname = usePathname();
   const Products = pathname.startsWith('/Products');
 
+ const ViewData = (data) =>{
+    dispatch(setviewed(data.id));
+    dispatch(setmodal(true));
+    dispatch(setViewedProd([data]));
+console.log(data);
+}
+
+
   const Card = (props:any) => {
     const { data, dataIndex }:any = props;
     const { image } = data[dataIndex];
