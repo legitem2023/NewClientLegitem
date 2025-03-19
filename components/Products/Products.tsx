@@ -166,6 +166,14 @@ useEffect(() => {
   if (productsLoading) return <ProductLoading />;
   if (productsError) return <ReusableServerDown />;
  
+
+const sampleData = [
+  { image: "/images/sample1.jpg", Name: "Product 1" },
+  { image: "/images/sample2.jpg", Name: "Product 2" },
+  { image: "/images/sample3.jpg", Name: "Product 3" },
+  { image: "/images/sample4.jpg", Name: "Product 4" },
+];
+
   return (
     <ReusableCenterLayout
       child1={() => (
@@ -178,7 +186,7 @@ useEffect(() => {
         <div
           style={{ overflowY: 'auto', height: 'auto', scrollbarWidth: 'none' }} // Set height to auto
         >
-          <RecentlyVisited/>
+          <RecentlyVisited data={sampleData} fromData={false}/>
           <ReusableLabel icn='bi:tags-fill' label='Products'/>
           <div className="Thumbnails">
             {visibleProducts.length > 0 ? (
