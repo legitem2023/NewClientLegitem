@@ -22,7 +22,7 @@ export default function RecentlyVisited({data,fromData}) {
   const Products = pathname.startsWith('/Products');
 const dispatch = useDispatch();
  const ViewData = (data) =>{
-    dispatch(setviewed(data.id));
+    dispatch(setviewed(data.thumbnail));
     dispatch(setmodal(true));
     dispatch(setViewedProd([data]));
 console.log(data);
