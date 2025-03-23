@@ -3,6 +3,7 @@ import Element from './Element';
 import Ratings from '../Partial/Ratings/Ratings';
 import Discounted from './Discounted';
 import Price from './Price';
+import Price_strike from './Price_strike';
 interface ReusableCardProps {
   item: any;
   view: (item: any) => void;
