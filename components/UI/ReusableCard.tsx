@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import Element from './Element';
+import Ratings from '../Partial/Ratings/Ratings';
 interface ReusableCardProps {
   item: any;
   view: (item: any) => void;
