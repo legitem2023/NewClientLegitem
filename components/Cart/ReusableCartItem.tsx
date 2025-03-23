@@ -43,8 +43,9 @@ const ReusableCartItem: FC<CartItemWithFunc> = ({ id, size, color, price, quanti
                 marginTop: "10px"
             }}>
                 <ReusableQuantityChanger id={id} qty={quantity} />
-                <h3 style={{ fontSize: "14px", fontWeight: "bold", color: "#333" }}>{formatter.format(price * quantity)}</h3>
+                
             </div>
+<div><h3 style={{ fontSize: "14px", fontWeight: "bold", color: "#333" }}>{formatter.format(price * quantity)}</h3></div>
         </div>
     )
 }
