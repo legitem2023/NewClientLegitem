@@ -6,38 +6,47 @@ import Image from 'next/image'
 import { formatter } from 'utils/scripts' 
 import { Icon } from '@iconify/react'
 
-const ReusableCartItem:FC<CartItemWithFunc> = ({id,size,color,price,quantity,name,productCode,image,clearItem,removeItem}) => {
+const ReusableCartItem: FC<CartItemWithFunc> = ({ id, size, color, price, quantity, name, productCode, image, removeItem }) => {
     return (
-    <div className="cartItemContainer">
-        <div className="cartItems">
-            <div className="cartItemsFdiv">
-                <Image src={image==="" || image ===null?`/image/Legitem.jpg`:image} height="100" width="100" alt="1"/>
-                <div>
-                    <Icon icon="mdi:trash" width="24" height="24"  style={{"color": "#cd0000"}} onClick={removeItem}/>
-                </div>
+        <div style={{
+            display: "flex",
+            flexDirection: "column",
+            gap: "10px",
+            padding: "10px",
+            borderBottom: "1px solid #ddd",
+            width: "100%"
+        }}>
+            {/* Product Image & Remove Icon */}
+            <div style={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "space-between"
+            }}>
+                <Image src={image === "" || image === null ? `/image/Legitem.jpg` : image} height={80} width={80} alt={name} style={{ borderRadius: "8px" }} />
+                <Icon icon="mdi:trash" width="24" height="24" style={{ color: "#cd0000", cursor: "pointer" }} onClick={removeItem} />
             </div>
 
-            <div className="cartItemsSdiv">
-                <div>
-                    <h3 className="">{name}</h3>
-                    <div className="">Product Code: {productCode}</div>
-                    <div className="">Size: {size}</div>
-                    <div className="">Color: {color}</div>
-                    <div className="">Price: {formatter.format(price)}</div>
-                </div>
-
-                <div className="mt-auto flex items-center gap-3">
-                    <ReusableQuantityChanger id={id} qty={quantity}/>
-                </div>
+            {/* Product Details */}
+            <div style={{ display: "flex", flexDirection: "column", gap: "5px" }}>
+                <h3 style={{ fontSize: "14px", fontWeight: "bold" }}>{name}</h3>
+                <div style={{ fontSize: "12px", color: "#555" }}>Product Code: {productCode}</div>
+                <div style={{ fontSize: "12px", color: "#555" }}>Size: {size}</div>
+                <div style={{ fontSize: "12px", color: "#555" }}>Color: {color}</div>
+                <div style={{ fontSize: "14px", fontWeight: "bold" }}>Price: {formatter.format(price)}</div>
             </div>
-            <div className="cartItemsTdiv">
-            <h3 className="text-base font-bold text-gray-800 mt-auto">{formatter.format(price * quantity)}</h3>
-        </div>
-        </div>
 
-
-    </div>
-  )
+            {/* Quantity Changer & Total Price */}
+            <div style={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "space-between",
+                marginTop: "10px"
+            }}>
+                <ReusableQuantityChanger id={id} qty={quantity} />
+                <h3 style={{ fontSize: "14px", fontWeight: "bold", color: "#333" }}>{formatter.format(price * quantity)}</h3>
+            </div>
+        </div>
+    )
 }
 
 export default ReusableCartItem
