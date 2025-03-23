@@ -8,7 +8,7 @@ const ProductViewLoading = () => {
             <div className='loading-screen' style={{height:"50px",boxSizing:"border-box"}}></div>
 
             </div>
-            <div className='MainView_LchildGallery' style={{margin:"5px",padding:"5px"}}>
+            <div className='MainView_LchildGallery' style={{margin:"3px",padding:"5px"}}>
                 <div className='loading-screen' style={{height:"50vh",boxSizing:"border-box"}}></div>
                 <div>
                     <div style={{height:"50px",boxSizing:"border-box",margin:"10px"}}>
@@ -41,7 +41,7 @@ const ProductViewLoading = () => {
             <div className='LabelHead'>
                 <div className='loading-screen' style={{height:"50px",boxSizing:"border-box"}}></div>
             </div>
-            <div className='margin:5px'>
+            <div className='margin:0px'>
                 <div className='loading-screen' style={{height:"40vh",boxSizing:"border-box"}}></div>
             </div>
             <div className='LabelHead'>
