@@ -1,5 +1,6 @@
 "use client";
 import React from "react";
+import ReusableNotification from './ReusableNotification';
 import { useDispatch, useSelector } from "react-redux";
 import { setActiveIndex } from "../../Redux/activeIndexSlice";
 import { Icon } from "@iconify/react";
@@ -60,6 +61,7 @@ const ReusableArrowTabs: React.FC<TabsProps> = ({ tabs }) => {
               }}
             >
               <Icon icon={tab.icon} style={{ fontSize: "18px" }} />
+<ReusableNotification number={tabs[activeIndex]?.notification}/>
             </div>
           );
         })}
