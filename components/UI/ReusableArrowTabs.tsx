@@ -7,7 +7,7 @@ import { Icon } from "@iconify/react";
 type Tab = {
   icon: string; // Iconify icon name
   content: React.ReactNode;
-  notification: string;
+  notification:number;
 };
 
 type TabsProps = {
