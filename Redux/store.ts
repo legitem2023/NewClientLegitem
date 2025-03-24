@@ -6,7 +6,7 @@ import searchReducer from "./searchSlice";
 import drawerReducer from "./drawerSlice"
 import viewedReducer from "./viewedSlice"
 import prodctTypeReducer from './productTypeSlice'
-
+import activeSliceReducer from './activeSliceIndex';
 import sortByReducer from './sortBySlice'
 import sortDirectionReducer from './sortDirectionSlice'
 import discountedReducer from './discountedSlice'
@@ -49,7 +49,8 @@ const store = configureStore({
     orderStage:orderStageReducer,
     streaming:streamingReducer,
     ipAddress:ipReducer,
-    suggestedItems:suggestedItemReducer
+    suggestedItems:suggestedItemReducer,
+    activeIndex:activeSliceReducer
   },
 });
 
