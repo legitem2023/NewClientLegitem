@@ -85,9 +85,7 @@
   height: 35px;
   width: 35px;
   animation: bell-shake 0.5s infinite;
-  color:red;
-  margin-left:35px;
-  margin-bottom:35px; 
+  color:red
   filter:drop-shadow(0.5px 0.5px 3px #ffffff);
   z-index:999;
 }
