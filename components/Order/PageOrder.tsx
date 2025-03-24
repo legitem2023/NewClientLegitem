@@ -102,16 +102,16 @@ const PageOrder:React.FC = () => {
 
 const tabs = [{
 icon: "fluent:document-add-24-filled",
-content: <div></div> },{ 
+content: <AccordionOrders json={newOrder?.getGroupedOrderHistory}/> },{ 
 icon: "mdi:inbox-arrow-down", 
-content: <div></div> },{ 
+content: <AccordionOrderRecieved json={recievedOrder?.getGroupedOrderHistoryRecieved}/> },{ 
 icon: "solar:settings-bold", 
-content: <div></div> },{ 
+content: <AccordionOrderPacked json={packedOrder?.getGroupedOrderHistoryPacked}/> },{ 
 icon: "mdi:truck-cargo-container", 
-content: <div></div>},{
-icon: "material-symbols:local-shipping", content: <div></div>},{
+content:<AccordionOrderLogistic json={logisticOrder?.getGroupedOrderHistoryLogistic}/>},{
+icon: "material-symbols:local-shipping", content:<AccordionOrderDeliver json={deliverOrder?.getGroupedOrderHistoryDelivery}/>},{
 icon: "mdi:check-decagram", 
-content: <div></div>},
+content:  <AccordionOrderDelivered json={deliveredOrder?.getGroupedOrderHistoryDelivered} refetchdelivered={refetchdelivered}/>},
 ];
 
 
@@ -138,7 +138,7 @@ content: <div></div>},
             }
         </div>
         <div>
-        {optionalRender()}
+       {/* {optionalRender()} */}
          <ReusableArrowTabs tabs={tabs}/>
         </div>
       {/* </div> */}
