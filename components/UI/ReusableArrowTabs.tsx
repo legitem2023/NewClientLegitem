@@ -65,7 +65,7 @@ const ReusableArrowTabs: React.FC<TabsProps> = ({ tabs }) => {
       </div>
 
       {/* Tab Content */}
-      <div style={{ backgroundColor: "#f3f4f6", color: "#1f2937", borderRadius: "6px", padding: "10px" }}>
+      <div style={{ backgroundColor: "#f3f4f6", color: "#1f2937", borderRadius: "6px", padding: "2px" }}>
         {tabs[activeIndex]?.content}
       </div>
     </div>
