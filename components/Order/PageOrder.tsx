@@ -97,6 +97,21 @@ const PageOrder:React.FC = () => {
   }
 
 
+const tabs = [{
+icon: "fluent:document-add-24-filled",
+content: </> },{ 
+icon: "mdi:inbox-arrow-down", 
+content: </> },{ 
+icon: "solar:settings-bold", 
+content: <p>✅</p> },{ 
+icon: "mdi:truck-cargo-container", 
+content: <p>✅</p>},{
+icon: "material-symbols:local-shipping", content: <p>✅</p>},{
+icon: "mdi:check-decagram", 
+content: <p>✅</p>},
+];
+
+
   return (
     <ReusableMainLayout childA={()=>(
 <AccountMenu />
