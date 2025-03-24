@@ -119,30 +119,9 @@ content:  <AccordionOrderDelivered json={deliveredOrder?.getGroupedOrderHistoryD
     <ReusableMainLayout childA={()=>(
 <AccountMenu />
     )} childB={()=>(
-      // <div className='OrderDetails'>
-      <div className='OrderList'>
-      <ReusableLabel icn="bxs:basket" label="Order Status"/>
-        <div className='OrderStages'>
-          {
-            transactionData.map((item:any,idx:any)=>(
-                <span className={item.Class} key={idx} onClick={()=>ClearLocalStorage(item)}>
-                    {item.Name === 'New Order'?<OrderStageNotification notification={updateNewOrder}/>:null}
-                    {item.Name === 'Recieve'?<OrderStageNotification notification={updateRecieved}/>:null}
-                    {item.Name === 'Packed'?<OrderStageNotification notification={updatePacked}/>:null}
-                    {item.Name === 'Logistic'?<OrderStageNotification notification={updateLogistic}/>:null}
-                    {item.Name === 'Delivery'?<OrderStageNotification notification={updateDelivery}/>:null}
-                    {item.Name === 'Delivered'?<OrderStageNotification notification={updateDelivered}/>:null}
-                    <Icon icon={item.Image} height='50' width='50'  className='TransactionImage'></Icon>
-                </span>                      
-            ))
-            }
-        </div>
         <div>
-       {/* {optionalRender()} */}
-         <ReusableArrowTabs tabs={tabs}/>
+           <ReusableArrowTabs tabs={tabs}/>
         </div>
-      {/* </div> */}
-     </div>
     )} childC={()=><></>}/>
 
   )
