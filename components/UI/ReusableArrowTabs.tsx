@@ -61,7 +61,10 @@ const ReusableArrowTabs: React.FC<TabsProps> = ({ tabs }) => {
               }}
             >
               <Icon icon={tab.icon} style={{ fontSize: "18px" }} />
-<ReusableNotification number={tabs[activeIndex]?.notification}/>
+{/* Adjust Notification Position */}
+  <div style={{ position: "absolute", top: "-10px", right: "0px", zIndex: 10 }}>
+    <ReusableNotification number={tab.notification} />
+  </div>
             </div>
           );
         })}
