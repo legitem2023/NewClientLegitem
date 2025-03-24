@@ -1,7 +1,10 @@
 'use client'
 import React, { useEffect, useState } from 'react'
 import { Icon } from '@iconify/react'
-import AccountMenu from 'components/Account/AccountMenu'
+import AccountMenu from 'components/Account/AccountMenu';
+
+import ReusableArrowTabs from 'components/UI/ReusableArrowTabs';
+
 import transactionData from '../../json/transactionStages_client.json'
 import Link from 'next/link'
 import Image from 'next/image'
@@ -99,16 +102,16 @@ const PageOrder:React.FC = () => {
 
 const tabs = [{
 icon: "fluent:document-add-24-filled",
-content: </> },{ 
+content: <div></div> },{ 
 icon: "mdi:inbox-arrow-down", 
-content: </> },{ 
+content: <div></div> },{ 
 icon: "solar:settings-bold", 
-content: <p>✅</p> },{ 
+content: <div></div> },{ 
 icon: "mdi:truck-cargo-container", 
-content: <p>✅</p>},{
-icon: "material-symbols:local-shipping", content: <p>✅</p>},{
+content: <div></div>},{
+icon: "material-symbols:local-shipping", content: <div></div>},{
 icon: "mdi:check-decagram", 
-content: <p>✅</p>},
+content: <div></div>},
 ];
 
 
@@ -139,7 +142,7 @@ content: <p>✅</p>},
         </div>
       {/* </div> */}
      </div>
-    )} childC={()=><></>}/>
+    )} childC={()=><ReusableArrowTabs tabs={tabs}/>}/>
 
   )
 }
