@@ -98,6 +98,14 @@ const PageHeader: React.FC = () => {
               <input
                 type="text"
                 ref={Ref}
+                style={{  
+                  position:'relative',  
+                  width: '95%',  
+                  top: '0px',  
+                  transition: 'ease 0.5s',  
+                  margin: '10px',  
+                  boxSizing: 'border-box',  
+                }}
                 placeholder="Search"
                 onFocus={handleFocus}
                 onBlur={handleBlur}
