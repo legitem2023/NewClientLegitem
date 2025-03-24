@@ -119,9 +119,7 @@ content:  <AccordionOrderDelivered json={deliveredOrder?.getGroupedOrderHistoryD
     <ReusableMainLayout childA={()=>(
 <AccountMenu />
     )} childB={()=>(
-        <div>
-           <ReusableArrowTabs tabs={tabs}/>
-        </div>
+       <ReusableArrowTabs tabs={tabs}/>
     )} childC={()=><></>}/>
 
   )
