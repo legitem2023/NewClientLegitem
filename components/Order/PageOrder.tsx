@@ -139,10 +139,11 @@ content: <div></div>},
         </div>
         <div>
         {optionalRender()}
+         <ReusableArrowTabs tabs={tabs}/>
         </div>
       {/* </div> */}
      </div>
-    )} childC={()=><ReusableArrowTabs tabs={tabs}/>}/>
+    )} childC={()=><></>}/>
 
   )
 }
