@@ -88,6 +88,10 @@
   color:red;
   filter:drop-shadow(0.5px 0.5px 3px #ffffff);
   z-index:999;
+border: 2px solid white;
+  clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+
+
 }
 .ReusableNotification div{
   position: absolute;
