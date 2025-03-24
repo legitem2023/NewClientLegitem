@@ -102,16 +102,29 @@ const PageOrder:React.FC = () => {
 
 const tabs = [{
 icon: "fluent:document-add-24-filled",
-content: <AccordionOrders json={newOrder?.getGroupedOrderHistory}/> },{ 
+content: <AccordionOrders json={newOrder?.getGroupedOrderHistory}/>,
+notification:updateNewOrder
+ },{ 
 icon: "mdi:inbox-arrow-down", 
-content: <AccordionOrderRecieved json={recievedOrder?.getGroupedOrderHistoryRecieved}/> },{ 
+content: <AccordionOrderRecieved json={recievedOrder?.getGroupedOrderHistoryRecieved}/>,
+notification:updateRecieved
+ },{ 
 icon: "solar:settings-bold", 
-content: <AccordionOrderPacked json={packedOrder?.getGroupedOrderHistoryPacked}/> },{ 
+content: <AccordionOrderPacked json={packedOrder?.getGroupedOrderHistoryPacked}/>,
+notification:updatePacked
+ },{ 
 icon: "mdi:truck-cargo-container", 
-content:<AccordionOrderLogistic json={logisticOrder?.getGroupedOrderHistoryLogistic}/>},{
-icon: "material-symbols:local-shipping", content:<AccordionOrderDeliver json={deliverOrder?.getGroupedOrderHistoryDelivery}/>},{
+content:<AccordionOrderLogistic json={logisticOrder?.getGroupedOrderHistoryLogistic}/>,
+notification:updateLogistic
+
+},{
+icon: "material-symbols:local-shipping", content:<AccordionOrderDeliver json={deliverOrder?.getGroupedOrderHistoryDelivery}/>,
+notification:updateDelivery
+},{
 icon: "mdi:check-decagram", 
-content:  <AccordionOrderDelivered json={deliveredOrder?.getGroupedOrderHistoryDelivered} refetchdelivered={refetchdelivered}/>},
+content:  <AccordionOrderDelivered json={deliveredOrder?.getGroupedOrderHistoryDelivered} refetchdelivered={refetchdelivered}/>,
+notification:updateDelivered
+},
 ];
 
 
