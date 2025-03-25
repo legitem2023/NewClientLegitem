@@ -5,7 +5,7 @@ const ReusableNotification = ({number}) => {
   return (
     <div className='ReusableNotification'>
       <div className="icon-container">
-        <Icon icon="mdi:bell" width="30" height="30" className="icon-with-border"/>
+        <Icon icon="mdi:bell" width="20" height="20" className="icon-with-border"/>
       </div>
       <div className="countnumber">
         {number}
