@@ -18,7 +18,7 @@ const SliderModels = () => {
             modules={[Pagination]}
             loop={false}>
               <SwiperSlide>
-                 <ModelViewer data="https://modelviewer.dev/assets/ShopifyModels/Chair.glb"/> 
+                 <ModelViewer data="/chronograph_watch.glb"/> 
               </SwiperSlide>
                {/* <SwiperSlide>
                  <ModelViewer data="https://modelviewer.dev/shared-assets/models/NeilArmstrong.glb"/> 
