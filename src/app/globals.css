@@ -80,7 +80,7 @@
 
 .icon-with-border {
   stroke: white;
-  stroke-width: 4px; /* may need to adjust this value */
+  stroke-width: 2px; /* may need to adjust this value */
   stroke-linejoin: round;
   paint-order: stroke;
 }
