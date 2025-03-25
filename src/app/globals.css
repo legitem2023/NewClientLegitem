@@ -79,21 +79,11 @@
 }
 
 .icon-with-border {
-  filter: 
-    drop-shadow(0 0 0 white) /* right */
-    drop-shadow(0 0 0 white) /* left */
-    drop-shadow(0 0 0 white) /* bottom */
-    drop-shadow(0 0 0 white); /* top */
+  stroke: white;
+  stroke-width: 8px; /* may need to adjust this value */
+  stroke-linejoin: round;
+  paint-order: stroke;
 }
-
-.icon-with-border:hover {
-  filter: 
-    drop-shadow(2px 0 0 white) /* right */
-    drop-shadow(-2px 0 0 white) /* left */
-    drop-shadow(0 2px 0 white) /* bottom */
-    drop-shadow(0 -2px 0 white); /* top */
-}
-
 
 
 /* ReusableNotification */
