@@ -95,7 +95,8 @@
   width: 35px;
   animation: bell-shake 0.5s infinite;
   color:red;
-  
+  margin-top:-10px;
+  margin-right:-10px
   z-index:999;
 
 
