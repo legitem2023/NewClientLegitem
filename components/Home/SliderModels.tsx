@@ -18,7 +18,7 @@ const SliderModels = () => {
             modules={[Pagination]}
             loop={false}>
               <SwiperSlide>
-                 <ModelViewer data="/chronograph_watch.glb"/> 
+                 <ModelViewer data="/Rolex.glb"/> 
               </SwiperSlide>
                {/* <SwiperSlide>
                  <ModelViewer data="https://modelviewer.dev/shared-assets/models/NeilArmstrong.glb"/> 
