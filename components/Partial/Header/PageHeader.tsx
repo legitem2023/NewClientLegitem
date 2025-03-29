@@ -114,8 +114,9 @@ console.error('Image failed to load', e);
           justifyContent:'flex-start',  
           zIndex:'999',  
           backgroundColor:isFocused?'#ffffff':'transparent'  
-        }}>  
-          <input  
+        }}> 
+  {result==='Products'?(
+<input  
             type='text'  
             style={{  
               position:'relative',  
@@ -143,7 +144,9 @@ console.error('Image failed to load', e);
           {item.name}  
         </li>  
       ))}  
-    </ul>  
+    </ul>
+  ):''}
+          
   )}  
         </div>  
       </div>  
