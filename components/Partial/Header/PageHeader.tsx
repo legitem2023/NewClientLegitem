@@ -119,7 +119,8 @@ console.error('Image failed to load', e);
             type='text'    
             style={{    
               position:'relative',    
-              width: '95%',    
+              width: '95%', 
+              height:'30px',
               top: '0px',    
               transition: 'ease 0.5s',    
               margin: '10px',
@@ -133,7 +134,8 @@ console.error('Image failed to load', e);
             onChange={(e:any)=>handleChange(e)}    
           />):(<span style={{    
               position:'relative',    
-              width: '95%',    
+              width: '95%',  
+              height:'30px',
               top: '0px',    
               transition: 'ease 0.5s',    
               margin: '10px',
