@@ -72,9 +72,10 @@ setSuggestions([]);
 };
 const FillText = (item: any) => {
 setQuery(item);
-setIsFocused(false)
+
 if (Ref.current) {
 Ref.current.value = item;
+setIsFocused(false);
 }
 };
 return (
