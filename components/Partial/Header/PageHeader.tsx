@@ -122,8 +122,7 @@ console.error('Image failed to load', e);
               width: '95%',    
               top: '0px',    
               transition: 'ease 0.5s',    
-              marginLeft: '10px',
-              marginRight: '10px',
+              margin: '10px',
               boxSizing: 'border-box',    
             }}    
             ref={Ref}    
