@@ -125,8 +125,8 @@ console.error('Image failed to load', e);
             }}  
             ref={Ref}  
             placeholder='Search'  
-            onFocus={handleFocus}  
-            onBlur={handleBlur}  
+            onFocus={handleFocus}
+            onKeyUp={handleBlur}
             className='searchEngine'  
             onChange={(e:any)=>handleChange(e)}  
           />  
