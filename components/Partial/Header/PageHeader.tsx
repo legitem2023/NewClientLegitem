@@ -131,7 +131,7 @@ console.error('Image failed to load', e);
             onKeyUp={handleBlur}  
             className='searchEngine'    
             onChange={(e:any)=>handleChange(e)}    
-          />):''}  
+          />):(<span style={{margin:'10px'}}></span>)}  
 {suggestions.length > 0 && (
       <ul style={{width:'100%',listStyleType:'none',left:'0px',position:'relative',display:isFocused?'block':'none',paddingLeft:"0px"}}>    
       {suggestions.map((item:any, index:number) => (    
