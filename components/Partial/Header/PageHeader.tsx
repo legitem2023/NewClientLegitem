@@ -43,7 +43,7 @@ setIsFocused(true)
 };
 
 const handleBlur = () => {
-setIsFocused(false);
+//setIsFocused(false);
 };
 
 const handleClick = (item: any) => {
@@ -72,6 +72,7 @@ setSuggestions([]);
 };
 const FillText = (item: any) => {
 setQuery(item);
+setIsFocused(false)
 if (Ref.current) {
 Ref.current.value = item;
 }
