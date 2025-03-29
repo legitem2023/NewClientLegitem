@@ -144,10 +144,8 @@ console.error('Image failed to load', e);
           {item.name}  
         </li>  
       ))}  
-    </ul>
-  ):''}
-          
-  )}  
+    </ul>)}
+  ):''} 
         </div>  
       </div>  
     </div>  
