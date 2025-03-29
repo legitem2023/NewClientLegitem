@@ -42,8 +42,10 @@ setIsFocused(true)
 };
 };
 
-const handleBlur = () => {
-//setIsFocused(false);
+const handleBlur = (event: React.KeyboardEvent<HTMLInputElement>) => {
+  if (event.key === "Enter") {
+    setIsFocused(false);
+  }
 };
 
 const handleClick = (item: any) => {
