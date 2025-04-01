@@ -164,7 +164,7 @@ const Messages = () => {
         </ul>
       )}
       
-      child4={() => <SwiperTabs/>}
+      child4={() => <></>}
     />
   )
 }
