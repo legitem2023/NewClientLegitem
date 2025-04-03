@@ -72,7 +72,7 @@ const uniqueSenders = Array.from(
 
   {/* Sender Name */}
   <div style={{display:'flex', fontWeight: 'bold',alignItems:'center',padding:'3px'}}>{sender.Sender}</div>
-<ReusableNotification number={messageNotification.filter((not:any)=>not.email===sender.Sender).length}/>
+<ReusableNotification number={messageNotification.filter((not:any)=>not.email===sender.Reciever).length}/>
   {/* Message Preview */}
   <div style={{ display:'flex',color: 'gray',alignItems:'center',padding:'3px'}}>
     <LimitedText text={sender.Messages} />
