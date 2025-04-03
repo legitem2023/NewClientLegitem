@@ -57,7 +57,7 @@ const Messages = () => {
         dispatch(setMessageNotification({
           id:newMessages[0].id,
           message:newMessages[0].id,
-          email:newMessages[0].Reciever
+          email:newMessages[0].Sender
         }))
        // dispatch(setmessagecount((prevCount: number) => prevCount + newMessages.length));
         const filteredNewMessages = newMessages?.filter(
