@@ -54,11 +54,14 @@ const Messages = () => {
         
         if(newMessages[0].id===null) return;
        // dispatch(setmessagecount(newMessages.length));
-        dispatch(setMessageNotification({
+        if(cookie.emailAddress!==newMessages[0].Reciever){
+          dispatch(setMessageNotification({
           id:newMessages[0].id,
           message:newMessages[0].id,
           email:newMessages[0].Sender
         }))
+        }
+        
        // dispatch(setmessagecount((prevCount: number) => prevCount + newMessages.length));
         const filteredNewMessages = newMessages?.filter(
           (item: any) => (item.Sender === SelectedReciever || item.Sender === cookie.emailAddress) &&
