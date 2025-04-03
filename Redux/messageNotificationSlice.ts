@@ -1,50 +1,50 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-interface MessageNotificationState { 
-  message: string; 
-  email: string; 
+interface MessageNotification {
+  id: string;
+  message: string;
+  email: string;
 }
 
-const localStorageKey = 'messageNotification';
+const localStorageKey = 'messageNotifications';
 
 // Load initial state from localStorage
-const loadState = (): MessageNotificationState => { 
-  if (typeof window !== 'undefined') { 
-    const storedState = localStorage.getItem(localStorageKey); 
-    return storedState ? JSON.parse(storedState) : { message: '', email: '' }; 
-  } 
-  return { message: '', email: '' }; 
+const loadState = (): MessageNotification[] => {
+  if (typeof window !== 'undefined') {
+    const storedState = localStorage.getItem(localStorageKey);
+    return storedState ? JSON.parse(storedState) : [];
+  }
+  return [];
 };
 
-const initialState: MessageNotificationState = loadState();
+const initialState: MessageNotification[] = loadState();
 
-const messageNotificationSlice = createSlice({ 
-  name: 'messageNotification', 
-  initialState, 
-  reducers: { 
-    setMessageNotification: (state, action: PayloadAction<{ message: string; email: string }>) => { 
-      state.message = action.payload.message; 
-      state.email = action.payload.email; 
-      localStorage.setItem(localStorageKey, JSON.stringify(state)); 
-    }, 
-    clearMessageNotification: (state) => { 
-      state.message = ''; 
-      state.email = ''; 
-      localStorage.removeItem(localStorageKey); 
-    }, 
-    removeMessageNotificationByEmail: (state, action: PayloadAction<string>) => { 
-      const storedState = localStorage.getItem(localStorageKey);
-      if (storedState) {
-        const parsedState: MessageNotificationState = JSON.parse(storedState);
-        if (parsedState.email === action.payload) {
-          localStorage.removeItem(localStorageKey);
-          state.message = '';
-          state.email = '';
-        }
-      }
+const messageNotificationSlice = createSlice({
+  name: 'messageNotification',
+  initialState,
+  reducers: {
+    setMessageNotification: (state, action: PayloadAction<MessageNotification>) => {
+      // Add new notification with a unique id
+      state.push(action.payload);
+      // Update localStorage with the new state
+      localStorage.setItem(localStorageKey, JSON.stringify(state));
     },
-  }, 
+    clearMessageNotification: (state) => {
+      state.length = 0;  // Clear all notifications
+      localStorage.removeItem(localStorageKey);
+    },
+    removeMessageNotificationByEmail: (state, action: PayloadAction<string>) => {
+      const filteredState = state.filter((notif) => notif.email !== action.payload);
+      localStorage.setItem(localStorageKey, JSON.stringify(filteredState));
+      return filteredState;
+    },
+    removeMessageNotificationById: (state, action: PayloadAction<string>) => {
+      const filteredState = state.filter((notif) => notif.id !== action.payload);
+      localStorage.setItem(localStorageKey, JSON.stringify(filteredState));
+      return filteredState;
+    },
+  },
 });
 
-export const { setMessageNotification, clearMessageNotification, removeMessageNotificationByEmail } = messageNotificationSlice.actions; 
+export const { setMessageNotification, clearMessageNotification, removeMessageNotificationByEmail, removeMessageNotificationById } = messageNotificationSlice.actions;
 export default messageNotificationSlice.reducer;
