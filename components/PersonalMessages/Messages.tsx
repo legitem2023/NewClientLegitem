@@ -48,7 +48,7 @@ const Messages = () => {
       variables: { receiverEmail: cookie.emailAddress,senderEmail:SelectedReciever },
       updateQuery: (prev, { subscriptionData }) => {
         if (!subscriptionData?.data) return prev;
-        console.log(subscriptionData?.data,"<<<");
+        console.log(prev,"<<<");
         const newMessages = subscriptionData.data.messagesNotification;
         
         if(newMessages[0].id===null) return;
