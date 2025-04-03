@@ -48,7 +48,7 @@ const Messages = () => {
       variables: { emailAddress: cookie.emailAddress, reciever: SelectedReciever },
       updateQuery: (prev, { subscriptionData }) => {
         if (!subscriptionData?.data) return prev;
-        const newMessages = subscriptionData.data.messagesPersonal;
+        const newMessages = subscriptionData.data.messagesNotification;
         
         if(newMessages[0].id===null) return;
         dispatch(setmessagecount(newMessages.length));
