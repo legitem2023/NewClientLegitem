@@ -13,6 +13,7 @@ import { useSelector,useDispatch } from 'react-redux';
 import TypingIndicator from 'components/UI/TypingIndicator';
 import SwiperTabs from 'components/UI/SwiperTabs';
 import {setmessagecount} from 'Redux/messagecountSlice';
+import {setMessageNotification} from 'Redux/messageNotificationSlice';
 import ReusableMessageInput from 'components/UI/ReusableMessageInput'
 import ReusableMessage from 'components/UI/ReusableMessage'
 import { List, AutoSizer, CellMeasurer, CellMeasurerCache } from 'react-virtualized';
@@ -53,7 +54,11 @@ const Messages = () => {
         
         if(newMessages[0].id===null) return;
        // dispatch(setmessagecount(newMessages.length));
-        dispatch(setmessagecount((prevCount: number) => prevCount + newMessages.length));
+        dispatch(setMessageNotification({
+          message:newMessages[0].id,
+          email:newMessages[0].Reciever
+        }))
+       // dispatch(setmessagecount((prevCount: number) => prevCount + newMessages.length));
         const filteredNewMessages = newMessages?.filter(
           (item: any) => (item.Sender === SelectedReciever || item.Sender === cookie.emailAddress) &&
             (item.Reciever === cookie.emailAddress || item.Reciever === SelectedReciever)
