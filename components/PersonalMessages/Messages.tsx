@@ -55,6 +55,7 @@ const Messages = () => {
         if(newMessages[0].id===null) return;
        // dispatch(setmessagecount(newMessages.length));
         dispatch(setMessageNotification({
+          id:newMessages[0].id,
           message:newMessages[0].id,
           email:newMessages[0].Reciever
         }))
