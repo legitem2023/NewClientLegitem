@@ -26,7 +26,8 @@ const uniqueSenders = Array.from(
       .map((itm: any) => [itm.Sender, itm]) // Keep latest message per sender
   ).values() // Extract unique messages
 );
-  
+ const messageNotification = useSelector((state:any)=>state.messageNotification);
+ 
   return (
     <ul className='Menu'>
     
