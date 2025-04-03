@@ -8,6 +8,7 @@ import Image from 'next/image';
 import { useDispatch, useSelector } from 'react-redux';
 import { setreciever } from 'Redux/recieverSlice';
 import ReusableFirstLetterImage from 'components/UI/ReusableFirstLetterImage';
+import ReusableNotification from 'components/UI/ReusableNotification';
 import LimitedText from 'components/UI/LimitedText';
 const ActiveUsers = ({email}) => {
   const dispatch = useDispatch();
@@ -66,7 +67,7 @@ const uniqueSenders = Array.from(
 
   {/* Sender Name */}
   <div style={{display:'flex', fontWeight: 'bold',alignItems:'center',padding:'3px'}}>{sender.Sender}</div>
-
+<ReusableNotification number={messageNotification.filter((not:any)=>not.email===sender.Sender).length}/>
   {/* Message Preview */}
   <div style={{ display:'flex',color: 'gray',alignItems:'center',padding:'3px'}}>
     <LimitedText text={sender.Messages} />
