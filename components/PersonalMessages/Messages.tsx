@@ -54,7 +54,7 @@ const Messages = () => {
         
         if(newMessages[0].id===null) return;
        // dispatch(setmessagecount(newMessages.length));
-        if(cookie.emailAddress!==newMessages[0].Reciever){
+        if(cookie.emailAddress!==newMessages[0].Sender){
           dispatch(setMessageNotification({
           id:newMessages[0].id,
           message:newMessages[0].id,
