@@ -20,7 +20,7 @@ import cookieActiveUserReducer from './cookieActiveUserSlice'
 import cookieEmailAddressReducer from './cookieEmailAddressSlice'
 import cookieUserLevelReducer from './cookieUserLevelSlice'
 import cookieReducer from './cookieSlice'
-
+import messageNotificationReducer from './messageNotificationSlice';
 import messagecountReducer from './messagecountSlice'
 import recieverReducer from './recieverSlice'
 import orderStageReducer from './orderStageSlice'
@@ -45,6 +45,7 @@ const store = configureStore({
     currentPage:currentPageReducer,
     cookie:cookieReducer,
     messagecount:messagecountReducer,
+    messageNotification:messageNotificationReducer,
     reciever:recieverReducer,
     orderStage:orderStageReducer,
     streaming:streamingReducer,
