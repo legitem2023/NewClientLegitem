@@ -50,8 +50,8 @@ subscription MessageNews {
 }`
 
 export const PERSONAL_MESSAGES_ADDED = gql`
-subscription MessagesNotification($receiverEmail: String) {
-  messagesNotification(receiverEmail:$receiverEmail) {
+subscription MessagesNotification($senderEmail:String,$receiverEmail:String) {
+  messagesNotification(senderEmail:$senderEmail,receiverEmail:$receiverEmail) {
     id
     Messages
     Sender
