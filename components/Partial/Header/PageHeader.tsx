@@ -80,119 +80,111 @@ Ref.current.value = item;
 setIsFocused(false);
 }
 };
-return (
-<>
-<InstallPWAButton />
-<ClientIP/>
-
-<div className='Header'>  
-<div className='HeaderRight'>  
-<div>  
-<Image  
-src="/image/Crowd.svg"  
-alt="Logo"  
-width={874}  
-height={373}  
-className='Logo'  
-onClick={() => redirect.push('/Home')}  
-onError={(e) => {  
-console.error('Image failed to load', e);  
-}}  
-/>  
-</div>  
-<div>  <div style={{    
-          width: '100%',    
-          height: '100%',    
-          transition: 'ease 0.3s',    
-          position:isFocused?'fixed':'relative',    
-          left:'0px',    
-          right:'0px',    
-          top:'0px',    
-          display:'flex',    
-          flexDirection:'column',    
-          justifyContent:'flex-start',    
-          zIndex:'999',    
-          backgroundColor:isFocused?'#ffffff':'transparent'    
-        }}>   
-  {result==='Products'?(  
-      <input    
-            type='text'    
-            style={{    
-              position:'relative',    
-              width: '95%', 
-              height:'30px',
-              top: '0px',    
-              transition: 'ease 0.5s',    
-              margin: '10px',
-              boxSizing: 'border-box',    
-            }}    
-            ref={Ref}    
-            placeholder='Search'    
-            onFocus={handleFocus}  
-            onKeyUp={handleBlur}  
-            className='searchEngine'    
-            onChange={(e:any)=>handleChange(e)}    
-          />):(<span style={{    
-              position:'relative',    
-              width: '95%',  
-              height:'30px',
-              top: '0px',    
-              transition: 'ease 0.5s',    
-              margin: '10px',
-              boxSizing: 'border-box',    
-            }} ></span>)}  
-{suggestions.length > 0 && (
-      <ul style={{width:'100%',listStyleType:'none',left:'0px',position:'relative',display:isFocused?'block':'none',paddingLeft:"0px"}}>    
-      {suggestions.map((item:any, index:number) => (    
-        <li    
-          key={index}    
-          style={{padding:'10px',cursor:'pointer'}}    
-          onClick={() => FillText(item.name)}    
-        >    
-          {item.name}    
-        </li>    
-      ))}    
-    </ul>)}
-  
-        </div>    
-      </div>    
-    </div>    
-    <div className='HeaderLeft'>    
-      <div className='Navigation'>    
-        <div className='HeaderNav'>    
-          <Icon icon='iconamoon:menu-burger-horizontal-duotone' onClick={toggleDrawer} />    
-        </div>    
-        {Navigation.map((item: any, idx: any) => (    
-          item.Name === 'Account' ?    
-            <nav key={idx} className={item.Name === 'Account' ? 'Account' : ''}>    
-              {!cookie ?    
-                <Link href='./Login'>    
-                  <Icon icon="ic:round-login" />    
-                  <span className='hideInmobile'>Login</span>    
-                </Link>    
-                :    
-                <div style={{backgroundColor: result === item.Name || (['Account', 'Order', 'Return', 'Likes'].includes(result) && item.Name === 'Account') ? 'rgb(87, 39, 0)' : 'transparent',width:'100%',height:'100%',display:'flex',justifyContent:'center',alignItems:'center' }}>    
-                  <Icon icon={item.icon} style={{color: result === item.Name || (['Account', 'Order', 'Return', 'Likes'].includes(result) && item.Name === 'Account') ? '#ffffff' : 'rgb(87, 39, 0)' }}/>    
-                  <span className='hideInmobile'>{item.Name}</span>    
-                </div>    
-              }    
-              {cookie && item.Name === 'Account' &&    
-                <Dropdown path={path} deletecookies={deletecookies} OrderNotification={OrderNotification} />    
-              }    
-            </nav> :    
-            <Link style={{backgroundColor: result === item.Name || (['Account', 'Order', 'Return', 'Likes'].includes(result) && item.Name === 'Account') ? 'rgb(87, 39, 0)' : 'transparent' }}  onClick={() => handleClick(item)} href={path + item.Link} key={idx} className={item.Name === 'Account' ? 'Account' : ''}>    
-              {loadingLink === item.Name && item.Link !== "." + currentPath ? (    
-                <Icon icon="eos-icons:loading" />    
-              ) : (    
-                <Icon icon={item.icon} style={{color: result === item.Name || (['Account', 'Order', 'Return', 'Likes'].includes(result) && item.Name === 'Account') ? '#ffffff' : 'rgb(87, 39, 0)' }}/>    
-              )}    
-              <span className='hideInmobile'>{item.Name}</span>    
-            </Link>    
-        ))}    
-      </div>    
-    </div>    
-  </div>    
-</>  );
+  return (
+    <>
+      <InstallPWAButton />
+      <ClientIP/>
+      <div className='Header'>
+        <div className='HeaderRight'>
+          <div>
+            <Image
+              src="/image/Crowd.svg"
+              alt="Logo"
+              width={874}
+              height={373}
+              className='Logo'
+              onClick={() => redirect.push('/Home')}
+              onError={(e) => {
+                console.error('Image failed to load', e);
+              }}
+            />
+          </div>
+          <div>
+            
+            <div style={{
+              width: '100%',
+              height: '100%',
+              transition: 'ease 0.3s',
+              position:isFocused?'fixed':'relative',
+              left:'0px',
+              right:'0px',
+              top:'0px',
+              display:'flex',
+              flexDirection:'column',
+              justifyContent:'flex-start',
+              zIndex:'999',
+              backgroundColor:isFocused?'#ffffff':'transparent'
+            }}>
+              <input
+                type='text'
+                style={{
+                  position:'relative',
+                  width: '95%',
+                  top: '0px',
+                  transition: 'ease 0.5s',
+                  margin: '10px',
+                  boxSizing: 'border-box',
+                }}
+                ref={Ref}
+                placeholder='Search'
+                onFocus={handleFocus}
+                onBlur={handleBlur}
+                className='searchEngine'
+                onChange={(e:any)=>handleChange(e)}
+              />
+                  {suggestions.length > 0 && (
+        <ul style={{width:'100%',listStyleType:'none',left:'0px',position:'relative',display:isFocused?'block':'none',paddingLeft:"0px"}}>
+          {suggestions.map((item:any, index:number) => (
+            <li
+              key={index}
+              style={{padding:'10px',cursor:'pointer'}}
+              onClick={() => FillText(item.name)}
+            >
+              {item.name}
+            </li>
+          ))}
+        </ul>
+      )}
+            </div>
+          </div>
+        </div>
+        <div className='HeaderLeft'>
+          <div className='Navigation'>
+            <div className='HeaderNav'>
+              <Icon icon='iconamoon:menu-burger-horizontal-duotone' onClick={toggleDrawer} />
+            </div>
+            {Navigation.map((item: any, idx: any) => (
+              item.Name === 'Account' ?
+                <nav key={idx} className={item.Name === 'Account' ? 'Account' : ''}>
+                  {!cookie ?
+                    <Link href='./Login'>
+                      <Icon icon="ic:round-login" />
+                      <span className='hideInmobile'>Login</span>
+                    </Link>
+                    :
+                    <>
+                      <Icon icon={item.icon} />
+                      <span className='hideInmobile'>{item.Name}</span>
+                    </>
+                  }
+                  {cookie && item.Name === 'Account' &&
+                    <Dropdown path={path} deletecookies={deletecookies} OrderNotification={OrderNotification} />
+                  }
+                </nav> :
+                <Link onClick={() => handleClick(item)} href={path + item.Link} key={idx} className={item.Name === 'Account' ? 'Account' : ''}>
+                  {loadingLink === item.Name && item.Link !== "." + currentPath ? (
+                    <Icon icon="eos-icons:loading" />
+                  ) : (
+                    <Icon icon={item.icon} />
+                  )}
+                  <span className='hideInmobile'>{item.Name}</span>
+                </Link>
+            ))}
+          </div>
+        </div>
+      </div>
+    </>
+  );
 };
 
 export default PageHeader;

@@ -9,7 +9,9 @@
     .UniversalContainerItem{
         grid-template-columns: 50% 50%;
       }
-      
+      .searchContainerDIV{
+        flex-direction: column;
+      }
     .feedbackattachment{
         width: 100%;
         height: auto;
