@@ -11,7 +11,7 @@ const PageFooter:React.FC = () => {
   const handleCloseNotification = () => {
     setShowNotification(false);
   };
- const messageCount = useSelector((state:any)=>state.messageNotification.message).length;
+ const messageCount = useSelector((state:any)=>state.messageNotification).length;
   return (
     <div className='footer'>
       <div className='FootRoutes'>
