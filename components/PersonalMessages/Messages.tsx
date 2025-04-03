@@ -45,7 +45,7 @@ const Messages = () => {
    }
     const unsubscribe = subscribeToMore({
       document: PERSONAL_MESSAGES_ADDED,
-      variables: { emailAddress: cookie.emailAddress, reciever: SelectedReciever },
+      variables: { receiverEmail: cookie.emailAddress },
       updateQuery: (prev, { subscriptionData }) => {
         if (!subscriptionData?.data) return prev;
         console.log(subscriptionData?.data,"<<<");
