@@ -4,6 +4,7 @@ import { READ_PERSONAL_MESSAGES,  } from 'graphql/queries'
 import { GROUP_SENDER } from 'graphql/queries';
 import { ACTIVE_USERS } from 'graphql/subscriptions';
 import { setDrawer } from 'Redux/drawerSlice';
+import { removeMessageNotificationByEmail } from 'Redux/messageNotificationSlice';
 import Image from 'next/image';
 import { useDispatch, useSelector } from 'react-redux';
 import { setreciever } from 'Redux/recieverSlice';
@@ -14,9 +15,14 @@ const ActiveUsers = ({email}) => {
   const dispatch = useDispatch();
   const cookie = useSelector((state:any)=> state.cookie.cookie);
   const messageNotification = useSelector((state:any)=>state.messageNotification);
+ const handleRemoveByEmail = (email: string) => {
+    // Dispatch the action to remove notification by email
+    dispatch(removeMessageNotificationByEmail(email));
+  };
   const { loading, error, data, subscribeToMore } = useQuery(READ_PERSONAL_MESSAGES,{variables:{emailAddress:cookie.emailAddress}});
 
   if(loading) return
+
 
 const uniqueSenders = Array.from(
   new Map(
@@ -49,6 +55,7 @@ const uniqueSenders = Array.from(
     padding: '3px', // Magdagdag ng padding para hindi dikit-dikit
   }}
   onClick={() => {
+    handleRemoveByEmail(sender.Sender);
     dispatch(setreciever(sender.Sender));
     dispatch(setDrawer(true));
   }}
