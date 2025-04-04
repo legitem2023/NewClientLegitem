@@ -11,23 +11,28 @@ const ReusableNotification: React.FC<PropsReusableNotification> = ({ number }) =
       className="ReusableNotification"
       style={{
        transform: `scale(${number > 0 ? 1 : 0})`,
-       transition: "transform 0.3s, opacity 0.3s, height 0.3s",
+       transition: "transform 0.3s"
       }}
     >
       <div className="icon-container"
         style={{
        transform: `scale(${number > 0 ? 1 : 0})`,
-       transition: "transform 0.3s, opacity 0.3s, height 0.3s",
+       transition: "transform 0.3s"
       }}
         >
         <Icon icon="mdi:bell" width="20" height="20" className="icon-with-border"
           style={{
           transform: `scale(${number > 0 ? 1 : 0})`,
-          transition: "transform 0.3s, opacity 0.3s, height 0.3s",
+          transition: "transform 0.3s"
       }}
           />
       </div>
-      <div className="countnumber">{number}</div>
+      <div className="countnumber"
+       style={{
+          transform: `scale(${number > 0 ? 1 : 0})`,
+          transition: "transform 0.3s"
+      }} 
+        >{number}</div>
     </div>
   );
 };
