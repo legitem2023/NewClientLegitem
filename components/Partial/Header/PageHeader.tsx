@@ -129,7 +129,7 @@ setIsFocused(false);
                 ref={Ref}
                 placeholder='Search'
                 onFocus={handleFocus}
-  
+                onKeyDown={handleBlur}
                 className='searchEngine'
                 onChange={(e:any)=>handleChange(e)}
               />
