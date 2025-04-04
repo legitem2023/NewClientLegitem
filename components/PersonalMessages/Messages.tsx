@@ -57,7 +57,7 @@ const Messages = () => {
         if(cookie.emailAddress!==newMessages[0].Sender){
           dispatch(setMessageNotification({
           id:newMessages[0].id,
-          message:newMessages[0].id,
+          message:newMessages[0].Messages,
           email:newMessages[0].Sender
         }))
         }
