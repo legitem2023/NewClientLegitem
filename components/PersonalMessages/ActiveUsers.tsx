@@ -20,7 +20,9 @@ const ActiveUsers = ({email}) => {
     dispatch(removeMessageNotificationByEmail(email));
   };
   const { loading, error, data, subscribeToMore } = useQuery(READ_PERSONAL_MESSAGES,{variables:{emailAddress:cookie.emailAddress}});
-
+ const comparison = (compare: string) => {
+   return messageNotification.filter((not:any)=>not.email===compare).length;
+ }
   if(loading) return
 
 
@@ -72,9 +74,14 @@ const uniqueSenders = Array.from(
 
   {/* Sender Name */}
   <div style={{display:'flex', fontWeight: 'bold',alignItems:'center',padding:'3px'}}>{sender.Sender}</div>
-<ReusableNotification number={messageNotification.filter((not:any)=>not.email===sender.Sender).length}/>
+<ReusableNotification number={comparison(sender.Sender)}/>
   {/* Message Preview */}
-  <div style={{ display:'flex',color: 'gray',alignItems:'center',padding:'3px',fontWeight:messageNotification.filter((not:any)=>not.email===sender.Sender).length > 0?'bold':'normal'   }}>
+  <div style={{ display:'flex',
+                color: comparison(sender.Sender) > 0?'black':'gray',
+                alignItems:'center', 
+                padding:'3px',
+                fontWeight:comparison(sender.Sender) > 0?'bold':'normal'
+              }}>
     <LimitedText text={sender.Messages} />
   </div>
 </li>
