@@ -93,7 +93,17 @@ export default function RecentlyVisited({ data, fromData }) {
     );
   };
 
-  const carouselData = data && data.length > 0 ? data : fallbackData;
+  // Ensure at least 6 items in carouselData
+  const MIN_ITEMS = 6;
+  let carouselData = data && data.length > 0 ? [...data] : [...fallbackData];
+
+  if (carouselData.length < MIN_ITEMS) {
+    const original = [...carouselData];
+    while (carouselData.length < MIN_ITEMS) {
+      carouselData = [...carouselData, ...original];
+    }
+    carouselData = carouselData.slice(0, MIN_ITEMS);
+  }
 
   return (
     <div className="card" style={{ margin: "10px" }}>
