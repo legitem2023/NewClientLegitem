@@ -2050,7 +2050,6 @@ input[type='date']{
   box-shadow: 0.5px 0.5px 3px #964b4b;
   background: rgb(255 246 229);
   transition: ease 0.5s;
-  min-height: 300px;
   height:auto;
 }
 
