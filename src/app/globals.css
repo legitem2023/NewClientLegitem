@@ -2142,8 +2142,7 @@ input[type='date']{
 }
 .thumbElements {
   padding: 1px;
-  display: flex;
-  justify-content: flex-start;
+  display: block;
   width: 100%;
   white-space: nowrap;
   overflow: hidden;
