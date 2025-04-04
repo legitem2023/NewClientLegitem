@@ -2140,14 +2140,12 @@ input[type='date']{
   margin:5px;
   z-index: 9;
 }
-.thumbElements{
-  padding:1px;
-  /* border-radius: 20px; */
+.thumbElements {
+  padding: 1px;
   display: flex;
   justify-content: flex-start;
   width: 100%;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
+  white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
