@@ -31,7 +31,7 @@ console.log(data);
 const Card = (props:any) => {
 const { data, dataIndex }:any = props;
 const { image } = data[dataIndex];
-if(data.length < 1) return;
+
 return (  
   <div>  
   <div  
@@ -66,7 +66,7 @@ return (
 
 };
 
-if(data.length < 1 ) return
+
 return (
 
   <div className="card" style={{margin:"10px"}}>  
