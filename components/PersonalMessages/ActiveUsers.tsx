@@ -23,6 +23,12 @@ const ActiveUsers = ({email}) => {
  const comparison = (compare: string) => {
    return messageNotification.filter((not:any)=>not.email===compare).length;
  }
+ const newMsg = (compare: string,message: string) => {
+   const check = messageNotification.filter((not:any)=>not.email===compare).length;
+   const msg = messageNotification.filter((not:any)=>not.email===compare).map((item:any) =>{ return item.Message});
+   return check > 0?msg:message
+ }
+  
   if(loading) return
 
 
