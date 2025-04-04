@@ -74,11 +74,11 @@
 
     .Main {
         overflow-x: hidden;
-        grid-template-rows: 10vh auto 30vh;
+        grid-template-rows: 100px auto 30vh;
     }
 
     .Header {
-        display: flex;;
+        display: flex;
         flex-direction: column;
         height: 100%;
         border-bottom: solid 3px rgb(87, 39, 0);
