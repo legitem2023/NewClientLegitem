@@ -11,9 +11,6 @@ const ReusableNotification: React.FC<PropsReusableNotification> = ({ number }) =
       className="ReusableNotification"
       style={{
        transform: `scale(${number > 0 ? 1 : 0})`,
-       opacity: number > 0 ? 1 : 0,
-       height: number > 0 ? "auto" : 0,
-       overflow: "hidden",
        transition: "transform 0.3s, opacity 0.3s, height 0.3s",
       }}
     >
