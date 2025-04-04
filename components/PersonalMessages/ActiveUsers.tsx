@@ -25,7 +25,7 @@ const ActiveUsers = ({email}) => {
  }
  const newMsg = (compare: string,message: string) => {
    const check = messageNotification.filter((not:any)=>not.email===compare).length;
-   const msg = messageNotification.filter((not:any)=>not.email===compare).map((item:any) =>{ return item.Message});
+   const msg = messageNotification.filter((not:any)=>not.email===compare).map((item:any) =>{ return item.message});
    return check > 0?msg:message
  }
   
@@ -88,7 +88,7 @@ const uniqueSenders = Array.from(
                 padding:'3px',
                 fontWeight:comparison(sender.Sender) > 0?'bold':'normal'
               }}>
-    <LimitedText text={sender.Messages} />
+    <LimitedText text={newMsg(sender.Sender,sender.Messages)} />
   </div>
 </li>
     ))}    
