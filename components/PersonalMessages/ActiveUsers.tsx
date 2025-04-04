@@ -36,7 +36,7 @@ const uniqueSenders = Array.from(
   new Map(
     data.personalMessages
       .filter((itm: any) => itm.Sender !== cookie.emailAddress)
-      .sort((a: any, b: any) => new Date(a.dateSent).getTime() - new Date(b.dateSent).getTime()) // Sort descending
+      .sort((a: any, b: any) => new Date(b.dateSent).getTime() - new Date(a.dateSent).getTime()) // Sort descending
       .map((itm: any) => [itm.Sender, itm]) // Keep latest message per sender
   ).values() // Extract unique messages
 );
@@ -80,7 +80,6 @@ const uniqueSenders = Array.from(
 
   {/* Sender Name */}
   <div style={{display:'flex', fontWeight: 'bold',alignItems:'center',padding:'3px'}}>{sender.Sender}</div>
-<ReusableNotification number={comparison(sender.Sender)}/>
   {/* Message Preview */}
   <div style={{ display:'flex',
                 color: comparison(sender.Sender) > 0?'black':'gray',
@@ -90,6 +89,7 @@ const uniqueSenders = Array.from(
               }}>
     <LimitedText text={newMsg(sender.Sender,sender.Messages)} />
   </div>
+  <ReusableNotification number={comparison(sender.Sender)}/>
 </li>
     ))}    
     </ul> )
