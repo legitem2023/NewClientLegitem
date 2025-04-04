@@ -118,6 +118,7 @@ setIsFocused(false);
               <input
                 type='text'
                 style={{
+                  display:result==='Products'?'flex':'none',
                   position:'relative',
                   width: '95%',
                   top: '0px',
