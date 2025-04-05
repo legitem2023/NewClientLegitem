@@ -1,10 +1,8 @@
 import ReusableCenterLayout from 'components/Layout/ReusableCenterLayout'
 import ReusableMainLayout from 'components/Layout/ReusableMainLayout'
 import React from 'react'
-
 const CrowdLoading = () => {
   return (
-
         <ReusableCenterLayout
         child1={()=>(
             <></>
@@ -18,11 +16,11 @@ const CrowdLoading = () => {
     )}
         child3={()=>(
             <div className='messagesUL'>
-                <div className='messagesLI' style={{marginBottom:"25px"}}>
+                <div className='messagesLI' style={{marginBottom:"15px"}}>
                     <div>
                         <div className='messageSender'>
                             <div className='messageSenderImgcont'>
-                                <div className='loading-screen' style={{width:"50px",height:"50px",borderRadius:"100%"}}></div>
+                                <div className='loading-screen' style={{width:"30px",height:"30px",borderRadius:"100%"}}></div>
                             </div>
                             <div className='loading-screen' style={{boxSizing:"border-box",height:"30px",width:"100%"}}></div>
                             <div className='loading-screen' style={{boxSizing:"border-box",height:"30px",width:"100%"}}></div>
