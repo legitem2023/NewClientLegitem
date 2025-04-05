@@ -1,7 +1,8 @@
 "use client"
 import PageHeader from '../../../components/Partial/Header/PageHeader' 
 import PageFooter from '../../../components/Partial/Footer/PageFooter'
-import PageOrder from 'components/Order/PageOrder'
+import PageOrder from 'components/Order/PageOrder';
+import OrderLoading from 'components/Order/OrderLoading'
 import { useRouter } from 'next/navigation';
 import { cookies } from 'components/cookies/cookie';
 import { useEffect, useState } from 'react';
@@ -21,7 +22,7 @@ export default function Order() {
   }, [router,cookies,setIsAuthorized]);
 
   if (isLoading) {
-    return <Loading/>; // Show loading state while checking
+    return <OrderLoading/>; // Show loading state while checking
   }
   return isAuthorized?(
     <div className='Main'>
