@@ -13,7 +13,7 @@ const LoadingBox = ({ height = '30px', width = '100%', borderRadius }: { height?
   />
 );
 
-const MessageSkeleton = ({ imgSize = '50px', marginBottom = '25px' }) => (
+const MessageSkeleton = ({ imgSize = '40px', marginBottom = '25px' }) => (
   <div className="messagesLI" style={{ marginBottom }}>
     <div>
       <div className="messageSender">
@@ -48,7 +48,7 @@ const CrowdLoading = () => {
       )}
       child3={() => (
         <div className="messagesUL" style={{ boxShadow: '0.5px 0.5px 3px #c0c0c0' }}>
-          <MessageSkeleton imgSize="40px" marginBottom="15px" />
+          <MessageSkeleton />
           <MessageSkeleton />
           <MessageSkeleton />
         </div>
