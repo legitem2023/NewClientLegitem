@@ -22,6 +22,7 @@ const OrderLoading = () => {
     height: '40px',
     gap: '2px',
     display: 'grid',
+    padding:'2px',
     gridTemplateColumns: 'repeat(7, 14%)',
     marginTop: '5px',
     marginBottom: '5px',
