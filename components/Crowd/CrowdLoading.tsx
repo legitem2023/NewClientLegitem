@@ -10,7 +10,7 @@ const CrowdLoading = () => {
         child2={()=>(
             <div style={{display:"flex",flexDirection:"column"}} className="Messenger_inputs">
                 <div className='Messenger_inputs_fdiv'>
-                    <div className='loading-screen' style={{boxSizing:"border-box",height:"45px"}}></div>
+                    <div className='loading-screen' style={{boxSizing:"border-box",height:"40px"}}></div>
                 </div>
             </div>
     )}
