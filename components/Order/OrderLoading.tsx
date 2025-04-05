@@ -6,8 +6,8 @@ const OrderLoading = () => {
   return (
             <ReusableCenterLayout
                 child1={()=>(
-                <div style={{margin:'2px'}}>
-                <div style={{height:"45px",
+                <div style={{padding:'2px'}}>
+                <div style={{height:"40px",
                              gap:"2px",
                              display:'grid',
                              gridTemplateColumns:'14% 14% 14% 14% 14% 14% 14%', 
@@ -25,7 +25,16 @@ const OrderLoading = () => {
                 </div>
                 )}
                 child2={()=>(
-                <div style={{margin:'2px'}}>
+                <div style={{padding:'2px'}}>
+                  <div style={{height:"45px",gap:"2px",marginTop:'5px',marginBottom:'5px',boxShadow:'0.5px 0.5px 3px #000000'}}>
+                    <div className='loading-screen' style={{boxSizing:"border-box"}}></div>
+                  </div>
+                  <div style={{height:"45px",gap:"2px",marginTop:'5px',marginBottom:'5px',boxShadow:'0.5px 0.5px 3px #000000'}}>
+                    <div className='loading-screen' style={{boxSizing:"border-box"}}></div>
+                  </div>
+                  <div style={{height:"45px",gap:"2px",marginTop:'5px',marginBottom:'5px',boxShadow:'0.5px 0.5px 3px #000000'}}>
+                    <div className='loading-screen' style={{boxSizing:"border-box"}}></div>
+                  </div>
                   <div style={{height:"45px",gap:"2px",marginTop:'5px',marginBottom:'5px',boxShadow:'0.5px 0.5px 3px #000000'}}>
                     <div className='loading-screen' style={{boxSizing:"border-box"}}></div>
                   </div>
@@ -38,16 +47,7 @@ const OrderLoading = () => {
                 </div>
                 )}
                 child3={()=>(
-                <div style={{margin:'2px'}}>
-                  <div style={{height:"45px",gap:"2px",marginTop:'5px',marginBottom:'5px',boxShadow:'0.5px 0.5px 3px #000000'}}>
-                    <div className='loading-screen' style={{boxSizing:"border-box"}}></div>
-                  </div>
-                  <div style={{height:"45px",gap:"2px",marginTop:'5px',marginBottom:'5px',boxShadow:'0.5px 0.5px 3px #000000'}}>
-                    <div className='loading-screen' style={{boxSizing:"border-box"}}></div>
-                  </div>
-                  <div style={{height:"45px",gap:"2px",marginTop:'5px',marginBottom:'5px',boxShadow:'0.5px 0.5px 3px #000000'}}>
-                    <div className='loading-screen' style={{boxSizing:"border-box"}}></div>
-                  </div>
+                <div style={{padding:'2px'}}>
                 </div>
                 )}
                 child4={()=>(<></>)}
