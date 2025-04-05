@@ -183,7 +183,7 @@
      height: 100px;
     }
     .thumbnail {
-      min-height:200px;
+      min-height:'250px';
       height:auto;
     }
     .feedbackattachment{
