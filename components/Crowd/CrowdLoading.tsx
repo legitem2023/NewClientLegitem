@@ -15,7 +15,7 @@ const CrowdLoading = () => {
             </div>
     )}
         child3={()=>(
-            <div className='messagesUL'>
+            <div className='messagesUL' style={{boxShadow:"0.5px 0.5px 3px #c0c0c0"}}>
                 <div className='messagesLI' style={{marginBottom:"15px"}}>
                     <div>
                         <div className='messageSender'>
