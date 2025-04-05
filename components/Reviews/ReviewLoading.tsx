@@ -7,44 +7,44 @@ const ReviewLoading = () => {
             <ReusableCenterLayout
                 child1={()=>(
                 <div style={{padding:'2px'}}>
-                  <div style={{height:"45px",gap:"2px",marginTop:'5px',marginBottom:'5px',boxShadow:'0.5px 0.5px 3px #000000'}}>
+                  <div style={{height:"45px",gap:"2px",marginTop:'5px',marginBottom:'5px',boxShadow:'0.5px 0.5px 3px #c0c0c0'}}>
                     <div className='loading-screen' style={{boxSizing:"border-box"}}></div>
                   </div>
-                  <div style={{height:"45px",gap:"2px",marginTop:'5px',marginBottom:'5px',boxShadow:'0.5px 0.5px 3px #000000'}}>
+                  <div style={{height:"45px",gap:"2px",marginTop:'5px',marginBottom:'5px',boxShadow:'0.5px 0.5px 3px #c0c0c0'}}>
                     <div className='loading-screen' style={{boxSizing:"border-box"}}></div>
                   </div>
-                  <div style={{height:"45px",gap:"2px",marginTop:'5px',marginBottom:'5px',boxShadow:'0.5px 0.5px 3px #000000'}}>
+                  <div style={{height:"45px",gap:"2px",marginTop:'5px',marginBottom:'5px',boxShadow:'0.5px 0.5px 3px #c0c0c0'}}>
                     <div className='loading-screen' style={{boxSizing:"border-box"}}></div>
                   </div>
-                  <div style={{height:"45px",gap:"2px",marginTop:'5px',marginBottom:'5px',boxShadow:'0.5px 0.5px 3px #000000'}}>
+                  <div style={{height:"45px",gap:"2px",marginTop:'5px',marginBottom:'5px',boxShadow:'0.5px 0.5px 3px #c0c0c0'}}>
                     <div className='loading-screen' style={{boxSizing:"border-box"}}></div>
                   </div>
-                  <div style={{height:"45px",gap:"2px",marginTop:'5px',marginBottom:'5px',boxShadow:'0.5px 0.5px 3px #000000'}}>
+                  <div style={{height:"45px",gap:"2px",marginTop:'5px',marginBottom:'5px',boxShadow:'0.5px 0.5px 3px #c0c0c0'}}>
                     <div className='loading-screen' style={{boxSizing:"border-box"}}></div>
                   </div>
-                  <div style={{height:"45px",gap:"2px",marginTop:'5px',marginBottom:'5px',boxShadow:'0.5px 0.5px 3px #000000'}}>
+                  <div style={{height:"45px",gap:"2px",marginTop:'5px',marginBottom:'5px',boxShadow:'0.5px 0.5px 3px #c0c0c0'}}>
                     <div className='loading-screen' style={{boxSizing:"border-box"}}></div>
                   </div>
                 </div>    
                 )}
                 child2={()=>(
                 <div style={{padding:'2px'}}>
-                  <div style={{height:"45px",gap:"2px",marginTop:'5px',marginBottom:'5px',boxShadow:'0.5px 0.5px 3px #000000'}}>
+                  <div style={{height:"45px",gap:"2px",marginTop:'5px',marginBottom:'5px',boxShadow:'0.5px 0.5px 3px #c0c0c0'}}>
                     <div className='loading-screen' style={{boxSizing:"border-box"}}></div>
                   </div>
-                  <div style={{height:"45px",gap:"2px",marginTop:'5px',marginBottom:'5px',boxShadow:'0.5px 0.5px 3px #000000'}}>
+                  <div style={{height:"45px",gap:"2px",marginTop:'5px',marginBottom:'5px',boxShadow:'0.5px 0.5px 3px #c0c0c0'}}>
                     <div className='loading-screen' style={{boxSizing:"border-box"}}></div>
                   </div>
-                  <div style={{height:"45px",gap:"2px",marginTop:'5px',marginBottom:'5px',boxShadow:'0.5px 0.5px 3px #000000'}}>
+                  <div style={{height:"45px",gap:"2px",marginTop:'5px',marginBottom:'5px',boxShadow:'0.5px 0.5px 3px #c0c0c0'}}>
                     <div className='loading-screen' style={{boxSizing:"border-box"}}></div>
                   </div>
-                  <div style={{height:"45px",gap:"2px",marginTop:'5px',marginBottom:'5px',boxShadow:'0.5px 0.5px 3px #000000'}}>
+                  <div style={{height:"45px",gap:"2px",marginTop:'5px',marginBottom:'5px',boxShadow:'0.5px 0.5px 3px #c0c0c0'}}>
                     <div className='loading-screen' style={{boxSizing:"border-box"}}></div>
                   </div>
-                  <div style={{height:"45px",gap:"2px",marginTop:'5px',marginBottom:'5px',boxShadow:'0.5px 0.5px 3px #000000'}}>
+                  <div style={{height:"45px",gap:"2px",marginTop:'5px',marginBottom:'5px',boxShadow:'0.5px 0.5px 3px #c0c0c0'}}>
                     <div className='loading-screen' style={{boxSizing:"border-box"}}></div>
                   </div>
-                  <div style={{height:"45px",gap:"2px",marginTop:'5px',marginBottom:'5px',boxShadow:'0.5px 0.5px 3px #000000'}}>
+                  <div style={{height:"45px",gap:"2px",marginTop:'5px',marginBottom:'5px',boxShadow:'0.5px 0.5px 3px #c0c0c0'}}>
                     <div className='loading-screen' style={{boxSizing:"border-box"}}></div>
                   </div>
                 </div>
