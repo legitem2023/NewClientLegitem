@@ -5,9 +5,9 @@ const OrderLoading = () => {
   const totalTabs = 7;
   const containerStyle: React.CSSProperties = {
     height: '40px',
-    gap: '2px',
+    gap: '4px',
     display: 'grid',
-    padding:'2px',
+    padding:'4px',
     gridTemplateColumns: 'repeat(7, 14%)',
     marginTop: '5px',
     marginBottom: '5px',
