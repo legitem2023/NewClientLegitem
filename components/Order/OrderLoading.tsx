@@ -31,7 +31,7 @@ const OrderLoading = () => {
             let clipPath = "polygon(0% 0%, 88% 0%, 100% 50%, 88% 100%, 0% 100%, 12% 50%)"; // Middle tabs (arrow on both sides)
             if (index === 0) {
               clipPath = "polygon(0% 0%, 88% 0%, 100% 50%, 88% 100%, 0% 100%)"; // First tab (flat left, arrow right)
-            } else if (index === totalTabs.length - 1) {
+            } else if (index === totalTabs - 1) {
               clipPath = "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%, 12% 50%)"; // Last tab (arrow left, flat right)
             }
             return (
