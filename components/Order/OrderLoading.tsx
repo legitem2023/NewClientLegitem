@@ -6,9 +6,8 @@ const OrderLoading = () => {
   const containerStyle: React.CSSProperties = {
     height: '40px',
     gap: '4px',
-    display: 'grid',
+    display: 'flex',
     padding:'4px',
-    gridTemplateColumns: 'repeat(7, 14%)',
     marginTop: '5px',
     marginBottom: '5px',
     boxShadow: '0.5px 0.5px 3px #000000',
