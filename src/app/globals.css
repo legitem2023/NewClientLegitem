@@ -180,7 +180,7 @@
   width:35px;
   height:35px;
   border:none;
-  box-shadow: 0.5px 0.5px 3px #707070;
+  box-shadow: 0.5px 0.5px 3px #c0c0c0;
   border-radius: 5px;
 }
 
@@ -221,7 +221,7 @@
 
 .messageSender img{
   border-radius: 100%;
-  box-shadow: 0.5px 0.5px 3px #cccccc;
+  box-shadow: 0.5px 0.5px 3px #c0c0c0;
   background-color: #00c785;
 }
 .messageSenderImgcont{
@@ -260,7 +260,7 @@ body {
   max-height: 300px;
   display: grid;
   grid-template-rows: 45px 60px 60px 60px 60px ;
-  box-shadow: 0.5px 0.5px 3px #000000;
+  box-shadow: 0.5px 0.5px 3px #c0c0c0;
   flex-direction: column;
   /* justify-content: center; */
   align-items: center;
@@ -310,7 +310,7 @@ body {
   padding:3px;
   text-decoration: none;
   color:#000000;
-  box-shadow: 0.5px 0.5px 3px #000;
+  box-shadow: 0.5px 0.5px 3px #c0c0c0;
   border-radius: 5px;
 }
 
@@ -347,7 +347,7 @@ input[type='date']{
   justify-content: center;
   align-items: center;
   border:none;
-  box-shadow: 0.5px 0.5px 3px #000;
+  box-shadow: 0.5px 0.5px 3px #c0c0c0;
   text-shadow: 0.5px 0.5px 2px #000;
   box-sizing: border-box;
 }
@@ -374,7 +374,7 @@ input[type='date']{
   justify-content: center;
   align-items: center;
   border:none;
-  box-shadow: 0.5px 0.5px 3px #000;
+  box-shadow: 0.5px 0.5px 3px #c0c0c0;
 }
 .uniInput{
   padding:10px;
@@ -404,7 +404,7 @@ input[type='date']{
   justify-content: center;
   align-items: center;
   border:none;
-  box-shadow: 0.5px 0.5px 3px #000;
+  box-shadow: 0.5px 0.5px 3px #c0c0c0;
 }
 .dangerousHTML img{
   width:100%!important;
@@ -419,7 +419,7 @@ input[type='date']{
   padding:10px;
   box-sizing: border-box;
   background-color: #f1f1f1;
-  box-shadow: 0.5px 0.5px 3px #000;
+  box-shadow: 0.5px 0.5px 3px #c0c0c0;
   margin-bottom:5px;
   position: relative;
 }
@@ -591,7 +591,7 @@ input[type='date']{
 .ContactForm input{
   padding:10px;
   width:100%;
-  box-shadow: inset 0.5px 0.5px 3px #000;
+  box-shadow: inset 0.5px 0.5px 3px #c0c0c0;
   border:none;
   margin:10px;
   outline: 0;
@@ -600,7 +600,7 @@ input[type='date']{
   padding:10px;
   width:100%;
   height:150px;
-  box-shadow: inset 0.5px 0.5px 3px #000;
+  box-shadow: inset 0.5px 0.5px 3px #c0c0c0;
   border:none;
   margin:10px;
   outline: 0;
@@ -669,7 +669,7 @@ input[type='date']{
 
 .slide {
   margin: 5px;
-  box-shadow: 0.5px 0.5px 3px #000000;
+  box-shadow: 0.5px 0.5px 3px #c0c0c0;
   overflow: hidden;
 }
 
@@ -688,7 +688,7 @@ input[type='date']{
   align-items: center;
   justify-content: center;
   padding-left: 0px;
-  box-shadow: 0.5px 0.5px 3px #707070;
+  box-shadow: 0.5px 0.5px 3px #c0c0c0;
   margin-bottom: 10px!important;
   transition: ease 0.5s;
   background-color: #f1f1f1;
@@ -791,14 +791,14 @@ input[type='date']{
   color: #ffffff;
   font-weight: bold;
   background-color: #3a1700;
-  box-shadow: 0.5px 0.5px 3px #000000;
+  box-shadow: 0.5px 0.5px 3px #c0c0c0;
 }
 .searchEngine{
   padding:10px;
   width: 100%;
   border: none;
   margin-right: 10px;
-  box-shadow: inset 0.5px 0.5px 5px #000000;
+  box-shadow: inset 0.5px 0.5px 5px #c0c0c0;
   outline: 0;
 }
 .searchEngine:active + .searchContaier{
@@ -835,7 +835,7 @@ input[type='date']{
   background-position: center;
   background-repeat: no-repeat;
   background-size: auto 100%;
-  box-shadow: inset 0.5px 0.5px 5px #000000;
+  box-shadow: inset 0.5px 0.5px 5px #c0c0c0;
 }
 
 .AddressButtonContainer {
@@ -873,7 +873,7 @@ input[type='date']{
   background-position: center;
   background-repeat: no-repeat;
   background-size: auto 100%;
-  box-shadow: inset 0.5px 0.5px 5px #000000;
+  box-shadow: inset 0.5px 0.5px 5px #c0c0c0;
 }
 
 .LoginMiddlecontainer {
@@ -1156,7 +1156,7 @@ input[type='date']{
   font-weight: 600;
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   color: rgb(0, 44, 0);
-  box-shadow: 0.5px 0.5px 5px #000;
+  box-shadow: 0.5px 0.5px 5px #c0c0c0;
   transition: ease 0.1s;
   z-index: 99999;
 }
@@ -1225,12 +1225,12 @@ input[type='date']{
   grid-template-rows: 25% 75%;
   height: 60vh;
   background-color: #9670c9;
-  box-shadow: inset 0.5px 0.5px 3px #000000;
+  box-shadow: inset 0.5px 0.5px 3px #c0c0c0;
 }
 
 .cropperControlsContainer_gallery {
   background-color: #9670c9;
-  box-shadow: inset 0.5px 0.5px 3px #000000;
+  box-shadow: inset 0.5px 0.5px 3px #c0c0c0;
   height: 55vh;
   display: flex;
   justify-content: center;
@@ -1249,7 +1249,7 @@ input[type='date']{
   width: 100% !important;
   object-fit: cover !important;
   border-radius: 0 !important;
-  box-shadow: 0.5px 0.5px 3px #000000;
+  box-shadow: 0.5px 0.5px 3px #c0c0c0;
 }
 
 .Mobile_footer {
@@ -1320,7 +1320,7 @@ input[type='date']{
   align-items: center;
   border:solid 4px #027e6300;
   padding:5px;
-  box-shadow: 0.5px 0.5px 3px #000;
+  box-shadow: 0.5px 0.5px 3px #c0c0c0;
 }
 
 .MainView_RelatedProductsThumbs .thumbnailTextContainer {
