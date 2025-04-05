@@ -2,7 +2,7 @@ import ReusableCenterLayout from 'components/Layout/ReusableCenterLayout';
 import React from 'react';
 
 const OrderLoading = () => {
-
+  const totalTabs = 7;
   const containerStyle: React.CSSProperties = {
     height: '40px',
     gap: '2px',
@@ -27,11 +27,11 @@ const OrderLoading = () => {
       child1={() => (
         <div style={{ padding: '2px' }}>
           <div style={containerStyle}>
-            {Array.from({ length: 7 }).map((_, index) => {
+            {Array.from({ length: totalTabs  }).map((_, index) => {
             let clipPath = "polygon(0% 0%, 88% 0%, 100% 50%, 88% 100%, 0% 100%, 12% 50%)"; // Middle tabs (arrow on both sides)
             if (index === 0) {
               clipPath = "polygon(0% 0%, 88% 0%, 100% 50%, 88% 100%, 0% 100%)"; // First tab (flat left, arrow right)
-            } else if (index === _.length - 1) {
+            } else if (index === totalTabs.length - 1) {
               clipPath = "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%, 12% 50%)"; // Last tab (arrow left, flat right)
             }
             return (
