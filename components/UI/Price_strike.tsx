@@ -2,14 +2,13 @@ import React from 'react'
 import { formatter } from 'utils/scripts'
 
 type PropsPrice = {
-    item:any,
-    orig:any
+    item:any
 }
-const Price_strike:React.FC<PropsPrice> = ({item,orig}) => {
+const Price_strike:React.FC<PropsPrice> = ({item}) => {
   return (
   <div>  
       <s className='thumbElements'>{formatter.format(item.price)}</s>
-      <span className='thumbElements'>{formatter.format(orig)}</span>
+      <span className='thumbElements'>{formatter.format(item.price * item.Discounted)}</span>
   </div>
   )
 }
