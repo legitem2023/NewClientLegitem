@@ -65,6 +65,9 @@ export default function RecentlyVisited({ data, fromData }) {
             width: "100%",
             height: 300,
             userSelect: "none",
+            display:'flex',
+            justifyContent:'center',
+            alignItems:'center'
           }}
           className="my-slide-component"
         >
