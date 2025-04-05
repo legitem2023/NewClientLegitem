@@ -52,19 +52,19 @@ const OrderLoading = () => {
               ></div>
             )
           }
-
             )}
           </div>
-        </div>
-      )}
-      child2={() => (
-        <div style={{ padding: '2px' }}>
+          <div style={{ padding: '2px' }}>
           {Array.from({ length: 6 }).map((_, index) => (
             <div key={index} style={rowStyle}>
               <div className="loading-screen" style={{ boxSizing: 'border-box' }}></div>
-            </div>
+          </div>
           ))}
         </div>
+        </div>
+      )}
+      child2={() => (
+        <div style={{ padding: '2px' }}></div>
       )}
       child3={() => <div style={{ padding: '2px' }}></div>}
       child4={() => <></>}
