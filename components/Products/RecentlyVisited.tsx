@@ -74,6 +74,7 @@ export default function RecentlyVisited({ data, fromData }) {
           <Image
             height="100"
             width="200"
+            style={{width:"100%",height:"auto"}}
             alt={dataIndex}
             className="carouselImage"
             draggable={false}

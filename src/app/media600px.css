@@ -185,6 +185,13 @@
     .thumbnail {
       min-height:200px;
     }
+    .UniversalLabels .thumbElements{
+        font-weight: bold;
+        font-size: 12px;
+    } 
+    .thumbElements{
+        font-size: 10px;
+    }
     .thumbnailImageContainer{
         height: 100px;
     }
