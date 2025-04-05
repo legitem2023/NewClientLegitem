@@ -32,7 +32,7 @@ const OrderLoading = () => {
                 borderRadius: "3px",
                 padding: "8px 17px"
               }}></div>
-<div className='loading-screen'
+          <div className='loading-screen'
               style={{
                 position: "relative",
                 display: "flex",
@@ -42,25 +42,11 @@ const OrderLoading = () => {
                 color: "white",
                 cursor: "pointer",
                 transition: "all 0.3s ease",
-                clipPathB,
-                borderRadius: "3px",
-                padding: "8px 17px"
-              }}></div>                  <div className='loading-screen' style={{boxSizing:"border-box",clipPathB}}></div>                  <div className='loading-screen' style={{boxSizing:"border-box"}}></div>
-<div className='loading-screen'
-              style={{
-                position: "relative",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                fontWeight: "600",
-                color: "white",
-                cursor: "pointer",
-                transition: "all 0.3s ease",
-                clipPathB,
+                clipPathA,
                 borderRadius: "3px",
                 padding: "8px 17px"
               }}></div>                  
-<div className='loading-screen'
+          <div className='loading-screen'
               style={{
                 position: "relative",
                 display: "flex",
@@ -70,10 +56,53 @@ const OrderLoading = () => {
                 color: "white",
                 cursor: "pointer",
                 transition: "all 0.3s ease",
-                clipPathC,
+                clipPathA,
                 borderRadius: "3px",
                 padding: "8px 17px"
-              }}></div>                </div>
+              }}></div>
+          <div className='loading-screen'
+              style={{
+                position: "relative",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                fontWeight: "600",
+                color: "white",
+                cursor: "pointer",
+                transition: "all 0.3s ease",
+                clipPathA,
+                borderRadius: "3px",
+                padding: "8px 17px"
+              }}></div><div className='loading-screen'
+          <div className='loading-screen'
+              style={{
+                position: "relative",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                fontWeight: "600",
+                color: "white",
+                cursor: "pointer",
+                transition: "all 0.3s ease",
+                clipPathA,
+                borderRadius: "3px",
+                padding: "8px 17px"
+              }}></div>                  
+          <div className='loading-screen'
+              style={{
+                position: "relative",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                fontWeight: "600",
+                color: "white",
+                cursor: "pointer",
+                transition: "all 0.3s ease",
+                clipPathA,
+                borderRadius: "3px",
+                padding: "8px 17px"
+              }}></div>                
+                </div>
                 )}
                 child2={()=>(
                 <div style={{padding:'2px'}}>
