@@ -9,14 +9,12 @@ const OrderLoading = () => {
     display: 'flex',
     padding:'4px',
     marginTop: '5px',
-    marginBottom: '5px',
     boxShadow: 'inset 0.5px 0.5px 3px #000000',
   };
 
   const rowStyle: React.CSSProperties = {
     height: '45px',
     gap: '2px',
-    marginTop: '5px',
     boxShadow: 'inset 0.5px 0.5px 3px #000000',
   };
 
