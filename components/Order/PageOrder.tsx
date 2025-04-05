@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react'
 import { Icon } from '@iconify/react'
 import AccountMenu from 'components/Account/AccountMenu';
-
+import OrderLoading from './OrderLoading';
 import ReusableArrowTabs from 'components/UI/ReusableArrowTabs';
 
 import transactionData from '../../json/transactionStages_client.json'
@@ -52,12 +52,12 @@ const PageOrder:React.FC = () => {
   const { data:deliverOrder,loading:deliverOrderLoading,refetch:refetchdeliver} = useQuery(READ_ORDERS_DELIVER,{variables:{emailAddress:cookieEmailAddress.emailAddress}});
   const { data:deliveredOrder,loading:deliveredOrderLoading,refetch:refetchdelivered} = useQuery(READ_ORDERS_DELIVERED,{variables:{emailAddress:cookieEmailAddress.emailAddress}});
 
-  if(newOrderLoading) return <Loading/> 
-  if(recievedOrderLoading) return <Loading/>
-  if(packedOrderLoading) return <Loading/>
-  if(logisticOrderLoading) return <Loading/>
-  if(deliverOrderLoading) return <Loading/>
-  if(deliveredOrderLoading) return <Loading/>
+  if(newOrderLoading) return <OrderLoading/> 
+  if(recievedOrderLoading) return <OrderLoading/>
+  if(packedOrderLoading) return <OrderLoading/>
+  if(logisticOrderLoading) return <OrderLoading/>
+  if(deliverOrderLoading) return <OrderLoading/>
+  if(deliveredOrderLoading) return <OrderLoading/>
   if(error) return <ReusableServerDown/>;
   refetchNew();
   refetchrecieved();
