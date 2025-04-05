@@ -18,8 +18,8 @@ const HomeLoading = () => {
                 <div className='messagesLI' >
                     <div>
                         <div className='messageSender'>
-                            <div className='loading-screen' style={{boxSizing:"border-box",height:"30px",width:"100%"}}></div>
-                            <div className='loading-screen' style={{boxSizing:"border-box",height:"30px",width:"100%"}}></div>
+                            <div className='loading-screen' style={{boxSizing:"border-box",height:"20px",width:"100%"}}></div>
+                            <div className='loading-screen' style={{boxSizing:"border-box",height:"20px",width:"100%"}}></div>
                         </div>
                         <div className='messageBody'>
                             <div className='loading-screen' style={{boxSizing:"border-box",height:"200px"}}></div>
