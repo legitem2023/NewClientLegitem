@@ -35,20 +35,22 @@ const OrderLoading = () => {
               clipPath = "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%, 12% 50%)"; // Last tab (arrow left, flat right)
             }
             return (
-            <div key={index} className="loading-screen" style={{
-              position: 'relative',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              fontWeight: 600,
-              color: 'white',
-              cursor: 'pointer',
-              transition: 'all 0.3s ease',
-              clipPath: clipPath,
-              borderRadius: '3px',
-              marginLeft: index > 0?"-5px":"0px",
-              padding: "8px 17px",
-            }}></div>
+            <div key={index} className="loading-screen" 
+             style={{
+                position: "relative",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                fontWeight: "600",
+                color: "white",
+                cursor: "pointer",
+                transition: "all 0.3s ease",
+                clipPath,
+                borderRadius: "3px",
+                marginLeft: index > 0 ? "-5px" : "0px",
+                padding: "8px 17px"
+              }}
+              ></div>
             )
           }
 
