@@ -9,14 +9,14 @@ const OrderLoading = () => {
     display: 'flex',
     padding:'4px',
     marginTop: '5px',
-    boxShadow: 'inset 0.5px 0.5px 3px #707070',
+    boxShadow: 'inset 0.5px 0.5px 3px #c0c0c0',
   };
 
   const rowStyle: React.CSSProperties = {
     height: '45px',
     gap: '2px',
     margin:'2px',
-    boxShadow: 'inset 0.5px 0.5px 3px #707070',
+    boxShadow: 'inset 0.5px 0.5px 3px #c0c0c0',
   };
 
   return (
@@ -52,7 +52,7 @@ const OrderLoading = () => {
           }
             )}
           </div>
-          <div style={{ padding: '2px',boxShadow:'inset 0.5px 0.5px 3px #707070'}}>
+          <div style={{ padding: '2px',boxShadow:'inset 0.5px 0.5px 3px #c0c0c0'}}>
           {Array.from({ length: 6 }).map((_, index) => (
             <div key={index} style={rowStyle}>
               <div className="loading-screen" style={{ boxSizing: 'border-box' }}></div>
