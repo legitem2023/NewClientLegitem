@@ -46,7 +46,7 @@ const OrderLoading = () => {
               transition: 'all 0.3s ease',
               clipPath: clipPath,
               borderRadius: '3px',
-              marginLeft: "-5px",
+              marginLeft: index > 0?"-5px":"0px",
               padding: "8px 17px",
             }}></div>
             )
