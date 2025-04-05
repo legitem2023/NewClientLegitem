@@ -15,6 +15,7 @@ const OrderLoading = () => {
   const rowStyle: React.CSSProperties = {
     height: '45px',
     gap: '2px',
+    margin:'2px',
     boxShadow: 'inset 0.5px 0.5px 3px #000000',
   };
 
