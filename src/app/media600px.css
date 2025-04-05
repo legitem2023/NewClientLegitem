@@ -182,6 +182,10 @@
     .thumbnailImage {
      height: 100px;
     }
+    .thumbnail {
+      min-height:200px;
+      height:auto;
+    }
     .feedbackattachment{
         width: 100%;
         height: auto;
