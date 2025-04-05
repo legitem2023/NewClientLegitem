@@ -179,6 +179,9 @@
         right: 0px;
         margin: auto;
     }
+    .thumbnailImage {
+     height: 100px;
+    }
     .feedbackattachment{
         width: 100%;
         height: auto;
