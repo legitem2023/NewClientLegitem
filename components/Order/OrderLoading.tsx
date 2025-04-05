@@ -18,12 +18,62 @@ const OrderLoading = () => {
                              marginTop:'5px',
                              marginBottom:'5px',
                              boxShadow:'0.5px 0.5px 3px #000000'}}>
-                  <div className='loading-screen' style={{boxSizing:"border-box",clipPathA}}></div>
-                  <div className='loading-screen' style={{boxSizing:"border-box",clipPathB}}></div>
-                  <div className='loading-screen' style={{boxSizing:"border-box",clipPathB}}></div>                  <div className='loading-screen' style={{boxSizing:"border-box"}}></div>
-                  <div className='loading-screen' style={{boxSizing:"border-box",clipPathB}}></div>                  <div className='loading-screen' style={{boxSizing:"border-box"}}></div>
-                  <div className='loading-screen' style={{boxSizing:"border-box",clipPathC}}></div>                </div>
-                </div>
+          <div className='loading-screen'
+              style={{
+                position: "relative",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                fontWeight: "600",
+                color: "white",
+                cursor: "pointer",
+                transition: "all 0.3s ease",
+                clipPathA,
+                borderRadius: "3px",
+                padding: "8px 17px"
+              }}></div>
+<div className='loading-screen'
+              style={{
+                position: "relative",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                fontWeight: "600",
+                color: "white",
+                cursor: "pointer",
+                transition: "all 0.3s ease",
+                clipPathB,
+                borderRadius: "3px",
+                padding: "8px 17px"
+              }}></div>                  <div className='loading-screen' style={{boxSizing:"border-box",clipPathB}}></div>                  <div className='loading-screen' style={{boxSizing:"border-box"}}></div>
+<div className='loading-screen'
+              style={{
+                position: "relative",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                fontWeight: "600",
+                color: "white",
+                cursor: "pointer",
+                transition: "all 0.3s ease",
+                clipPathB,
+                borderRadius: "3px",
+                padding: "8px 17px"
+              }}></div>                  
+<div className='loading-screen'
+              style={{
+                position: "relative",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                fontWeight: "600",
+                color: "white",
+                cursor: "pointer",
+                transition: "all 0.3s ease",
+                clipPathC,
+                borderRadius: "3px",
+                padding: "8px 17px"
+              }}></div>                </div>
                 )}
                 child2={()=>(
                 <div style={{padding:'2px'}}>
