@@ -20,7 +20,7 @@ const CrowdLoading = () => {
                     <div>
                         <div className='messageSender'>
                             <div className='messageSenderImgcont'>
-                                <div className='loading-screen' style={{width:"30px",height:"30px",borderRadius:"100%"}}></div>
+                                <div className='loading-screen' style={{width:"40px",height:"40px",borderRadius:"100%"}}></div>
                             </div>
                             <div className='loading-screen' style={{boxSizing:"border-box",height:"30px",width:"100%"}}></div>
                             <div className='loading-screen' style={{boxSizing:"border-box",height:"30px",width:"100%"}}></div>
