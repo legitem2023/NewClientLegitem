@@ -31,7 +31,6 @@ const ReusableCard: React.FC<ReusableCardProps> = ({ item, view, imageSource, ha
         <Element Label="Size" value={item.size} />
         <Element Label="Sold" value={item.TotalSoldItems ? item.TotalSoldItems : '0'} />
         {item.discount > 0 ? <Price_strike item={item} /> : <Price item={item} />}
-        {item.discount > 0 && <Discounted item={item} />}
         <div className='Rates'>
           <div className='ViewsLikes'>
             <Ratings data={item.TotalRatings > 0 ? item.TotalRatings : 0} count={item} />
