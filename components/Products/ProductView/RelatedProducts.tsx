@@ -9,98 +9,65 @@ import ReusableLabel from 'components/UI/ReusableLabel';
 import ReusableCard from 'components/UI/ReusableCard';
 import Sold from 'components/UI/Sold';
 import Image from 'next/image';
-import Link from 'next/link';
 import React, { useCallback, useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { setViewedProd } from 'Redux/viewedProdSlice';
 import { formatter, imageSource } from 'utils/scripts';
-import { RelatedProductsProps } from 'utils/types/types';
 
-const RelatedProducts = ({ data }) => {
-  const path = process.env.NEXT_PUBLIC_PATH;
+const RelatedProducts = ({ data }: { data: any[] }) => {
   const [take, setTake] = useState(10);
+  const [useLoading, setLoading] = useState(false);
   const dispatch = useDispatch();
 
-  const [useLoading, setLoading] = useState(false);
-
-  const imgPath = process.env.NEXT_PUBLIC_SERVER_PRODUCT_IMAGE_PATH || '';
   const fallbackImage = `https://hokei-storage.s3.ap-northeast-1.amazonaws.com/images/Legit/IconImages/Legitem-svg.svg`;
 
-  // Update dependencies array to include `fallbackImage`
-  const handleError = useCallback((event: any) => {
-    event.target.src = fallbackImage;
-    event.target.srcset = fallbackImage;
-  }, [fallbackImage]); // Include `fallbackImage` as a dependency
+  const handleError = useCallback(
+    (event: React.SyntheticEvent<HTMLImageElement>) => {
+      event.currentTarget.src = fallbackImage;
+      event.currentTarget.srcset = fallbackImage;
+    },
+    [fallbackImage]
+  );
 
-  const handleLoading = useCallback((event: any) => {
-    // Optionally add loading handling logic here
-  }, []); // No additional dependencies needed here
+  const handleLoading = useCallback(() => {
+    // Add custom loading logic if needed
+  }, []);
 
   useEffect(() => {
     setLoading(false);
   }, [take]);
 
   const LoadMoreData = () => {
-    setTake(take + 5);
+    setTake((prev) => prev + 5);
     setLoading(true);
   };
 
   const view = (item: any) => {
-    console.log([item]);
     dispatch(setViewedProd([item]));
   };
 
-  interface ReusableCardProps {
-  item: any;
-  view: (item: any) => void;
-  imageSource: (item: any) => string;
-  handleError: (e: React.SyntheticEvent<HTMLImageElement, Event>) => void;
-  handleLoading: (e: React.SyntheticEvent<HTMLImageElement, Event>) => void;
-}
   return (
     <div className='MainView_Rchild'>
-      <ReusableLabel icn='' label='Related Product'/>
+      <ReusableLabel icn='' label='Related Product' />
       <div className='MainView_RelatedProducts'>
         <div>
           {data.slice(0, take).map((item: any, idx) => (
-      <ReusableCard item={item} 
-                    view={view(item)}
-                    imageSource={imageSource(item)}
-                    handleError={handleError}
-                    handleLoading={handleLoading} />
-      {/* <div key={idx} className='MainView_RelatedProductsThumbs' onClick={() => view(item)}>
-              <Image
-                src={imageSource(item)}
-                height='200'
-                width='200'
-                quality={1}
-                alt={item.id}
-                priority
-                onError={handleError} // Use memoized error handler
-                onClick={handleLoading} // Use memoized loading handler
-              />
-              <div className='thumbnailTextContainer'>
-                <Element Label="Name" value={item.name} />
-                <Element Label="Color" value={item.color} />
-                <Element Label="Size" value={item.size} />
-                <Element Label="Sold" value={item.TotalSoldItems ? item.TotalSoldItems : '0'} />
-                {item.discount > 0 ? <Price_strike item={item} /> : <Price item={item} />}
-                <div className='Rates'>
-                  <div className='ViewsLikes'>
-                    <Ratings data={item.TotalRatings > 0 ? item.TotalRatings : 0} count={item} />
-                  </div>
-                </div>
-              </div>
-            </div>*/}
-          ))
-          }
+            <ReusableCard
+              key={item.id || idx}
+              item={item}
+              view={() => view(item)}
+              imageSource={() => imageSource(item)}
+              handleError={handleError}
+              handleLoading={handleLoading}
+            />
+          ))}
         </div>
         <div className='LoadmoreContainer'>
           {data.length <= take ? (
             <button className='universalINActiveButton'>End of Data</button>
           ) : (
-            <button onClick={() => LoadMoreData()} className='universalButtonStyle'>
-              {useLoading === true ? <Icon icon='eos-icons:bubble-loading' /> : "Load More"}
+            <button onClick={LoadMoreData} className='universalButtonStyle'>
+              {useLoading ? <Icon icon='eos-icons:bubble-loading' /> : 'Load More'}
             </button>
           )}
         </div>
