@@ -24,17 +24,18 @@ const ReusableCard: React.FC<ReusableCardProps> = ({ item, view, imageSource, ha
                                boxShadow:'0.5px 0.5px 3px #707070',
                                padding:'4px'}} 
                          onClick={() => view(item)}>
-      <div style={{backgroundColor:'#f1f1f1'}}>
+      <div style={{width:'100%',
+                   backgroundColor:'#f1f1f1'}}>
         <Image
         src={imageSource(item)}
-        height={100}
-        width={100}
+        height={150}
+        width={150}
         quality={1}
         alt={item.id}
         priority
         onError={handleError}
         onClick={handleLoading}
-        style={{width:'100%!important',height:'auto'}}
+        style={{width:'100%',height:'auto'}}
       />      
       </div>
       <div className='thumbnailTextContainer' style={{ display:'flex',
