@@ -1,5 +1,3 @@
-import { useQuery } from '@apollo/client';
-import { useEffect,useCallback } from 'react';
 import ReusableCenterLayout from 'components/Layout/ReusableCenterLayout';
 import Loading from 'components/Partial/LoadingAnimation/Loading';
 import ReusableServerDown from 'components/UI/ReusableServerDown';
@@ -7,7 +5,8 @@ import UniversalContainerItem_Likes from 'components/UI/UniversalContainerItem_L
 import ReusableCard from 'components/UI/ReusableCard';
 import { setViewedProd } from 'Redux/viewedProdSlice';
 import { READ_LIKES } from 'graphql/queries';
-import React from 'react'
+import { useQuery } from '@apollo/client';
+import React,{ useEffect,useCallback } from 'react';
 import { useSelector,useDispatch } from 'react-redux';
 import { imageSource } from 'utils/scripts';
 
