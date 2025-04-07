@@ -186,17 +186,19 @@
 .ReusableCardContainer {
   display:grid;
   grid-template-columns:50% 50%;
-  width: 100%;
+  width: 100%!important;
   gap: 2px;
   box-sizing: border-box;
   background-color: #f1f1f1;
   box-shadow: 0.5px 0.5px 3px #707070;
   border:solid 3px #c0c0c0;
+  margin:3px;
 }
 
 .ReusableCardContainer_1 {
   box-sizing: border-box;
   background-color: #f1f1f1;
+  width:100%;
 }
 
 .ReusableCardContainer_1 img {
