@@ -14,9 +14,9 @@ interface ReusableCardProps {
 
 const ReusableCard: React.FC<ReusableCardProps> = ({ item, view, imageSource, handleError, handleLoading }) => {
   return (
-    <div key={item.id} style={{display:'grid',
+    <div key={item.id} style={{display:'flex',
+                               flexDirection:'row',
                                width:'100%',
-                               gridTemplateColumns:'50% 50%',
                                gap:'2px',
                                margin:'2px',
                                position:'relative',
@@ -25,6 +25,7 @@ const ReusableCard: React.FC<ReusableCardProps> = ({ item, view, imageSource, ha
                                padding:'4px'}} 
                          onClick={() => view(item)}>
       <div style={{width:'100%',
+                   flex:1,
                    backgroundColor:'#f1f1f1'}}>
         <Image
         src={imageSource(item)}
@@ -38,7 +39,8 @@ const ReusableCard: React.FC<ReusableCardProps> = ({ item, view, imageSource, ha
         style={{width:'100%',height:'auto'}}
       />      
       </div>
-      <div style={{ display:'flex',
+      <div style={{ flex:1,
+                    display:'flex',
                     flexDirection:'column',
                     justifyContent:'flex-start!important',                                                 backgroundColor:'#f1f1f1'}}>
         <Element Label="Name" value={item.name} />
