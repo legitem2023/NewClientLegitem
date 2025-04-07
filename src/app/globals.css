@@ -1850,13 +1850,15 @@ input[type='date']{
   max-height: 800px;
 }
 .LikeContainer{
+  padding:4px;
+  width:100%;
   display: grid;
   gap:'4px';
-  grid-template-columns: auto auto auto;
+  grid-template-columns: 33.33% 33.33% 33.33%;
 }
 .NewsContainer{
   display: grid;
-  grid-template-columns: auto auto auto;
+  grid-template-columns: auto;
 }
 .NewsContainerItem img{
   width: 100%;
