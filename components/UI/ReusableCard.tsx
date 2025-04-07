@@ -18,9 +18,12 @@ const ReusableCard: React.FC<ReusableCardProps> = ({ item, view, imageSource, ha
                                display:'grid',
                                gridTemplateColumns:'50% 50%',
                                gap:'2px',
+                               margin:'2px',
                                position:'relative',
-                               backgroundColor:'#c0c0c0',
-                               padding:'4px'}} onClick={() => view(item)}>
+                               backgroundColor:'#f1f1f1',
+                               boxShadow:'0.5px 0.5px 3px #707070',
+                               padding:'4px'}} 
+                         onClick={() => view(item)}>
       <div style={{width:'100%'}}>
         <Image
         src={imageSource(item)}
