@@ -14,8 +14,9 @@ interface ReusableCardProps {
 
 const ReusableCard: React.FC<ReusableCardProps> = ({ item, view, imageSource, handleError, handleLoading }) => {
   return (
-    <div key={item.id} className='MainView_RelatedProductsThumbs' onClick={() => view(item)}>
-      <Image
+    <div key={item.id} style={{width:'100%',display:grid,gridTemplateColumns:'50% 50%',gap:'2px',padding:'4px'}} onClick={() => view(item)}>
+      <div>
+        <Image
         src={imageSource(item)}
         height={200}
         width={200}
@@ -24,7 +25,9 @@ const ReusableCard: React.FC<ReusableCardProps> = ({ item, view, imageSource, ha
         priority
         onError={handleError}
         onClick={handleLoading}
-      />
+        style={{width:'100%',height:'auto'}}
+      />      
+      </div>
       <div className='thumbnailTextContainer'>
         <Element Label="Name" value={item.name} />
         <Element Label="Color" value={item.color} />
