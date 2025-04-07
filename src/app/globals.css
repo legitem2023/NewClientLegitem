@@ -3,7 +3,7 @@
 @tailwind utilities;
 .ReusableCardContainer {
  display:'flex';
- flex-direction:'row',
+ flex-direction:'row';
  width:'100%';
  gap:'2px';
  margin:'2px';
