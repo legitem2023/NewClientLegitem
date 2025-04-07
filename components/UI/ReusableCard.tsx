@@ -24,7 +24,7 @@ const ReusableCard: React.FC<ReusableCardProps> = ({ item, view, imageSource, ha
                                boxShadow:'0.5px 0.5px 3px #707070',
                                padding:'4px'}} 
                          onClick={() => view(item)}>
-      <div style={{width:'100%'}}>
+      <div style={{width:'100%',backgroundColor:'#f1f1f1'}}>
         <Image
         src={imageSource(item)}
         height={200}
@@ -37,7 +37,9 @@ const ReusableCard: React.FC<ReusableCardProps> = ({ item, view, imageSource, ha
         style={{width:'100%',height:'auto'}}
       />      
       </div>
-      <div className='thumbnailTextContainer'>
+      <div className='thumbnailTextContainer' style={{ display:'flex',
+                                                       justifyContent:'flex-start',
+                                                       backgroundColor:'#f1f1f1'}}>
         <Element Label="Name" value={item.name} />
         <Element Label="Color" value={item.color} />
         <Element Label="Size" value={item.size} />
