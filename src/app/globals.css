@@ -183,6 +183,14 @@
   border-radius: 5px;
 }
 
+.LikeContainer {
+  padding:4px;
+  width:100%;
+  display: grid;
+  gap:'4px';
+  grid-template-columns: 33.33% 33.33% 33.33%;
+}
+
 .ReusableCardContainer {
   display:grid;
   grid-template-columns:50% 50%;
@@ -202,7 +210,7 @@
 }
 
 .ReusableCardContainer_1 img {
-  width: 100% !important;
+  width: 100%;
   height: auto;
 }
 
@@ -1849,13 +1857,7 @@ input[type='date']{
 #collapseproducttypes3:checked~.category_list {
   max-height: 800px;
 }
-.LikeContainer{
-  padding:4px;
-  width:100%;
-  display: grid;
-  gap:'4px';
-  grid-template-columns: 33.33% 33.33% 33.33%;
-}
+
 .NewsContainer{
   display: grid;
   grid-template-columns: auto;
