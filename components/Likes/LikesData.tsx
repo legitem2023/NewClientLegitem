@@ -46,6 +46,9 @@ const LikesData = () => {
     <ReusableCenterLayout
       child1={() => <></>}
       child2={() => (
+        <div
+          style={{ overflowY: 'auto', height: 'auto', scrollbarWidth: 'none' }} // Set height to auto
+        >
         <div className="LikeContainer">
           {LikeData?.readLikes?.length > 0 ? (
             LikeData.readLikes.map((item: any, idx: number) => (
@@ -61,6 +64,7 @@ const LikesData = () => {
           ) : (
             <h1>No Data</h1>
           )}
+        </div>
         </div>
       )}
       child3={() => <></>}
