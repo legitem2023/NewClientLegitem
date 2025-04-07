@@ -184,6 +184,7 @@
 }
 
 .LikeContainer {
+  position:relative;
   padding:4px;
   width:100%;
   display: grid;
