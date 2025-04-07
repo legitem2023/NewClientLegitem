@@ -15,7 +15,7 @@ interface ReusableCardProps {
 const ReusableCard: React.FC<ReusableCardProps> = ({ item, view, imageSource, handleError, handleLoading }) => {
   return (
     <div key={item.id} className='ReusableCardContainer' onClick={() => view(item)}>
-      <div className="ReusableCardContainer_1" style={{backgroundColor:'#f1f1f1'}}>
+      <div className='ReusableCardContainer_1'>
         <Image
         src={imageSource(item)}
         height={150}
@@ -26,7 +26,7 @@ const ReusableCard: React.FC<ReusableCardProps> = ({ item, view, imageSource, ha
         onError={handleError}
         onClick={handleLoading}/>      
       </div>
-      <div className="ReusableCardContainer_1" style={{backgroundColor:'#f1f1f1'}}>
+      <div className='ReusableCardContainer_1'>
         <Element Label="Name" value={item.name} />
         <Element Label="Color" value={item.color} />
         <Element Label="Size" value={item.size} />
