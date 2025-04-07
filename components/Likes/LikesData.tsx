@@ -26,11 +26,19 @@ const LikesData = () => {
     child2={()=>(
       <div className='NewsContainer'>
       {LikeData.readLikes.length > 0?LikeData.readLikes?.map((item: any, idx: number) => (
-        <UniversalContainerItem_Likes key={idx} 
+        {/* <UniversalContainerItem_Likes key={idx} 
                                       item={item} 
                                       title={item.productCode} 
                                       thumbnail={imageSource(item.thumbnail)}  
-                                      index={idx}/>
+                                      index={idx}/>*/}
+        <ReusableCard
+              key={idx}
+              item={item}
+              view={() => {}}
+              imageSource={() => imageSource(item)}
+              handleError={() => {}}
+              handleLoading={() => {}}
+            />
       )):(<h1>No Data</h1>)}
     </div>
     )} child3={()=><></>} child4={()=><></>}/>
