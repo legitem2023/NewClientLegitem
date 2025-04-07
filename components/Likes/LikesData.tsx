@@ -8,7 +8,7 @@ import ReusableCard from 'components/UI/ReusableCard';
 import { setViewedProd } from 'Redux/viewedProdSlice';
 import { READ_LIKES } from 'graphql/queries';
 import React from 'react'
-import { useSelector } from 'react-redux';
+import { useSelector,useDispatch } from 'react-redux';
 import { imageSource } from 'utils/scripts';
 
 const LikesData = () => {
