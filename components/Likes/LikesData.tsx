@@ -1,4 +1,5 @@
 import { useQuery } from '@apollo/client';
+import { useEffect,useCallback } from 'react';
 import ReusableCenterLayout from 'components/Layout/ReusableCenterLayout';
 import Loading from 'components/Partial/LoadingAnimation/Loading';
 import ReusableServerDown from 'components/UI/ReusableServerDown';
@@ -13,7 +14,32 @@ const LikesData = () => {
   const path = process.env.NEXT_PUBLIC_PATH
 
   const cookie = useSelector((state:any)=> state.cookie.cookie);
+  const [useLoading, setLoading] = useState(false);
+  const dispatch = useDispatch();
 
+  const fallbackImage = `https://hokei-storage.s3.ap-northeast-1.amazonaws.com/images/Legit/IconImages/Legitem-svg.svg`;
+
+  const handleError = useCallback(
+    (event: React.SyntheticEvent<HTMLImageElement>) => {
+      event.currentTarget.src = fallbackImage;
+      event.currentTarget.srcset = fallbackImage;
+    },
+    [fallbackImage]
+  );
+
+  const handleLoading = useCallback(() => {
+    // Add custom loading logic if needed
+  }, []);
+
+  const LoadMoreData = () => {
+    setTake((prev) => prev + 5);
+    setLoading(true);
+  };
+
+  const view = (item: any) => {
+    dispatch(setViewedProd([item]));
+  };
+  
   const {data:LikeData,loading:LikeLoading,error:LikeError} = useQuery(READ_LIKES,{
     variables:{
       accountEmail:cookie.emailAddress
@@ -34,10 +60,10 @@ const LikesData = () => {
         <ReusableCard
               key={idx}
               item={item}
-              view={() => {}}
+              view={() => {view(item)}}
               imageSource={() => imageSource(item)}
-              handleError={() => {}}
-              handleLoading={() => {}}
+              handleError={() => handleError}
+              handleLoading={() => handleLoading}
             />
       )):(<h1>No Data</h1>)}
     </div>
