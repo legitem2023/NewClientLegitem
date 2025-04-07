@@ -3,7 +3,7 @@ import { useQuery } from '@apollo/client';
 import { useSelector, useDispatch } from 'react-redux';
 
 import ReusableCenterLayout from 'components/Layout/ReusableCenterLayout';
-import Loading from 'components/Partial/LoadingAnimation/Loading';
+import LikesLoading from './LikesLoading';
 import ReusableServerDown from 'components/UI/ReusableServerDown';
 import ReusableCard from 'components/UI/ReusableCard';
 import { READ_LIKES } from 'graphql/queries';
@@ -39,7 +39,7 @@ const LikesData = () => {
     },
   });
 
-  if (LikeLoading) return <Loading />;
+  if (LikeLoading) return <LikesLoading/>;
   if (LikeError) return <ReusableServerDown />;
 
   return (
