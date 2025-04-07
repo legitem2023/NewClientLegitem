@@ -3,6 +3,7 @@ import ReusableCenterLayout from 'components/Layout/ReusableCenterLayout';
 import Loading from 'components/Partial/LoadingAnimation/Loading';
 import ReusableServerDown from 'components/UI/ReusableServerDown';
 import UniversalContainerItem_Likes from 'components/UI/UniversalContainerItem_Likes';
+import ReusableCard from 'components/UI/ReusableCard';
 import { READ_LIKES } from 'graphql/queries';
 import React from 'react'
 import { useSelector } from 'react-redux';
