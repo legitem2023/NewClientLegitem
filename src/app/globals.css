@@ -185,10 +185,9 @@
 
 .LikeContainer {
   position:relative;
-  padding:4px;
   width:100%;
   display: grid;
-  gap:'4px';
+  gap:4px;
   grid-template-columns: 33.33% 33.33% 33.33%;
 }
 
@@ -199,9 +198,8 @@
   box-sizing: border-box;
   background-color: #f1f1f1;
   box-shadow: 0.5px 0.5px 3px #707070;
-  border:solid 3px #c0c0c0;
-  margin-top:2px;
-  margin-bottom:2px;
+  border:solid 3px #f1f1f1;
+  margin:2px;
 }
 
 .ReusableCardContainer_1 {
