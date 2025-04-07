@@ -184,22 +184,25 @@
 }
 
 .ReusableCardContainer {
- display:'flex';
- width:'100%';
- gap:'2px';
- box-sizing:'border-box';
- background-color:'#f1f1f1';
- box-shadow:'0.5px 0.5px 3px #707070';
- padding:'4px';
+  display: flex;
+  width: 100%;
+  gap: 2px;
+  box-sizing: border-box;
+  background-color: #f1f1f1;
+  box-shadow: 0.5px 0.5px 3px #707070;
+  padding: 4px;
 }
-.ReusableCardContainer_1{
- flex:1;
- background-color:'#f1f1f1';
+
+.ReusableCardContainer_1 {
+  flex: 1;
+  background-color: #f1f1f1;
 }
-.ReusableCardContainer_1 img{
- width:100%!important;
- height:auto;
+
+.ReusableCardContainer_1 img {
+  width: 100% !important;
+  height: auto;
 }
+
 
 
 /* ReusableMessage UI*/
