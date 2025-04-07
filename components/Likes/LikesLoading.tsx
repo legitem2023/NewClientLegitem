@@ -4,12 +4,8 @@ import React from 'react'
 const LikesLoading = () => {
   return (
     <ReusableCenterLayout
-      child1={() =>(
-        <><>)
-      }
-      child2={() =>(
-        <><>)
-      }
+      child1={() =><></>}
+      child2={() =><></>}
       child3={() =>(
         <div className="LikeContainer">
           {[...Array(10)].map((_, index) => (
