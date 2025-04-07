@@ -39,7 +39,7 @@ const ReusableCard: React.FC<ReusableCardProps> = ({ item, view, imageSource, ha
       </div>
       <div className='thumbnailTextContainer' style={{ display:'flex',
                                                        flexDirection:'column',
-                                                       justifyContent:'flex-start',
+                                                       justifyContent:'flex-start!important',
                                                        backgroundColor:'#f1f1f1'}}>
         <Element Label="Name" value={item.name} />
         <Element Label="Color" value={item.color} />
