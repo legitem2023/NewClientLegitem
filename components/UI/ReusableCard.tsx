@@ -24,11 +24,11 @@ const ReusableCard: React.FC<ReusableCardProps> = ({ item, view, imageSource, ha
                                boxShadow:'0.5px 0.5px 3px #707070',
                                padding:'4px'}} 
                          onClick={() => view(item)}>
-      <div style={{width:'100%',backgroundColor:'#f1f1f1'}}>
+      <div style={{backgroundColor:'#f1f1f1'}}>
         <Image
         src={imageSource(item)}
-        height={200}
-        width={200}
+        height={100}
+        width={100}
         quality={1}
         alt={item.id}
         priority
