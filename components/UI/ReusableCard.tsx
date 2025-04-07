@@ -34,7 +34,7 @@ const ReusableCard: React.FC<ReusableCardProps> = ({ item, view, imageSource, ha
         priority
         onError={handleError}
         onClick={handleLoading}
-        style={{width:'100%',height:'auto'}}
+        style={{width:'100%!important',height:'auto'}}
       />      
       </div>
       <div className='thumbnailTextContainer' style={{ display:'flex',
