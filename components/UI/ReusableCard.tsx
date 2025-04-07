@@ -14,8 +14,7 @@ interface ReusableCardProps {
 
 const ReusableCard: React.FC<ReusableCardProps> = ({ item, view, imageSource, handleError, handleLoading }) => {
   return (
-    <div key={item.id} style={{width:'100%',
-                               display:'grid',
+    <div key={item.id} style={{display:'grid',
                                gridTemplateColumns:'50% 50%',
                                gap:'2px',
                                margin:'2px',
