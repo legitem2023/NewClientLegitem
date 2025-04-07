@@ -117,6 +117,7 @@
         margin:auto;
         padding:5px;
         color:  rgb(87, 39, 0);
+        font-size: 24px;
     }
     .dropdown {
         display: flex;
@@ -380,5 +381,13 @@
     .MainView_RelatedProducts div button{
         width:100%;
         padding:10px;
+    }
+    .NewsContainer{
+        display: grid;
+        grid-template-columns: auto auto;
+    }
+    .LikeContainer{
+        display: grid;
+        grid-template-columns: auto auto;
     }
 }

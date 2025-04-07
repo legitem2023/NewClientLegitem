@@ -46,7 +46,7 @@ const LikesData = () => {
     <ReusableCenterLayout
       child1={() => <></>}
       child2={() => (
-        <div className="NewsContainer">
+        <div className="LikeContainer">
           {LikeData?.readLikes?.length > 0 ? (
             LikeData.readLikes.map((item: any, idx: number) => (
               <ReusableCard

@@ -1829,10 +1829,13 @@ input[type='date']{
 #collapseproducttypes3:checked~.category_list {
   max-height: 800px;
 }
-.NewsContainer{
-  /* box-shadow: 0.5px 0.5px 3px #000;
+.LikeContainer{
   display: grid;
-  grid-template-columns: 33.33% 66%; */
+  grid-template-columns: auto auto auto;
+}
+.NewsContainer{
+  display: grid;
+  grid-template-columns: auto auto auto;
 }
 .NewsContainerItem img{
   width: 100%;
