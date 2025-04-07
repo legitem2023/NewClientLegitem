@@ -15,6 +15,10 @@
  flex:1;
  background-color:'#f1f1f1';
 }
+.ReusableCardContainer_1 img{
+ width:100%!important;
+ height:auto;
+}
  .ServerDown{
   display: flex;
   width:100%;
