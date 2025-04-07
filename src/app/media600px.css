@@ -184,6 +184,7 @@
     }
     .thumbnail {
       min-height:200px;
+      padding:1px;
     }
     .UniversalLabels .thumbElements{
         font-weight: bold;
