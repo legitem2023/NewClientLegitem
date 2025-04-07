@@ -18,7 +18,7 @@ const ReusableCard: React.FC<ReusableCardProps> = ({ item, view, imageSource, ha
                                width:'100%',
                                gap:'2px',
                                margin:'2px',
-                               position:'relative',
+                               
                                backgroundColor:'#f1f1f1',
                                boxShadow:'0.5px 0.5px 3px #707070',
                                padding:'4px'}} 
