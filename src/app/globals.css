@@ -1316,7 +1316,7 @@ input[type='date']{
   background-color: rgb(255 246 229);
 
 }
-
+/*
 .MainView_RelatedProductsThumbs>img {
   background: rgb(211, 210, 210);
 }
@@ -1343,10 +1343,9 @@ input[type='date']{
   border-radius: 0px 0px 0px 0px;
   overflow: hidden;
   display: block;
-  /* grid-template-rows: auto auto auto auto auto; */
 }
 
-
+*/
 
 .backIcon {
   font-size: 30px;
@@ -1371,7 +1370,7 @@ input[type='date']{
 /* .MainView_RelatedProductsThumbs:hover {
   background: linear-gradient(-45deg, #a8eb12, #00bf72, #008793);
 } */
-
+/*
 .MainView_RelatedProducts {
   background-color: rgb(255 246 229);
 }
@@ -1383,7 +1382,7 @@ input[type='date']{
   right: 0px;
   cursor: pointer;
 }
-
+*/
 .masonry-gallery-demo{
   width: 100%!important;
   background-color: transparent;
