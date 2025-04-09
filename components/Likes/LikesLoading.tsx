@@ -12,7 +12,7 @@ const LikesLoading = () => {
         >
          <div className="LikeContainer">
            {[...Array(10)].map((_, index) => (
-             <div key={index} className='loading-screen' style={{height:130,margin:"3px"}}></div>
+             <div key={index} className='loading-screen' style={{height:130,marginTop:"3px",marginBottom:"3px"}}></div>
            ))}
          </div>
         </div>
