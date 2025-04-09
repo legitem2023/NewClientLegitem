@@ -11,8 +11,8 @@ const ReusableCartItem: FC<CartItemWithFunc> = ({ id, size, color, price, quanti
         <div style={{
             display: "flex",
             flexDirection: "column",
-            gap: "10px",
-            padding: "10px",
+            gap: "5px",
+            padding: "5px",
             borderBottom: "1px solid #ddd",
             width: "100%"
         }}>
@@ -20,6 +20,7 @@ const ReusableCartItem: FC<CartItemWithFunc> = ({ id, size, color, price, quanti
             <div style={{
                 display: "flex",
                 alignItems: "center",
+                boxSizing: "border-box",
                 justifyContent: "space-between"
             }}>
                 <Image src={image === "" || image === null ? `/image/Legitem.jpg` : image} height={200} width={200} alt={name} style={{ borderRadius: "8px",width:"200px",height:"auto" }} />
