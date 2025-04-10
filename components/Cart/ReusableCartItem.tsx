@@ -20,12 +20,11 @@ const ReusableCartItem: FC<CartItemWithFunc> = ({ id, size, color, price, quanti
             <div>
                 
                 <Element Label="Name" value={name}/>
-                <Element Label="Product Code" value={productCode}/>
                 <Element Label="Size" value={size}/>
                 <Element Label="Color" value={color}/>
                 <Element Label="Price" value={formatter.format(price)}/>
                 <ReusableQuantityChanger id={id} qty={quantity} />
-                <Element Label="Price" value={formatter.format(price * quantity)}/>         
+                <Element Label="Sub Total" value={formatter.format(price * quantity)}/>         
            </div>
     </div>
     )
