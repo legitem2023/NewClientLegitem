@@ -3,7 +3,7 @@ import React, { FC } from 'react'
 import ReusableQuantityChanger from './ReusableQuantityChanger'
 import { CartItemWithFunc } from '@/types'
 import Image from 'next/image'
-import Element from './Element';
+import Element from '../UI/Element';
 import { formatter } from 'utils/scripts' 
 import { Icon } from '@iconify/react'
 
