@@ -45,7 +45,7 @@ const Cart =() => {
                 key={idx}
                 item={item}
                 view={() => view(item)}
-                imageSource={() => imageSource(item)}
+                imageSource={() => item}
                 handleError={handleError}
                 handleLoading={handleLoading}
               />
