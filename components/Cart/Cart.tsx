@@ -34,7 +34,7 @@ const Cart =() => {
     
   }
   const view = (item) =>{
-    consols.log(item);
+    console.log(item);
   }
   return (
       <div className="cartTable">
