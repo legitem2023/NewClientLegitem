@@ -12,7 +12,7 @@ const ReusableCartItem: FC<CartItemWithFunc> = ({ id, size, color, price, quanti
         <div className="ReusableCardContainer">
             {/* Product Image & Remove Icon */}
             <div className="ReusableCardContainer_1">
-                <Image src={image === "" || image === null ? `/image/Legitem.jpg` : image} height={200} width={200} alt={name} style={{ borderRadius: "8px",width:"200px",height:"auto" }} />
+                <Image src={image === "" || image === null ? `/image/Legitem.jpg` : image} height={150} width={150} alt={name} />
                 <Icon icon="mdi:trash" width="24" height="24" style={{ color: "#cd0000", cursor: "pointer" }} onClick={removeItem} />
             </div>
 
