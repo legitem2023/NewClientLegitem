@@ -3,7 +3,8 @@ import React from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import { removeFromCart, clearCart } from "../../Redux/cartSlice";
 import ReusableCartItem from './ReusableCartItem'; 
-import { formatter } from 'utils/scripts';
+import ReusableCard from '../UI/ReusableCard';
+import { formatter, imageSource } from 'utils/scripts'; //
 import Image from 'next/image';
 import CartEmpty from './CartEmpty';
 import Link from 'next/link';
@@ -26,12 +27,29 @@ const Cart =() => {
   }, 0);
 
   const TotalAmount = parseFloat(SubTotal) + (parseFloat(SubTotal) * .2) + 10;
-
+  const handleError = () => {
+    
+  }
+  const handleLoading = () => {
+    
+  }
+  const view = (item) =>{
+    consols.log(item);
+  }
   return (
       <div className="cartTable">
         <div className="cartTableData">
           {cartItems.length > 0 ? cartItems.map((item: any, idx: number) => (
-            <ReusableCartItem
+            <>
+              <ReusableCard
+                key={idx}
+                item={item}
+                view={() => view(item)}
+                imageSource={() => imageSource(item)}
+                handleError={handleError}
+                handleLoading={handleLoading}
+              />
+              <ReusableCartItem
               id={item.id}
               key={idx}
               size={item.size}
@@ -44,6 +62,7 @@ const Cart =() => {
               clearItem = {()=> handleClearCart()}
               removeItem={() => handleRemoveFromCart(item.id)}
             />
+            </>
           )) : <CartEmpty/>}
           {cartItems.length > 0 ? <button onClick={()=>handleClearCart()}>Remove All</button>:""}
         </div>
