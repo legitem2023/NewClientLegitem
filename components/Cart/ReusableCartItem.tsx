@@ -17,8 +17,8 @@ const ReusableCartItem: FC<CartItemWithFunc> = ({ id, size, color, price, quanti
             </div>
 
             {/* Product Details */}
-            <div style={{ display: "flex", flexDirection: "column", gap: "5px" }}>
-                <h3 style={{ fontSize: "14px", fontWeight: "bold" }}>{name}</h3>
+            <div>
+                
                 <Element Label="Name" value={name}/>
                 <Element Label="Product Code" value={productCode}/>
                 <Element Label="Size" value={size}/>
