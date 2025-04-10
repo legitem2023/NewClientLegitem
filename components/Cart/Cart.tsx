@@ -40,15 +40,6 @@ const Cart =() => {
       <div className="cartTable">
         <div className="cartTableData">
           {cartItems.length > 0 ? cartItems.map((item: any, idx: number) => (
-            <>
-              <ReusableCard
-                key={idx}
-                item={item}
-                view={() => view(item)}
-                imageSource={() => item}
-                handleError={handleError}
-                handleLoading={handleLoading}
-              />
               <ReusableCartItem
               id={item.id}
               key={idx}
@@ -62,7 +53,6 @@ const Cart =() => {
               clearItem = {()=> handleClearCart()}
               removeItem={() => handleRemoveFromCart(item.id)}
             />
-            </>
           )) : <CartEmpty/>}
           {cartItems.length > 0 ? <button onClick={()=>handleClearCart()}>Remove All</button>:""}
         </div>
