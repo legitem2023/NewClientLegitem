@@ -39,7 +39,7 @@
  .loading-screen {
   width: 100%;
   height: 100%;
-  content:'free tier has a cold start expect 30 sec delay before load',
+  content:'free tier server has a cold start expect 30 sec delay';
   background: linear-gradient(
     90deg,
     #e0e0e0 0%,
