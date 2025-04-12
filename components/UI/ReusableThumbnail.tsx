@@ -53,6 +53,8 @@ const ReusableThumbnail: React.FC<ReusableThumbnailProps> = ({
       </div>
       <div className="thumbnailTextContainer">
         <Element Label="Name" value={item.name} />
+        <Element Label="Size" value={item.size} />
+        <Element Label="Color" value={item.color} />
         {item.discount > 0?(<Price_strike item={item}/>):(<Price item={item}/>)}
         {/* {item.discount > 0?(<Discounted item={item}/>):""} */}
         
