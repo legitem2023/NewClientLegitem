@@ -14,6 +14,7 @@ import Discounted from './Discounted';
 import Name from './Name';
 import Sold from './Sold';
 import Element from './Element';
+import Element_Title from './Element_Title';
 import { CldImage } from 'next-cloudinary';
 
 type ReusableThumbnailProps = {
@@ -52,7 +53,7 @@ const ReusableThumbnail: React.FC<ReusableThumbnailProps> = ({
           />
       </div>
       <div className="thumbnailTextContainer">
-        <Element Label="Name" value={item.name} />
+        <Element_Title Label="Name" value={item.name} />
         <Element Label="Size" value={item.size} />
         <Element Label="Color" value={item.color} />
         {item.discount > 0?(<Price_strike item={item}/>):(<Price item={item}/>)}
