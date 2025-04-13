@@ -59,7 +59,6 @@ const LikesData = () => {
                 imageSource={() => imageSource(item)}
                 handleError={handleError}
                 handleLoading={handleLoading}
-                childA={()=><AddCartCmd item={item}/>}
               />
             ))
           ) : (
