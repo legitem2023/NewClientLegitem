@@ -119,7 +119,7 @@ const Checkout = () => {
           </div>
           <div className="CheckOutButton_container">
             <button
-              className="PlaceLink"
+              className="universalButtonStyle"
               disabled={loadingState}
               onClick={(e: any) => HandleSubmit(e)}
             >
