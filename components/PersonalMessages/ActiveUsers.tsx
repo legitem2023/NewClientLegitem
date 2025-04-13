@@ -36,7 +36,6 @@ const uniqueSenders = Array.from(
   new Map(
     data.personalMessages
       .filter((itm: any) => itm.Sender !== cookie.emailAddress)
-      .sort((a: any, b: any) => new Date(b.dateSent).getTime() - new Date(a.dateSent).getTime()) // Sort descending
       .map((itm: any) => [itm.Sender, itm]) // Keep latest message per sender
   ).values() // Extract unique messages
 );
