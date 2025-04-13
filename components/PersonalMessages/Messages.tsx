@@ -89,10 +89,10 @@ const Messages = () => {
     (item.Reciever === cookie.emailAddress || item.Reciever === SelectedReciever)
   );
 
-  const filteredPosts = FilterReciever.filter((post: any) => {
-    const postDate = new Date(parseInt(post.dateSent));
-    return postDate.toDateString() === currentDay.toDateString();
-  });
+  const filteredPosts = FilterReciever;//.filter((post: any) => {
+    //const postDate = new Date(parseInt(post.dateSent));
+    //return postDate;//.toDateString() === currentDay.toDateString();
+  //});
 
   // Date navigation functions
   const goToPreviousDay = () => setCurrentDay(new Date(currentDay.setDate(currentDay.getDate() - 1)));
