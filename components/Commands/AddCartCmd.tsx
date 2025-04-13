@@ -6,7 +6,7 @@ import DataManager from 'utils/DataManager'
 type CartItem = {
     id: string, // You can change this to number if IDs are numeric
     productCode: string,
-    image:string,
+    thumbnail:string,
     name: string,
     color:string,
     size:string,
@@ -26,14 +26,14 @@ const AddCartCmd: React.FC<PropsAddCartCmd> = ({ item }) => {
     const cartData = {
       id: item.id,
       productCode: item.productCode,
-      image: item.image,
+      image: item.thumbnail,
       name: item.name,
       color: item.color,
       size: item.size,
       price: parseInt(item.price),
       quantity: 1,
     }
-
+    console.log(cartData);
     dispatch(addToCart(cartData))
     Manager.Success('Added to cart')
   }
