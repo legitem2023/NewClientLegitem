@@ -21,7 +21,7 @@ const AddCartCmd: React.FC<PropsAddCartCmd> = ({ item }) => {
   const Manager = new DataManager()
   const dispatch = useDispatch()
 
-  const AddToCart = () => {
+  const AddToCart = (item) => {
     console.log(item)
     const cartData: any = {
       id: item.id,
@@ -44,7 +44,7 @@ const AddCartCmd: React.FC<PropsAddCartCmd> = ({ item }) => {
         <Icon
           icon='mdi:cart'
           className='iconify_cart'
-          onClick={AddToCart}
+          onClick={AddToCart(item)}
       />
     </>
   )
