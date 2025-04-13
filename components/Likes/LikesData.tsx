@@ -41,7 +41,7 @@ const LikesData = () => {
 
   if (LikeLoading) return <LikesLoading/>;
   if (LikeError) return <ReusableServerDown />;
-
+console.log(LikeData?.readLikes);
   return (
     <ReusableCenterLayout
       child1={() => <></>}
