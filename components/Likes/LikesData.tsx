@@ -5,7 +5,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import ReusableCenterLayout from 'components/Layout/ReusableCenterLayout';
 import LikesLoading from './LikesLoading';
 import ReusableServerDown from 'components/Reusable/ReusableServerDown';
-import ReusableCard from 'components/Reusable/ReusableCard';
+import ReusableLikeCard from 'components/Reusable/ReusableLikeCard';
 import { READ_LIKES } from 'graphql/queries';
 import { setViewedProd } from 'Redux/viewedProdSlice';
 import { imageSource } from 'utils/scripts';
@@ -52,13 +52,14 @@ const LikesData = () => {
         <div className="LikeContainer">
           {LikeData?.readLikes?.length > 0 ? (
             LikeData.readLikes.map((item: any, idx: number) => (
-              <ReusableCard
+              <ReusableLikeCard
                 key={idx}
                 item={item}
                 view={() => view(item)}
                 imageSource={() => imageSource(item)}
                 handleError={handleError}
                 handleLoading={handleLoading}
+                childA={()=><></>}
               />
             ))
           ) : (
