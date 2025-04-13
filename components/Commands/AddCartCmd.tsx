@@ -6,7 +6,7 @@ import DataManager from 'utils/DataManager'
 type CartItem = {
     id: string, // You can change this to number if IDs are numeric
     productCode: string,
-    image:string,
+    thumbnail:string,
     name: string,
     color:string,
     size:string,
