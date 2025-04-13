@@ -40,11 +40,13 @@ const AddCartCmd: React.FC<PropsAddCartCmd> = ({ item }) => {
   }
 
   return (
-    <Icon
-      icon='mdi:cart'
-      className='iconify_cart'
-      onClick={AddToCart}
-    />
+    <>{item.productCode}
+        <Icon
+          icon='mdi:cart'
+          className='iconify_cart'
+          onClick={AddToCart}
+      />
+    </>
   )
 }
 
