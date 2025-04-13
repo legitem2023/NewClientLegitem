@@ -5,7 +5,6 @@ import { useDispatch } from 'react-redux';
 import { addToCart } from 'Redux/cartSlice';
 import DataManager from 'utils/DataManager';
 import { Cart } from 'utils/scripts';
-import DataManager from 'utils/DataManager';
 
 type PropsAddCartCmd = {
     item: any
