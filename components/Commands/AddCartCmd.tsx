@@ -10,7 +10,8 @@ type PropsAddCartCmd = {
     item: any
 }
 const AddCartCmd:React.FC<PropsAddCartCmd> = (item) => {
-      const AddToCart = (item) =>{
+     const dispatch = useDispatch(); 
+    const AddToCart = (item) =>{
         const cartData:any = [item].map((item:any)=>{
           return {
             id: item.id, // You can change this to number if IDs are numeric
@@ -22,9 +23,10 @@ const AddCartCmd:React.FC<PropsAddCartCmd> = (item) => {
             price: parseInt(item.price),
             quantity: 1
           }
+            dispatch(addToCart(cartData))
         })
      } 
-    
+       
   return (
     <Icon 
     icon='mdi:cart' 
