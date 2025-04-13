@@ -26,7 +26,7 @@ const AddCartCmd: React.FC<PropsAddCartCmd> = ({ item }) => {
     const cartData: any = {
       id: item.id,
       productCode: item.productCode,
-      image: item.image,
+      image: item.thumbnail,
       name: item.name,
       color: item.color,
       size: item.size,
