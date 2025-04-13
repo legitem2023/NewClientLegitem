@@ -16,7 +16,7 @@ const AddCartCmd:React.FC<PropsAddCartCmd> = (item) => {
     const AddToCart = (item) =>{
         
         const cartData:any = [item].map((item:any)=>{
-          
+          console.log(item);
             return {
             id: item.id, // You can change this to number if IDs are numeric
             productCode:item.productCode,
