@@ -9,7 +9,7 @@ import ReusableLikeCard from 'components/Reusable/ReusableLikeCard';
 import { READ_LIKES } from 'graphql/queries';
 import { setViewedProd } from 'Redux/viewedProdSlice';
 import { imageSource } from 'utils/scripts';
-
+import AddCartCmd from 'components/Commands/AddCartCmd';
 const LikesData = () => {
   const dispatch = useDispatch();
   const cookie = useSelector((state: any) => state.cookie.cookie);
@@ -59,7 +59,7 @@ const LikesData = () => {
                 imageSource={() => imageSource(item)}
                 handleError={handleError}
                 handleLoading={handleLoading}
-                childA={()=><></>}
+                childA={()=><AddCartCmd item={item}/>}
               />
             ))
           ) : (
