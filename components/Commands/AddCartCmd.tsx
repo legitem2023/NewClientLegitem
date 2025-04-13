@@ -22,8 +22,8 @@ const AddCartCmd: React.FC<PropsAddCartCmd> = ({ item }) => {
   const dispatch = useDispatch()
 
   const AddToCart = () => {
-    
-    const cartData = [{
+    console.log(item.id);
+    const cartData = {
       id: item.id,
       productCode: item.productCode,
       image: item.thumbnail,
@@ -32,7 +32,7 @@ const AddCartCmd: React.FC<PropsAddCartCmd> = ({ item }) => {
       size: item.size,
       price: parseInt(item.price),
       quantity: 1,
-    }]
+    }
 
     dispatch(addToCart(cartData))
     Manager.Success('Added to cart')
