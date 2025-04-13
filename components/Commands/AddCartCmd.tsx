@@ -14,10 +14,8 @@ const AddCartCmd:React.FC<PropsAddCartCmd> = (item) => {
     const Manager = new DataManager();
     const dispatch = useDispatch(); 
     const AddToCart = (item) =>{
-        
-        const cartData:any = [item].map((item:any)=>{
-          console.log(item);
-            return {
+        console.log(item);
+        const cartData:any = {
             id: item.id, // You can change this to number if IDs are numeric
             productCode:item.productCode,
             image:item.image,
@@ -28,7 +26,7 @@ const AddCartCmd:React.FC<PropsAddCartCmd> = (item) => {
             quantity: 1
           }
             console.log(cartData);
-            dispatch(addToCart(cartData));
+            dispatch(addToCart([cartData]));
             Manager.Success("Added to cart");
         })
      } 
@@ -37,7 +35,7 @@ const AddCartCmd:React.FC<PropsAddCartCmd> = (item) => {
     <Icon 
     icon='mdi:cart' 
     className='iconify_cart' 
-    onClick={() => AddToCart(item)}
+    onClick={() => AddToCart(item.item)}
   />
   )
 }
