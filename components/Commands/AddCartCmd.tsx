@@ -22,7 +22,7 @@ const AddCartCmd: React.FC<PropsAddCartCmd> = ({ item }) => {
   const dispatch = useDispatch()
 
   const AddToCart = () => {
-    console.log(item.id);
+    console.log(item);
     const cartData = {
       id: item.id,
       productCode: item.productCode,
