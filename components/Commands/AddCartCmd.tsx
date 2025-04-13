@@ -14,7 +14,7 @@ type CartItem = {
     quantity: string
 }
 type PropsAddCartCmd = {
-  item: CartItem
+  item: CartItem[]
 }
 
 const AddCartCmd: React.FC<PropsAddCartCmd> = ({ item }) => {
@@ -34,7 +34,7 @@ const AddCartCmd: React.FC<PropsAddCartCmd> = ({ item }) => {
       quantity: 1,
     }
 
-    dispatch(addToCart([cartData]))
+    dispatch(addToCart(cartData))
     Manager.Success('Added to cart')
   }
 
