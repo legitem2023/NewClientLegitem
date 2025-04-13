@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import { ReactNode } from 'react';
 import Element from '../UI/Element';
-import AddCartCmd '../Commands/AddCartCmd';
+import AddCartCmd from '../Commands/AddCartCmd';
 import Element_Title from '../UI/Element_Title';
 import Ratings from '../Partial/Ratings/Ratings';
 import Discounted from '../UI/Discounted';
