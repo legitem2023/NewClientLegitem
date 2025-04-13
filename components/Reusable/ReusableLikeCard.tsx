@@ -40,6 +40,7 @@ const ReusableLikeCard: React.FC<ReusableCardProps> = ({ item, view, imageSource
             <Ratings data={item.TotalRatings > 0 ? item.TotalRatings : 0} count={item} />
           </div>
         </div>
+        {childA()}
       </div>
     </div>
   );
