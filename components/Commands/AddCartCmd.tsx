@@ -11,7 +11,8 @@ type CartItem = {
     color:string,
     size:string,
     price: string,
-    quantity: string
+    quantity: string,
+    stock:string
 }
 type PropsAddCartCmd = {
   item: CartItem
