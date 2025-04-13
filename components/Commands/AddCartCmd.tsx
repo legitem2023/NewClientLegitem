@@ -5,7 +5,7 @@ import { addToCart } from 'Redux/cartSlice'
 import DataManager from 'utils/DataManager'
 
 type PropsAddCartCmd = {
-  item: any
+  item: any[]
 }
 
 const AddCartCmd: React.FC<PropsAddCartCmd> = ({ item }) => {
