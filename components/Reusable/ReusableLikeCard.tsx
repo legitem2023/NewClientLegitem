@@ -13,7 +13,7 @@ interface ReusableCardProps {
   imageSource: (item: any) => string;
   handleError: (e: React.SyntheticEvent<HTMLImageElement, Event>) => void;
   handleLoading: (e: React.SyntheticEvent<HTMLImageElement, Event>) => void;
-  
+  childA: () => ReactNode;
 }
 
 const ReusableLikeCard: React.FC<ReusableCardProps> = ({ item, view, imageSource, handleError, handleLoading }) => {
@@ -42,7 +42,7 @@ const ReusableLikeCard: React.FC<ReusableCardProps> = ({ item, view, imageSource
           </div>
         </div>
         <div>
-          <AddCartCmd item={item}/>
+          {childA()}
         </div>
         
       </div>
