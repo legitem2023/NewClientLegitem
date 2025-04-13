@@ -3,9 +3,18 @@ import React from 'react'
 import { useDispatch } from 'react-redux'
 import { addToCart } from 'Redux/cartSlice'
 import DataManager from 'utils/DataManager'
-
+type CartItem = {
+    id: string, // You can change this to number if IDs are numeric
+    productCode: string,
+    image:string,
+    name: string,
+    color:string,
+    size:string,
+    price: number,
+    quantity: number
+}
 type PropsAddCartCmd = {
-  item: any[]
+  item: CartItem
 }
 
 const AddCartCmd: React.FC<PropsAddCartCmd> = ({ item }) => {
