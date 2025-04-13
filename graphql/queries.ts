@@ -619,6 +619,7 @@ query ReadFeedBack {
 export const READ_LIKES = gql`
 query ReadLikes($accountEmail: String) {
   readLikes(accountEmail: $accountEmail) {
+    id
     productCode
     thumbnail
     price
