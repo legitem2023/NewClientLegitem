@@ -27,7 +27,7 @@ const AddCartCmd:React.FC<PropsAddCartCmd> = (item) => {
           }
             console.log(cartData);
             dispatch(addToCart(cartData));
-            Manager.success("Added to cart");
+            Manager.Success("Added to cart");
         })
      } 
        
