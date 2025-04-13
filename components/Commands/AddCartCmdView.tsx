@@ -12,7 +12,6 @@ type PropsAddCartCmdView = {
 const AddCartCmdView:React.FC<PropsAddCartCmdView> = ({viewedProduct,quantity,stock}) => {
    
     const Manager = new DataManager();
-    console.log(viewedProduct);
     const cart = viewedProduct?.map((item:any)=>{
     return {
         id: item.id, // You can change this to number if IDs are numeric
@@ -30,6 +29,7 @@ const AddCartCmdView:React.FC<PropsAddCartCmdView> = ({viewedProduct,quantity,st
         if(quantity > stock){
             Manager.Warning("Stock not enough");
         }else{
+            console.log(cart[0]);
             dispatch(addToCart(cart[0]));
             Manager.Success("Successfully added")
         }
