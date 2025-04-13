@@ -33,11 +33,14 @@ console.log(item)
       price: parseInt(item.price),
       quantity: 1,
     }
-    console.log(cartData);
-    dispatch(addToCart(cartData))
-    Manager.Success('Added to cart')
+    
+    if(item.stock < 1){
+        Manager.Warning("Stock not enough");
+    }else{
+        dispatch(addToCart(cartData));
+        Manager.Success("Successfully added")
+    } 
   }
-
   return (
     <>
         <Icon
