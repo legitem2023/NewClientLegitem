@@ -10,8 +10,8 @@ type CartItem = {
     name: string,
     color:string,
     size:string,
-    price: number,
-    quantity: number
+    price: string,
+    quantity: string
 }
 type PropsAddCartCmd = {
   item: CartItem
