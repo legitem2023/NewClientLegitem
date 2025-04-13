@@ -16,7 +16,6 @@ import Sold from './Sold';
 import Element from './Element';
 import Element_Title from './Element_Title';
 import { CldImage } from 'next-cloudinary';
-
 type ReusableThumbnailProps = {
   item: any;
   path: string;
@@ -25,7 +24,6 @@ type ReusableThumbnailProps = {
   handleLoading: (event: React.SyntheticEvent<HTMLImageElement, Event>) => void;
   handleError: (event: React.SyntheticEvent<HTMLImageElement, Event>) => void; // Updated to accept the event
 }
-
 const ReusableThumbnail: React.FC<ReusableThumbnailProps> = ({ 
   item, 
   path, 
@@ -34,7 +32,6 @@ const ReusableThumbnail: React.FC<ReusableThumbnailProps> = ({
   handleLoading, 
   handleError, 
 }) => {
-
   return (
     <div className="thumbnail" >
       <div className="thumbnailImageContainer">
@@ -49,23 +46,17 @@ const ReusableThumbnail: React.FC<ReusableThumbnailProps> = ({
             onClick={view}
             onError={handleError}
             className="thumbnailImage"
-
           />
       </div>
       <div className="thumbnailTextContainer">
         <Element_Title Label="Name" value={item.name} />
         <Element Label="Size" value={item.size} />
         <Element Label="Color" value={item.color} />
-        {item.discount > 0?(<Price_strike item={item}/>):(<Price item={item}/>)}
-        {/* {item.discount > 0?(<Discounted item={item}/>):""} */}
-        
+        {item.discount > 0?(<Price_strike item={item}/>):(<Price item={item}/>)}  
         <div className='Thumbnails_rating_cart'>
           <span>
             <Ratings data={item.TotalRatings > 0 ? item.TotalRatings : 0} count={item}/>
           </span>
-          {/* <span className='thumbElements_addCart'>
-            {addcart()}
-          </span>         */}
         </div>
       </div>
     </div>
