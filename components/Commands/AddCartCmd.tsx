@@ -10,7 +10,7 @@ type PropsAddCartCmd = {
     item: any
 }
 const AddCartCmd:React.FC<PropsAddCartCmd> = (item) => {
-    console.log(item);
+    console.log(item.item);
     const Manager = new DataManager();
     const dispatch = useDispatch(); 
     const AddToCart = (item) =>{
