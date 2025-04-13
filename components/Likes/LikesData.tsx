@@ -4,8 +4,8 @@ import { useSelector, useDispatch } from 'react-redux';
 
 import ReusableCenterLayout from 'components/Layout/ReusableCenterLayout';
 import LikesLoading from './LikesLoading';
-import ReusableServerDown from 'components/UI/ReusableServerDown';
-import ReusableCard from 'components/UI/ReusableCard';
+import ReusableServerDown from 'components/Reusable/ReusableServerDown';
+import ReusableCard from 'components/Reusable/ReusableCard';
 import { READ_LIKES } from 'graphql/queries';
 import { setViewedProd } from 'Redux/viewedProdSlice';
 import { imageSource } from 'utils/scripts';

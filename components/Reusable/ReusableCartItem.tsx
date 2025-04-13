@@ -4,6 +4,8 @@ import ReusableQuantityChanger from './ReusableQuantityChanger'
 import { CartItemWithFunc } from '@/types'
 import Image from 'next/image'
 import Element from '../UI/Element';
+import Element_Title from '../UI/Element_Title';
+
 import { formatter } from 'utils/scripts' 
 import { Icon } from '@iconify/react'
 
@@ -19,7 +21,7 @@ const ReusableCartItem: FC<CartItemWithFunc> = ({ id, size, color, price, quanti
             {/* Product Details */}
             <div>
                 
-                <Element Label="Name" value={name}/>
+                <Element_Title Label="Name" value={name}/>
                 <Element Label="Size" value={size}/>
                 <Element Label="Color" value={color}/>
                 <Element Label="Price" value={formatter.format(price)}/>

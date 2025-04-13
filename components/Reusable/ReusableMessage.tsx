@@ -6,10 +6,10 @@ import React, { FC, useEffect, useState } from 'react';
 import ReusableFirstLetterImage from './ReusableFirstLetterImage';
 import ReusableDropdown from './ReusableDropdown';
 import ReusableCollapse from './ReusableCollapse';
-import LiveStreamPlayer from './LiveStreamPlayer';
+import LiveStreamPlayer from '../UI/LiveStreamPlayer';
 import { useSelector,useDispatch } from 'react-redux';
 import { setreciever } from 'Redux/recieverSlice';
-import TypingIndicator from './TypingIndicator';
+import TypingIndicator from '../UI/TypingIndicator';
 interface Message {
   Sender: string;
   dateSent: string | number;

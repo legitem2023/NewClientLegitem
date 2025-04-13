@@ -3,9 +3,9 @@ import AudioRecorder from 'components/Commands/AudioRecorder'
 import VideoCall from 'components/Commands/VideoCall'
 import React, { FC,useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import useUserTyping from "./useUserTyping";
-import Sender from "./Sender";
-import Receiver from "./Receiver";
+import useUserTyping from "../UI/useUserTyping";
+import Sender from "../UI/Sender";
+import Receiver from "../UI/Receiver";
 type ReusableMessageInputProps = {
     textRef:any,
     event:(e:any)=> any,

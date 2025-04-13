@@ -2,14 +2,22 @@
 import React from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import { removeFromCart, clearCart } from "../../Redux/cartSlice";
-import ReusableCartItem from './ReusableCartItem'; 
-import ReusableCard from '../UI/ReusableCard';
+import ReusableCartItem from '../Reusable/ReusableCartItem'; 
+import ReusableCard from '../Reusable/ReusableCard';
 import { formatter, imageSource } from 'utils/scripts'; //
 import Image from 'next/image';
 import CartEmpty from './CartEmpty';
 import Link from 'next/link';
 
-const Cart =() => {
+/*************  ✨ Windsurf Command ⭐  *************/
+/**
+ * Cart component displays the list of items in the shopping cart.
+ * It provides functionalities to remove individual items, clear the entire cart,
+ * and calculate the subtotal, tax, shipping, and total amount. Users can proceed
+ * to checkout or continue shopping. It also handles error and loading states.
+ */
+
+/*******  18f4d49a-34dc-43b4-8565-af8f79501edc  *******/const Cart =() => {
   const dispatch = useDispatch();
   const cartItems = useSelector((state: any) => state.cart.cartItems || []);
 
@@ -54,7 +62,7 @@ const Cart =() => {
               removeItem={() => handleRemoveFromCart(item.id)}
             />
           )) : <CartEmpty/>}
-          {cartItems.length > 0 ? <button onClick={()=>handleClearCart()}>Remove All</button>:""}
+          {cartItems.length > 0 ? <button className='universalButtonStyle' onClick={()=>handleClearCart()}>Remove All</button>:""}
         </div>
         <div className="cartTableTotal">
           <div className="cartTableTotal_row1">

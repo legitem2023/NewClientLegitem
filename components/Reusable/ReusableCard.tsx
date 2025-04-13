@@ -1,10 +1,10 @@
 import Image from 'next/image';
-import Element from './Element';
-import Element_Title from './Element_Title';
+import Element from '../UI/Element';
+import Element_Title from '../UI/Element_Title';
 import Ratings from '../Partial/Ratings/Ratings';
-import Discounted from './Discounted';
-import Price from './Price';
-import Price_strike from './Price_strike';
+import Discounted from '../UI/Discounted';
+import Price from '../UI/Price';
+import Price_strike from '../UI/Price_strike';
 interface ReusableCardProps {
   item: any;
   view: (item: any) => void;
@@ -22,7 +22,7 @@ const ReusableCard: React.FC<ReusableCardProps> = ({ item, view, imageSource, ha
         height={150}
         width={150}
         quality={1}
-        alt={item.id}
+        alt={`Image_`+item.id}
         priority
         onError={handleError}
         onClick={handleLoading}/>      

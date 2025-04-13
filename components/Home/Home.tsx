@@ -6,7 +6,7 @@ import SliderModels from './SliderModels';
 import Menu from 'components/Partial/Menu';
 import { GET_CATEGORY } from 'graphql/queries';
 import React from 'react'
-import ReusableLabel from 'components/UI/ReusableLabel';
+import ReusableLabel from 'components/Reusable/ReusableLabel';
 import HomeLoading from './HomeLoading';
 const Home = () => {
     const { data:Category, loading, error } = useQuery(GET_CATEGORY);

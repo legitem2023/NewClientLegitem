@@ -519,7 +519,6 @@ input[type='date']{
   display: grid;
   grid-template-columns:72% 28%!important;
   justify-content: center;
-  align-items: center;
   position: relative;
 }
 .iconify_cart{
@@ -2175,6 +2174,7 @@ input[type='date']{
   overflow: hidden;
   text-overflow: ellipsis;
   text-align:left;
+  color:#707070;
 }
 .thumbElements_Title {
   padding: 1px;
@@ -2184,6 +2184,7 @@ input[type='date']{
   overflow: hidden;
   text-overflow: ellipsis;
   text-align:left;
+  font-weight: bold;
 }
 .thumbElements_addCart{
   display: flex;
@@ -2193,7 +2194,7 @@ input[type='date']{
   display:flex;
   flex-direction: column;
   justify-content: flex-start;
-  align-items: center;
+  /* align-items: center; */
   width: 100%;
   box-sizing: border-box;
   padding:1px;

@@ -2,7 +2,7 @@ import { Icon } from '@iconify/react'
 import Link from 'next/link'
 import React from 'react'
 import { DropdownProps } from 'utils/types/types'
-import ReusableNotification from '../../UI/ReusableNotification';
+import ReusableNotification from '../../Reusable/ReusableNotification';
 const Dropdown: React.FC<DropdownProps> = ({ path, deletecookies, OrderNotification }) => {
   return (
     <div className='DroppedDown'>

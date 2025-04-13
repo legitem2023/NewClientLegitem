@@ -10,8 +10,8 @@ import InsertForm from './InsertForm';
 import Element from 'components/UI/Element';
 import ReusableMainLayout from 'components/Layout/ReusableMainLayout';
 import ReusableCenterLayout from 'components/Layout/ReusableCenterLayout';
-import ReusableLabel from 'components/UI/ReusableLabel';
-import ReusableServerDown from 'components/UI/ReusableServerDown';
+import ReusableLabel from 'components/Reusable/ReusableLabel';
+import ReusableServerDown from 'components/Reusable/ReusableServerDown';
 interface PageAccountProps {
   userId: string;
 }

@@ -13,7 +13,7 @@ import { setdiscounted } from 'Redux/discountedSlice';
 import { setnew } from 'Redux/newSlice';
 import { setDrawer } from 'Redux/drawerSlice';
 import MenuLoading from './MenuLoading';
-import ReusableServerDown from 'components/UI/ReusableServerDown';
+import ReusableServerDown from 'components/Reusable/ReusableServerDown';
 
 const Menu: React.FC = () => {
   const { data: categoryData, loading: categoryLoading, error: categoryError } = useQuery(READ_CATEGORY);

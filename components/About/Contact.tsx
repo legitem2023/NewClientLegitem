@@ -3,7 +3,7 @@ import ContactUs from 'components/ContactUs/ContactUs';
 import { useMutation } from '@apollo/client';
 import { CONTACT_US } from 'graphql/mutation';
 import DataManager from 'utils/DataManager';
-import ReusableBody from 'components/UI/ReusableBody';
+import ReusableBody from 'components/Reusable/ReusableBody';
 import ReusableMainLayout from 'components/Layout/ReusableMainLayout';
 import ReusableCenterLayout from 'components/Layout/ReusableCenterLayout';
 const Contact = () => {

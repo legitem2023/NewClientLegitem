@@ -12,7 +12,7 @@ import { Pagination } from 'swiper/modules';
 import 'swiper/css/pagination';
 import 'swiper/css';
 import 'swiper/css/scrollbar';
-import ReusableFirstLetterImage from 'components/UI/ReusableFirstLetterImage';
+import ReusableFirstLetterImage from 'components/Reusable/ReusableFirstLetterImage';
 const RelatedSize = ({styleCode,currentsize}) => {
     const {data,loading,error} = useQuery(GET_CHILD_INVENTORY_RELATED_COLOR_SIZE,{
         variables:{

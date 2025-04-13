@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { Icon } from '@iconify/react'
 import AccountMenu from 'components/Account/AccountMenu';
 import OrderLoading from './OrderLoading';
-import ReusableArrowTabs from 'components/UI/ReusableArrowTabs';
+import ReusableArrowTabs from 'components/Reusable/ReusableArrowTabs';
 
 import transactionData from '../../json/transactionStages_client.json'
 import Link from 'next/link'
@@ -22,10 +22,10 @@ import useOrderStatusNotification from 'components/Hooks/useOrderStatusNotificat
 import OrderStageNotification from './OrderStageNotification'
 import { ClearStorage } from 'utils/scripts'
 import ReusableMainLayout from 'components/Layout/ReusableMainLayout'
-import ReusableLabel from 'components/UI/ReusableLabel'
+import ReusableLabel from 'components/Reusable/ReusableLabel'
 import { useDispatch, useSelector } from 'react-redux'
 import { setorderStage } from 'Redux/orderStageSlice'
-import ReusableServerDown from 'components/UI/ReusableServerDown'
+import ReusableServerDown from 'components/Reusable/ReusableServerDown'
 
 const PageOrder:React.FC = () => {
   const { updateNewOrder,

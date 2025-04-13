@@ -8,8 +8,8 @@ import { removeMessageNotificationByEmail } from 'Redux/messageNotificationSlice
 import Image from 'next/image';
 import { useDispatch, useSelector } from 'react-redux';
 import { setreciever } from 'Redux/recieverSlice';
-import ReusableFirstLetterImage from 'components/UI/ReusableFirstLetterImage';
-import ReusableNotification from 'components/UI/ReusableNotification';
+import ReusableFirstLetterImage from 'components/Reusable/ReusableFirstLetterImage';
+import ReusableNotification from 'components/Reusable/ReusableNotification';
 import LimitedText from 'components/UI/LimitedText';
 const ActiveUsers = ({email}) => {
   const dispatch = useDispatch();

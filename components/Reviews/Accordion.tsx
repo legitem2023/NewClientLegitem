@@ -1,7 +1,7 @@
 import { Icon } from '@iconify/react';
 import UniversalPagination from 'components/Partial/Pagination/UniversalPagination';
 import Ratings from 'components/Partial/Ratings/Ratings';
-import ReusableLabel from 'components/UI/ReusableLabel';
+import ReusableLabel from 'components/Reusable/ReusableLabel';
 import { useCallback, useMemo, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setcurrentPage } from 'Redux/currentPageSlice';

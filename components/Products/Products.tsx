@@ -4,11 +4,11 @@ import { useQuery } from '@apollo/client';
 import { GET_CATEGORY, GET_CHILD_INVENTORY } from 'graphql/queries';
 import { handleError, handleLoading } from 'utils/scripts';
 import Thumbnail from 'components/UI/Thumbnail';
-import ReusableThumbnail from 'components/UI/ReusableThumbnail';
+import ReusableThumbnail from 'components/Reusable/ReusableThumbnail';
 import AddCartCmd from 'components/Commands/AddCartCmd';
 import { ViewedProduct } from 'types/types';
 import { useDispatch, useSelector } from 'react-redux';
-import ReusableSearch from 'components/UI/ReusableSearch';
+import ReusableSearch from 'components/Reusable/ReusableSearch';
 import { setSearch } from 'Redux/searchSlice';
 import { setsortBy } from 'Redux/sortBySlice';
 import { setsortDirection } from 'Redux/sortDirectionSlice';
@@ -22,9 +22,9 @@ import { setviewed } from 'Redux/viewedSlice';
 import { setViewedProd } from 'Redux/viewedProdSlice';
 import ProductLoading from './ProductLoading';
 import { useRouter, usePathname } from 'next/navigation';
-import ReusableServerDown from 'components/UI/ReusableServerDown';
+import ReusableServerDown from 'components/Reusable/ReusableServerDown';
 import { Icon } from '@iconify/react';
-import ReusableLabel from 'components/UI/ReusableLabel';
+import ReusableLabel from 'components/Reusable/ReusableLabel';
 
 const itemsPerPage = 50; // Number of items to load per "page"
 

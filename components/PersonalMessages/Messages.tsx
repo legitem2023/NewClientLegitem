@@ -14,11 +14,11 @@ import TypingIndicator from 'components/UI/TypingIndicator';
 import SwiperTabs from 'components/UI/SwiperTabs';
 import {setmessagecount} from 'Redux/messagecountSlice';
 import {setMessageNotification} from 'Redux/messageNotificationSlice';
-import ReusableMessageInput from 'components/UI/ReusableMessageInput'
-import ReusableMessage from 'components/UI/ReusableMessage'
+import ReusableMessageInput from 'components/Reusable/ReusableMessageInput'
+import ReusableMessage from 'components/Reusable/ReusableMessage'
 import { List, AutoSizer, CellMeasurer, CellMeasurerCache } from 'react-virtualized';
 import CrowdLoading from 'components/Crowd/CrowdLoading';
-import ReusableServerDown from 'components/UI/ReusableServerDown'
+import ReusableServerDown from 'components/Reusable/ReusableServerDown'
 import { setDrawer } from 'Redux/drawerSlice';
 const Messages = () => {
   const cookie = useSelector((state: any) => state.cookie.cookie);

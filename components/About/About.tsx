@@ -5,7 +5,7 @@ import { READ_ABOUT_US } from 'graphql/queries';
 import { useQuery } from '@apollo/client';
 import Loading from 'components/Partial/LoadingAnimation/Loading';
 import HtmlRenderer from 'components/Html/HtmlRenderer';
-import ReusableBody from 'components/UI/ReusableBody';
+import ReusableBody from 'components/Reusable/ReusableBody';
 const About = () => {
     const { data, loading,error } = useQuery(READ_ABOUT_US);
 

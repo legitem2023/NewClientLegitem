@@ -5,7 +5,7 @@ import { READ_DISCLAIMER } from 'graphql/queries';
 import { useQuery } from '@apollo/client';
 import Loading from 'components/Partial/LoadingAnimation/Loading';
 import HtmlRenderer from 'components/Html/HtmlRenderer';
-import ReusableBody from 'components/UI/ReusableBody';
+import ReusableBody from 'components/Reusable/ReusableBody';
 const Disclaimer = () => {
   const { data, loading,error } = useQuery(READ_DISCLAIMER);
   if(loading) return <Loading/>

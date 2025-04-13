@@ -5,11 +5,11 @@ import { GET_MESSAGES } from 'graphql/queries';
 import { MESSAGE_ADDED } from 'graphql/subscriptions';
 import { SEND_MESSAGE } from 'graphql/mutation';
 import ReusableCenterLayout from 'components/Layout/ReusableCenterLayout';
-import ReusableMessage from 'components/UI/ReusableMessage';
+import ReusableMessage from 'components/Reusable/ReusableMessage';
 import { useSelector } from 'react-redux';
-import ReusableMessageInput from 'components/UI/ReusableMessageInput';
+import ReusableMessageInput from 'components/Reusable/ReusableMessageInput';
 import CrowdLoading from './CrowdLoading';
-import ReusableServerDown from 'components/UI/ReusableServerDown';
+import ReusableServerDown from 'components/Reusable/ReusableServerDown';
 
 const Messages = () => {
   const cookie = useSelector((state: any) => state.cookie.cookie);

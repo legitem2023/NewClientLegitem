@@ -6,7 +6,7 @@ import AddCartCmdView from 'components/Commands/AddCartCmdView';
 import LinkStoreCmd from 'components/Commands/LinkStoreCmd';
 
 import Element from './Element';
-import ReusableLabel from './ReusableLabel';
+import ReusableLabel from '../Reusable/ReusableLabel';
 
 interface UniversalContainerItemProps {
   item:any;

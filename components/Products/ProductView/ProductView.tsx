@@ -18,7 +18,7 @@ import AddCartCmdView from 'components/Commands/AddCartCmdView';
 import LinkStoreCmd from 'components/Commands/LinkStoreCmd';
 import Element from 'components/UI/Element';
 import { useDispatch, useSelector } from 'react-redux';
-import ReusableLabel from 'components/UI/ReusableLabel';
+import ReusableLabel from 'components/Reusable/ReusableLabel';
 import { setmodal } from 'Redux/modalSlice';
 import ProductViewLoading from './ProductViewLoading';
 

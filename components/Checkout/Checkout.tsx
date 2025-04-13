@@ -11,7 +11,7 @@ import React, { useState } from 'react';
 import DataManager from 'utils/DataManager';
 import ReusableCenterLayout from 'components/Layout/ReusableCenterLayout';
 import { useDispatch, useSelector } from 'react-redux';
-import ReusableLabel from 'components/UI/ReusableLabel';
+import ReusableLabel from 'components/Reusable/ReusableLabel';
 import { clearCart } from 'Redux/cartSlice';
 
 const Checkout = () => {

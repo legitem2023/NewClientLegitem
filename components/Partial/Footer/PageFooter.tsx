@@ -3,7 +3,7 @@ import { Icon } from '@iconify/react'
 import React, { useState } from 'react'
 import Link from 'next/link'
 import Notification from 'components/Notification/Notification';
-import ReusableNotification from 'components/UI/ReusableNotification';
+import ReusableNotification from 'components/Reusable/ReusableNotification';
 import {useSelector} from 'react-redux';
 const PageFooter:React.FC = () => {
   const path = process.env.NEXT_PUBLIC_PATH

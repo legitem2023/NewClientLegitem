@@ -7,7 +7,7 @@ import DataManager from 'utils/DataManager'
 import Link from 'next/link';
 import { Icon } from '@iconify/react';
 import { setSharedCookie } from 'utils/scripts';
-import ReusableBody from 'components/UI/ReusableBody';
+import ReusableBody from 'components/Reusable/ReusableBody';
 import ReusableCenterLayout from 'components/Layout/ReusableCenterLayout';
 import ReusableMainLayout from 'components/Layout/ReusableMainLayout';
 const LoginForm = () => {
