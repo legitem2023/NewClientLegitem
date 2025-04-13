@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import { ReactNode } from 'react';
 import Element from '../UI/Element';
+import AddCartCmd '../Commands/AddCartCmd';
 import Element_Title from '../UI/Element_Title';
 import Ratings from '../Partial/Ratings/Ratings';
 import Discounted from '../UI/Discounted';
@@ -12,10 +13,10 @@ interface ReusableCardProps {
   imageSource: (item: any) => string;
   handleError: (e: React.SyntheticEvent<HTMLImageElement, Event>) => void;
   handleLoading: (e: React.SyntheticEvent<HTMLImageElement, Event>) => void;
-  childA:() => ReactNode;
+  
 }
 
-const ReusableLikeCard: React.FC<ReusableCardProps> = ({ item, view, imageSource, handleError, handleLoading, childA }) => {
+const ReusableLikeCard: React.FC<ReusableCardProps> = ({ item, view, imageSource, handleError, handleLoading }) => {
   return (
     <div key={item.id} className='ReusableCardContainer' onClick={() => view(item)}>
       <div className='ReusableCardContainer_1'>
@@ -41,7 +42,7 @@ const ReusableLikeCard: React.FC<ReusableCardProps> = ({ item, view, imageSource
           </div>
         </div>
         <div>
-          {childA()}
+          <AddCartCmd item={item}/>
         </div>
         
       </div>
