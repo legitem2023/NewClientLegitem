@@ -30,7 +30,7 @@ const RelatedSize = ({styleCode,currentsize}) => {
      <div className="colorSelection" style={{ display:'flex',flexDirection:'column' }}>
   {data.getChildInventory_details.map((item: any) => (
       <div key={item.id} style={{ display: "flex", flexDirection: "column" }} onClick={() => view(item)}>
-        <button style={{border:currentsize===item.size?'solid 2px brown':'solid 2px white'}}>{item.size}</button>
+        <button style={{height:'35px',width:'50%',border:currentsize===item.size?'solid 2px brown':'solid 2px white'}}>{item.size}</button>
       </div>
     )
   )}
