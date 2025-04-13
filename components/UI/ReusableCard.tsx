@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import Element from './Element';
+import Element_Title from './Element_Title';
 import Ratings from '../Partial/Ratings/Ratings';
 import Discounted from './Discounted';
 import Price from './Price';
@@ -27,7 +28,7 @@ const ReusableCard: React.FC<ReusableCardProps> = ({ item, view, imageSource, ha
         onClick={handleLoading}/>      
       </div>
       <div className='ReusableCardContainer_1'>
-        <Element Label="Name" value={item.name} />
+        <Element_Title Label="Name" value={item.name} />
         <Element Label="Color" value={item.color} />
         <Element Label="Size" value={item.size} />
         <Element Label="Sold" value={item.TotalSoldItems ? item.TotalSoldItems : '0'} />
