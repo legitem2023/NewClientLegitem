@@ -15,7 +15,7 @@ const AddCartCmd:React.FC<PropsAddCartCmd> = (item) => {
     const dispatch = useDispatch(); 
     const AddToCart = (item) =>{
         
-        const cartData:any = [item].map((item:any)=>{
+        const cartData:any = item.item.map((item:any)=>{
           return {
             id: item.id, // You can change this to number if IDs are numeric
             productCode:item.productCode,
