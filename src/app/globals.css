@@ -2091,7 +2091,7 @@ input[type='date']{
   padding:0px;
   box-sizing: border-box;
 }
-
+/*
 .css-jfdv4h-MuiStack-root{
   display: flex;
   flex-direction: row;
@@ -2101,7 +2101,7 @@ input[type='date']{
 .strike{
   
 }
-
+*/
 .thumbnailImage {
   height: 250px;
   width: auto;
