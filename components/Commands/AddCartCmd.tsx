@@ -10,13 +10,14 @@ type PropsAddCartCmd = {
     item: any
 }
 const AddCartCmd:React.FC<PropsAddCartCmd> = (item) => {
-    console.log(item.item);
+    
     const Manager = new DataManager();
     const dispatch = useDispatch(); 
     const AddToCart = (item) =>{
         
-        const cartData:any = item.item.map((item:any)=>{
-          return {
+        const cartData:any = item.map((item:any)=>{
+          console.log(item,"<<<");
+            return {
             id: item.id, // You can change this to number if IDs are numeric
             productCode:item.productCode,
             image:item.image,
