@@ -127,9 +127,6 @@ const Messages = () => {
             event={handleSubmit}
             loading={isLoading}
           />
-          <span style={{ marginTop: "10px" }}>
-            Look for a specific Date <input type='date' onChange={JumpToDate} />
-          </span>
         </>
       )}
 
