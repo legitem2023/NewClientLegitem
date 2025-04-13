@@ -5,12 +5,14 @@ import { useDispatch } from 'react-redux';
 import { addToCart } from 'Redux/cartSlice';
 import DataManager from 'utils/DataManager';
 import { Cart } from 'utils/scripts';
+import DataManager from 'utils/DataManager';
 
 type PropsAddCartCmd = {
     item: any
 }
 const AddCartCmd:React.FC<PropsAddCartCmd> = (item) => {
-     const dispatch = useDispatch(); 
+    const Manager = new DataManager();
+    const dispatch = useDispatch(); 
     const AddToCart = (item) =>{
         const cartData:any = [item].map((item:any)=>{
           return {
@@ -23,7 +25,9 @@ const AddCartCmd:React.FC<PropsAddCartCmd> = (item) => {
             price: parseInt(item.price),
             quantity: 1
           }
-            dispatch(addToCart(cartData))
+            console.log(cartData);
+            dispatch(addToCart(cartData));
+            Manager.success("Added to cart");
         })
      } 
        
