@@ -22,6 +22,7 @@ const ReusableLikeCard: React.FC<ReusableCardProps> = ({ item, view, imageSource
       <div className='ReusableCardContainer_1'>
         <Image
         src={imageSource(item)}
+        style={{filter:item.stock < 1?'grayscale(100%):''}}
         height={150}
         width={150}
         quality={1}
