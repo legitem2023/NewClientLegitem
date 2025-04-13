@@ -527,7 +527,7 @@ input[type='date']{
   color:rgb(87, 39, 0);
   border-radius: 5px;
   width:auto;
-  border:solid 2px rgb(87, 39, 0);
+  outline:0;
   display: flex;
   justify-content: center;
   align-items: center;
