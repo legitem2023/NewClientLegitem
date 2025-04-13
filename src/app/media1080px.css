@@ -382,10 +382,7 @@
         width:100%;
         padding:10px;
     }
-    .NewsContainer{
-        display: grid;
-        grid-template-columns: auto auto;
-    }
+    
     .LikeContainer{
         display: grid;
         grid-template-columns: 100%;
