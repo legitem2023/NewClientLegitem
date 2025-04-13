@@ -7,7 +7,7 @@ type PropsElement = {
 const Element_Title:React.FC<PropsElement> = ({Label,value}) => {
   return (
     <div className="UniversalLabels">
-      <span className='thumbElements_title'>{value}</span>
+      <span className='thumbElements_Title'>{value}</span>
     </div>
   )
 }
