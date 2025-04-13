@@ -2176,6 +2176,15 @@ input[type='date']{
   text-overflow: ellipsis;
   text-align:left;
 }
+.thumbElements_Title {
+  padding: 1px;
+  display: block;
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align:left;
+}
 .thumbElements_addCart{
   display: flex;
   justify-content: flex-end;
