@@ -42,7 +42,7 @@ const ReusableLikeCard: React.FC<ReusableCardProps> = ({ item, view, imageSource
           </div>
         </div>
         <div>
-          <AddCartCmd item={item.item}/>
+          <AddCartCmd item={item}/>
         </div>
         
       </div>
