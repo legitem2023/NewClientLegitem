@@ -232,17 +232,14 @@
         font-size: 16px;
     }
     .NewsContainer{
-        display: grid;
         grid-template-columns:100%;
     }
     .LikeContainer{
-        display: grid;
         grid-template-columns: 100%;
     }
     .card{
         height: 200px;
         display:flex;
-        align-items:center;
-            
+        align-items:center;     
     }
 }
