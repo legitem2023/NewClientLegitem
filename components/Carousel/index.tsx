@@ -25,6 +25,7 @@ export default function Carousel({data,fromData}) {
           width: "100%",
           height: 300,
           userSelect: "none",
+          backgroundColor:"#c0c0c0"
         }}
         className="my-slide-component"
       >
