@@ -185,11 +185,13 @@
 }
 
 .LikeContainer {
-  position:relative;
-  width:100%;
   display: grid;
-  gap:2px;
   grid-template-columns: 33.33% 33.33% 33.33%;
+  height: auto;
+  grid-gap: 0.2vw;
+  transition: ease 0.5s;
+  justify-content: 'flex-start';
+  position: relative;
 }
 
 .ReusableCardContainer {
