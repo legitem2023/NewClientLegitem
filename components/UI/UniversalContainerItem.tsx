@@ -14,6 +14,7 @@ interface UniversalContainerItemProps {
 }
 
 const UniversalContainerItem: React.FC<UniversalContainerItemProps> = ({ title, thumbnail, summary, dateCreated, index }) => {
+ console.log(thumbnail);
   return (
     <div className="UniversalContainerItem">
       <div className="UniversalContainerHead LabelHead">
