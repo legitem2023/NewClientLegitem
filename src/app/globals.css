@@ -209,6 +209,10 @@
   box-sizing: border-box;
   background-color: #f1f1f1;
   width:100%;
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: repeat(7, calc(100% / 7 + 2px));
+
 }
 
 .ReusableCardContainer_1 img {
