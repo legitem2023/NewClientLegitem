@@ -1,4 +1,4 @@
-@media (min-width: 679px) and (max-width: 1024px) {
+@media only screen (max-width 600px){
     /* .Main {
         overflow-x: hidden !important;
     } */
