@@ -235,7 +235,7 @@
         grid-template-columns:100%;
     }
     .LikeContainer{
-        grid-template-columns: 100%;
+        grid-template-columns: 100%!important;
     }
     .card{
         height: 200px;
