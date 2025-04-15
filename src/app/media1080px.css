@@ -96,14 +96,14 @@
         justify-content: center;
         align-items: center;
         transition: ease 0.5s;
-        position: fixed;
-        bottom:0px;
+        position:fixed;
+        bottom:0px!important;
         width: 100vw;
         text-align: center;
         box-shadow: 0.5px 0.5px 3px #000;
         background-color:rgb(249 220 206);
         transform: scale(1);
-        z-index:99;
+        z-index:99!important;
     }
     .FootFooter{
         background-color:rgb(249 220 206);
