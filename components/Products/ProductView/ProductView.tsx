@@ -1,6 +1,7 @@
 'use client'
 import React, { useState, Suspense } from 'react';
 import Share from 'components/Partial/Share/Share';
+import Ratings from 'components/Partial/Ratings/Ratings';
 import { Icon } from '@iconify/react';
 import Loading from 'components/Partial/LoadingAnimation/Loading';
 import ProductTabs from './ProductTabs';
