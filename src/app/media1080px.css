@@ -103,6 +103,7 @@
         box-shadow: 0.5px 0.5px 3px #000;
         background-color:rgb(249 220 206);
         transform: scale(1);
+        z-index:99;
     }
     .FootFooter{
         background-color:rgb(249 220 206);
