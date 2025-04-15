@@ -45,6 +45,7 @@ type Rating = {
 type ViewedProduct = {
   TotalRatings: number;
   TotalSoldItems: number;
+  productDescription: string;
   Views: View[];
   Ratings: Rating[];
   agentEmail: string;
