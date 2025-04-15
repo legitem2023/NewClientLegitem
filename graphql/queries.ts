@@ -262,6 +262,7 @@ query GetChildInventory {
     productType
     style_Code
     brandname
+    productDescription
     TotalSoldItems
     TotalRatings
     dateCreated
@@ -290,6 +291,7 @@ query GetChildInventory_details($styleCode: String) {
   getChildInventory_details(styleCode: $styleCode) {
     id
     thumbnail
+    productDescription
     price
     productCode
     name
@@ -342,6 +344,7 @@ query GetRelatedProduct {
   getRelatedProduct {
     id
     thumbnail
+    productDescription
     price
     productCode
     name
