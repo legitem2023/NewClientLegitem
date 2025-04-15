@@ -38,9 +38,14 @@ type View = {
   [key: string]: any; // Replace `any` with the actual type if known
 };
 
-type Rating = {
-  [key: string]: any; // Replace `any` with the actual type if known
-};
+type Ratings = {
+      Ratings:string
+      productCode:string
+      id:string
+      Comment:string
+      By:string
+      Attachment:string
+}
 
 type ViewedProduct = {
   TotalRatings: number;
