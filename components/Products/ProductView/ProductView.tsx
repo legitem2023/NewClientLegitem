@@ -6,7 +6,7 @@ import Loading from 'components/Partial/LoadingAnimation/Loading';
 import ProductTabs from './ProductTabs';
 import { GET_RELATED_PRODUCTS } from 'graphql/queries';
 import { useMutation, useQuery } from '@apollo/client';
-import { formatter } from 'utils/scripts';
+import { Cart, formatter, maskEmail } from 'utils/scripts';
 import RelatedProducts from './RelatedProducts';
 import HtmlRenderer from 'components/Html/HtmlRenderer';
 import InsertView from './InsertView';
@@ -95,8 +95,15 @@ const ProductView: React.FC = () => {
               <HtmlRenderer htmlContent={viewItem?.productDescription} />
             </div>
             <ReusableLabel icn='' label='Product Review'/>
-            <div className='longtext'>
-              {/* Product reviews rendering can be placed here */}
+             <div className='longtext'>
+              {viewItem?.Ratings.length > 0 ? viewItem?.Ratings.map((item: any, idx: any) => (
+                <div key={idx}>
+                  <div>{maskEmail(item.By)}</div>
+                  <div>{item.Comment}</div>
+                  <div><Ratings data={item.Ratings > 0 ?item.Ratings:0} count={item}/>
+                  </div>
+                </div>     
+              )):"No Review Found"}
             </div>
           </div>
           <RelatedProducts data={Products?.getRelatedProduct} />
