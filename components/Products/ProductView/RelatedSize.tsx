@@ -50,19 +50,14 @@ const RelatedSize: React.FC<RelatedSizeProps> = ({ styleCode, currentsize }) => 
       {data?.getChildInventory_details?.map((item: any) => (
         <SwiperSlide
           key={item.id}
-          style={{ display: 'flex', flexDirection: 'column' }}
           onClick={() => view(item)}
-        >
-          <button
-            style={{
+          style={{
+              display: 'flex', flexDirection: 'column',
               height: '35px',
               width: '50%',
               border: currentsize === item.size ? 'solid 2px brown' : 'solid 2px white',
             }}
-          >
-            {item.size}
-          </button>
-        </SwiperSlide>
+        >{item.size}</SwiperSlide>
       ))}
     </Swiper>
   )
