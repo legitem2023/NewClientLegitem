@@ -35,8 +35,7 @@ const RelatedSize = ({styleCode,currentsize}) => {
         spaceBetween={10}
         watchSlidesProgress
         autoplay={autoplay ? { delay: 3000, disableOnInteraction: false } : false}
-        thumbs={{ swiper: thumbsSwiper }}
-      >
+        thumbs={{ swiper: thumbsSwiper }}>
   {data.getChildInventory_details.map((item: any) => (
       <SwiperSlide key={item.id} style={{ display: "flex", flexDirection: "column" }} onClick={() => view(item)}>
         <button style={{height:'35px',width:'50%',border:currentsize===item.size?'solid 2px brown':'solid 2px white'}}>{item.size}</button>
