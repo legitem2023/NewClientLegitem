@@ -48,6 +48,7 @@ const RelatedSize: React.FC<RelatedSizeProps> = ({ styleCode, currentsize }) => 
     >
       {data?.getChildInventory_details?.map((item: any) => (
         <SwiperSlide
+          className="scaled-text"
           key={item.id}
           onClick={() => view(item)}
           style={{
