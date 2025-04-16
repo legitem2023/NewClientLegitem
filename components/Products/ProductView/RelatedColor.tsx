@@ -30,37 +30,25 @@ const RelatedColor = ({styleCode,currentcolor}) => {
       }
 
     return (
-    <div className='colorSelection' style={{display:'flex',flexDirection:'row', justifyContent:'space-between',height:'100px'}}>{
-        data.getChildInventory_details.map((item:any)=>(
-            <div 
-  key={item.id} 
-  style={{ 
-    display: 'flex', 
-    borderRadius:'100%',
-    flexDirection: 'column', 
-    justifyContent: 'center', 
-    alignItems: 'center' // 'top' is invalid, use 'flex-start' 
-  }} 
-  onClick={() => view(item)}
->
- <Swiper
+     <Swiper
       modules={[Navigation, Thumbs, Autoplay]}
       slidesPerView={4}
       spaceBetween={10}
       watchSlidesProgress
       autoplay={{ delay: 3000, disableOnInteraction: false }}
       thumbs={{ swiper: thumbsSwiper }}
-    >               
+    >{
+        data.getChildInventory_details.map((item:any)=>(
+    <SwiperSlide
+          key={item.id}
+          onClick={() => view(item)}> 
   <ReusableFirstLetterImage
     text={item.color}
     size={100}
     bgColor={currentcolor===item.color?'#ff9999':'rgb(87, 39, 0)'}
     textColor="#ffffff"
-  />
-  </Swiper>
-</div>
-        ))
-    }</div>
+  /></SwiperSlide>))
+    }</Swiper>
   )
 }
 
