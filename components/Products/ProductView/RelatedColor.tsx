@@ -43,13 +43,21 @@ const RelatedColor = ({styleCode,currentcolor}) => {
   }} 
   onClick={() => view(item)}
 >
+ <Swiper
+      modules={[Navigation, Thumbs, Autoplay]}
+      slidesPerView={4}
+      spaceBetween={10}
+      watchSlidesProgress
+      autoplay={{ delay: 3000, disableOnInteraction: false }}
+      thumbs={{ swiper: thumbsSwiper }}
+    >               
   <ReusableFirstLetterImage
     text={item.color}
     size={100}
     bgColor={currentcolor===item.color?'#ff9999':'rgb(87, 39, 0)'}
     textColor="#ffffff"
   />
-  
+  </Swiper>
 </div>
         ))
     }</div>
