@@ -30,8 +30,6 @@ const RelatedSize = ({styleCode,currentsize}) => {
     return (
         {/*     <div className="colorSelection" style={{ display:'flex',flexDirection:'column' }}> */}
         <Swiper
-        modules={[Navigation,Thumbs, Autoplay]}
-        navigation
         pagination={{ clickable: true }}
         loop={loop}
         modules={[Navigation, Thumbs]}
