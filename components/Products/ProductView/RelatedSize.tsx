@@ -44,7 +44,6 @@ const RelatedSize: React.FC<RelatedSizeProps> = ({ styleCode, currentsize }) => 
       slidesPerView={4}
       spaceBetween={10}
       watchSlidesProgress
-      autoplay={{ delay: 3000, disableOnInteraction: false }}
       thumbs={{ swiper: thumbsSwiper }}
     >
       {data?.getChildInventory_details?.map((item: any) => (
