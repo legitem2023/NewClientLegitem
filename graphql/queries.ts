@@ -291,7 +291,6 @@ query GetChildInventory_details($styleCode: String) {
   getChildInventory_details(styleCode: $styleCode) {
     id
     thumbnail
-    productDescription
     price
     productCode
     name
@@ -305,6 +304,7 @@ query GetChildInventory_details($styleCode: String) {
     productType
     style_Code
     brandname
+    productDescription
     TotalSoldItems
     TotalRatings
     dateCreated
