@@ -6,8 +6,14 @@ import { imageSourceGallery } from 'utils/scripts'
 import Image from 'next/image'
 import Link from 'next/link'
 import ReusableFirstLetterImage from 'components/Reusable/ReusableFirstLetterImage';
-import { useDispatch } from 'react-redux'
-import { setViewedProd } from 'Redux/viewedProdSlice'
+import { useDispatch } from 'react-redux';
+import { setViewedProd } from 'Redux/viewedProdSlice';
+import { Swiper, SwiperSlide } from 'swiper/react'
+import { Navigation, Pagination, Thumbs, Autoplay } from 'swiper/modules'
+import 'swiper/css'
+import 'swiper/css/navigation'
+import 'swiper/css/pagination'
+import 'swiper/css/thumbs'
 const RelatedColor = ({styleCode,currentcolor}) => {
     const {data,loading,error} = useQuery(GET_CHILD_INVENTORY_RELATED_COLOR_SIZE,{
         variables:{
