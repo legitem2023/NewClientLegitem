@@ -1,6 +1,15 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.scaled-text {
+  font-size: clamp(1rem, 5vw, 2.5rem); /* Scales between 1rem and 2.5rem */
+  width: fit-content;
+  max-width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
  .ServerDown{
   display: flex;
   width:100%;
