@@ -35,9 +35,8 @@ const RelatedColor = ({styleCode,currentcolor}) => {
       slidesPerView={4}
       spaceBetween={10}
       watchSlidesProgress
-      autoplay={{ delay: 3000, disableOnInteraction: false }}
-      thumbs={{ swiper: thumbsSwiper }}
-    >{
+      autoplay={{ delay: 3000, disableOnInteraction: false }}>
+        {
         data.getChildInventory_details.map((item:any)=>(
     <SwiperSlide
           key={item.id}
