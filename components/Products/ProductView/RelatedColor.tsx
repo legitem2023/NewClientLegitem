@@ -31,11 +31,10 @@ const RelatedColor = ({styleCode,currentcolor}) => {
 
     return (
      <Swiper
-      modules={[Navigation, Thumbs, Autoplay]}
-      slidesPerView={4}
+      modules={[Navigation, Thumbs]}
+      slidesPerView={6}
       spaceBetween={10}
-      watchSlidesProgress
-      autoplay={{ delay: 3000, disableOnInteraction: false }}>
+      watchSlidesProgress>
         {
         data.getChildInventory_details.map((item:any)=>(
     <SwiperSlide
