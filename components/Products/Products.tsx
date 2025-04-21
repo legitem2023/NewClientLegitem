@@ -204,7 +204,7 @@ const sampleData = [
        <ReusableSearch search={searchEngine} sort={sort} trigger={sortTrigger} />
       )}
       child2={() => (
-        <ReusableCustomCarousel data={useSaved} />
+        <RecentlyVisited data={useSaved} fromData={false}/>
       )}
       child3={() => (
         <div
