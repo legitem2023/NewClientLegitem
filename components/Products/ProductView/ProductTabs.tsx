@@ -5,6 +5,7 @@ import 'react-tabs/style/react-tabs.css';
 import { Icon } from "@iconify/react";
 import EffectsRenderer from "components/Partial/VTO/EffectsRenderer";
 import { ViewGallery } from "components/Gallery/ViewGallery";
+import ReusableCustomCarousel from 'components/Reusable/ReusableCustomCarousel';
 
 type PropsProductTabs = {
   data: (name: string) => void;
@@ -89,7 +90,8 @@ const ProductTabs:React.FC<PropsProductTabs> = ({data}:any) =>{
   const optional_rendering_tab_gallery = () =>{
     if (isActive === "Gallery") {
       return (
-        <Gallery data={data} length={data} slidesPerView={1} spaceBetween={50}/>
+        <ReusableCustomCarousel data={data}/>
+        {/*<Gallery data={data} length={data} slidesPerView={1} spaceBetween={50}/>*/}
       );
     }
   }
