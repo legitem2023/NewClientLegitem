@@ -90,15 +90,16 @@ const ProductTabs:React.FC<PropsProductTabs> = ({data}:any) =>{
     return null; // Return null to indicate no rendering
   };
   
- /* const galleryItems = data.map((item) => ({
-    image: imageSourceGallery(item.ima),
-    Name: item.Name,
-  }));*/
+  const galleryItems = data.subImageFieldOut.map((item) => (
+   return {
+    image: item.ImagePath,
+    Name: item.id,
+    }));
   console.log(data.subImageFieldOut);
   const optional_rendering_tab_gallery = () =>{
     if (isActive === "Gallery") {
       return (
-        <></>
+        <ReusableCustomCarousel data={galleryItems}/>
       );
     }
   }
