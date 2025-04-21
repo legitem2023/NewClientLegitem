@@ -248,5 +248,21 @@
     height: 300px!important; /* Or whatever fixed height you want */
     border-radius: 8px; /* Optional: makes images look cleaner */
   }
+.react-image-carousel .ric-thumbnails {
+  height: 80px!important; /* Set your desired thumbnail row height */
+  overflow: hidden;
+}
+
+.react-image-carousel .ric-thumbnail {
+  height: 100%; /* Make each thumbnail fill the row */
+  aspect-ratio: 1 / 1; /* Optional: makes them square */
+}
+
+.react-image-carousel .ric-thumbnail img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 4px; /* Optional: smooth corners */
+}
 
 }
