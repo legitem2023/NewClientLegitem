@@ -8,10 +8,17 @@ import { GET_CATEGORY } from 'graphql/queries';
 import React from 'react'
 import ReusableLabel from 'components/Reusable/ReusableLabel';
 import HomeLoading from './HomeLoading';
+import ReusableCustomCarousel from 'components/Reusable/ReusableCustomCarousel';
+
 const Home = () => {
+    
     const { data:Category, loading, error } = useQuery(GET_CATEGORY);
     if(loading) return <HomeLoading/>
     if(error) return "Connection Error";
+
+    const gallery = Category?.getCategory;
+
+    
   return (
     <ReusableCenterLayout
       child1={()=>(         
@@ -30,6 +37,7 @@ const Home = () => {
       child3={()=>(
         <div className='homeContainer'>
         <ReusableLabel icn='carbon:recently-viewed' label='Most Viewed'/>
+        <ReusableCustomCarousel data={Category?.getCategory} />
       </div>
       )}
       child4={()=>(<></>)}
