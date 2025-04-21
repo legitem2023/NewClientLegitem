@@ -90,8 +90,7 @@ const ProductTabs:React.FC<PropsProductTabs> = ({data}:any) =>{
   const optional_rendering_tab_gallery = () =>{
     if (isActive === "Gallery") {
       return (
-        <ReusableCustomCarousel data={data}/>
-        {/*<Gallery data={data} length={data} slidesPerView={1} spaceBetween={50}/>*/}
+        <ReusableCustomCarousel data={data} />
       );
     }
   }
