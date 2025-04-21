@@ -5,6 +5,8 @@ import 'react-tabs/style/react-tabs.css';
 import { Icon } from "@iconify/react";
 import EffectsRenderer from "components/Partial/VTO/EffectsRenderer";
 import { ViewGallery } from "components/Gallery/ViewGallery";
+import { handleError, imageSourceGallery } from 'utils/scripts';
+
 import ReusableCustomCarousel from 'components/Reusable/ReusableCustomCarousel';
 
 type PropsProductTabs = {
@@ -89,15 +91,15 @@ const ProductTabs:React.FC<PropsProductTabs> = ({data}:any) =>{
   };
   
   const galleryItems = data.map((item) => ({
-    original: item.image,
-    thumbnail: item.image,
+    original: imageSourceGallery(item.image),
+    thumbnail: imageSourceGallery(item.image),
     description: item.Name,
   }));
   
   const optional_rendering_tab_gallery = () =>{
     if (isActive === "Gallery") {
       return (
-        <ReusableCustomCarousel data={data} />
+        <ReusableCustomCarousel data={galleryItems} />
       );
     }
   }
