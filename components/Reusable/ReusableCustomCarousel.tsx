@@ -41,7 +41,7 @@ const fallbackData = [
   }));
 
   return (
-    <div className="w-full max-w-4xl mx-auto">
+    <div style={width:100%,boxSizing:"border-box"}>
       <ImageGallery
         items={galleryItems}
         showPlayButton={true}
