@@ -33,8 +33,7 @@ const fallbackData = [
   }];
   
   let carouselData = data && data.length > 0 ? [...data] : [...fallbackData];
- console.log(data);
-  return;
+ 
   const galleryItems = carouselData.map((item) => ({
     original: item.image,
     thumbnail: item.image,
