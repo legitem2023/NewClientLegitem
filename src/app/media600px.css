@@ -243,9 +243,9 @@
         align-items:center;     
     }
 .react-image-carousel img {
-    object-fit: cover; /* Maintain aspect ratio and fill the area */
-    width: 100%;
-    height: 300px; /* Or whatever fixed height you want */
+    object-fit: cover!important; /* Maintain aspect ratio and fill the area */
+    width: 100%!important;
+    height: 300px!important; /* Or whatever fixed height you want */
     border-radius: 8px; /* Optional: makes images look cleaner */
   }
 
