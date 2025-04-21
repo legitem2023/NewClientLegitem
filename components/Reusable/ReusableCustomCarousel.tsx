@@ -32,7 +32,9 @@ const fallbackData = [
     "image": "https://example.com/images/product6.jpg"
   }];
   
-  const galleryItems = data.map((item) => ({
+  let carouselData = data && data.length > 0 ? [...data] : [...fallbackData];
+
+  const galleryItems = carouselData.map((item) => ({
     original: item.image,
     thumbnail: item.image,
     description: item.Name,
