@@ -158,6 +158,11 @@ const saveRecentlyVisited = (product:ViewedProduct ) => {
     }
   });
 
+
+const handleClick = (item: any) => {
+    console.log('Clicked on:', item);
+  };
+  
 useEffect(() => {
   if (ProductsData?.getChildInventory) {
     //const multipliedProducts = multiplyArray(ProductsData.getChildInventory, 1);
@@ -205,7 +210,7 @@ const sampleData = [
         <div
           style={{ overflowY: 'auto', height: 'auto', scrollbarWidth: 'none' }} // Set height to auto
         >
-           <ReusableCustomCarousel data={useSave} fromData={false} />
+           <ReusableCustomCarousel data={useSave} onClick={handleClick} />
            <RecentlyVisited data={useSaved} fromData={false} /> 
           <ReusableLabel icn='bi:tags-fill' label='Products'/>
           <div className="Thumbnails">
