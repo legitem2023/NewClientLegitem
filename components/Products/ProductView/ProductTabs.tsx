@@ -91,9 +91,9 @@ const ProductTabs:React.FC<PropsProductTabs> = ({data}:any) =>{
   };
   
   const galleryItems = data.subImageFieldOut.map((item) => (
-   return {
-    image: item.ImagePath,
-    Name: item.id,
+    {
+      image: item.ImagePath,
+      Name: item.id,
     }));
   console.log(data.subImageFieldOut);
   const optional_rendering_tab_gallery = () =>{
