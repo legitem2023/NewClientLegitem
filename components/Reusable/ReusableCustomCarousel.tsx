@@ -1,8 +1,8 @@
 'use client';
 
 import React from 'react';
-import ImageCarousel from 'react-image-carousel';
-import 'react-image-carousel/lib/ImageCarousel.css';
+import ImageGallery from 'react-image-gallery';
+import 'react-image-gallery/styles/css/image-gallery.css';
 
 type CarouselItem = {
   Name: string;
@@ -15,16 +15,25 @@ type Props = {
 };
 
 const ReusableCustomCarousel: React.FC<Props> = ({ data, onImageClick = () => {} }) => {
-  const imageUrls = data.map((item) => item.image);
+  const galleryItems = data.map((item) => ({
+    original: item.image,
+    thumbnail: item.image,
+    description: item.Name,
+  }));
 
   return (
     <div className="w-full max-w-4xl mx-auto">
-      <ImageCarousel
-        images={imageUrls}
-        thumb={true}
-        loop={true}
-        autoPlay={true}
-        onClick={(index: number) => onImageClick(data[index])}
+      <ImageGallery
+        items={galleryItems}
+        showPlayButton={true}
+        showFullscreenButton={true}
+        onClick={(e) => {
+          const index = (e?.target as any)?.closest('[data-index]')?.getAttribute('data-index');
+          if (index !== null && index !== undefined) {
+            const idx = parseInt(index);
+            if (!isNaN(idx)) onImageClick(data[idx]);
+          }
+        }}
       />
     </div>
   );
