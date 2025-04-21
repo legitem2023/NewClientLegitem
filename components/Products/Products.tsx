@@ -48,7 +48,6 @@ const saveRecentlyVisited = (product:ViewedProduct ) => {
     const filtered = visited.filter((p) => p.id !== product.id);
     // Add the new product at the beginning
     filtered.unshift(product);
-    console.log(product);
     // Keep only the last 10 visited items
     localStorage.setItem("recentlyVisited", JSON.stringify(filtered.slice(0, 10)));
   } catch (error) {
@@ -168,8 +167,6 @@ useEffect(() => {
     //const multipliedProducts = multiplyArray(ProductsData.getChildInventory, 1);
     dispatch(addSuggestedItems(ProductsData?.getChildInventory));
 
-console.log(useSaved);
-
 const localData = JSON.parse(localStorage.getItem("recentlyVisited") || "[]"); 
 
 const formattedData = localData.map((item: any) => ({
@@ -180,23 +177,18 @@ const formattedData = localData.map((item: any) => ({
 
 setSaved(formattedData);
 
-
-
   }
 }, [dispatch, ProductsData]);
 
-  
   if (productsLoading) return <ProductLoading />;
   if (productsError) return <ReusableServerDown />;
  
-
 const sampleData = [
   { image: "/images/sample1.jpg", Name: "Product 1" },
   { image: "/images/sample2.jpg", Name: "Product 2" },
   { image: "/images/sample3.jpg", Name: "Product 3" },
   { image: "/images/sample4.jpg", Name: "Product 4" },
 ];
-
 
   return (
     <ReusableCenterLayout
