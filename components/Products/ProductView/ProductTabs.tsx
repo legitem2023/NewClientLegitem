@@ -76,9 +76,6 @@ const ProductTabs:React.FC<PropsProductTabs> = ({data}:any) =>{
     return null; // Return null to indicate no rendering
   }
 //#####################################################################################
-//#####################################################################################
-//#####################################################################################
-//#####################################################################################
   const optional_rendering_tab_threejs = () => {
     if (data.model !== null && isActive === "ThreeJS") {
       return (
@@ -95,24 +92,17 @@ const ProductTabs:React.FC<PropsProductTabs> = ({data}:any) =>{
       image: item.ImagePath,
       Name: item.id,
     }));
-  console.log(data.subImageFieldOut);
+  
   const optional_rendering_tab_gallery = () =>{
     if (isActive === "Gallery") {
-      return (
-        <ReusableCustomCarousel data={galleryItems}/>
-      );
+      return (<ReusableCustomCarousel data={galleryItems}/>);
     }
   }
   const optional_rendering_tab_vto = () =>{
     if (data.model !== null && isActive === "VTO") {
-      return (
-        <EffectsRenderer />
-    );
+      return (<EffectsRenderer />);
     }
   }
-//#####################################################################################
-//#####################################################################################
-//#####################################################################################
 //#####################################################################################
   return (
     <div className="flex flex-col px-4">
