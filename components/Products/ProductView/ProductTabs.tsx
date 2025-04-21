@@ -90,10 +90,10 @@ const ProductTabs:React.FC<PropsProductTabs> = ({data}:any) =>{
     return null; // Return null to indicate no rendering
   };
   
-  const galleryItems = data.map((item) => ({
-    image: imageSourceGallery(item.image),
+ /* const galleryItems = data.map((item) => ({
+    image: imageSourceGallery(item.ima),
     Name: item.Name,
-  }));
+  }));*/
   console.log(data);
   const optional_rendering_tab_gallery = () =>{
     if (isActive === "Gallery") {
