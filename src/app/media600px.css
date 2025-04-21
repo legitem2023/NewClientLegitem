@@ -249,7 +249,7 @@
     border-radius: 8px; /* Optional: makes images look cleaner */
   }
 .react-image-carousel .ric-thumbnails {
-  height: 80px!important; /* Set your desired thumbnail row height */
+  height: 40px!important; /* Set your desired thumbnail row height */
   overflow: hidden;
 }
 
