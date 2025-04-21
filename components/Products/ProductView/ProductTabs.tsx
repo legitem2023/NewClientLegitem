@@ -94,7 +94,7 @@ const ProductTabs:React.FC<PropsProductTabs> = ({data}:any) =>{
     image: imageSourceGallery(item.ima),
     Name: item.Name,
   }));*/
-  console.log(data);
+  console.log(data.subImageFieldOut);
   const optional_rendering_tab_gallery = () =>{
     if (isActive === "Gallery") {
       return (
