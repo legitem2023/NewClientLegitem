@@ -41,7 +41,7 @@ const fallbackData = [
   }));
 
   return (
-    <div style={width:100%,boxSizing:"border-box"}>
+    <div style={{width:100%,boxSizing:"border-box"}}>
       <ImageGallery
         items={galleryItems}
         showPlayButton={true}
