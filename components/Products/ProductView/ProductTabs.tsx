@@ -91,9 +91,8 @@ const ProductTabs:React.FC<PropsProductTabs> = ({data}:any) =>{
   };
   
   const galleryItems = data.map((item) => ({
-    original: imageSourceGallery(item.image),
-    thumbnail: imageSourceGallery(item.image),
-    description: item.Name,
+    image: imageSourceGallery(item.image),
+    Name: item.Name,
   }));
   
   const optional_rendering_tab_gallery = () =>{
