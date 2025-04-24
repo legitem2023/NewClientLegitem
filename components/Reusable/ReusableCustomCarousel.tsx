@@ -44,7 +44,7 @@ const fallbackData = [
     <div style={{width:"100%",boxSizing:"border-box"}}>
       <ImageGallery
         items={galleryItems}
-        thumbnailPosition={`Left`}
+        thumbnailPosition='left'
         showPlayButton={true}
         showFullscreenButton={true}
       />
