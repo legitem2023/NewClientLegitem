@@ -5,7 +5,7 @@ import ImageGallery from 'react-image-gallery';
 import { Icon } from '@iconify/react'; // Import Iconify
 import 'react-image-gallery/styles/css/image-gallery.css';
 
-const ReusableCustomCarousel = ({ data,showthumbs }) => {
+const ReusableCustomCarousel = ({ data,showthumbs,thumbpos }) => {
 
   const fallbackData = [
     {
@@ -87,7 +87,7 @@ const ReusableCustomCarousel = ({ data,showthumbs }) => {
     <div style={{ width: "100%", boxSizing: "border-box" }}>
       <ImageGallery
         items={galleryItems}
-        thumbnailPosition='left'
+        thumbnailPosition={thumbpos}
         showThumbnails={showthumbs}
         showPlayButton={true}
         showFullscreenButton={true}
