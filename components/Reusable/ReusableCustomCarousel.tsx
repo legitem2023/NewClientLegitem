@@ -4,9 +4,9 @@ import React, { useState } from 'react';
 import ImageGallery from 'react-image-gallery';
 import { Icon } from '@iconify/react'; // Import Iconify
 import 'react-image-gallery/styles/css/image-gallery.css';
-
+import { useSelector } from 'react-redux';
 const ReusableCustomCarousel = ({ data,showthumbs,thumbpos }) => {
-
+const viewedID = useSelector((state:any) => state.viewed.viewed);
   const fallbackData = [
     {
       "Name": "Product 1",
@@ -88,6 +88,7 @@ const ReusableCustomCarousel = ({ data,showthumbs,thumbpos }) => {
       <ImageGallery
         items={galleryItems}
         thumbnailPosition={thumbpos}
+        startIndex={viewedID}
         showThumbnails={showthumbs}
         showPlayButton={true}
         showFullscreenButton={true}
