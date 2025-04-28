@@ -95,7 +95,7 @@ const ProductTabs:React.FC<PropsProductTabs> = ({data}:any) =>{
   
   const optional_rendering_tab_gallery = () =>{
     if (isActive === "Gallery") {
-      return (<ReusableCustomCarousel data={galleryItems} showthumbs={false} />);
+      return (<ReusableCustomCarousel data={galleryItems} showthumbs={false} thumbpos="bottom"/>);
     }
   }
   const optional_rendering_tab_vto = () =>{
