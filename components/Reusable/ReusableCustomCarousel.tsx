@@ -6,7 +6,7 @@ import { Icon } from '@iconify/react'; // Import Iconify
 import 'react-image-gallery/styles/css/image-gallery.css';
 import { useSelector } from 'react-redux';
 const ReusableCustomCarousel = ({ data,showthumbs,thumbpos }) => {
-const viewedID = useSelector((state:any) => state.viewed.viewed);
+//const viewedID = useSelector((state:any) => state.viewed.viewed);
   const fallbackData = [
     {
       "Name": "Product 1",
@@ -35,7 +35,7 @@ const viewedID = useSelector((state:any) => state.viewed.viewed);
   ];
 
   let carouselData = data && data.length > 0 ? [...data] : [...fallbackData];
-  const initialSlideIndex = data.subImageFieldOut.findIndex((img) => img.ImagePath === viewedID);
+ // const initialSlideIndex = data.subImageFieldOut.findIndex((img) => img.ImagePath === viewedID);
   // Custom Thumbnail component with loading spinner
   const ThumbnailWithLoader = ({ thumbnail }) => {
     const [loading, setLoading] = useState(true);
