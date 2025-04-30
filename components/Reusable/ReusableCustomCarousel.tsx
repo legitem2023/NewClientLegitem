@@ -88,7 +88,7 @@ const viewedID = useSelector((state:any) => state.viewed.viewed);
       <ImageGallery
         items={galleryItems}
         thumbnailPosition={thumbpos}
-        startIndex={initialSlideIndex}
+      
         showThumbnails={showthumbs}
         showPlayButton={true}
         showFullscreenButton={true}
