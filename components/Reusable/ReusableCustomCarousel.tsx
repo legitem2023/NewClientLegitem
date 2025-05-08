@@ -84,7 +84,7 @@ const ReusableCustomCarousel = ({ data,showthumbs,thumbpos }) => {
   }));
 
   return (
-    <div style={{ width: "100%", boxSizing: "border-box" }}>
+    <div style={{ width: "100%", boxSizing: "border-box",height:"100%" }}>
       <ImageGallery
         items={galleryItems}
         thumbnailPosition={thumbpos}
