@@ -1,6 +1,7 @@
 import PageHeader from '../../components/Partial/Header/PageHeader';
 import PageFooter from '../../components/Partial/Footer/PageFooter';
 import PageBody from '../../components/Products/ProductsBody';
+import HomeBody from '../../components/Home/HomeBody'
 import { Suspense } from 'react';
 import Loading from 'components/Partial/LoadingAnimation/Loading';
 export default function Index() {
@@ -8,7 +9,7 @@ export default function Index() {
     <Suspense fallback={<Loading/>}>
     <div className='Main'>
       <PageHeader />
-      <PageBody />
+      <HomeBody/>
       <PageFooter />
     </div>
     </Suspense>
