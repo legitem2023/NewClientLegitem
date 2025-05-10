@@ -21,26 +21,32 @@ const Home = () => {
     
   return (
     <ReusableCenterLayout
-      child1={()=>(         
+      child1={()=>(
+        <div className='homeContainer'>
+          <ReusableLabel icn='nrk:category-active' label='Store'/>
+          <Carousel data={Category?.getCategory} fromData={"Category"}></Carousel>
+        </div>
+      )}
+      child2={()=>(         
         <div className='homeContainer'>
           <ReusableLabel icn='nrk:category-active' label='Categories'/>
           <Carousel data={Category?.getCategory} fromData={"Category"}></Carousel>
         </div>
       )}
-      child2={()=>(
+      child3={()=>(
         <div className='homeContainer'>
           <ReusableLabel icn='iconoir:select-face-3d' label='3D Model'/>
           <SliderModels/>
         </div>
         
       )}
-      child3={()=>(
+      child4={()=>(
         <div className='homeContainer'>
         <ReusableLabel icn='carbon:recently-viewed' label='Most Viewed'/>
         <ReusableCustomCarousel data={Category?.getCategory} showthumbs={true} thumbpos="left"/>
       </div>
       )}
-      child4={()=>(<></>)}
+      
     />
   )
 }
