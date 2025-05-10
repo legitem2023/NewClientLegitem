@@ -32,6 +32,18 @@ const Menu: React.FC = () => {
   };
 
 
+  const dropdownRef = useRef<HTMLDivElement>(null);
+
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        dispatch(setDrawer(false));
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
   const ShowAll = (name:any) =>{
 
     if(name==='Discounted'){
@@ -52,7 +64,6 @@ const Menu: React.FC = () => {
 
   if (categoryLoading || productTypesLoading ) return <MenuLoading/>;
   if (categoryError || productTypesError ) return <ReusableServerDown/>
-
 
 
   return (
