@@ -1,6 +1,6 @@
 'use client';
 
-import React,{ useRef } from 'react';
+import React,{ useRef,useEffect } from 'react';
 import menuList from '../../../json/menu.json';
 import { Icon } from '@iconify/react';
 import { useQuery } from '@apollo/client';
