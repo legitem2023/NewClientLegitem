@@ -668,6 +668,9 @@ input[type='date']{
 
 .homeContainer{
   position: relative;
+  display:flex;
+  align-items:center;
+  justify-content:center;
 }
 .messagesUL {
   list-style-type: none;
