@@ -72,7 +72,6 @@ const Menu: React.FC = () => {
       item.Name !== 'Product Types' &&
       item.Name !== 'Collection Items'
     ) {
-      sortEngine(e);
       dispatch(setDrawer(true));
     }
   }}
