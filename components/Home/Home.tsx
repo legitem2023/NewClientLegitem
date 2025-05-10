@@ -24,7 +24,7 @@ const Home = () => {
       child1={()=>(
         <div className='homeContainer'>
           <ReusableLabel icn='nrk:category-active' label='Store'/>
-          <ReusableCustomCarousel data={Category?.getCategory} showthumbs={true} thumbpos="bottom"/>
+          <ReusableCustomCarousel data={Category?.getCategory} showthumbs={true} thumbpos="right"/>
         </div>
       )}
       child2={()=>(         
