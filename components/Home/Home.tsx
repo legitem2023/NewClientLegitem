@@ -23,7 +23,7 @@ const Home = () => {
     <ReusableCenterLayout
       child1={()=>(
         <div className='homeContainer'>
-          <ReusableLabel icn='nrk:category-active' label='Store'/>
+          <ReusableLabel icn='bi:shop' label='Store'/>
           <Carousel data={Category?.getCategory} fromData={"Category"}></Carousel>
         </div>
       )}
