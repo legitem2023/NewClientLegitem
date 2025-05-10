@@ -59,7 +59,24 @@ const Menu: React.FC = () => {
     <ul className='Menu'>
       <li className='Menu_label'>Menu</li>
       {menuList.map((item: any, index: any) => (
-        <li key={index} className={item.Name === 'Category' || item.Name === 'Product Types' || item.Name === 'Collection Items' ? 'category_li' : 'menu_li'}>
+        <li
+  key={index}
+  className={
+    item.Name === 'Category' || item.Name === 'Product Types' || item.Name === 'Collection Items'
+      ? 'category_li'
+      : 'menu_li'
+  }
+  onClick={(e: any) => {
+    if (
+      item.Name !== 'Category' &&
+      item.Name !== 'Product Types' &&
+      item.Name !== 'Collection Items'
+    ) {
+      sortEngine(e);
+      dispatch(setDrawer(true));
+    }
+  }}
+>
           {item.Name === 'Category' || item.Name === 'Product Types' || item.Name === 'Collection Items' ? (
             <label
               htmlFor={"collapse" + item.Name.toLowerCase().replace(" ", "") + index}
