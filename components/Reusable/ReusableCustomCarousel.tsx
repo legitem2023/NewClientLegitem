@@ -35,7 +35,11 @@ const ReusableCustomCarousel = ({ data,showthumbs,thumbpos }) => {
   ];
 
   let carouselData = data && data.length > 0 ? [...data] : [...fallbackData];
- // const initialSlideIndex = data.subImageFieldOut.findIndex((img) => img.ImagePath === viewedID);
+  const viewedID = useSelector((state:any) => state.viewed.viewed); // Access category state
+  const initialSlideIndex = parseInt(data.subImageFieldOut.findIndex((img) => img.ImagePath === viewedID));
+  
+  
+  // const initialSlideIndex = data.subImageFieldOut.findIndex((img) => img.ImagePath === viewedID);
   // Custom Thumbnail component with loading spinner
   const ThumbnailWithLoader = ({ thumbnail }) => {
     const [loading, setLoading] = useState(true);
@@ -88,7 +92,7 @@ const ReusableCustomCarousel = ({ data,showthumbs,thumbpos }) => {
       <ImageGallery
         items={galleryItems}
         thumbnailPosition={thumbpos}
-      
+        startIndex={initialSlideIndex}
         showThumbnails={showthumbs}
         showPlayButton={true}
         showFullscreenButton={true}
