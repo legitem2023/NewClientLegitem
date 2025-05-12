@@ -43,7 +43,7 @@ const Menu: React.FC = () => {
     };
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
-  });
+  },[]);
   const ShowAll = (name:any) =>{
 
     if(name==='Discounted'){
@@ -67,7 +67,7 @@ const Menu: React.FC = () => {
 
 
   return (
-    <ul className='Menu'>
+    <ul className='Menu' ref={dropdownRef}>
       <li className='Menu_label'>Menu</li>
       {menuList.map((item: any, index: any) => (
         <li
