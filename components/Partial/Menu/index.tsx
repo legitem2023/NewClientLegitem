@@ -43,7 +43,7 @@ const Menu: React.FC = () => {
     };
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
-  }, []);
+  });
   const ShowAll = (name:any) =>{
 
     if(name==='Discounted'){
