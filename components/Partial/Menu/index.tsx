@@ -32,7 +32,7 @@ const Menu: React.FC = () => {
   };
 
 
-  const dropdownRef = useRef<HTMLULListElement>(null);
+  const dropdownRef = useRef<HTMLUListElement>(null);
 
   // Close dropdown when clicking outside
   useEffect(() => {
