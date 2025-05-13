@@ -35,9 +35,6 @@ const ReusableCustomCarousel = ({ data,showthumbs,thumbpos }) => {
   ];
 
   let carouselData = data && data.length > 0 ? [...data] : [...fallbackData];
-  const viewedID = useSelector((state:any) => state.viewed.viewed); // Access category state
-  const initialSlideIndex = parseInt(data.subImageFieldOut.findIndex((img) => img.ImagePath === viewedID));
-  console.log(initialSlideIndex,"<*")
   
   // const initialSlideIndex = data.subImageFieldOut.findIndex((img) => img.ImagePath === viewedID);
   // Custom Thumbnail component with loading spinner
