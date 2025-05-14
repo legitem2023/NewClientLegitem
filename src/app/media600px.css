@@ -243,6 +243,7 @@
         align-items:center;
         background-color:#c0c0c0;
     }
+    /*
 .react-image-carousel img {
     object-fit: cover!important; /* Maintain aspect ratio and fill the area */
     width: 100%!important;
@@ -265,5 +266,5 @@
   object-fit: cover;
   border-radius: 4px; /* Optional: smooth corners */
 }
-
+*/
 }
