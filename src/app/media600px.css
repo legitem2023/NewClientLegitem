@@ -20,12 +20,12 @@
     .UniversalThumbnail > img{
         width:100%;
     }
-   /* .react-stacked-center-carousel {
+   .react-stacked-center-carousel {
         height: 20vh !important;
     }
     .game-icons--shopping-cart{
         height: 80vw!important;
-    }*/
+    }
     .carouselImage {
         /* transform: scale(0.4)!important; */
     }
