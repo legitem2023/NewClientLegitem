@@ -76,10 +76,10 @@ export default function Carousel({data,fromData}) {
         }}
       />
         <div className="card-button left" onClick={() => ref.current?.goBack()}>
-              <Icon icon='ic:sharp-double-arrow' style={{ fontSize: 30 }} />
+              <Icon icon='ic:sharp-double-arrow' style={{ fontSize: 30, color:'brown' }} />
         </div>
         <div className="card-button right" onClick={() => ref.current?.goNext()}>
-              <Icon icon='ic:sharp-double-arrow' style={{ fontSize: 30 }} />
+              <Icon icon='ic:sharp-double-arrow' style={{ fontSize: 30, color:'brown' }} />
         </div>
     </div>
   </div>
