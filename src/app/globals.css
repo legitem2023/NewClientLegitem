@@ -1,7 +1,17 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
+.card {
+  background: radial-gradient(
+    ellipse at center, 
+    #fff6f2 0%,  /* Mas light na peach */
+    #fde3d9 34%, 
+    #fcd3c6 50%, 
+    #fbc4b5 67%, 
+    #f7b2a4 78%, 
+    #f3a093 100%
+  );
+}
 .scaled-text {
   font-size: clamp(1rem, 5vw, 2.5rem); /* Scales between 1rem and 2.5rem */
   width: fit-content;
