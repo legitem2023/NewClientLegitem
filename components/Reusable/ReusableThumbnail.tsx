@@ -51,8 +51,8 @@ const ReusableThumbnail: React.FC<ReusableThumbnailProps> = ({
       </div>
       <div className="thumbnailTextContainer">
         <Element_Title Label="Name" value={item.name} />
-        <Element Label="Size" value={item.size} />
-        <Element Label="Color" value={item.color} />
+        <Element Label="Size" value={item.size===""?"No Data":item.size} />
+        <Element Label="Color" value={item.color===""?"No Data":item.color} />
         {item.discount > 0?(<Price_strike item={item}/>):(<Price item={item}/>)}  
         <div className='Thumbnails_rating_cart'>
           <span>
