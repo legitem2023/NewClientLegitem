@@ -245,26 +245,26 @@
     }
     /*
 .react-image-carousel img {
-    object-fit: cover!important; /* Maintain aspect ratio and fill the area */
+    object-fit: cover!important;
     width: 100%!important;
-    height: 300px!important; /* Or whatever fixed height you want */
-    border-radius: 8px; /* Optional: makes images look cleaner */
+    height: 300px!important;
+    border-radius: 8px; 
   }
 .react-image-carousel .ric-thumbnails {
-  height: 40px!important; /* Set your desired thumbnail row height */
+  height: 40px!important;
   overflow: hidden;
 }
 
 .react-image-carousel .ric-thumbnail {
-  height: 100%; /* Make each thumbnail fill the row */
-  aspect-ratio: 1 / 1; /* Optional: makes them square */
+  height: 100%; 
+  aspect-ratio: 1 / 1; 
 }
 
 .react-image-carousel .ric-thumbnail img {
   height: 100%;
   width: 100%;
   object-fit: cover;
-  border-radius: 4px; /* Optional: smooth corners */
+  border-radius: 4px;
 }
 */
 }
