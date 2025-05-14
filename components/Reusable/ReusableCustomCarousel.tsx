@@ -98,4 +98,4 @@ const ReusableCustomCarousel = ({ data,showthumbs,thumbpos }) => {
   );
 };
 
-export default ReusableCustomCarousel;
+export default React.memo(ReusableCustomCarousel);
