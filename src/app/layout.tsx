@@ -1,5 +1,8 @@
-import type { Metadata } from 'next'
+import { metadata as baseMetadata } from 'components/Partial/Header/seoConfig'
+export const metadata = baseMetadata;
+
 import { Inter } from 'next/font/google'
+const inter = Inter({ subsets: ['latin'] })
 import './globals.css'
 import './media600px.css'
 import './media1080px.css'
@@ -12,11 +15,6 @@ import { NotificationProvider } from 'components/context/NotificationContext'
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
 import Cookie from 'components/cookies/Cookie'
-const inter = Inter({ subsets: ['latin'] })
-export const metadata: Metadata = {
-  title: 'E-Crowd',
-  description: 'Social Media + E-Shopping',
-}
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
 
