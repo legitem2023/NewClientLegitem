@@ -4,6 +4,7 @@ import type { Metadata } from 'next'
 export const metadata: Metadata = {
   title: 'E-Crowd - Your Ultimate Marketplace',
   description: 'Discover top products and deals on E-Crowd. Shop smarter and faster with our user-friendly platform.',
+  manifest: '/manifest.json',
   keywords: 'E-Crowd, online shopping, best deals, marketplace, e-commerce',
   authors: [{ name: 'E-Crowd Team' }],
   viewport: 'width=device-width, initial-scale=1',
