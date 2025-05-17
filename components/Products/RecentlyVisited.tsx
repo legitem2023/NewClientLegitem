@@ -138,7 +138,7 @@ const [finalImage, setFinalImage] = useState<string>("");
   }
 
   return (
-    <div className="card" style={{ margin: "10px" }}>
+    <div className="card">
       <div style={{ width: "100%", position: "relative" }}>
         <ResponsiveContainer
           carouselRef={ref}
