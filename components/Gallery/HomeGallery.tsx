@@ -25,32 +25,35 @@ const HomeGallery:React.FC = () => {
               <Swiper
               spaceBetween={50}
               slidesPerView={4}
+              grid={{
+                rows:2
+              }}
               loop={true}
               breakpoints={{
                 360: {
-                  slidesPerView: 1,
+                  slidesPerView: 3,
                   spaceBetween: 50,
                 },
                 390: {
-                  slidesPerView: 1,
+                  slidesPerView: 3,
                   spaceBetween: 50,
                 },
                 414: {
-                  slidesPerView: 1,
+                  slidesPerView: 3,
                   spaceBetween: 50,
                 },
                 430: {
-                  slidesPerView: 1,
+                  slidesPerView: 3,
                   spaceBetween: 50,
                 },
                 // when window width is >= 640px
                 640: {
-                  slidesPerView: 1,
+                  slidesPerView: 3,
                   spaceBetween: 50,
                 },
                 // when window width is >= 768px
                 768: {
-                  slidesPerView: 2,
+                  slidesPerView: 3,
                   spaceBetween: 50,
                 },
                 // when window width is >= 1024px
@@ -59,7 +62,7 @@ const HomeGallery:React.FC = () => {
                   spaceBetween: 50,
                 },
                 1366: {
-                  slidesPerView: 4,
+                  slidesPerView: 3,
                   spaceBetween: 50,
                 }
               }}
