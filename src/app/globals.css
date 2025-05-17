@@ -12,6 +12,9 @@
     #f3a093 100%
   );
 }
+.page_content__kDoxQ{
+  text-align:left!important;
+}
 .scaled-text {
   font-size: clamp(1rem, 5vw, 2.5rem); /* Scales between 1rem and 2.5rem */
   width: fit-content;
@@ -3952,7 +3955,7 @@ flex:1;
   /* Modal Content */
   .modal-content {
     padding: 20px;
-    text-align: center;
+    text-align: left;
   }
   
   .modal-content h2 {
