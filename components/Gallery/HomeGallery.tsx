@@ -35,7 +35,6 @@ const HomeGallery:React.FC = () => {
     clickable: true,
   }}
   modules={[Grid, Pagination]}
-  loop={true}
 >
   {ImageData.getInv_subImage.map((item: any, i: number) => (
     <SwiperSlide key={i}>
