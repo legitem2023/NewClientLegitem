@@ -1341,10 +1341,10 @@ input[type='date']{
 }
 
 .LabelHead {
-  background: rgb(249 220 206);
-  padding: 10px;
-  border-top: solid 3px rgb(87, 39, 0);
-  border-bottom: solid 3px rgb(87, 39, 0);
+  /*background: rgb(249 220 206);*/
+  padding: 5px;
+  /*border-top: solid 3px rgb(87, 39, 0);
+  border-bottom: solid 3px rgb(87, 39, 0);*/
   font-size: 20px;
   font-weight: bold;
   color:rgb(87, 39, 0);
