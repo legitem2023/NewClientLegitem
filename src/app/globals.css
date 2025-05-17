@@ -537,6 +537,7 @@ input[type='date']{
   justify-content: center;
   align-items: center;
 } */
+/*
 .swiper {
   width: 100%;
   height: auto;
@@ -549,8 +550,8 @@ input[type='date']{
   display: flex;
   justify-content: center;
   align-items: center;
-  /* margin:5px; */
-}
+  
+}*/
 .Thumbnails_rating_cart{
   display: grid;
   grid-template-columns:72% 28%!important;
@@ -597,13 +598,13 @@ input[type='date']{
   justify-content:flex-end;
   align-items: flex-end;
 }
-.swiper-slide img {
+/*.swiper-slide img {
   display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
-
+*/
 .faq-question{
   display: grid;
   grid-template-columns: 98% 2%;
