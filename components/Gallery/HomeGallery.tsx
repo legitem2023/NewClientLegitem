@@ -28,10 +28,10 @@ const HomeGallery:React.FC = () => {
   <Swiper
   spaceBetween={10}
   slidesPerView={2}
-  grid={{
+  /*grid={{
     rows: 2,
     fill: 'row',
-  }}
+  }}*/
   pagination={{
     clickable: true,
   }}
