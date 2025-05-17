@@ -57,7 +57,7 @@ const ProductView: React.FC = () => {
       {viewedProd.length > 0 && viewedProd.map((viewItem: any, idx: any) => (
         <div className='MainView' key={idx}>
           <div className='MainView_Lchild'>
-            <ReusableLabel icn='' label='Product Data'/>
+            <ReusableLabel icn='carbon:data-2' label='Product Data'/>
             <InsertView insertNumberOfViews={insertNumberOfViews} userEmail={cookie.emailAddress} ViewProduct={viewedProd[0]} />
             <div className='LabelBack' onClick={() => handleClose()}>
               <Icon icon="ic:sharp-double-arrow" rotate={2} className='backIcon' /> Back
@@ -91,7 +91,7 @@ const ProductView: React.FC = () => {
                 </div>
               </div>
             </div>
-            <ReusableLabel icn='' label='Product Details'/>
+            <ReusableLabel icn='fluent:text-description-rtl-24-filled' label='Product Description'/>
             <div className='longtext'>
               <HtmlRenderer htmlContent={viewItem?.productDescription} />
             </div>
