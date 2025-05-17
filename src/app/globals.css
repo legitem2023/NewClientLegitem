@@ -1,6 +1,14 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+.image-gallery {
+  width: 100%;
+}
+
+.image-gallery-image img {
+  width: 100%;
+  height: auto; /* Maintain aspect ratio */
+}
 .card {
   background: radial-gradient(
     ellipse at center, 
