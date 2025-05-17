@@ -4,8 +4,7 @@ import { Icon } from "@iconify/react";
 import { GET_CATEGORY } from "graphql/queries";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import React from "react";
-
+import React, { useState, useEffect } from "react";
 import { useDispatch } from 'react-redux';
 import { setmodal } from 'Redux/modalSlice';
 import { setviewed } from 'Redux/viewedSlice';
