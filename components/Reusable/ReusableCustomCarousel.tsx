@@ -89,8 +89,8 @@ const ReusableCustomCarousel = ({ data, showthumbs, thumbpos }) => {
     object-fit: contain;
   }
   .image-gallery-thumbnail {
-    width: 40px !important;
-    height: 40px !important;
+    width: 80px !important;
+    height: 80px !important;
     gap: 5px;
     overflow: hidden;
     border: 1px solid #ddd;
