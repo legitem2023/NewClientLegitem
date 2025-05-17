@@ -42,7 +42,15 @@ const ReusableCustomCarousel = ({ data,showthumbs,thumbpos }) => {
     const [loading, setLoading] = useState(true);
 
     return (
-      <div style={{ position: 'relative', width: '100%', height: '100%' }}>
+      <div style={{ position: 'relative', 
+                    width: '100%', 
+                    height: '100%',
+                    boxSizing: "border-box",
+                    display: "flex",
+                    justifyContent: "center", // horizontal centering
+                    alignItems: "center",     // vertical centering
+                  
+                  }}>
         {loading && (
           <div style={{
             position: 'absolute',
