@@ -36,8 +36,7 @@ const Home = () => {
       child3={()=>(
         <div className='homeContainer'>          
           <ReusableLabel icn='bi:shop' label='Our Merchants'/>
-          <Carousel data={Category?.getCategory} fromData={"Category"}></Carousel>
-            <HomeGallery/>
+          <HomeGallery/>
         </div>
         
       )}
