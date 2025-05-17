@@ -1,6 +1,6 @@
 import { useQuery } from '@apollo/client';
 import Carousel from 'components/Carousel';
-import HomeGallery from 'components/gallery/HomeGallery';
+import HomeGallery from 'components/Gallery/HomeGallery';
 import ReusableCenterLayout from 'components/Layout/ReusableCenterLayout'
 import Loading from 'components/Partial/LoadingAnimation/Loading';
 import SliderModels from './SliderModels';
@@ -37,6 +37,7 @@ const Home = () => {
         <div className='homeContainer'>          
           <ReusableLabel icn='bi:shop' label='Our Merchants'/>
           <Carousel data={Category?.getCategory} fromData={"Category"}></Carousel>
+            <HomeGallery/>
         </div>
         
       )}
