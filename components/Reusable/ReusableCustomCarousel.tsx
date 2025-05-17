@@ -96,6 +96,9 @@ const ReusableCustomCarousel = ({ data,showthumbs,thumbpos }) => {
                   justifyContent: "center", // horizontal centering
                   alignItems: "center",     // vertical centering
                 }}>
+      <div style={{display:"flex",
+                   justifyContent: "center", // horizontal centering
+                   alignItems: "center"}}>
       <ImageGallery
         items={galleryItems}
         thumbnailPosition={thumbpos}
@@ -104,6 +107,7 @@ const ReusableCustomCarousel = ({ data,showthumbs,thumbpos }) => {
         showPlayButton={true}
         showFullscreenButton={true}
       />
+        </div>
     </div>
   );
 };
