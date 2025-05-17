@@ -21,7 +21,7 @@ const HomeGallery:React.FC = () => {
   if (imageError) return null;
  
   return (
-    <div className='card'>
+    <div className='card' style={{position:relative}}>
         <div id='Gallery'>
             <div>
               <div className="slider-container">
