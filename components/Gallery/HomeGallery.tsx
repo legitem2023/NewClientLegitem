@@ -5,6 +5,7 @@ import { GET_INVENTORY_SUB_IMAGES } from 'graphql/queries';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Grid,Pagination } from 'swiper/modules';
 import 'swiper/css';
+import 'swiper/css/grid';
 import 'swiper/css/scrollbar';
 import Image from 'next/image';
 import { formatter, imageSource } from 'utils/scripts'; // Assuming you have utilities for formatting and image source
