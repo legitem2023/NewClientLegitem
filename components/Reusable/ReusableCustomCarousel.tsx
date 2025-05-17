@@ -81,7 +81,7 @@ const ReusableCustomCarousel = ({ data, showthumbs, thumbpos }) => {
         />
       </div>
 
-      <style jsx global>{`
+      <style jsx global>{/*`
         .image-gallery-slide img {
           width: 100% !important;
           height: auto !important;
@@ -111,7 +111,7 @@ const ReusableCustomCarousel = ({ data, showthumbs, thumbpos }) => {
         .image-gallery-thumbnails-wrapper.thumbnails-right {
           flex-direction: column !important;
         }
-      `}</style>
+      `*/}</style>
     </div>
   );
 };
