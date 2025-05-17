@@ -48,7 +48,7 @@ const RelatedProducts = ({ data }: { data: any[] }) => {
 
   return (
     <div className='MainView_Rchild'>
-      <ReusableLabel icn='' label='Related Product' />
+      <ReusableLabel icn='carbon:chart-relationship' label='Related Product' />
       <div className='MainView_RelatedProducts'>
         <div>
           {data.slice(0, take).map((item: any, idx) => (
