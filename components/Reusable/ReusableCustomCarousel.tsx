@@ -45,11 +45,7 @@ const ReusableCustomCarousel = ({ data,showthumbs,thumbpos }) => {
       <div style={{ position: 'relative', 
                     width: '100%', 
                     height: '100%',
-                    boxSizing: "border-box",
-                    display: "flex",
-                    justifyContent: "center", // horizontal centering
-                    alignItems: "center",     // vertical centering
-                  
+                    boxSizing: "border-box"
                   }}>
         {loading && (
           <div style={{
@@ -93,7 +89,14 @@ const ReusableCustomCarousel = ({ data,showthumbs,thumbpos }) => {
   }));
 
   return (
-    <div style={{ width: "100%", boxSizing: "border-box",height:"100%" }}>
+    <div style={{ width: "100%", 
+                  boxSizing: "border-box",
+                  height:"100%",
+                  boxSizing: "border-box",
+                  display: "flex",
+                  justifyContent: "center", // horizontal centering
+                  alignItems: "center",     // vertical centering
+                }}>
       <ImageGallery
         items={galleryItems}
         thumbnailPosition={thumbpos}
