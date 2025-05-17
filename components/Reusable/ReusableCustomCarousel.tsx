@@ -2,51 +2,27 @@
 
 import React, { useState } from 'react';
 import ImageGallery from 'react-image-gallery';
-import { Icon } from '@iconify/react'; // Import Iconify
+import { Icon } from '@iconify/react';
 import 'react-image-gallery/styles/css/image-gallery.css';
 import { useSelector } from 'react-redux';
-const ReusableCustomCarousel = ({ data,showthumbs,thumbpos }) => {
-//const viewedID = useSelector((state:any) => state.viewed.viewed);
+
+const ReusableCustomCarousel = ({ data, showthumbs, thumbpos }) => {
   const fallbackData = [
-    {
-      "Name": "Product 1",
-      "image": "https://example.com/images/product1.jpg"
-    },
-    {
-      "Name": "Product 2",
-      "image": "https://example.com/images/product2.jpg"
-    },
-    {
-      "Name": "Product 3",
-      "image": "https://example.com/images/product3.jpg"
-    },
-    {
-      "Name": "Product 4",
-      "image": "https://example.com/images/product4.jpg"
-    },
-    {
-      "Name": "Product 5",
-      "image": "https://example.com/images/product5.jpg"
-    },
-    {
-      "Name": "Product 6",
-      "image": "https://example.com/images/product6.jpg"
-    }
+    { Name: "Product 1", image: "https://example.com/images/product1.jpg" },
+    { Name: "Product 2", image: "https://example.com/images/product2.jpg" },
+    { Name: "Product 3", image: "https://example.com/images/product3.jpg" },
+    { Name: "Product 4", image: "https://example.com/images/product4.jpg" },
+    { Name: "Product 5", image: "https://example.com/images/product5.jpg" },
+    { Name: "Product 6", image: "https://example.com/images/product6.jpg" }
   ];
 
   let carouselData = data && data.length > 0 ? [...data] : [...fallbackData];
-  
-  // const initialSlideIndex = data.subImageFieldOut.findIndex((img) => img.ImagePath === viewedID);
-  // Custom Thumbnail component with loading spinner
+
   const ThumbnailWithLoader = ({ thumbnail }) => {
     const [loading, setLoading] = useState(true);
 
     return (
-      <div style={{ position: 'relative', 
-                    width: '100%', 
-                    height: '100%',
-                    boxSizing: "border-box"
-                  }}>
+      <div style={{ position: 'relative', width: '100%', height: '100%', boxSizing: "border-box" }}>
         {loading && (
           <div style={{
             position: 'absolute',
@@ -55,10 +31,10 @@ const ReusableCustomCarousel = ({ data,showthumbs,thumbpos }) => {
             transform: 'translate(-50%, -50%)',
             zIndex: 2,
           }}>
-            <Icon 
-              icon="eos-icons:loading" 
-              width="24" 
-              height="24" 
+            <Icon
+              icon="eos-icons:loading"
+              width="24"
+              height="24"
               style={{ animation: 'spin 1s linear infinite' }}
             />
           </div>
@@ -69,7 +45,6 @@ const ReusableCustomCarousel = ({ data,showthumbs,thumbpos }) => {
           style={{ width: '100%', height: '100%', objectFit: 'cover', opacity: loading ? 0 : 1 }}
           onLoad={() => setLoading(false)}
         />
-        {/* Add custom spin animation if needed */}
         <style jsx>{`
           @keyframes spin {
             0% { transform: rotate(0deg); }
@@ -80,7 +55,6 @@ const ReusableCustomCarousel = ({ data,showthumbs,thumbpos }) => {
     );
   };
 
-  // Map gallery items
   const galleryItems = carouselData.map((item) => ({
     original: item.image,
     thumbnail: item.image,
@@ -89,25 +63,42 @@ const ReusableCustomCarousel = ({ data,showthumbs,thumbpos }) => {
   }));
 
   return (
-    <div className="card" style={{ width: "100%", 
-                  boxSizing: "border-box",
-                  height:"100%",
-                  display: "flex",
-                  justifyContent: "center", // horizontal centering
-                  alignItems: "center",     // vertical centering
-                }}>
-      <div style={{display:"flex",
-                   justifyContent: "center", // horizontal centering
-                   alignItems: "center"}}>
-      <ImageGallery
-        items={galleryItems}
-        thumbnailPosition={thumbpos}
-        
-        showThumbnails={showthumbs}
-        showPlayButton={true}
-        showFullscreenButton={true}
-      />
-        </div>
+    <div className="card" style={{
+      width: "100%",
+      boxSizing: "border-box",
+      height: "100%",
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "center",
+    }}>
+      <div style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
+        <ImageGallery
+          items={galleryItems}
+          thumbnailPosition={thumbpos}
+          showThumbnails={showthumbs}
+          showPlayButton={true}
+          showFullscreenButton={true}
+        />
+      </div>
+
+      {/* Add global style override for consistent thumbnail size */}
+      <style jsx global>{`
+        .image-gallery-thumbnail {
+          width: 80px !important;
+          height: 80px !important;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          overflow: hidden;
+          border: 1px solid #ddd;
+        }
+
+        .image-gallery-thumbnail img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      `}</style>
     </div>
   );
 };
