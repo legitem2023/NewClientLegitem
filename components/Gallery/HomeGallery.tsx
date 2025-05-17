@@ -18,14 +18,13 @@ const HomeGallery:React.FC = () => {
 
   if (imageLoading) return null;
   if (imageError) return null;
- console.log(ImageData);
+ 
   return (
     <div className=''>
-      <div className='LabelHead carouselLabel'><Icon icon="mdi:about" /><span>Products</span></div>
         <div id='Gallery'>
             <div>
               <div className="slider-container">
-              <Swiper
+  <Swiper
   spaceBetween={10}
   slidesPerView={2}
   grid={{
