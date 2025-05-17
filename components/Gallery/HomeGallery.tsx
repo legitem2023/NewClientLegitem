@@ -19,7 +19,7 @@ const HomeGallery:React.FC = () => {
 
   if (imageLoading) return null;
   if (imageError) return null;
- 
+ console.log(ImageData);
   return (
     <div className='card' style={{position:relative}}>
         <div id='Gallery'>
