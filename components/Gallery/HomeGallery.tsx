@@ -3,6 +3,7 @@ import React from 'react';
 import { useQuery } from '@apollo/client';
 import { GET_INVENTORY_SUB_IMAGES } from 'graphql/queries';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { Grid,Pagination } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/scrollbar';
 import Image from 'next/image';
@@ -25,50 +26,13 @@ const HomeGallery:React.FC = () => {
             <div>
               <div className="slider-container">
               <Swiper
-              spaceBetween={50}
-              slidesPerView={4}
+              spaceBetween={10}
+              slidesPerView={2}
               grid={{
                 rows:2
               }}
-              loop={true}
-              breakpoints={{
-                360: {
-                  slidesPerView: 3,
-                  spaceBetween: 50,
-                },
-                390: {
-                  slidesPerView: 3,
-                  spaceBetween: 50,
-                },
-                414: {
-                  slidesPerView: 3,
-                  spaceBetween: 50,
-                },
-                430: {
-                  slidesPerView: 3,
-                  spaceBetween: 50,
-                },
-                // when window width is >= 640px
-                640: {
-                  slidesPerView: 3,
-                  spaceBetween: 50,
-                },
-                // when window width is >= 768px
-                768: {
-                  slidesPerView: 3,
-                  spaceBetween: 50,
-                },
-                // when window width is >= 1024px
-                1024: {
-                  slidesPerView: 3,
-                  spaceBetween: 50,
-                },
-                1366: {
-                  slidesPerView: 3,
-                  spaceBetween: 50,
-                }
-              }}
-            >
+              modules={[Grid,Pagination]}
+              loop={true}>
               {ImageData.getInv_subImage.map((item:any, i:any) => (
                 <SwiperSlide key={i}>
                     <Image key={i} src={imagepath+item.imagePath} alt={"alt" + i} width='200' height='150' />
