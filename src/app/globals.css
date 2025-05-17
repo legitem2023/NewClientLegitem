@@ -3803,6 +3803,9 @@ flex:1;
   border-top: solid 3px #004127;
   border-bottom: solid 3px #004127;
 }
+.HeaderNav{
+    display: none;
+}
 /*************************** Management *****************************/
 @media (orientation: portrait) {
   .faq-accordion{
@@ -3846,9 +3849,7 @@ flex:1;
   .css-15befwp-MuiRating-root {
     font-size: 35px;
   }
-  .HeaderNav{
-    display: none;
-  }
+  
 }
 @media only screen and (max-width: 1280px){
   .css-15befwp-MuiRating-root {
