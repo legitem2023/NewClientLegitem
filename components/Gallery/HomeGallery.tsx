@@ -39,7 +39,7 @@ const HomeGallery:React.FC = () => {
 >
   {ImageData.getInv_subImage.map((item: any, i: number) => (
     <SwiperSlide key={i}>
-      <Image src={item.imagePath} alt={"alt" + i} width={200} height={200} />
+      <Image src={item.imagePath} alt={"alt" + i} width={150} height={150} />
       <div>{item.title}</div>
     </SwiperSlide>
   ))}
