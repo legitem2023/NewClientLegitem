@@ -6,6 +6,8 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/scrollbar';
 import Image from 'next/image';
+import { formatter, imageSource } from 'utils/scripts'; // Assuming you have utilities for formatting and image source
+
 import { Icon } from '@iconify/react';
 const HomeGallery:React.FC = () => {
 
