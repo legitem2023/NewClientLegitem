@@ -95,7 +95,7 @@ const ProductView: React.FC = () => {
             <div className='longtext'>
               <HtmlRenderer htmlContent={viewItem?.productDescription} />
             </div>
-            <ReusableLabel icn='' label='Product Review'/>
+            <ReusableLabel icn='material-symbols:reviews' label='Product Review'/>
              <div className='longtext'>
               {viewItem?.Ratings.length > 0 ? viewItem?.Ratings.map((item: any, idx: any) => (
                 <div key={idx}>
