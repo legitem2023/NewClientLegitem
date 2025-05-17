@@ -3827,9 +3827,7 @@ flex:1;
   .openDrawer{
     display: flex;
   }
-  .HeaderNav{
-    display: none;
-  }
+  
   .hideInLandscape{
     display: none;
   }
@@ -3847,6 +3845,9 @@ flex:1;
 @media only screen and (max-width: 1024px){
   .css-15befwp-MuiRating-root {
     font-size: 35px;
+  }
+  .HeaderNav{
+    display: none;
   }
 }
 @media only screen and (max-width: 1280px){
