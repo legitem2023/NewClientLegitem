@@ -81,37 +81,7 @@ const ReusableCustomCarousel = ({ data, showthumbs, thumbpos }) => {
         />
       </div>
 
-      <style jsx global>{/*`
-        .image-gallery-slide img {
-          width: 100% !important;
-          height: auto !important;
-          object-fit: contain;
-        }
 
-        .image-gallery-thumbnail {
-          width: 50px !important;
-          height: 50px !important;
-          gap: 5px;
-          overflow: hidden;
-          border: 1px solid #ddd;
-        }
-
-        .image-gallery-thumbnail img {
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-        }
-
-        .image-gallery-thumbnails-wrapper.thumbnails-bottom,
-        .image-gallery-thumbnails-wrapper.thumbnails-top {
-          flex-direction: row !important;
-        }
-
-        .image-gallery-thumbnails-wrapper.thumbnails-left,
-        .image-gallery-thumbnails-wrapper.thumbnails-right {
-          flex-direction: column !important;
-        }
-      `*/}</style>
     </div>
   );
 };
