@@ -26,20 +26,25 @@ const HomeGallery:React.FC = () => {
             <div>
               <div className="slider-container">
               <Swiper
-              spaceBetween={10}
-              slidesPerView={2}
-              grid={{
-                rows:2
-              }}
-              modules={[Grid,Pagination]}
-              loop={true}>
-              {ImageData.getInv_subImage.map((item:any, i:any) => (
-                <SwiperSlide key={i}>
-                    <Image key={i} src={item.imagePath} alt={"alt" + i} width='200' height='200' />
-                    {item.title}
-                </SwiperSlide>
-                ))}
-            </Swiper>
+  spaceBetween={10}
+  slidesPerView={2}
+  grid={{
+    rows: 2,
+    fill: 'row',
+  }}
+  pagination={{
+    clickable: true,
+  }}
+  modules={[Grid, Pagination]}
+  loop={true}
+>
+  {ImageData.getInv_subImage.map((item: any, i: number) => (
+    <SwiperSlide key={i}>
+      <Image src={item.imagePath} alt={"alt" + i} width={200} height={200} />
+      <div>{item.title}</div>
+    </SwiperSlide>
+  ))}
+</Swiper>
               </div>
             </div>
       </div>
