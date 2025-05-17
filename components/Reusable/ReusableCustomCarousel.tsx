@@ -87,6 +87,8 @@ const ReusableCustomCarousel = ({ data, showthumbs, thumbpos }) => {
           width: 80px !important;
           height: 80px !important;
           display: flex;
+          flex-direction:row;
+          gap:2px;
           align-items: center;
           justify-content: center;
           overflow: hidden;
