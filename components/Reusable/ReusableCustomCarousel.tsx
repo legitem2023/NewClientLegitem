@@ -83,24 +83,32 @@ const ReusableCustomCarousel = ({ data, showthumbs, thumbpos }) => {
 
       {/* Add global style override for consistent thumbnail size */}
       <style jsx global>{`
-        .image-gallery-thumbnail {
-          width: 80px !important;
-          height: 80px !important;
-          display: flex;
-          flex-direction:row;
-          gap:2px;
-          align-items: center;
-          justify-content: center;
-          overflow: hidden;
-          border: 1px solid #ddd;
-        }
+  .image-gallery-thumbnail {
+    width: 80px !important;
+    height: 80px !important;
+    gap: 2px;
+    overflow: hidden;
+    border: 1px solid #ddd;
+  }
 
-        .image-gallery-thumbnail img {
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-        }
-      `}</style>
+  .image-gallery-thumbnail img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /* If using horizontal thumbs (bottom or top), force layout */
+  .image-gallery-thumbnails-wrapper.thumbnails-bottom,
+  .image-gallery-thumbnails-wrapper.thumbnails-top {
+    flex-direction: row !important;
+  }
+
+  /* If using vertical thumbs (left or right), force layout */
+  .image-gallery-thumbnails-wrapper.thumbnails-left,
+  .image-gallery-thumbnails-wrapper.thumbnails-right {
+    flex-direction: column !important;
+  }
+`}</style>
     </div>
   );
 };
