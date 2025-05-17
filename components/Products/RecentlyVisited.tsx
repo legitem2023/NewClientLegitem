@@ -58,6 +58,35 @@ export default function RecentlyVisited({ data, fromData }) {
     const { data, dataIndex }: any = props;
     const { image } = data[dataIndex];
 
+const [finalImage, setFinalImage] = useState<string>("");
+
+  useEffect(() => {
+    if (!image) {
+      const canvas = document.createElement("canvas");
+      canvas.width = 200;
+      canvas.height = 100;
+      const ctx = canvas.getContext("2d");
+
+      if (ctx) {
+        ctx.fillStyle = "#f0f0f0";
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        ctx.fillStyle = "#333";
+        ctx.font = "16px Arial";
+        ctx.textAlign = "center";
+        ctx.textBaseline = "middle";
+        ctx.fillText("No Viewed Products", canvas.width / 2, canvas.height / 2);
+
+        const dataUrl = canvas.toDataURL();
+        setFinalImage(dataUrl);
+      }
+    } else {
+      setFinalImage(image);
+    }
+  }, [image]);
+
+
+
+    
     return (
       <div>
         <div
@@ -79,7 +108,7 @@ export default function RecentlyVisited({ data, fromData }) {
             className="carouselImage"
             draggable={false}
             priority={true}
-            src={image}
+            src={finalImage}
             onClick={() => ViewData(data[dataIndex])}
           />
           <span style={{
