@@ -84,9 +84,9 @@ const ReusableCustomCarousel = ({ data, showthumbs, thumbpos }) => {
       {/* Add global style override for consistent thumbnail size */}
       <style jsx global>{`
   .image-gallery-thumbnail {
-    width: 80px !important;
-    height: 80px !important;
-    gap: 2px;
+    width: 40px !important;
+    height: 40px !important;
+    gap: 5px;
     overflow: hidden;
     border: 1px solid #ddd;
   }
