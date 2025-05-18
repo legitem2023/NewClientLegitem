@@ -9,7 +9,7 @@ const slides = [
   { image: "https://via.placeholder.com/600x400?text=4", thumb: "https://via.placeholder.com/100?text=4" },
 ];
 
-export default function ReusableJSSOR {
+export default function ReusableJSSOR() {
   const sliderRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
