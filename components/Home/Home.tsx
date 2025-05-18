@@ -14,7 +14,7 @@ import ReusableSlick from 'components/Reusable/ReusableSlick';
 import dynamic from 'next/dynamic';
 
 // Prevent SSR for JssorCarousel
-const ReusableJSSOR = dynamic(() => import('@/components/Reusable/ReusableJSSOR'), { ssr: false });
+const ReusableJSSOR = dynamic(() => import('components/Reusable/ReusableJSSOR'), { ssr: false });
 const Home = () => {
     
     const { data:Category, loading, error } = useQuery(GET_CATEGORY);
