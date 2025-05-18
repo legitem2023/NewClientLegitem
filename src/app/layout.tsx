@@ -1,6 +1,6 @@
 import { metadata as baseMetadata } from 'components/Partial/Header/seoConfig'
 export const metadata = baseMetadata;
-
+import { Html, Head, Main, NextScript } from 'next/document';
 import { Inter } from 'next/font/google'
 const inter = Inter({ subsets: ['latin'] })
 import './globals.css'
@@ -20,12 +20,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
   return (
     <html lang="en">
-      <head>
+      <Head>
        <script
           src="https://cdn.jsdelivr.net/npm/jssor-slider@28.0.0/dist/min/jssor.slider.min.js"
           async
         ></script>
-      </head>
+      </Head>
       <body className={inter.className}>
       <ToastContainer/>
         <LoadEruda/>
