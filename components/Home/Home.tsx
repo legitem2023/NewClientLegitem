@@ -4,8 +4,8 @@ import HomeGallery from 'components/Gallery/HomeGallery';
 import ReusableCenterLayout from 'components/Layout/ReusableCenterLayout'
 import Loading from 'components/Partial/LoadingAnimation/Loading';
 import SliderModels from './SliderModels';
-import Menu from 'components/Partial/Menu';
-import { GET_CATEGORY } from 'graphql/queries';
+//import Menu from 'components/Partial/Menu';
+//import { GET_CATEGORY } from 'graphql/queries';
 import React from 'react'
 import { useSelector } from 'react-redux';
 import ReusableLabel from 'components/Reusable/ReusableLabel';
@@ -25,11 +25,11 @@ const slides = [
 // Prevent SSR for JssorCarousel
 const Home = () => {
     const storedcategory = useSelector((state: any) => state.categoryData.getCategoryData);
-    const { data:Category, loading, error } = useQuery(GET_CATEGORY);
+   // const { data:Category, loading, error } = useQuery(GET_CATEGORY);
     if(loading) return <HomeLoading/>
     if(error) return "Connection Error";
 
-    const gallery = Category?.getCategory;
+ //   const gallery = Category?.getCategory;
 
     
   return (
