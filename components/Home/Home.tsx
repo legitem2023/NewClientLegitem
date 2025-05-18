@@ -37,7 +37,6 @@ const Home = () => {
         <div className='homeContainer'>          
           <ReusableLabel icn='bi:shop' label='Our Merchants'/>
           <ReusableCustomCarousel data={Category?.getCategory} showthumbs={true} thumbpos="left"/>
-          <ReusableSlick></ReusableSlick>
         </div>
         
       )}
