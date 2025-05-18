@@ -65,8 +65,7 @@ const Menu: React.FC = () => {
 
   if (categoryLoading || productTypesLoading ) return <MenuLoading/>;
   if (categoryError || productTypesError ) return <ReusableServerDown/>
-
-console.log(storedcategory,"redux");
+  console.log(productTypesData);
   return (
     <ul className='Menu' ref={dropdownRef}>
       <li className='Menu_label'>Menu</li>
