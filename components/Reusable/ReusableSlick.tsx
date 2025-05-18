@@ -24,16 +24,16 @@ function ReusableSlick() {
     <div className="slider-container">
       <Slider {...settings}>
         <div>
-          <img src={baseUrl + "/abstract01.jpg"} />
+          <img src={"https://tsbriguuaznlvwbnylop.supabase.co/storage/v1/object/public/legitemfiles/ProductImages/Product-2025-1-1-12-15054.webp"} />
         </div>
         <div>
-          <img src={baseUrl + "/abstract02.jpg"} />
+          <img src={"https://tsbriguuaznlvwbnylop.supabase.co/storage/v1/object/public/legitemfiles/ProductImages/Product-2025-1-1-12-15054.webp"} />
         </div>
         <div>
-          <img src={baseUrl + "/abstract03.jpg"} />
+          <img src={"https://tsbriguuaznlvwbnylop.supabase.co/storage/v1/object/public/legitemfiles/ProductImages/Product-2025-1-1-12-15054.webp"} />
         </div>
         <div>
-          <img src={baseUrl + "/abstract04.jpg"} />
+          <img src={"https://tsbriguuaznlvwbnylop.supabase.co/storage/v1/object/public/legitemfiles/ProductImages/Product-2025-1-1-12-15054.webp"} />
         </div>
       </Slider>
     </div>
