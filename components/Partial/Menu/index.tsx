@@ -108,11 +108,11 @@ console.log(storedcategory,"redux");
 
           <ul className='category_list'>
             <br />
-            {item.Name === 'Category' && categoryData?.getCategory?.length > 0 && storedcategory?.map((category: any, i: any) => (
+            {item.Name === 'Category'?storedcategory?.map((category: any, i: any) => (
               <li className='category_list_div' key={i} onClick={(e: any) => { sortEngine(e); dispatch(setDrawer(true)); }} value={category.Name}>
                 <Icon icon="fluent-mdl2:radio-bullet"/>{category.Name}
               </li>
-            ))}
+            )):""}
 
             {item.Name === 'Product Types' && productTypesData?.getProductTypes?.length > 0 && productTypesData?.getProductTypes?.map((type: any, i: any) => (
               <li className='category_list_div' key={i} onClick={(e: any) => { sortEngine_1(e); dispatch(setDrawer(true)) }} value={type.Name}>
