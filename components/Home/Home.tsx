@@ -10,7 +10,7 @@ import React from 'react'
 import ReusableLabel from 'components/Reusable/ReusableLabel';
 import HomeLoading from './HomeLoading';
 import ReusableCustomCarousel from 'components/Reusable/ReusableCustomCarousel';
-
+import ReusableSlick from 'components/Reusable/ReusableSlick';
 const Home = () => {
     
     const { data:Category, loading, error } = useQuery(GET_CATEGORY);
@@ -37,7 +37,7 @@ const Home = () => {
         <div className='homeContainer'>          
           <ReusableLabel icn='bi:shop' label='Our Merchants'/>
           <ReusableCustomCarousel data={Category?.getCategory} showthumbs={true} thumbpos="left"/>
-
+          <ReusableSlick></ReusableSlick>
         </div>
         
       )}
