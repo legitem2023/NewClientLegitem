@@ -17,9 +17,6 @@ const UniversalContainerItem: React.FC<UniversalContainerItemProps> = ({ title, 
  console.log(thumbnail);
   return (
     <div className="UniversalContainerItem">
-      <div className="UniversalContainerHead LabelHead">
-        <Icon icon="fa6-solid:newspaper" /> {title}
-      </div>
       <div className="UniversalThumbnail">
         <Image src={imageSource(thumbnail)} height={100} width={200} alt={`image${index}`} />
       </div>
