@@ -182,7 +182,7 @@ setSaved(formattedData);
 
   if (productsLoading) return <ProductLoading />;
   if (productsError) return <ReusableServerDown />;
- console.log(Category);
+ 
 const sampleData = [
   { image: "/images/sample1.jpg", Name: "Product 1" },
   { image: "/images/sample2.jpg", Name: "Product 2" },
