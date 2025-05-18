@@ -114,17 +114,17 @@ const Menu: React.FC = () => {
               </li>
             )):""}
 
-            {item.Name === 'Product Types' && productTypesData?.getProductTypes?.length > 0 && productTypesData?.getProductTypes?.map((type: any, i: any) => (
+            {item.Name === 'Product Types'?storedproductType?.map((type: any, i: any) => (
               <li className='category_list_div' key={i} onClick={(e: any) => { sortEngine_1(e); dispatch(setDrawer(true)) }} value={type.Name}>
                 <Icon icon="fluent-mdl2:radio-bullet" />{type.Name}
               </li>
-            ))}
+            )):""}
 
-            {item.Name === 'Collection Items' && productTypesData?.getProductTypes?.length > 0 && productTypesData?.getProductTypes?.map((item: any, i: any) => (
+            {item.Name === 'Collection Items'?storedproductType?.map((item: any, i: any) => (
               <li className='category_list_div' key={i} onClick={(e: any) => { sortEngine_2(e); dispatch(setDrawer(true)) }} value={item.Name}>
                 <Icon icon="fluent-mdl2:radio-bullet" />{item.Name}
               </li>
-            ))}
+            )):""}
           </ul>
         </li>
       ))}
