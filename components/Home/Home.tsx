@@ -7,6 +7,7 @@ import SliderModels from './SliderModels';
 import Menu from 'components/Partial/Menu';
 import { GET_CATEGORY } from 'graphql/queries';
 import React from 'react'
+import { useSelector } from 'react-redux';
 import ReusableLabel from 'components/Reusable/ReusableLabel';
 import HomeLoading from './HomeLoading';
 import ReusableCustomCarousel from 'components/Reusable/ReusableCustomCarousel';
@@ -30,7 +31,7 @@ const Home = () => {
 
     const gallery = Category?.getCategory;
 
-    
+    const storedcategory = useSelector((state: any) => state.categoryData.getCategoryData);
   return (
     <ReusableCenterLayout
       child1={()=>(
@@ -42,20 +43,20 @@ const Home = () => {
       child2={()=>(         
         <div className='homeContainer'>
           <ReusableLabel icn='nrk:category-active' label='Shop by Category'/>
-          <Carousel data={Category?.getCategory} fromData={"Category"}></Carousel>
+          <Carousel data={storedcategory} fromData={"Category"}></Carousel>
         </div>
       )}
       child3={()=>(
         <div className='homeContainer'>          
           <ReusableLabel icn='bi:shop' label='Our Merchants'/>
-          <ReusableCustomCarousel data={Category?.getCategory} showthumbs={true} thumbpos="left"/>
+          <ReusableCustomCarousel data={storedcategory} showthumbs={true} thumbpos="left"/>
         </div>
         
       )}
       child4={()=>(
         <div className='homeContainer'>
         <ReusableLabel icn='carbon:recently-viewed' label='Recommended for You'/>
-        <ReusableCustomCarousel data={Category?.getCategory} showthumbs={true} thumbpos="bottom"/>
+        <ReusableCustomCarousel data={storedcategory} showthumbs={true} thumbpos="bottom"/>
       </div>
       )}
       
