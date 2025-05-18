@@ -3,6 +3,7 @@
 @tailwind utilities;
 .image-gallery {
   width: 100%;
+  box-sizing:'border-box';
 }
 
 .image-gallery-image img {
