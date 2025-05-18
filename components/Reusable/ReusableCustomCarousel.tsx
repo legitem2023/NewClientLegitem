@@ -80,9 +80,13 @@ const ReusableCustomCarousel = ({ data, showthumbs, thumbpos }) => {
           showFullscreenButton={true}
         />
       </div>
-
-
+<style jsx global>{`
+        .image-gallery-thumbnail {
+          width: auto !important;
+          height: 50px !important;
+        }`}</style>
     </div>
+    
   );
 };
 
