@@ -11,8 +11,8 @@ import ReusableLabel from 'components/Reusable/ReusableLabel';
 import HomeLoading from './HomeLoading';
 import ReusableCustomCarousel from 'components/Reusable/ReusableCustomCarousel';
 import ReusableSlick from 'components/Reusable/ReusableSlick';
-import dynamic from 'next/dynamic';
-import ReusableJSSOR from 'components/Reusable/ReusableJSSOR';
+//import dynamic from 'next/dynamic';
+//import ReusableJSSOR from 'components/Reusable/ReusableJSSOR';
 
 const slides = [
   { image: "https://via.placeholder.com/600x400?text=1", thumb: "https://via.placeholder.com/100?text=1" },
@@ -35,7 +35,7 @@ const Home = () => {
     <ReusableCenterLayout
       child1={()=>(
         <div className='homeContainer'>
-          <ReusableJSSOR slides={slides}/>
+          
           <SliderModels/>
         </div>
       )}
