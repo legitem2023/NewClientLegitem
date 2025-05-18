@@ -18,7 +18,7 @@ import ReusableServerDown from 'components/Reusable/ReusableServerDown';
 const Menu: React.FC = () => {
   const { data: categoryData, loading: categoryLoading, error: categoryError } = useQuery(READ_CATEGORY);
   const { data: productTypesData, loading: productTypesLoading, error: productTypesError } = useQuery(READ_PRODUCT_TYPES);
-  const storedcategory = useSelector((state: any) => state.categoryData);
+  const storedcategory = useSelector((state: any) => state.categoryData.getCategoryData);
   const dispatch = useDispatch();
   const sortEngine = (e: any) => {
     dispatch(setCategory(e.target.getAttribute("value")));
@@ -108,7 +108,7 @@ console.log(storedcategory,"redux");
 
           <ul className='category_list'>
             <br />
-            {item.Name === 'Category' && categoryData?.getCategory?.length > 0 && categoryData?.getCategory?.map((category: any, i: any) => (
+            {item.Name === 'Category' && categoryData?.getCategory?.length > 0 && storedcategory?.map((category: any, i: any) => (
               <li className='category_list_div' key={i} onClick={(e: any) => { sortEngine(e); dispatch(setDrawer(true)); }} value={category.Name}>
                 <Icon icon="fluent-mdl2:radio-bullet"/>{category.Name}
               </li>
