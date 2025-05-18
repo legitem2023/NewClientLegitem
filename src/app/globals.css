@@ -3827,9 +3827,7 @@ flex:1;
   .openDrawer{
     display: none;
   }
-  .HeaderNav{
-    display: flex;
-  }
+  
   .grid-in-mobile{
     width: 100%;
     display: grid!important;
