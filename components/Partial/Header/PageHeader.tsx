@@ -36,8 +36,9 @@ const Ref = useRef<HTMLInputElement>(null);
 const {data:cat,loading:catload } = useQuery(GET_CATEGORY);
 if(catload) return;
 if(cat){
-  Dispatch(setCategoryData(cat));
+  Dispatch(setCategoryData(cat.getCategory));
 }
+  
 console.log(cat,"<====");
 const result = currentPath.replace(/[^a-zA-Z]/g, "");
 console.log(result+"<==="); // "HeWrld"
