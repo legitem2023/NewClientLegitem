@@ -2,6 +2,7 @@
 import { configureStore } from '@reduxjs/toolkit';
 import categoryReducer from './categorySlice';
 import categoryDataReducer from './categoryDataSlice';
+import productTypeDataReducer from './productTypeDataSlice';
 import cartReducer from "./cartSlice";
 import searchReducer from "./searchSlice";
 import drawerReducer from "./drawerSlice"
@@ -32,6 +33,7 @@ const store = configureStore({
   reducer: {
     category: categoryReducer, // Add category slice to the store
     categoryData: categoryDataReducer,
+    productTypeData:productTypeDataReducer,
     cart: cartReducer,
     search:searchReducer,
     drawer:drawerReducer,
