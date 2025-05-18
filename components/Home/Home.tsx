@@ -12,9 +12,16 @@ import HomeLoading from './HomeLoading';
 import ReusableCustomCarousel from 'components/Reusable/ReusableCustomCarousel';
 import ReusableSlick from 'components/Reusable/ReusableSlick';
 import dynamic from 'next/dynamic';
+import ReusableJSSOR from 'components/Reusable/ReusableJSSOR';
+
+const slides = [
+  { image: "https://via.placeholder.com/600x400?text=1", thumb: "https://via.placeholder.com/100?text=1" },
+  { image: "https://via.placeholder.com/600x400?text=2", thumb: "https://via.placeholder.com/100?text=2" },
+  { image: "https://via.placeholder.com/600x400?text=3", thumb: "https://via.placeholder.com/100?text=3" },
+  { image: "https://via.placeholder.com/600x400?text=4", thumb: "https://via.placeholder.com/100?text=4" }
+];
 
 // Prevent SSR for JssorCarousel
-const ReusableJSSOR = dynamic(() => import('components/Reusable/ReusableJSSOR'), { ssr: false });
 const Home = () => {
     
     const { data:Category, loading, error } = useQuery(GET_CATEGORY);
@@ -28,7 +35,7 @@ const Home = () => {
     <ReusableCenterLayout
       child1={()=>(
         <div className='homeContainer'>
-          <ReusableJSSOR/>
+          <ReusableJSSOR slides={slides}/>
           <SliderModels/>
         </div>
       )}
