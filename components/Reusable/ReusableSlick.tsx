@@ -3,6 +3,8 @@ import Slider from "react-slick";
 //import { baseUrl } from "./config";
 
 function ReusableSlick() {
+    const baseUrl = process.env.NEXT_PUBLIC_SERVER_PRODUCT_IMAGE_PATH || '';
+
   const settings = {
     customPaging: function(i) {
       return (
