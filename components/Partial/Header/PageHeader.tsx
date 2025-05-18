@@ -14,6 +14,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { setDrawer } from 'Redux/drawerSlice';
 import Image from 'next/image';
 import { setSearch } from 'Redux/searchSlice';
+import { setCategoryData } from 'Redux/categoryDataSlice';
 import { throttle } from 'lodash';
 import { GET_CATEGORY, GET_CHILD_INVENTORY } from 'graphql/queries';
 
@@ -34,6 +35,9 @@ const [suggestions, setSuggestions] = useState<string[]>([]);
 const Ref = useRef<HTMLInputElement>(null);
 const {data:cat,loading:catload } = useQuery(GET_CATEGORY);
 if(catload) return;
+if(cat){
+  Dispatch(setCategoryData(cat));
+}
 console.log(cat,"<====");
 const result = currentPath.replace(/[^a-zA-Z]/g, "");
 console.log(result+"<==="); // "HeWrld"
