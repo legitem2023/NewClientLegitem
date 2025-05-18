@@ -11,6 +11,10 @@ import ReusableLabel from 'components/Reusable/ReusableLabel';
 import HomeLoading from './HomeLoading';
 import ReusableCustomCarousel from 'components/Reusable/ReusableCustomCarousel';
 import ReusableSlick from 'components/Reusable/ReusableSlick';
+import dynamic from 'next/dynamic';
+
+// Prevent SSR for JssorCarousel
+const ReusableJSSOR = dynamic(() => import('@/components/Reusable/ReusableJSSOR'), { ssr: false });
 const Home = () => {
     
     const { data:Category, loading, error } = useQuery(GET_CATEGORY);
@@ -24,6 +28,7 @@ const Home = () => {
     <ReusableCenterLayout
       child1={()=>(
         <div className='homeContainer'>
+          <ReusableJSSOR/>
           <SliderModels/>
         </div>
       )}
