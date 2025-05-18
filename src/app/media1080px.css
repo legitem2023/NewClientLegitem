@@ -2,7 +2,9 @@
     body {
         overflow: hidden;
     }
-
+  .HeaderNav{
+    display: flex;
+  }
     .HeaderLeft{
         background-color:rgba(189, 152, 149);
     }
