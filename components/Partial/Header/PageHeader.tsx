@@ -36,7 +36,7 @@ const Ref = useRef<HTMLInputElement>(null);
 const {data:cat,loading:catload } = useQuery(GET_CATEGORY);
 if(catload) return;
 if(cat){
-  Dispatch(setCategoryData(cat.getCategory));
+  dispatch(setCategoryData(cat.getCategory));
 }
   
 console.log(cat,"<====");
