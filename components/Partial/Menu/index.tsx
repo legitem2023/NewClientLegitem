@@ -19,6 +19,7 @@ const Menu: React.FC = () => {
   const { data: categoryData, loading: categoryLoading, error: categoryError } = useQuery(READ_CATEGORY);
   const { data: productTypesData, loading: productTypesLoading, error: productTypesError } = useQuery(READ_PRODUCT_TYPES);
   const storedcategory = useSelector((state: any) => state.categoryData.getCategoryData);
+  const storedproductType = useSelector((state:any) => state.productTypeData.getProductType);
   const dispatch = useDispatch();
   const sortEngine = (e: any) => {
     dispatch(setCategory(e.target.getAttribute("value")));
@@ -65,7 +66,7 @@ const Menu: React.FC = () => {
 
   if (categoryLoading || productTypesLoading ) return <MenuLoading/>;
   if (categoryError || productTypesError ) return <ReusableServerDown/>
-  console.log(productTypesData);
+  console.log(storedproductType,'redux');
   return (
     <ul className='Menu' ref={dropdownRef}>
       <li className='Menu_label'>Menu</li>
