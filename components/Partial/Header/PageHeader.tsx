@@ -32,7 +32,9 @@ const [isFocused, setIsFocused] = useState(false);
 const [query, setQuery] = useState("");
 const [suggestions, setSuggestions] = useState<string[]>([]);
 const Ref = useRef<HTMLInputElement>(null);
-
+const {data:cat,loading:catload } = useQuery(GET_CATEGORY);
+if(catload) return;
+console.log(cat,"<====");
 const result = currentPath.replace(/[^a-zA-Z]/g, "");
 console.log(result+"<==="); // "HeWrld"
 
