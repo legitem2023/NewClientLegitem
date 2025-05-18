@@ -2,44 +2,40 @@
 
 import { useEffect, useRef } from 'react';
 
-const slides = [
-  { image: "https://via.placeholder.com/600x400?text=1", thumb: "https://via.placeholder.com/100?text=1" },
-  { image: "https://via.placeholder.com/600x400?text=2", thumb: "https://via.placeholder.com/100?text=2" },
-  { image: "https://via.placeholder.com/600x400?text=3", thumb: "https://via.placeholder.com/100?text=3" },
-  { image: "https://via.placeholder.com/600x400?text=4", thumb: "https://via.placeholder.com/100?text=4" },
-];
+type Slide = {
+  image: string;
+  thumb: string;
+};
 
-export default function ReusableJSSOR() {
+interface Props {
+  slides: Slide[];
+}
+
+export default function ReusableJSSOR({ slides }: Props) {
   const sliderRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const loadJssor = async () => {
-      if (typeof window !== 'undefined' && !window.$JssorSlider$) {
-        await import('https://cdn.jsdelivr.net/npm/jssor-slider@28.0.0/dist/min/jssor.slider.min.js');
-      }
+    if (typeof window === 'undefined' || !window.$JssorSlider$) return;
 
-      const jssor_slider = new window.$JssorSlider$('jssor_1', {
-        $AutoPlay: 1,
-        $ArrowNavigatorOptions: { $Class: window.$JssorArrowNavigator$ },
-        $ThumbnailNavigatorOptions: {
-          $Class: window.$JssorThumbnailNavigator$,
-          $Cols: 2,
-          $Align: 0,
-          $NoDrag: true,
-        },
-      });
+    const jssor_slider = new window.$JssorSlider$('jssor_1', {
+      $AutoPlay: 1,
+      $ArrowNavigatorOptions: { $Class: window.$JssorArrowNavigator$ },
+      $ThumbnailNavigatorOptions: {
+        $Class: window.$JssorThumbnailNavigator$,
+        $Cols: 2,
+        $Align: 0,
+        $NoDrag: true,
+      },
+    });
 
-      function ScaleSlider() {
-        const containerWidth = sliderRef.current?.parentElement?.clientWidth || 800;
-        jssor_slider.$ScaleWidth(Math.min(containerWidth, 800));
-      }
+    function ScaleSlider() {
+      const containerWidth = sliderRef.current?.parentElement?.clientWidth || 800;
+      jssor_slider.$ScaleWidth(Math.min(containerWidth, 800));
+    }
 
-      ScaleSlider();
-      window.addEventListener('resize', ScaleSlider);
-      return () => window.removeEventListener('resize', ScaleSlider);
-    };
-
-    loadJssor();
+    ScaleSlider();
+    window.addEventListener('resize', ScaleSlider);
+    return () => window.removeEventListener('resize', ScaleSlider);
   }, []);
 
   return (
