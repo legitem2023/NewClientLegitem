@@ -70,9 +70,9 @@ const ReusableCustomCarousel = ({ data, showthumbs, thumbpos }) => {
       display: "flex",
       justifyContent: "center",
       alignItems: "center",
-      padding:"10px",
+      padding:"5px",
     }}>
-      <div style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
+      <div style={{ display: "flex", justifyContent: "center", alignItems: "center",overflow:'auto',boxSizing:'border-box'}}>
         <ImageGallery
           items={galleryItems}
           thumbnailPosition={thumbpos}
