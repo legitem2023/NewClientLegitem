@@ -3,7 +3,9 @@ import React, { useState, Suspense } from 'react';
 import Share from 'components/Partial/Share/Share';
 import Ratings from 'components/Partial/Ratings/Ratings';
 import { Icon } from '@iconify/react';
+import { Gallery } from "components/Gallery/Gallery";
 import Loading from 'components/Partial/LoadingAnimation/Loading';
+import ReusableArrowTabs from 'components/Reusable/ReusableArrowTabs';
 import ProductTabs from './ProductTabs';
 import { GET_RELATED_PRODUCTS } from 'graphql/queries';
 import { useMutation, useQuery } from '@apollo/client';
@@ -51,6 +53,9 @@ const ProductView: React.FC = () => {
     setTimeout(() => dispatch(setmodal(false)), 400); // Match the animation duration
   };
 
+
+
+  
   if (viewedProd.length < 1) return null; // Return null if no viewed products
   return (
     <Suspense fallback={<Loading />}>
@@ -64,6 +69,18 @@ const ProductView: React.FC = () => {
             </div>
             <div className='MainView_LchildGallery'>
               <ProductTabs data={viewItem} />
+              { 
+                return { 
+              const tabs = [{
+                     icon: "fluent:document-add-24-filled",
+                     content: <Gallery data={viewItem} length={viewItem} slidesPerView={1} spaceBetween={50}/>,
+                     notification:0},
+                            { 
+                     icon: "mdi:inbox-arrow-down", 
+                     content: <Gallery data={viewItem} length={viewItem} slidesPerView={1} spaceBetween={50}/>,
+                     notification:0}]
+              }}
+              <ReusableArrowTabs tabs={tabs}></ReusableArrowTabs>
               <div className='MainView_LchildGalleryDetails'>
                 <Element Label="Name" value={'Name :'+ viewItem.name} />
                 <Element Label="Price" value={'Price :' + formatter.format(viewItem.price)} />
