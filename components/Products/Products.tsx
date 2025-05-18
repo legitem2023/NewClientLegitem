@@ -1,7 +1,7 @@
 'use client'
 import React, { useCallback, useState,useEffect } from 'react';
 import { useQuery } from '@apollo/client';
-import { GET_CATEGORY, GET_CHILD_INVENTORY } from 'graphql/queries';
+import { GET_CHILD_INVENTORY } from 'graphql/queries';
 import { handleError, handleLoading } from 'utils/scripts';
 import Thumbnail from 'components/UI/Thumbnail';
 import ReusableThumbnail from 'components/Reusable/ReusableThumbnail';
@@ -74,11 +74,8 @@ const saveRecentlyVisited = (product:ViewedProduct ) => {
   const path = process.env.NEXT_PUBLIC_PATH || '';
 
   const { data: ProductsData, loading: productsLoading, error: productsError } = useQuery(GET_CHILD_INVENTORY);
-  const { data: Category, loading, error } = useQuery(GET_CATEGORY);
-
   // Function to multiply the array
-  function multiplyArray(data, times) {
-    
+  function multiplyArray(data, times) {   
     return Array(times).fill(data).flat();
   }
 
