@@ -18,7 +18,7 @@ import ReusableServerDown from 'components/Reusable/ReusableServerDown';
 const Menu: React.FC = () => {
   const { data: categoryData, loading: categoryLoading, error: categoryError } = useQuery(READ_CATEGORY);
   const { data: productTypesData, loading: productTypesLoading, error: productTypesError } = useQuery(READ_PRODUCT_TYPES);
-  const storedcategory = useSelector((state: any) => state.categoryData.categoryData);
+  const storedcategory = useSelector((state: any) => state.categoryData);
   const dispatch = useDispatch();
   const sortEngine = (e: any) => {
     dispatch(setCategory(e.target.getAttribute("value")));
