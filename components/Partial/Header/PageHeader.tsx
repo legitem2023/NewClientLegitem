@@ -34,7 +34,7 @@ const [query, setQuery] = useState("");
 const [suggestions, setSuggestions] = useState<string[]>([]);
 const Ref = useRef<HTMLInputElement>(null);
 const {data:cat,loading:catload } = useQuery(GET_CATEGORY);
-if(catload) return;
+
 if(cat){
   dispatch(setCategoryData(cat.getCategory));
 }
