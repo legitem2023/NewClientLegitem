@@ -1,7 +1,7 @@
 // store/categorySlice.ts
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-export interface Category {
+export interface CategoryData {
   __typename: string;
   Name: string;
   icon: string | null;
@@ -11,25 +11,25 @@ export interface Category {
 }
 
 interface CategoryState {
-  getCategory: Category[];
+  getCategoryData: CategoryData[];
 }
 
 const initialState: CategoryState = {
-  getCategory: [],
+  getCategoryData: [],
 };
 
 const categoryDataSlice = createSlice({
-  name: 'category',
+  name: 'categoryData',
   initialState,
   reducers: {
-    setCategories(state, action: PayloadAction<Category[]>) {
-      state.getCategory = action.payload;
+    setCategoryData(state, action: PayloadAction<CategoryData[]>) {
+      state.getCategoryData = action.payload;
     },
-    clearCategories(state) {
-      state.getCategory = [];
+    clearCategoryData(state) {
+      state.getCategoryData = [];
     },
   },
 });
 
-export const { setCategories, clearCategories } = categorySlice.actions;
+export const { setCategoryData, clearCategoryData } = categoryDataSlice.actions;
 export default categoryDataSlice.reducer;
