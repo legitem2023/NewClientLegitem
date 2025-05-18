@@ -24,14 +24,14 @@ const slides = [
 
 // Prevent SSR for JssorCarousel
 const Home = () => {
-    
+    const storedcategory = useSelector((state: any) => state.categoryData.getCategoryData);
     const { data:Category, loading, error } = useQuery(GET_CATEGORY);
     if(loading) return <HomeLoading/>
     if(error) return "Connection Error";
 
     const gallery = Category?.getCategory;
 
-    const storedcategory = useSelector((state: any) => state.categoryData.getCategoryData);
+    
   return (
     <ReusableCenterLayout
       child1={()=>(
