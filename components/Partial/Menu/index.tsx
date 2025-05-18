@@ -5,7 +5,7 @@ import menuList from '../../../json/menu.json';
 import { Icon } from '@iconify/react';
 import { useQuery } from '@apollo/client';
 import { READ_CATEGORY, READ_PRODUCT_TYPES } from 'graphql/queries'; // Assuming you have this query for Collection Items
-import { useDispatch } from 'react-redux';
+import { useDispatch,useSelector } from 'react-redux';
 import { setCategory } from 'Redux/categorySlice';
 import { setproductType } from 'Redux/productTypeSlice';
 import { setcollectionItem } from 'Redux/collectionItemSlice';
@@ -18,6 +18,7 @@ import ReusableServerDown from 'components/Reusable/ReusableServerDown';
 const Menu: React.FC = () => {
   const { data: categoryData, loading: categoryLoading, error: categoryError } = useQuery(READ_CATEGORY);
   const { data: productTypesData, loading: productTypesLoading, error: productTypesError } = useQuery(READ_PRODUCT_TYPES);
+  const categoryData = useSelector((state: any) => state.categoryData.categoryData);
   const dispatch = useDispatch();
   const sortEngine = (e: any) => {
     dispatch(setCategory(e.target.getAttribute("value")));
@@ -65,7 +66,7 @@ const Menu: React.FC = () => {
   if (categoryLoading || productTypesLoading ) return <MenuLoading/>;
   if (categoryError || productTypesError ) return <ReusableServerDown/>
 
-
+console.log(categoryData,"redux");
   return (
     <ul className='Menu' ref={dropdownRef}>
       <li className='Menu_label'>Menu</li>
