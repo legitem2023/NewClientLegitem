@@ -20,6 +20,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
   return (
     <html lang="en">
+      <head>
+       <script
+          src="https://cdn.jsdelivr.net/npm/jssor-slider@28.0.0/dist/min/jssor.slider.min.js"
+          async
+        ></script>
+      </head>
       <body className={inter.className}>
       <ToastContainer/>
         <LoadEruda/>
