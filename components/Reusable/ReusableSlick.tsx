@@ -1,9 +1,8 @@
 import React, { Component } from "react";
 import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+import "https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css";
+import "https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css";
 //import { baseUrl } from "./config";
-
 function ReusableSlick() {
     const baseUrl = process.env.NEXT_PUBLIC_SERVER_PRODUCT_IMAGE_PATH || '';
 
