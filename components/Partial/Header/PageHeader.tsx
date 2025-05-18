@@ -15,9 +15,10 @@ import { setDrawer } from 'Redux/drawerSlice';
 import Image from 'next/image';
 import { setSearch } from 'Redux/searchSlice';
 import { setCategoryData } from 'Redux/categoryDataSlice';
+import { setProductTypeData } from 'Redux/productTypeDataSlice';
 import { throttle } from 'lodash';
-import { GET_CATEGORY, GET_CHILD_INVENTORY } from 'graphql/queries';
-
+import { GET_CATEGORY, GET_CHILD_INVENTORY, READ_PRODUCT_TYPES } from 'graphql/queries';
+ 
 const PageHeader: React.FC = () => {
 
 const path = process.env.NEXT_PUBLIC_PATH;
@@ -34,11 +35,13 @@ const [query, setQuery] = useState("");
 const [suggestions, setSuggestions] = useState<string[]>([]);
 const Ref = useRef<HTMLInputElement>(null);
 const {data:cat,loading:catload } = useQuery(GET_CATEGORY);
-
+const {data:prodType,loading:prodTypeload } = useQuery(READ_PRODUCT_TYPES);
 if(cat){
   dispatch(setCategoryData(cat.getCategory));
 }
-  
+if(prodType){
+  dispatch(setProductTypeData(prodType.getProductTypes));
+}
 console.log(cat,"<====");
 const result = currentPath.replace(/[^a-zA-Z]/g, "");
 console.log(result+"<==="); // "HeWrld"
