@@ -11,6 +11,7 @@ const nextConfig = {
                   'cdn-icons-png.flaticon.com',
                   'hokei-storage.s3.ap-northeast-1.amazonaws.com',
                   'client-legitem.vercel.app',
+                  'new-client-legitem.vercel.app',
                   'modelviewer.dev'],
       },
 }
