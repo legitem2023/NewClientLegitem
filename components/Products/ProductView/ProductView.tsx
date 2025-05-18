@@ -158,7 +158,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import ReusableLabel from 'components/Reusable/ReusableLabel';
 import { setmodal } from 'Redux/modalSlice';
 import ProductViewLoading from './ProductViewLoading';
-
+import ModelViewer from "components/Partial/ThreeJS/ModelViewer";
 const path = process.env.NEXT_PUBLIC_PATH;
 
 const ProductView: React.FC = () => {
@@ -185,7 +185,7 @@ const ProductView: React.FC = () => {
       {viewedProd.map((viewItem: any, idx: number) => {
         const tabs = [
           {
-            icon: "fluent:document-add-24-filled",
+            icon: "mdi-light:image",
             content: (
               <Gallery
                 data={viewItem}
@@ -197,14 +197,9 @@ const ProductView: React.FC = () => {
             notification: 0,
           },
           {
-            icon: "mdi:inbox-arrow-down",
+            icon: "meteor-icons:cube",
             content: (
-              <Gallery
-                data={viewItem}
-                length={viewItem}
-                slidesPerView={1}
-                spaceBetween={50}
-              />
+              <ModelViewer data={viewItem}/>
             ),
             notification: 0,
           },
@@ -223,7 +218,7 @@ const ProductView: React.FC = () => {
                 <Icon icon="ic:sharp-double-arrow" rotate={2} className='backIcon' /> Back
               </div>
               <div className='MainView_LchildGallery'>
-                <ProductTabs data={viewItem} />
+                {/* <ProductTabs data={viewItem} />*/}
                 <ReusableArrowTabs tabs={tabs} />
                 <div className='MainView_LchildGalleryDetails'>
                   <Element Label="Name" value={'Name: ' + viewItem.name} />
