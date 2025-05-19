@@ -12,14 +12,14 @@ const ReusableSlick = ({ data }) => {
     <div className="card" style={{ height: "auto", position: "relative", padding: "10px" }}>
       <Swiper
         slidesPerView={3}
-        spaceBetween={10}
+        spaceBetween={5}
         style={{ position: "relative", width: "100%" }}
         loop={false}
       >
         {data.map((item: any, idx: number) => (
           <SwiperSlide key={idx} style={{ backgroundColor: "transparent" }}>
             <img
-              style={{ borderRadius: '10px', margin: '10px',width:'100px',height:'100px' }}
+              style={{ borderRadius: '10px', margin: '10px',width:'80px',height:'80px' }}
               height={200}
               width={200}
               src={item.image}
