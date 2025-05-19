@@ -86,6 +86,11 @@ const ReusableCustomCarousel = ({ data, showthumbs, thumbpos }) => {
          width: '100%';
          aspectRatio: '1 / 1';
          objectFit: 'cover';
+        }
+        .image-gallery-thumbnail img {
+         width: '100%';
+         aspectRatio: '1 / 1';
+         objectFit: 'cover';
         }`}</style>
     </div>
     
