@@ -83,8 +83,9 @@ const ReusableCustomCarousel = ({ data, showthumbs, thumbpos }) => {
       </div>
 <style jsx global>{`
         .image-gallery-thumbnail {
-          width: auto !important;
-          height: 50px !important;
+         width: '100%';
+         aspectRatio: '1 / 1';
+         objectFit: 'cover';
         }`}</style>
     </div>
     
