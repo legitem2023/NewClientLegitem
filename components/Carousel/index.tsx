@@ -54,7 +54,7 @@ export default function Carousel({data,fromData}) {
 
 // if(Products) return
   return (
-  <div className="card" style={{aspectRatio:'5 / 3', width:'100%'}}>
+  <div className="card" style={{aspectRatio:'5 / 3', width:'100%',display:'flex',alignItems:'center',justifyContent:'center'}}>
     <div style={{ width: "100%", position: "relative" }}>
       <ResponsiveContainer
         carouselRef={ref}
