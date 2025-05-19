@@ -39,14 +39,16 @@ export const Gallery:React.FC<PropsGallery> = ({data,length,slidesPerView,spaceB
                    src={imageSourceGallery(item)} 
                    onError={handleError}
                    alt={"alt" + i} 
-                   width='400' height='350' />
+                   style={{aspectRatio:'4 / 3'}}
+                   width='400' height='300' />
             {item.title}
         </SwiperSlide>
       )):<SwiperSlide>
       <Image src={`${imgPath}`} 
              onError={handleError}
              alt={"alt" + 1} 
-             width='400' height='350'/>
+             style={{aspectRatio:'4 / 3'}}
+             width='400' height='300'/>
         </SwiperSlide>
       }
     </Swiper>
