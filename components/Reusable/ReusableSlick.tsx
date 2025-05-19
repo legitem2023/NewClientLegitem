@@ -19,12 +19,15 @@ const ReusableSlick = ({ data }) => {
         {data.map((item: any, idx: number) => (
           <SwiperSlide key={idx} style={{ backgroundColor: "transparent", textAlign:'left' }}>
             <img
-              style={{ borderRadius: '5px',width:'80px',height:'80px' }}
-              height={200}
-              width={200}
-              src={item.image}
-              alt={item.Name}
-            />
+  style={{
+    borderRadius: '5px',
+    width: '100%',
+    aspectRatio: '1 / 1',
+    objectFit: 'cover',
+  }}
+  src={item.image}
+  alt={item.Name}
+/>
             <b style={{
   textAlign: 'left',
   marginTop: '10px',
