@@ -18,7 +18,7 @@ import { setCategoryData } from 'Redux/categoryDataSlice';
 import { setProductTypeData } from 'Redux/productTypeDataSlice';
 import { throttle } from 'lodash';
 import { GET_CATEGORY, GET_CHILD_INVENTORY, READ_PRODUCT_TYPES } from 'graphql/queries';
- 
+import Loading from 'components/Partial/LoadingAnimation/Loading';
 const PageHeader: React.FC = () => {
 
 const path = process.env.NEXT_PUBLIC_PATH;
@@ -36,6 +36,7 @@ const [suggestions, setSuggestions] = useState<string[]>([]);
 const Ref = useRef<HTMLInputElement>(null);
 const {data:cat,loading:catload } = useQuery(GET_CATEGORY);
 const {data:prodType,loading:prodTypeload } = useQuery(READ_PRODUCT_TYPES);
+if (catload) return <Loading/>
 if(cat){
   dispatch(setCategoryData(cat.getCategory));
 }
