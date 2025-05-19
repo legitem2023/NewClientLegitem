@@ -23,7 +23,7 @@ export default function Carousel({data,fromData}) {
       <div
         style={{
           width: "100%",
-          height:"300",
+          height:300,
           userSelect: "none",
           backgroundColor:"#c0c0c0"
         }}
