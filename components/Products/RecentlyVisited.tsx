@@ -87,7 +87,7 @@ const [finalImage, setFinalImage] = useState<string>("");
 
     
     return (
-      <div>
+      <div style={{aspectRatio: '5 / 3'}}>
         <div
           style={{
             width: "100%",
