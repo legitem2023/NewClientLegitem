@@ -36,7 +36,7 @@ const [suggestions, setSuggestions] = useState<string[]>([]);
 const Ref = useRef<HTMLInputElement>(null);
 const {data:cat,loading:catload } = useQuery(GET_CATEGORY);
 const {data:prodType,loading:prodTypeload } = useQuery(READ_PRODUCT_TYPES);
-if (catload) return <Loading/>
+//if (catload) return <Loading/>
 if(cat){
   dispatch(setCategoryData(cat.getCategory));
 }
