@@ -9,7 +9,7 @@ const ProductViewLoading = () => {
 
             </div>
             <div className='MainView_LchildGallery' style={{margin:"3px",padding:"5px"}}>
-                <div className='loading-screen' style={{height:"50vh",boxSizing:"border-box"}}></div>
+                <div className='loading-screen' style={{width:"100%",aspectRatio:"4 / 3",boxSizing:"border-box"}}></div>
                 <div>
                     <div style={{height:"50px",boxSizing:"border-box",margin:"10px"}}>
                        <div className='loading-screen' style={{height:"50px",boxSizing:"border-box"}}></div>
