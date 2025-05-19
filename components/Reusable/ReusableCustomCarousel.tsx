@@ -22,7 +22,7 @@ const ReusableCustomCarousel = ({ data, showthumbs, thumbpos }) => {
     const [loading, setLoading] = useState(true);
 
     return (
-      <div style={{ position: 'relative', width: '100%', height: '100%', boxSizing: "border-box" }}>
+      <div style={{ position: 'relative', width: '100%', aspectRatio: '1 / 1', boxSizing: "border-box" }}>
         {loading && (
           <div style={{
             position: 'absolute',
@@ -42,7 +42,12 @@ const ReusableCustomCarousel = ({ data, showthumbs, thumbpos }) => {
         <img
           src={thumbnail}
           alt="thumbnail"
-          style={{ width: '100%', height: '100%', objectFit: 'cover', opacity: loading ? 0 : 1 }}
+          style={{
+            width: '100%',
+            height: '100%',
+            objectFit: 'cover',
+            opacity: loading ? 0 : 1
+          }}
           onLoad={() => setLoading(false)}
         />
         <style jsx>{`
@@ -59,7 +64,28 @@ const ReusableCustomCarousel = ({ data, showthumbs, thumbpos }) => {
     original: item.image,
     thumbnail: item.image,
     description: item.Name,
-    renderThumbInner: () => <ThumbnailWithLoader thumbnail={item.image} />
+    renderThumbInner: () => <ThumbnailWithLoader thumbnail={item.image} />,
+    renderItem: () => (
+      <div style={{
+        position: 'relative',
+        width: '100%',
+        paddingTop: '56.25%', // 16:9 aspect ratio
+        backgroundColor: '#f0f0f0'
+      }}>
+        <img
+          src={item.image}
+          alt={item.Name}
+          style={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            width: '100%',
+            height: '100%',
+            objectFit: 'cover'
+          }}
+        />
+      </div>
+    )
   }));
 
   return (
@@ -70,9 +96,16 @@ const ReusableCustomCarousel = ({ data, showthumbs, thumbpos }) => {
       display: "flex",
       justifyContent: "center",
       alignItems: "center",
-      padding:"3px",
+      padding: "3px",
     }}>
-      <div style={{ display: "flex", justifyContent: "center", alignItems: "center",overflow:'auto',boxSizing:'border-box'}}>
+      <div style={{
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        overflow: 'auto',
+        boxSizing: 'border-box',
+        width: '100%'
+      }}>
         <ImageGallery
           items={galleryItems}
           thumbnailPosition={thumbpos}
@@ -81,19 +114,20 @@ const ReusableCustomCarousel = ({ data, showthumbs, thumbpos }) => {
           showFullscreenButton={true}
         />
       </div>
-<style jsx global>{`
+
+      <style jsx global>{`
         .image-gallery-thumbnail {
-         width: '100%';
-         aspectRatio: '1 / 1';
-         objectFit: 'cover';
+          aspect-ratio: 1 / 1;
         }
+
         .image-gallery-thumbnail img {
-         width: '100%';
-         aspectRatio: '1 / 1';
-         objectFit: 'cover';
-        }`}</style>
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          aspect-ratio: 1 / 1;
+        }
+      `}</style>
     </div>
-    
   );
 };
 
