@@ -10,7 +10,7 @@ const SliderModels = () => {
     return (
       <div style={{height:"auto",position:"relative"}}>
             <Swiper
-            slidesPerView={1}
+            slidesPerView={4}
             pagination={{
               clickable: true,
             }}
@@ -20,12 +20,15 @@ const SliderModels = () => {
               <SwiperSlide>
                  <ModelViewer data="/Rolex.glb"/> 
               </SwiperSlide>
-               {/* <SwiperSlide>
+               <SwiperSlide>
                  <ModelViewer data="https://modelviewer.dev/shared-assets/models/NeilArmstrong.glb"/> 
-              </SwiperSlide> */}
-              {/*<SwiperSlide>
+              </SwiperSlide>
+              <SwiperSlide>
                  <ModelViewer data="https://modelviewer.dev/shared-assets/models/NeilArmstrong.glb"/> 
-              </SwiperSlide> */}
+              </SwiperSlide> 
+                <SwiperSlide>
+                 <ModelViewer data="https://modelviewer.dev/shared-assets/models/NeilArmstrong.glb"/> 
+              </SwiperSlide> 
           </Swiper>
       </div>
   )
