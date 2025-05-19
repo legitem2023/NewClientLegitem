@@ -2148,6 +2148,7 @@ input[type='date']{
   aspect-ratio: 4 / 3;
   transition: ease 0.5s;
   cursor: pointer;
+  object-fit: fill;
 }
 
 .thumbnailImage:hover >:not(:hover) {
