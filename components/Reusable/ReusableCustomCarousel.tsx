@@ -44,7 +44,7 @@ const ReusableCustomCarousel = ({ data, showthumbs, thumbpos }) => {
           alt="thumbnail"
           style={{
             width: '100%',
-            height: '100%',
+            aspectRatio:'4 / 3',
             objectFit: 'cover',
             opacity: loading ? 0 : 1
           }}
