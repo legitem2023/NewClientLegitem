@@ -2145,9 +2145,8 @@ input[type='date']{
 */
 .thumbnailImage {
   width:100%;
-  aspect-ratio: 16 / 9;
+  aspect-ratio: 4 / 3;
   transition: ease 0.5s;
-  object-fit: cover;
   cursor: pointer;
 }
 
