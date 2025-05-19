@@ -9,7 +9,7 @@ import ModelViewer from "../Partial/ThreeJS/ModelViewer";
 const ReusableSlick = () => {
     
     return (
-      <div style={{height:"auto",position:"relative"}}>
+      <div style={{height:"auto",position:"relative",padding:"10px"}}>
             <Swiper
             slidesPerView={3}
             spaceBetween={10}
