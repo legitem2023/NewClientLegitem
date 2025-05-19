@@ -7,8 +7,7 @@ import 'swiper/css';
 import Element_Title from '../UI/Element_Title';
 // import 'swiper/css/scrollbar';
 import ModelViewer from "../Partial/ThreeJS/ModelViewer";
-const ReusableSlick = () => {
-    
+const ReusableSlick = ({data}) => {    
     return (
       <div className="card" style={{height:"auto",position:"relative",padding:"10px"}}>
             <Swiper
@@ -20,22 +19,12 @@ const ReusableSlick = () => {
             style={{position:"relative",width:"100%"}}
             modules={[Pagination]}
             loop={false}>
-              <SwiperSlide>
-                  <img style={{borderRadius:'10px'}} height={200} width={200} src={"https://tsbriguuaznlvwbnylop.supabase.co/storage/v1/object/public/legitemfiles/ProductImages/Product-2025-1-1-12-15054.webp"} />
-                  <Element_Title Label={''} value={'Namevalue'}/>
-              </SwiperSlide>
-                <SwiperSlide>
-                  <img style={{borderRadius:'10px'}} height={200} width={200} src={"https://tsbriguuaznlvwbnylop.supabase.co/storage/v1/object/public/legitemfiles/ProductImages/Product-2025-1-1-12-15054.webp"} />
-                  <Element_Title Label={''} value={'Namevalue'}/>
-              </SwiperSlide>
-              <SwiperSlide>
-                  <img style={{borderRadius:'10px'}} height={200} width={200} src={"https://tsbriguuaznlvwbnylop.supabase.co/storage/v1/object/public/legitemfiles/ProductImages/Product-2025-1-1-12-15054.webp"} />
-                  <Element_Title Label={''} value={'Namevalue'}/>
-              </SwiperSlide>
-              <SwiperSlide>
-                  <img  style={{borderRadius:'10px'}}  height={200} width={200} src={"https://tsbriguuaznlvwbnylop.supabase.co/storage/v1/object/public/legitemfiles/ProductImages/Product-2025-1-1-12-15054.webp"} />
-                  <Element_Title Label={''} value={'Namevalue'}/>
-              </SwiperSlide>
+                  {data.map((item:any,idx:number)=>(
+                <SwiperSlide key={idx}>
+                    <img style={{borderRadius:'10px'}} height={200} width={200} src={item.image} />
+                    <Element_Title Label={''} value={item.name}/>
+                </SwiperSlide>   
+                  ))}
           </Swiper>
       </div>
   )
