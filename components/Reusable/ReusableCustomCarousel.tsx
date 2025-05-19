@@ -122,7 +122,6 @@ const ReusableCustomCarousel = ({ data, showthumbs, thumbpos }) => {
 
         .image-gallery-thumbnail img {
           width: 100%;
-          height: 100%;
           object-fit: contain;
           aspect-ratio: 4 / 3;
         }
