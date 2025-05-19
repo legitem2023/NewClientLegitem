@@ -3,6 +3,8 @@
 @tailwind utilities;
 .image-gallery {
   width: 100%;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
   box-sizing:border-box!important;
 }
 
