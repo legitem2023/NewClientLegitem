@@ -19,7 +19,7 @@ export default function Carousel({data,fromData}) {
     const { image } = data[dataIndex];
 
     return (
-      <div style={{aspectRatio: '5 / 3'}}>
+      <div>
       <div
         style={{
           width: "100%",
