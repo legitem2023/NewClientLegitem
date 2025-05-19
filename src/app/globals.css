@@ -1,18 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-/*.image-gallery {
-  width: 100%;
-  aspect-ratio: 3 / 2;
-  object-fit: cover;
-  box-sizing:border-box!important;
-}
 
-.image-gallery-image img {
-  width: 100%;
-  aspect-ratio: 3 / 2;
-  object-fit: cover;
-}*/
 .card {
   aspect-ratio: 4 / 3;
   background: radial-gradient(
