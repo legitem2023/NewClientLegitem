@@ -25,7 +25,7 @@ const ReusableSlick = ({ data }) => {
               src={item.image}
               alt={item.name}
             />
-            <Element_Title Label={''} value={item.name} />
+            <Element_Title Label={''} value={item.Name} />
           </SwiperSlide>
         ))}
       </Swiper>
