@@ -1,3 +1,4 @@
+
 import { useQuery } from '@apollo/client';
 import Carousel from 'components/Carousel';
 import HomeGallery from 'components/Gallery/HomeGallery';
@@ -38,6 +39,7 @@ const Home = () => {
         <div className='homeContainer'>
           
           <SliderModels/>
+          <ReusableSlick/>
         </div>
       )}
       child2={()=>(         
