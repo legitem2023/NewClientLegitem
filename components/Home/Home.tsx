@@ -39,7 +39,7 @@ const Home = () => {
         <div className='homeContainer'>
           
           <SliderModels/>
-          <ReusableSlick/>
+          <ReusableSlick data={storedcategory} />
         </div>
       )}
       child2={()=>(         
