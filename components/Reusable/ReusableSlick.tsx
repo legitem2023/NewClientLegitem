@@ -25,7 +25,7 @@ const ReusableSlick = ({ data }) => {
               src={item.image}
               alt={item.Name}
             />
-            <b style={{textAlign:'left',marginTop:'10px',fontSize:'13px'}}>{item.Name}</b>
+            <b style={{textAlign:'left',marginTop:'5px',fontSize:'12px'}}>{item.Name}</b>
           </SwiperSlide>
         ))}
       </Swiper>
