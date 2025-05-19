@@ -12,7 +12,7 @@ const ReusableSlick = ({ data }) => {
     <div className="card" style={{ height: "auto", position: "relative", padding: "10px" }}>
       <Swiper
         slidesPerView={3}
-        spaceBetween={2}
+        spaceBetween={10}
         style={{ position: "relative", width: "100%" }}
         loop={false}
       >
