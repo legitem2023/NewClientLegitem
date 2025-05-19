@@ -19,7 +19,7 @@ const ReusableSlick = ({ data }) => {
         {data.map((item: any, idx: number) => (
           <SwiperSlide key={idx} style={{ backgroundColor: "transparent" }}>
             <img
-              style={{ borderRadius: '10px', margin: '10px',width:'200px',height:'200px' }}
+              style={{ borderRadius: '10px', margin: '10px',width:'100px',height:'100px' }}
               height={200}
               width={200}
               src={item.image}
