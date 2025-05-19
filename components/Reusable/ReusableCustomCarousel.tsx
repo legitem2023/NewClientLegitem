@@ -102,7 +102,7 @@ const ReusableCustomCarousel = ({ data, showthumbs, thumbpos }) => {
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
-        overflow: 'auto',
+        overflow: 'hidden',
         boxSizing: 'border-box',
         width: '100%'
       }}>
