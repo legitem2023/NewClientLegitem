@@ -37,15 +37,15 @@ const Home = () => {
     <ReusableCenterLayout
       child1={()=>(
         <div className='homeContainer'>
-          
           <SliderModels/>
-          <ReusableSlick data={storedcategory} />
         </div>
       )}
       child2={()=>(         
         <div className='homeContainer'>
           <ReusableLabel icn='nrk:category-active' label='Shop by Category'/>
           <Carousel data={storedcategory} fromData={"Category"}></Carousel>
+          <ReusableLabel icn='nrk:category-active' label='Shop by Product Type'/>
+          <ReusableSlick data={storedcategory} />
         </div>
       )}
       child3={()=>(
