@@ -179,9 +179,6 @@
         right: 0px;
         margin: auto;
     }
-    .thumbnailImage {
-     height: 100px;
-    }
     .thumbnail {
       min-height:200px;
       border:solid  3px rgb(255 246 229)
