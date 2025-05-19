@@ -2087,12 +2087,13 @@ input[type='date']{
 
 .Thumbnails {
   display: grid;
-  grid-template-columns: 19.7% 19.7% 19.7% 19.7% 19.7%;
+  grid-template-columns: 25% 25% 25% 25%;
   height: auto;
   grid-gap: 0.2vw;
   transition: ease 0.5s;
   justify-content: 'flex-start';
   position: relative;
+  box-sizing:border-box;
 }
 .thumbElements_tag{
   background-color: #006454;
