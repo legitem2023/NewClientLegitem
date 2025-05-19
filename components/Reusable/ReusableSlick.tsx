@@ -25,14 +25,14 @@ const ReusableSlick = ({ data }) => {
               src={item.image}
               alt={item.Name}
             />
-            <b style={{ 
-  textAlign: 'left', 
-  marginTop: '5px', 
-  fontSize: '12px', 
-  whiteSpace: 'nowrap', 
-  overflow: 'hidden', 
-  textOverflow: 'ellipsis', 
-  display: 'block' 
+            <b style={{
+  textAlign: 'left',
+  marginTop: '10px',
+  fontSize: '12px',
+  display: '-webkit-box',
+  WebkitLineClamp: 2,
+  WebkitBoxOrient: 'vertical',
+  overflow: 'hidden',
 }}>
   {item.Name}
 </b>
