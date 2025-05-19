@@ -69,6 +69,15 @@ const ProductView: React.FC = () => {
             ),
             notification: 0,
           },
+          {
+            icon: "guidance:wear-goggles",
+            content: (
+              <ModelViewer data={viewItem}/>
+            ),
+            notification: 0,
+          }
+
+          
         ];
 
         return (
