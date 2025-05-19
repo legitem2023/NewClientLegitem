@@ -20,16 +20,16 @@ const ReusableSlick = () => {
             modules={[Pagination]}
             loop={false}>
               <SwiperSlide>
-                           <img height={200} width={200} src={"https://tsbriguuaznlvwbnylop.supabase.co/storage/v1/object/public/legitemfiles/ProductImages/Product-2025-1-1-12-15054.webp"} />
+                           <img style={{borderRadius:'10px'}} height={200} width={200} src={"https://tsbriguuaznlvwbnylop.supabase.co/storage/v1/object/public/legitemfiles/ProductImages/Product-2025-1-1-12-15054.webp"} />
               </SwiperSlide>
                 <SwiperSlide>
-                           <img height={200} width={200} src={"https://tsbriguuaznlvwbnylop.supabase.co/storage/v1/object/public/legitemfiles/ProductImages/Product-2025-1-1-12-15054.webp"} />
+                           <img style={{borderRadius:'10px'}} height={200} width={200} src={"https://tsbriguuaznlvwbnylop.supabase.co/storage/v1/object/public/legitemfiles/ProductImages/Product-2025-1-1-12-15054.webp"} />
               </SwiperSlide>
               <SwiperSlide>
-                           <img height={200} width={200} src={"https://tsbriguuaznlvwbnylop.supabase.co/storage/v1/object/public/legitemfiles/ProductImages/Product-2025-1-1-12-15054.webp"} />
+                           <img style={{borderRadius:'10px'}} height={200} width={200} src={"https://tsbriguuaznlvwbnylop.supabase.co/storage/v1/object/public/legitemfiles/ProductImages/Product-2025-1-1-12-15054.webp"} />
               </SwiperSlide>
               <SwiperSlide>
-                           <img height={200} width={200} src={"https://tsbriguuaznlvwbnylop.supabase.co/storage/v1/object/public/legitemfiles/ProductImages/Product-2025-1-1-12-15054.webp"} />
+                           <img  style={{borderRadius:'10px'}}  height={200} width={200} src={"https://tsbriguuaznlvwbnylop.supabase.co/storage/v1/object/public/legitemfiles/ProductImages/Product-2025-1-1-12-15054.webp"} />
               </SwiperSlide>
           </Swiper>
       </div>
