@@ -4,6 +4,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination } from 'swiper/modules';
 import 'swiper/css/pagination';
 import 'swiper/css';
+import Element_Title from '../UI/Element_Title';
 // import 'swiper/css/scrollbar';
 import ModelViewer from "../Partial/ThreeJS/ModelViewer";
 const ReusableSlick = () => {
@@ -21,19 +22,19 @@ const ReusableSlick = () => {
             loop={false}>
               <SwiperSlide>
                   <img style={{borderRadius:'10px'}} height={200} width={200} src={"https://tsbriguuaznlvwbnylop.supabase.co/storage/v1/object/public/legitemfiles/ProductImages/Product-2025-1-1-12-15054.webp"} />
-                  <span>Name of thumb</span>
+                  <Element_Title Label={''} value={'Namevalue'}/>
               </SwiperSlide>
                 <SwiperSlide>
                   <img style={{borderRadius:'10px'}} height={200} width={200} src={"https://tsbriguuaznlvwbnylop.supabase.co/storage/v1/object/public/legitemfiles/ProductImages/Product-2025-1-1-12-15054.webp"} />
-                  <span>Name of thumb</span>
+                  <Element_Title Label={''} value={'Namevalue'}/>
               </SwiperSlide>
               <SwiperSlide>
-                 <img style={{borderRadius:'10px'}} height={200} width={200} src={"https://tsbriguuaznlvwbnylop.supabase.co/storage/v1/object/public/legitemfiles/ProductImages/Product-2025-1-1-12-15054.webp"} />
-                 <span>Name of thumb</span>
+                  <img style={{borderRadius:'10px'}} height={200} width={200} src={"https://tsbriguuaznlvwbnylop.supabase.co/storage/v1/object/public/legitemfiles/ProductImages/Product-2025-1-1-12-15054.webp"} />
+                  <Element_Title Label={''} value={'Namevalue'}/>
               </SwiperSlide>
               <SwiperSlide>
-                 <img  style={{borderRadius:'10px'}}  height={200} width={200} src={"https://tsbriguuaznlvwbnylop.supabase.co/storage/v1/object/public/legitemfiles/ProductImages/Product-2025-1-1-12-15054.webp"} />
-                 <span>Name of thumb</span>
+                  <img  style={{borderRadius:'10px'}}  height={200} width={200} src={"https://tsbriguuaznlvwbnylop.supabase.co/storage/v1/object/public/legitemfiles/ProductImages/Product-2025-1-1-12-15054.webp"} />
+                  <Element_Title Label={''} value={'Namevalue'}/>
               </SwiperSlide>
           </Swiper>
       </div>
