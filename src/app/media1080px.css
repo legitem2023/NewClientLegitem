@@ -227,13 +227,10 @@
     grid-gap:0.7vw;
     grid-template-columns: 49.5vw 49.5vw;
     } */
-    .thumbnail{
-        height: 150px;
-    }
+
     .Thumbnails {
         grid-gap: 0.35vw;
-       /* grid-template-columns: 24.35vw 24.35vw 24.35vw 24.35vw;*/
-        grid-template-columns: 33.33% 33.33% 33.33%;
+        grid-template-columns: 24.35vw 24.35vw 24.35vw 24.35vw;
     }
 
     .viewmore {
