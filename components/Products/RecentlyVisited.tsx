@@ -101,8 +101,9 @@ const [finalImage, setFinalImage] = useState<string>("");
         className="my-slide-component"
       >
         <Image
-          height={200}
+          height={300}
           width={400}
+          style={{aspectRatio:'4 / 3',width:'100%'}}
           alt={dataIndex}
           className="carouselImage"
           draggable={false}
