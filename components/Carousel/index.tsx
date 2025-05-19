@@ -19,11 +19,11 @@ export default function Carousel({data,fromData}) {
     const { image } = data[dataIndex];
 
     return (
-      <div>
+      <div style={{aspectRatio: '4 / 2'}}>
       <div
         style={{
           width: "100%",
-          aspectRatio:"4 / 2",
+          height:"300",
           userSelect: "none",
           backgroundColor:"#c0c0c0"
         }}
