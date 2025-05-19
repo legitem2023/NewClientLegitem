@@ -9,6 +9,7 @@
 .image-gallery-image img {
   width: 100%;
   aspect-ratio: 3 / 2;
+  object-fit: cover;
 }
 .card {
   background: radial-gradient(
