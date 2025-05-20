@@ -13,7 +13,7 @@ const ReusableSlick = ({ data }) => {
       <Swiper
         slidesPerView={4}
         spaceBetween={10}
-        autoplay={{delay:250,disableOnInteraction:false}}
+        autoplay={{delay:2500,disableOnInteraction:false}}
         style={{ position: "relative", width: "100%" }}
         loop={false}
         modules={[Autoplay]}
