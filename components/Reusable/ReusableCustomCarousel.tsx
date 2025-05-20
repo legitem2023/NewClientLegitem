@@ -95,9 +95,7 @@ const ReusableCustomCarousel = ({ data, showthumbs, thumbpos }) => {
   return (
     <div className="card" style={{
       width: "100%",
-      maxWidth: "800px",
-      margin: "0 auto",
-      height: "auto",
+      aspectRatio:"4 / 3",
       boxSizing: "border-box",
       display: "flex",
       justifyContent: "center",
