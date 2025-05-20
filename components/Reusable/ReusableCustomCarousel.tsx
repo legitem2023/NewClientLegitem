@@ -75,7 +75,7 @@ const ReusableCustomCarousel = ({ data, showthumbs, thumbpos }) => {
     renderItem: () => (
       <div style={{
         width: '100%',
-        aspectRatio:"4 / 3",
+        aspectRatio:"16 / 9",
         backgroundColor: '#f0f0f0',
         overflow: 'hidden'
       }}>
