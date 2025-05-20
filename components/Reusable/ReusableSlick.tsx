@@ -20,10 +20,10 @@ const ReusableSlick = ({ data }) => {
             slidesPerView: 4,
           },
           834: { // iPad Pro
-            slidesPerView: 5,
+            slidesPerView: 6,
           },
           1024: { // Desktop
-            slidesPerView: 6,
+            slidesPerView: 7,
           },
         }}
       >
