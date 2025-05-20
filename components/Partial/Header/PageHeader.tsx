@@ -82,6 +82,9 @@ setSuggestions(filtered);
 } else {
 setSuggestions([]);
 }
+if (e.key === "Enter") {
+ setIsFocused(false);
+}
 };
 const FillText = (item: any) => {
 setQuery(item);
