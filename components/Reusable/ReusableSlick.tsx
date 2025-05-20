@@ -15,30 +15,41 @@ const ReusableSlick = ({ data }) => {
         spaceBetween={10}
         style={{ position: "relative", width: "100%" }}
         loop={false}
+        breakpoints={{
+          320: {
+            slidesPerView: 4,
+          },
+          834: { // iPad Pro
+            slidesPerView: 5,
+          },
+          1024: { // Desktop
+            slidesPerView: 6,
+          },
+        }}
       >
         {data.map((item: any, idx: number) => (
           <SwiperSlide key={idx} style={{ backgroundColor: "transparent", textAlign:'left' }}>
             <img
-  style={{
-    borderRadius: '5px',
-    width: '100%',
-    aspectRatio: '1 / 1',
-    objectFit: 'cover',
-  }}
-  src={item.image}
-  alt={item.Name}
-/>
+              style={{
+                borderRadius: '5px',
+                width: '100%',
+                aspectRatio: '1 / 1',
+                objectFit: 'cover',
+              }}
+              src={item.image}
+              alt={item.Name}
+            />
             <b style={{
-  textAlign: 'left',
-  marginTop: '10px',
-  fontSize: '10px',
-  display: '-webkit-box',
-  WebkitLineClamp: 2,
-  WebkitBoxOrient: 'vertical',
-  overflow: 'hidden',
-}}>
-  {item.Name}
-</b>
+              textAlign: 'left',
+              marginTop: '10px',
+              fontSize: '10px',
+              display: '-webkit-box',
+              WebkitLineClamp: 2,
+              WebkitBoxOrient: 'vertical',
+              overflow: 'hidden',
+            }}>
+              {item.Name}
+            </b>
           </SwiperSlide>
         ))}
       </Swiper>
