@@ -84,8 +84,8 @@ const ReusableCustomCarousel = ({ data, showthumbs, thumbpos }) => {
           alt={item.Name}
           style={{
             width: '100%',
-            height: '100%',
-            objectFit: 'cover'
+            aspectRatio: '4 / 3',
+            objectFit: 'contain'
           }}
         />
       </div>
