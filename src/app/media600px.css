@@ -174,15 +174,6 @@
         grid-gap: 0.5vw !important;
         /*grid-template-columns: 49% 49% !important;*/
         grid-template-columns: 33% 33% 33% !important;
-        width: 100%;
-        left: 0px;
-        right: 0px;
-        margin: auto;
-    }
-    .thumbnail {
-      width:100%!important;
-      height:auto;
-      border:solid  3px rgb(255 246 229)
     }
     .UniversalLabels .thumbElements_Title{
         font-weight: bold;
@@ -190,9 +181,6 @@
     } 
     .thumbElements{
         font-size: 10px;
-    }
-    .thumbnailImageContainer{
-        height: 100px;
     }
     .feedbackattachment{
         width: 100%;
