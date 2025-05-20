@@ -99,7 +99,7 @@ const ReusableCustomCarousel = ({ data, showthumbs, thumbpos }) => {
       display: "flex",
       justifyContent: "center",
       alignItems: "center",
-      padding: "3px",
+      padding: "0px",
     }}>
       <div style={{
         width: '100%',
