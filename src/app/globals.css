@@ -2138,6 +2138,15 @@ input[type='date']{
   transition: ease 0.5s;
   cursor: pointer;
   object-fit:cover;
+    background: radial-gradient(
+    ellipse at center, 
+    #fff6f2 0%,
+    #fde3d9 34%, 
+    #fcd3c6 50%, 
+    #fbc4b5 67%, 
+    #f7b2a4 78%, 
+    #f3a093 100%
+  );
 }
 
 .thumbnailImage:hover >:not(:hover) {
