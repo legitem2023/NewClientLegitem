@@ -70,7 +70,7 @@ dispatch(setDrawer(!drawerState));
 }
 
 // Handle input change and filter suggestions
-const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+const handleChange = (e: React.KeyboardEvent<HTMLInputElement>) => {
 const value = e.target.value;
 setQuery(value);
 dispatch(setSearch(value));
