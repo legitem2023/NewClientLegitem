@@ -99,7 +99,7 @@ const ProductView: React.FC = () => {
                 <ReusableArrowTabs tabs={tabs} />
                 <div className='MainView_LchildGalleryDetails'>
                   <Element_Title Label="Name" value={'Name: ' + viewItem.name} />
-                  <Price Label="Price" item={viewItem.price}/>
+                  <Price item={viewItem}/>
                   <Element Label="Available Sizes" value={"Available Sizes:"} />
                   <RelatedSize styleCode={viewItem.style_Code} currentsize={viewItem.size} />
                   <Element Label="Available Colors" value={"Available Colors:"} />
