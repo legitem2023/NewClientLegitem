@@ -116,6 +116,9 @@ const ReusableCustomCarousel = ({ data, showthumbs, thumbpos }) => {
           showThumbnails={showthumbs}
           showPlayButton={true}
           showFullscreenButton={true}
+          autoPlay={true} 
+          infinite={true}
+          slideInterval={2000} // Optional: Set the time between slides (in ms)
         />
       </div>
 
