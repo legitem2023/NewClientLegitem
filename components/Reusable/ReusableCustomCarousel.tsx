@@ -4,7 +4,6 @@ import React, { useState } from 'react';
 import ImageGallery from 'react-image-gallery';
 import { Icon } from '@iconify/react';
 import 'react-image-gallery/styles/css/image-gallery.css';
-import { useSelector } from 'react-redux';
 
 const ReusableCustomCarousel = ({ data, showthumbs, thumbpos }) => {
   const fallbackData = [
@@ -22,13 +21,15 @@ const ReusableCustomCarousel = ({ data, showthumbs, thumbpos }) => {
     const [loading, setLoading] = useState(true);
 
     return (
-      <div style={{ position: 'relative', 
-                    width: '100%',
-                    display:'flex',
-                    alignItems:'center',
-                    justifyContent:'center',
-                    aspectRatio: '4 / 3', 
-                    boxSizing: "border-box" }}>
+      <div style={{
+        position: 'relative',
+        width: '100%',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        aspectRatio: '4 / 3',
+        boxSizing: "border-box"
+      }}>
         {loading && (
           <div style={{
             position: 'absolute',
@@ -50,7 +51,7 @@ const ReusableCustomCarousel = ({ data, showthumbs, thumbpos }) => {
           alt="thumbnail"
           style={{
             width: '100%',
-            aspectRatio:'4 / 3',
+            height: '100%',
             objectFit: 'cover',
             opacity: loading ? 0 : 1
           }}
@@ -73,21 +74,17 @@ const ReusableCustomCarousel = ({ data, showthumbs, thumbpos }) => {
     renderThumbInner: () => <ThumbnailWithLoader thumbnail={item.image} />,
     renderItem: () => (
       <div style={{
-        position: 'relative',
         width: '100%',
-        paddingTop: '56.25%', // 16:9 aspect ratio
-        backgroundColor: '#f0f0f0'
+        aspectRatio: '4 / 3',
+        backgroundColor: '#f0f0f0',
+        overflow: 'hidden'
       }}>
         <img
           src={item.image}
           alt={item.Name}
           style={{
-            position: 'absolute',
-            top: 0,
-            left: 0,
             width: '100%',
-            aspectRatio:'4 / 3',
-            height: 'auto',
+            height: '100%',
             objectFit: 'cover'
           }}
         />
@@ -98,7 +95,9 @@ const ReusableCustomCarousel = ({ data, showthumbs, thumbpos }) => {
   return (
     <div className="card" style={{
       width: "100%",
-      height:"auto",
+      maxWidth: "800px",
+      margin: "0 auto",
+      height: "auto",
       boxSizing: "border-box",
       display: "flex",
       justifyContent: "center",
@@ -106,12 +105,12 @@ const ReusableCustomCarousel = ({ data, showthumbs, thumbpos }) => {
       padding: "3px",
     }}>
       <div style={{
+        width: '100%',
+        boxSizing: 'border-box',
+        overflow: 'hidden',
         display: "flex",
         justifyContent: "center",
-        alignItems: "center",
-        overflow: 'hidden',
-        boxSizing: 'border-box',
-        width: '100%'
+        alignItems: "center"
       }}>
         <ImageGallery
           items={galleryItems}
