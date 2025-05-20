@@ -181,7 +181,7 @@
     }
     .thumbnail {
       width:100%!important;
-      height:100%!important;
+      height:auto;
       border:solid  3px rgb(255 246 229)
     }
     .UniversalLabels .thumbElements_Title{
