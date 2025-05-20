@@ -1,7 +1,7 @@
 'use client'
 import React from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Pagination } from 'swiper/modules';
+import { Pagination,Autoplay} from 'swiper/modules';
 import 'swiper/css/pagination';
 import 'swiper/css';
 import Element_Title from '../UI/Element_Title';
@@ -13,8 +13,10 @@ const ReusableSlick = ({ data }) => {
       <Swiper
         slidesPerView={4}
         spaceBetween={10}
+        autoplay={{delay:250,disableOnInteraction:false}}
         style={{ position: "relative", width: "100%" }}
         loop={false}
+        modules={[Autoplay]}
         breakpoints={{
           320: {
             slidesPerView: 4,
