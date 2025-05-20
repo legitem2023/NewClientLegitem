@@ -2298,7 +2298,8 @@ input[type='date']{
   justify-content: center;
   align-items: center;
   position: relative;
-  width: auto;  
+  width:100%;
+  aspect-ratio: 1 / 1;
 }
 
 .thumbnailImageContainer a {
