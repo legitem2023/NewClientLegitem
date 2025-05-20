@@ -27,7 +27,7 @@ const ReusableCustomCarousel = ({ data, showthumbs, thumbpos }) => {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        aspectRatio: '4 / 3',
+        aspectRatio: '16 / 9',
         boxSizing: "border-box"
       }}>
         {loading && (
