@@ -2133,11 +2133,11 @@ input[type='date']{
 }
 */
 .thumbnailImage {
-  width:100%;
+  height:100%;
   aspect-ratio: 1 / 1;
   transition: ease 0.5s;
   cursor: pointer;
-  object-fit:contain;
+  object-fit:cover;
 }
 
 .thumbnailImage:hover >:not(:hover) {
