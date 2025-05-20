@@ -48,7 +48,7 @@ const result = currentPath.replace(/[^a-zA-Z]/g, "");
 console.log(result+"<==="); // "HeWrld"
 
 const handleFocus = () => {
-if (window.innerWidth < 1080) {
+if (window.innerWidth < 1024) {
 setIsFocused(true)
 };
 };
