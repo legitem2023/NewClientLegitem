@@ -12,7 +12,7 @@ import CrowdLoading from 'components/Crowd/CrowdLoading'
 import CookieLoading from './CookieLoading'
 
 const Crowd = () => {
-  const [isAuthorized, setIsAuthorized] = useState(false);
+    const [isAuthorized, setIsAuthorized] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const router = useRouter();
   useEffect(() => {
@@ -25,9 +25,10 @@ const Crowd = () => {
     setIsLoading(false); // End loading state
   }, [router]);
 
-
-
-  return (
+  if (isLoading) {
+    return <Loading/>; // Show loading state while checking
+  }
+  return isAuthorized?(
     <div className='Main'>
       <PageHeader />
       {/* <LoadActiveUsers/> */}
@@ -35,7 +36,7 @@ const Crowd = () => {
       
       <PageFooter />
     </div>
-  )
+  ):null
 };
 
 export default Crowd;
