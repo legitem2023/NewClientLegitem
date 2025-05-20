@@ -31,7 +31,7 @@ const Thumbnail: React.FC<ThumbnailProps> = ({
 // console.log(item)
   return (
     <div className="thumbnail">
-      <div className="thumbnailImageContainer">
+      <div className="thumbnailImageContainer" style={{width:'100%',aspectRatio:'1 / 1'}}>
         {item.model===null?"":(<Optional3D/>)}
         {item.discount > 0?(<Discounted_/>):""}
         
