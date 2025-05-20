@@ -40,7 +40,7 @@ const ModelViewer = ({data}) => {
                 shadow-intensity="2"
                 skybox-height="2m"
                 max-camera-orbit="auto 90deg auto"
-                style={{ width:'100%', height:'100%',aspectRatio:'4 / 3' }}>
+                style={{ width:'100%', height:'100%',aspectRatio:'16 / 9' }}>
             </model-viewer>
         </div>
     );
