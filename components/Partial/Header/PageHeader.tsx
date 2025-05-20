@@ -71,21 +71,25 @@ dispatch(setDrawer(!drawerState));
 
 // Handle input change and filter suggestions
 const handleChange = (e: React.KeyboardEvent<HTMLInputElement>) => {
-const value = e.target.value;
-setQuery(value);
-dispatch(setSearch(value));
-if (value.length > 0) {
-const filtered = allItems.filter((item:any) =>
-item.name.toLowerCase().includes(value.toLowerCase())
-);
-setSuggestions(filtered);
-} else {
-setSuggestions([]);
-}
-if (e.key === "Enter") {
- setIsFocused(false);
-}
+const handleChange = (e: React.KeyboardEvent<HTMLInputElement>) => {
+  const value = e.currentTarget.value;
+  setQuery(value);
+  dispatch(setSearch(value));
+
+  if (value.length > 0) {
+    const filtered = allItems.filter((item: any) =>
+      item.name.toLowerCase().includes(value.toLowerCase())
+    );
+    setSuggestions(filtered);
+  } else {
+    setSuggestions([]);
+  }
+
+  if (e.key === "Enter") {
+    setIsFocused(false);
+  }
 };
+
 const FillText = (item: any) => {
 setQuery(item);
 
