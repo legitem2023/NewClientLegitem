@@ -20,6 +20,7 @@ import LikeCmd from 'components/Commands/LikeCmd';
 import AddCartCmdView from 'components/Commands/AddCartCmdView';
 import LinkStoreCmd from 'components/Commands/LinkStoreCmd';
 import Element from 'components/UI/Element';
+import Element_Title from 'components/UI/Element_Title';
 import { useDispatch, useSelector } from 'react-redux';
 import ReusableLabel from 'components/Reusable/ReusableLabel';
 import { setmodal } from 'Redux/modalSlice';
@@ -96,7 +97,7 @@ const ProductView: React.FC = () => {
                 {/* <ProductTabs data={viewItem} />*/}
                 <ReusableArrowTabs tabs={tabs} />
                 <div className='MainView_LchildGalleryDetails'>
-                  <Element Label="Name" value={'Name: ' + viewItem.name} />
+                  <Element_Title Label="Name" value={'Name: ' + viewItem.name} />
                   <Element Label="Price" value={'Price: ' + formatter.format(viewItem.price)} />
                   <Element Label="Available Sizes" value={"Available Sizes:"} />
                   <RelatedSize styleCode={viewItem.style_Code} currentsize={viewItem.size} />
