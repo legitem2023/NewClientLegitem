@@ -86,7 +86,8 @@ const ReusableCustomCarousel = ({ data, showthumbs, thumbpos }) => {
             top: 0,
             left: 0,
             width: '100%',
-            height: '100%',
+            aspectRatio:'4 / 3',
+            height: 'auto',
             objectFit: 'cover'
           }}
         />
