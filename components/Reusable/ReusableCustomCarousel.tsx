@@ -75,7 +75,7 @@ const ReusableCustomCarousel = ({ data, showthumbs, thumbpos }) => {
     renderItem: () => (
       <div style={{
         width: '100%',
-        aspectRatio: '4 / 3',
+        height:'auto',
         backgroundColor: '#f0f0f0',
         overflow: 'hidden'
       }}>
@@ -95,7 +95,7 @@ const ReusableCustomCarousel = ({ data, showthumbs, thumbpos }) => {
   return (
     <div className="card" style={{
       width: "100%",
-      aspectRatio:"4 / 3",
+      height:"auto",
       boxSizing: "border-box",
       display: "flex",
       justifyContent: "center",
@@ -104,6 +104,7 @@ const ReusableCustomCarousel = ({ data, showthumbs, thumbpos }) => {
     }}>
       <div style={{
         width: '100%',
+        height:'auto',
         boxSizing: 'border-box',
         overflow: 'hidden',
         display: "flex",
