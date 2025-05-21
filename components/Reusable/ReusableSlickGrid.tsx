@@ -21,17 +21,6 @@ const ReusableSlickGrid = ({ data }) => {
           rows: 2,
           fill: 'row',
         }}
-        breakpoints={{
-          320: {
-            slidesPerView: 4,
-          },
-          834: {
-            slidesPerView: 6,
-          },
-          1024: {
-            slidesPerView: 7,
-          },
-        }}
       >
         {data.map((item: any, idx: number) => (
           <SwiperSlide key={idx} style={{ backgroundColor: "transparent", textAlign: 'left' }}>
