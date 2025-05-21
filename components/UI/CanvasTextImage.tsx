@@ -65,7 +65,7 @@ const CanvasTextImage: React.FC<CanvasTextImageProps> = ({
     setImageData(canvas.toDataURL('image/png'));
   }, [text, fontSize, fontFamily, padding]);
 
-  return <div>{imageData && <img src={imageData} alt="Canvas Output" />}</div>;
+  return <div>{imageData && <img src={imageData} alt="Canvas Output" style={{border:"solid 4px orange"}}/>}</div>;
 };
 
 export default CanvasTextImage;
