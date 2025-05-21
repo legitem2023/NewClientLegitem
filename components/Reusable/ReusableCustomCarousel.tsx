@@ -50,7 +50,7 @@ console.log(data,'<<<');
           src={thumbnail}
           alt="thumbnail"
           style={{
-            filter : item.status===null?'grayscale':'',
+            filter : grayscale,
             width: '100%',
             height: '100%',
             objectFit: 'cover',
@@ -72,6 +72,7 @@ console.log(data,'<<<');
     original: item.image,
     thumbnail: item.image,
     description: item.Name,
+    grayscale:item.status===null?'grayscale(100%)':'',
     renderThumbInner: () => <ThumbnailWithLoader thumbnail={item.image} />,
     renderItem: () => (
       <div style={{
