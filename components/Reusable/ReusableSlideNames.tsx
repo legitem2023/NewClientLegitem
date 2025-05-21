@@ -15,7 +15,6 @@ const ReusableSlideNames = ({ data }) => {
                   alignItems:'center',
                   width: '100%',
                   aspectRatio:'16 / 4.5',
-                  padding:'10px',
                   boxSizing:"border-box"}}>
       <div style={{ position: 'absolute',
                     display:'flex',
@@ -39,7 +38,7 @@ const ReusableSlideNames = ({ data }) => {
                 backgroundColor: "transparent",
                 textAlign: 'left',
                 width: "100%",
-                aspectRatio:'16 / 4.5'
+                height: "100%"
               }}
             >
               <CanvasTextImage text={item.Name} />
