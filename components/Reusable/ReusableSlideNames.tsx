@@ -19,7 +19,7 @@ const ReusableSlideNames = ({ data }) => {
         modules={[Autoplay]}
       >
         {data.map((item: any, idx: number) => (
-          <SwiperSlide key={idx} style={{ backgroundColor: "transparent", textAlign:'left' , width: "100%",aspectRatio: "2 / 8" }}>
+          <SwiperSlide key={idx} style={{ backgroundColor: "red", textAlign:'left' , width: "100%",aspectRatio: "2 / 8" }}>
             <CanvasTextImage text={item.Name}/>
           </SwiperSlide>
         ))}
