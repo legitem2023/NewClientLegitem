@@ -17,7 +17,7 @@ const CanvasTextImage: React.FC<CanvasTextImageProps> = ({
 
   useEffect(() => {
     const canvasWidth = 800;
-    const canvasHeight = 200;
+    const canvasHeight = 225;
 
     const canvas = document.createElement('canvas');
     canvas.width = canvasWidth;
