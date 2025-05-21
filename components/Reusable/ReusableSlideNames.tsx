@@ -34,7 +34,7 @@ const ReusableSlideNames = ({ data }) => {
           {data.map((item: any, idx: number) => (
             <SwiperSlide
               key={idx}
-              className="canvas"
+              
               style={{
                 textAlign: 'left',
                 width: "100%",
