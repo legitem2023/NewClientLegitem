@@ -47,8 +47,8 @@ const CanvasTextImage: React.FC<CanvasTextImageProps> = ({
       maxLineWidth = Math.max(maxLineWidth, ctx.measureText(line).width);
     }
 
-    const canvasWidth = Math.ceil(maxLineWidth + padding * 2);
-    const canvasHeight = Math.ceil(lines.length * lineHeight + padding * 2);
+    const canvasWidth = '800px';//Math.ceil(maxLineWidth + padding * 2);
+    const canvasHeight = '200px';//Math.ceil(lines.length * lineHeight + padding * 2);
 
     const canvas = document.createElement('canvas');
     canvas.width = canvasWidth;
