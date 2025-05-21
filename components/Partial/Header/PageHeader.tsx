@@ -43,9 +43,8 @@ if(cat){
 if(prodType){
   dispatch(setProductTypeData(prodType.getProductTypes));
 }
-console.log(cat,"<====");
+
 const result = currentPath.replace(/[^a-zA-Z]/g, "");
-console.log(result+"<==="); // "HeWrld"
 
 const handleFocus = () => {
 if (window.innerWidth < 1024) {
@@ -91,7 +90,6 @@ const handleChange = (e: React.KeyboardEvent<HTMLInputElement>) => {
 
 const FillText = (item: any) => {
 setQuery(item);
-
 if (Ref.current) {
 Ref.current.value = item;
 setIsFocused(false);
