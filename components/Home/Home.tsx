@@ -28,7 +28,7 @@ const slides = [
 // Prevent SSR for JssorCarousel
 const Home = () => {
     const storedcategory = useSelector((state: any) => state.categoryData.getCategoryData);
-    const storeproductType = useSelector((state: any) => state.productTypeData);
+    const storeproductType = useSelector((state: any) => state.productTypeData.productTypeData);
   console.log(storeproductType);
    const { data:Category, loading:CategoryLoading, error } = useQuery(GET_CATEGORY);
     if(CategoryLoading) return <HomeLoading/>
@@ -49,7 +49,7 @@ const Home = () => {
           <ReusableLabel icn='nrk:category-active' label='Shop by Category'/>
           <Carousel data={storedcategory} fromData={"Category"}></Carousel>
           <ReusableLabel icn='nrk:category-active' label='Brands'/>
-          <ReusableSlideNames data={storedcategory} />
+          <ReusableSlideNames data={storeproductType} />
           <ReusableLabel icn='nrk:category-active' label='Product Types'/>
           <ReusableSlick data={storedcategory} />
         </div>
