@@ -50,6 +50,7 @@ console.log(data,'<<<');
           src={thumbnail}
           alt="thumbnail"
           style={{
+            filter : item.status===null?'grayscale':'',
             width: '100%',
             height: '100%',
             objectFit: 'cover',
