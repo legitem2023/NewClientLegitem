@@ -46,10 +46,10 @@ const Home = () => {
       )}
       child2={()=>(         
         <div className='homeContainer'>
-          <ReusableLabel icn='nrk:category-active' label='Shop by Category'/>
+          <ReusableLabel icn='nrk:category-active' label='Mostly Viewed'/>
           <Carousel data={storedcategory} fromData={"Category"}></Carousel>
           
-          <ReusableLabel icn='nrk:category-active' label='Brands'/>
+          <ReusableLabel icn='nrk:category-active' label='Categories'/>
           <ReusableSlick data={storedcategory} />
           
           <ReusableLabel icn='nrk:category-active' label='Product Types'/>
