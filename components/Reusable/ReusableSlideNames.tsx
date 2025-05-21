@@ -17,17 +17,6 @@ const ReusableSlideNames = ({ data }) => {
         style={{ position: "relative", width: "100%" }}
         loop={false}
         modules={[Autoplay]}
-        breakpoints={{
-          320: {
-            slidesPerView: 4,
-          },
-          834: { // iPad Pro
-            slidesPerView: 6,
-          },
-          1024: { // Desktop
-            slidesPerView: 7,
-          },
-        }}
       >
         {data.map((item: any, idx: number) => (
           <SwiperSlide key={idx} style={{ backgroundColor: "transparent", textAlign:'left' }}>
