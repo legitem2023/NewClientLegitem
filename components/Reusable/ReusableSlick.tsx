@@ -33,6 +33,7 @@ const ReusableSlick = ({ data }) => {
           <SwiperSlide key={idx} style={{ backgroundColor: "transparent", textAlign:'left' }}>
             <img
               style={{
+                filter :item.status===null?'grayscale(100%)':'',
                 borderRadius: '5px',
                 width: '100%',
                 aspectRatio: '1 / 1',
