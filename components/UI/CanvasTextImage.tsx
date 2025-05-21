@@ -47,8 +47,8 @@ const CanvasTextImage: React.FC<CanvasTextImageProps> = ({
       maxLineWidth = Math.max(maxLineWidth, ctx.measureText(line).width);
     }
 
-    const canvasWidth = '800px';//Math.ceil(maxLineWidth + padding * 2);
-    const canvasHeight = '200px';//Math.ceil(lines.length * lineHeight + padding * 2);
+    const canvasWidth = '800';//Math.ceil(maxLineWidth + padding * 2);
+    const canvasHeight = '200';//Math.ceil(lines.length * lineHeight + padding * 2);
 
     const canvas = document.createElement('canvas');
     canvas.width = canvasWidth;
@@ -57,7 +57,7 @@ const CanvasTextImage: React.FC<CanvasTextImageProps> = ({
     if (!finalCtx) return;
 
     finalCtx.fillStyle = 'white';
-    finalCtx.fillRect(0, 0, canvas.width, canvas.height);
+    finalCtx.fillRect(0, 0, canvasWidth, canvasHeight);
     finalCtx.fillStyle = 'black';
     finalCtx.font = `${fontSize}px ${fontFamily}`;
     finalCtx.textBaseline = 'top';
