@@ -10,10 +10,10 @@ import CanvasTextImage from "../UI/CanvasTextImage";
 
 const ReusableSlideNames = ({ data }) => {
   return (
-    <div style={{ position: 'relative', width: '100%', paddingTop: '20%' }}>
+    <div style={{ position: 'relative', width: '100%'}}>
       <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0 }}>
         <Swiper
-          slidesPerView="auto"
+          slidesPerView={2}
           spaceBetween={10}
           autoplay={{ delay: 2500, disableOnInteraction: false }}
           style={{ position: "relative", width: "100%", height: "100%" }}
