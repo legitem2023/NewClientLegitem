@@ -1,6 +1,21 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+/* Active navigation buttons */
+.swiper-button-next,
+.swiper-button-prev {
+  color: #f3a093;
+  transform: scale(0.5); /* Optional scale */
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Inactive (disabled) navigation buttons */
+.swiper-button-disabled {
+  color: #f3a093;
+  opacity: 0.4; /* Make it lighter */
+  pointer-events: none; /* Disable interaction */
+  transform: scale(0.5); /* Optional: reset scale */
+}
 
 .card {
   background: radial-gradient(
