@@ -9,7 +9,7 @@ interface CanvasTextImageProps {
 
 const CanvasTextImage: React.FC<CanvasTextImageProps> = ({
   text,
-  fontSize = 80,
+  fontSize = 60,
   fontFamily = 'Cambria',
   padding = 20,
 }) => {
@@ -39,8 +39,6 @@ const CanvasTextImage: React.FC<CanvasTextImageProps> = ({
     const maxLineWidth = canvasWidth - padding * 2;
 
     let line = '';
-    let y = padding;
-
     const lines: string[] = [];
 
     for (let n = 0; n < words.length; n++) {
@@ -56,8 +54,12 @@ const CanvasTextImage: React.FC<CanvasTextImageProps> = ({
     }
     lines.push(line);
 
+    // Vertical centering: calculate starting Y
+    const totalTextHeight = lines.length * lineHeight;
+    const startY = (canvasHeight - totalTextHeight) / 2;
+
     for (let i = 0; i < lines.length; i++) {
-      ctx.fillText(lines[i].trim(), canvasWidth / 2, y + i * lineHeight);
+      ctx.fillText(lines[i].trim(), canvasWidth / 2, startY + i * lineHeight);
     }
 
     setImageData(canvas.toDataURL('image/png'));
