@@ -17,7 +17,7 @@ const ReusableCustomCarousel = ({ data, showthumbs, thumbpos }) => {
 
   let carouselData = data && data.length > 0 ? [...data] : [...fallbackData];
 console.log(data,'<<<');
-  const ThumbnailWithLoader = ({ thumbnail }) => {
+  const ThumbnailWithLoader = ({ thumbnail,grayscale }) => {
     const [loading, setLoading] = useState(true);
 
     return (
@@ -72,8 +72,7 @@ console.log(data,'<<<');
     original: item.image,
     thumbnail: item.image,
     description: item.Name,
-    grayscale:item.status===null?'grayscale(100%)':'',
-    renderThumbInner: () => <ThumbnailWithLoader thumbnail={item.image} />,
+    renderThumbInner: () => <ThumbnailWithLoader thumbnail={item.image} grayscale={item.status===null?'grayscale(100%)':''}/>,
     renderItem: () => (
       <div style={{
         width: '100%',
@@ -85,6 +84,7 @@ console.log(data,'<<<');
           src={item.image}
           alt={item.Name}
           style={{
+            filter : item.status===null?'grayscale(100%)':'',
             width: '100%',
             height: '100%'
           }}
