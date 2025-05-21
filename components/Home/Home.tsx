@@ -50,7 +50,7 @@ const Home = () => {
           <Carousel data={storedcategory} fromData={"Category"}></Carousel>
           <ReusableSlickGrid data={storedcategory}/>
           <ReusableLabel icn='nrk:category-active' label='Categories'/>
-          <ReusableSlick data={storedcategory} />
+          {/*<ReusableSlick data={storedcategory} />*/}
           
           <ReusableLabel icn='nrk:category-active' label='Product Types'/>
           <ReusableSlideNames data={storeproductType} />
