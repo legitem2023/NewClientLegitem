@@ -29,7 +29,7 @@ const CanvasTextImage: React.FC<CanvasTextImageProps> = ({
     ctx.fillStyle = 'white';
     ctx.fillRect(0, 0, canvasWidth, canvasHeight);
 
-    ctx.fillStyle = '#d498d4';
+    ctx.fillStyle = '#f3a093';
     ctx.font = `${fontSize}px ${fontFamily}`;
     ctx.textBaseline = 'top';
     ctx.textAlign = 'center';
@@ -65,7 +65,7 @@ const CanvasTextImage: React.FC<CanvasTextImageProps> = ({
     setImageData(canvas.toDataURL('image/png'));
   }, [text, fontSize, fontFamily, padding]);
 
-  return <div>{imageData && <img src={imageData} alt="Canvas Output" style={{width:"100%",height:"auto",boxSizing:"border-box",border:"solid 4px #d498d4"}}/>}</div>;
+  return <div>{imageData && <img src={imageData} alt="Canvas Output" style={{width:"100%",height:"auto",boxSizing:"border-box",border:"solid 4px #f3a093"}}/>}</div>;
 };
 
 export default CanvasTextImage;
