@@ -16,7 +16,7 @@ const ReusableCustomCarousel = ({ data, showthumbs, thumbpos }) => {
   ];
 
   let carouselData = data && data.length > 0 ? [...data] : [...fallbackData];
-
+console.log(data,'<<<');
   const ThumbnailWithLoader = ({ thumbnail }) => {
     const [loading, setLoading] = useState(true);
 
