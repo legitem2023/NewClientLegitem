@@ -32,6 +32,7 @@ const CanvasTextImage: React.FC<CanvasTextImageProps> = ({
     ctx.fillStyle = 'black';
     ctx.font = `${fontSize}px ${fontFamily}`;
     ctx.textBaseline = 'top';
+    ctx.textAlign = 'center';
 
     const words = text.split(' ');
     const lineHeight = fontSize * 1.5;
@@ -40,20 +41,24 @@ const CanvasTextImage: React.FC<CanvasTextImageProps> = ({
     let line = '';
     let y = padding;
 
+    const lines: string[] = [];
+
     for (let n = 0; n < words.length; n++) {
       const testLine = line + words[n] + ' ';
       const testWidth = ctx.measureText(testLine).width;
 
       if (testWidth > maxLineWidth && n > 0) {
-        ctx.fillText(line, padding, y);
+        lines.push(line);
         line = words[n] + ' ';
-        y += lineHeight;
       } else {
         line = testLine;
       }
     }
+    lines.push(line);
 
-    ctx.fillText(line, padding, y);
+    for (let i = 0; i < lines.length; i++) {
+      ctx.fillText(lines[i].trim(), canvasWidth / 2, y + i * lineHeight);
+    }
 
     setImageData(canvas.toDataURL('image/png'));
   }, [text, fontSize, fontFamily, padding]);
