@@ -9,7 +9,7 @@ interface CanvasTextImageProps {
 
 const CanvasTextImage: React.FC<CanvasTextImageProps> = ({
   text,
-  fontSize = 24,
+  fontSize = 64,
   fontFamily = 'Arial',
   padding = 20,
 }) => {
