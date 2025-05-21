@@ -11,16 +11,12 @@ const ReusableSlickGrid = ({ data }) => {
   return (
     <div className="card" style={{ height: "auto", position: "relative", padding: "10px" }}>
       <Swiper
-        slidesPerView={4}
+        slidesPerView={7}
         spaceBetween={10}
         autoplay={{ delay: 2500, disableOnInteraction: false }}
         style={{ position: "relative", width: "100%" }}
         loop={false}
-        modules={[Autoplay, Grid]}
-        grid={{
-          rows: 2,
-          fill: 'row',
-        }}
+        modules={[Autoplay]}
       >
         {data.map((item: any, idx: number) => (
           <SwiperSlide key={idx} style={{ backgroundColor: "transparent", textAlign: 'left' }}>
