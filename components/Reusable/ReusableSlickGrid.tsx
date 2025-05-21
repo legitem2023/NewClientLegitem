@@ -1,7 +1,7 @@
 'use client'
 import React from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { EffectCoverflow Pagination, Autoplay, Grid } from 'swiper/modules';
+import { EffectCoverflow, Pagination, Autoplay, Grid } from 'swiper/modules';
 import 'swiper/css/pagination';
 import 'swiper/css';
 import 'swiper/css/effect-coverflow';
