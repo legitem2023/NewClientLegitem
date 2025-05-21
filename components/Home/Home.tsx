@@ -28,6 +28,8 @@ const slides = [
 // Prevent SSR for JssorCarousel
 const Home = () => {
     const storedcategory = useSelector((state: any) => state.categoryData.getCategoryData);
+    const storeproductType = useSelector((state: any) => state.productTypeData);
+  console.log(storeproductType);
    const { data:Category, loading:CategoryLoading, error } = useQuery(GET_CATEGORY);
     if(CategoryLoading) return <HomeLoading/>
     if(error) return "Connection Error";
