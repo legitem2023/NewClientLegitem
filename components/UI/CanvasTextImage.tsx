@@ -29,7 +29,7 @@ const CanvasTextImage: React.FC<CanvasTextImageProps> = ({
     ctx.fillStyle = 'white';
     ctx.fillRect(0, 0, canvasWidth, canvasHeight);
 
-    ctx.fillStyle = 'black';
+    ctx.fillStyle = 'orange';
     ctx.font = `${fontSize}px ${fontFamily}`;
     ctx.textBaseline = 'top';
     ctx.textAlign = 'center';
