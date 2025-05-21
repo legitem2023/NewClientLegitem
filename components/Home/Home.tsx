@@ -1,4 +1,4 @@
-
+'use client'
 import { useQuery } from '@apollo/client';
 import Carousel from 'components/Carousel';
 import HomeGallery from 'components/Gallery/HomeGallery';
@@ -13,6 +13,7 @@ import ReusableLabel from 'components/Reusable/ReusableLabel';
 import HomeLoading from './HomeLoading';
 import ReusableCustomCarousel from 'components/Reusable/ReusableCustomCarousel';
 import ReusableSlick from 'components/Reusable/ReusableSlick';
+import ReusableSlickGrid from 'components/Reusable/ReusableSlickGrid';
 //import dynamic from 'next/dynamic';
 //import ReusableJSSOR from 'components/Reusable/ReusableJSSOR';
 
@@ -44,7 +45,9 @@ const Home = () => {
         <div className='homeContainer'>
           <ReusableLabel icn='nrk:category-active' label='Shop by Category'/>
           <Carousel data={storedcategory} fromData={"Category"}></Carousel>
-          <ReusableLabel icn='nrk:category-active' label='Shop by Product Type'/>
+          <ReusableLabel icn='nrk:category-active' label='Brands'/>
+          <ReusableSlickGrid data={storedcategory} />
+          <ReusableLabel icn='nrk:category-active' label='Product Types'/>
           <ReusableSlick data={storedcategory} />
         </div>
       )}
