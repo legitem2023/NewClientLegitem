@@ -2,65 +2,74 @@ import React, { useEffect, useState } from 'react';
 
 interface CanvasTextImageProps {
   text: string;
-  width?: number; // Optional custom width
-  fontSize?: number; // Optional font size
-  fontFamily?: string; // Optional font family
+  fontSize?: number;
+  fontFamily?: string;
+  padding?: number;
 }
 
 const CanvasTextImage: React.FC<CanvasTextImageProps> = ({
   text,
-  width = 800,
   fontSize = 24,
   fontFamily = 'Arial',
+  padding = 20,
 }) => {
   const [imageData, setImageData] = useState<string>('');
 
   useEffect(() => {
-    const canvas = document.createElement('canvas');
-    const height = (width * 3) / 4;
-    canvas.width = width;
-    canvas.height = height;
-
-    const ctx = canvas.getContext('2d');
+    const tempCanvas = document.createElement('canvas');
+    const ctx = tempCanvas.getContext('2d');
     if (!ctx) return;
 
-    ctx.fillStyle = 'white';
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-    ctx.fillStyle = 'black';
     ctx.font = `${fontSize}px ${fontFamily}`;
-    ctx.textBaseline = 'top';
 
-    const lineHeight = fontSize * 1.5;
     const words = text.split(' ');
+    const lineHeight = fontSize * 1.5;
+    let lines: string[] = [];
     let line = '';
-    let y = 20;
-    const maxWidth = canvas.width - 40;
+    let maxLineWidth = 0;
 
     for (let n = 0; n < words.length; n++) {
       const testLine = line + words[n] + ' ';
-      const metrics = ctx.measureText(testLine);
-      const testWidth = metrics.width;
+      const testWidth = ctx.measureText(testLine).width;
 
-      if (testWidth > maxWidth && n > 0) {
-        ctx.fillText(line, 20, y);
+      // Optional: you could use a maxWidth here if needed
+      if (testWidth > 1000 && line !== '') {
+        lines.push(line);
+        maxLineWidth = Math.max(maxLineWidth, ctx.measureText(line).width);
         line = words[n] + ' ';
-        y += lineHeight;
       } else {
         line = testLine;
       }
     }
-    ctx.fillText(line, 20, y);
 
-    const dataURL = canvas.toDataURL('image/png');
-    setImageData(dataURL);
-  }, [text, width, fontSize, fontFamily]);
+    if (line) {
+      lines.push(line);
+      maxLineWidth = Math.max(maxLineWidth, ctx.measureText(line).width);
+    }
 
-  return (
-    <div>
-      {imageData && <img src={imageData} alt="Canvas Output" />}
-    </div>
-  );
+    const canvasWidth = Math.ceil(maxLineWidth + padding * 2);
+    const canvasHeight = Math.ceil(lines.length * lineHeight + padding * 2);
+
+    const canvas = document.createElement('canvas');
+    canvas.width = canvasWidth;
+    canvas.height = canvasHeight;
+    const finalCtx = canvas.getContext('2d');
+    if (!finalCtx) return;
+
+    finalCtx.fillStyle = 'white';
+    finalCtx.fillRect(0, 0, canvas.width, canvas.height);
+    finalCtx.fillStyle = 'black';
+    finalCtx.font = `${fontSize}px ${fontFamily}`;
+    finalCtx.textBaseline = 'top';
+
+    lines.forEach((l, index) => {
+      finalCtx.fillText(l, padding, padding + index * lineHeight);
+    });
+
+    setImageData(canvas.toDataURL('image/png'));
+  }, [text, fontSize, fontFamily, padding]);
+
+  return <div>{imageData && <img src={imageData} alt="Canvas Output" />}</div>;
 };
 
 export default CanvasTextImage;
