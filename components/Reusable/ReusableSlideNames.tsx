@@ -13,7 +13,7 @@ const ReusableSlideNames = ({ data }) => {
     <div style={{ position: 'relative', width: '100%',aspectRatio:'6 / 2'}}>
       <div style={{ position: 'absolute', width: '100%',aspectRatio:'6 / 2' }}>
         <Swiper
-          slidesPerView={2}
+          slidesPerView={1}
           spaceBetween={10}
           autoplay={{ delay: 2500, disableOnInteraction: false }}
           style={{ position: "relative", width: "100%", height: "100%" }}
