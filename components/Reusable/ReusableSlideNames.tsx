@@ -15,17 +15,20 @@ const ReusableSlideNames = ({ data }) => {
                   alignItems:'center',
                   width: '100%',
                   aspectRatio:'16 / 4.5',
-                  padding:'10px'}}>
+                  padding:'10px',
+                  boxSizing:"border-box"}}>
       <div style={{ position: 'absolute',
                     display:'flex',
                     alignItems:'center',
                     width: '100%',
-                    aspectRatio:'16 / 4.5' }}>
+                    aspectRatio:'16 / 4.5',
+                    boxSizing:"border-box"
+                  }}>
         <Swiper
           slidesPerView={1}
           spaceBetween={10}
           autoplay={{ delay: 2500, disableOnInteraction: false }}
-          style={{ position: "relative", width: "100%", height: "100%" }}
+          style={{ position: "relative", width: "100%", height: "100%",boxSizing:"border-box" }}
           loop={false}
           modules={[Autoplay]}
         >
