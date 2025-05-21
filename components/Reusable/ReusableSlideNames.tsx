@@ -10,8 +10,17 @@ import CanvasTextImage from "../UI/CanvasTextImage";
 
 const ReusableSlideNames = ({ data }) => {
   return (
-    <div style={{ position: 'relative', width: '100%',aspectRatio:'6 / 2'}}>
-      <div style={{ position: 'absolute', width: '100%',aspectRatio:'6 / 2' }}>
+    <div style={{ position: 'relative',
+                  display:'flex',
+                  alignItems:'center',
+                  width: '100%',
+                  aspectRatio:'6 / 2',
+                  padding:'10px'}}>
+      <div style={{ position: 'absolute',
+                    display:'flex',
+                    alignItems:'center',
+                    width: '100%',
+                    aspectRatio:'6 / 2' }}>
         <Swiper
           slidesPerView={1}
           spaceBetween={10}
@@ -24,7 +33,7 @@ const ReusableSlideNames = ({ data }) => {
             <SwiperSlide
               key={idx}
               style={{
-                backgroundColor: "red",
+                backgroundColor: "transparent",
                 textAlign: 'left',
                 width: "100%",
                 aspectRatio:'6 / 2'
