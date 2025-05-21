@@ -9,7 +9,7 @@ import ModelViewer from "../Partial/ThreeJS/ModelViewer";
 import CanvasTextImage from "../UI/CanvasTextImage";
 const ReusableSlideNames = ({ data }) => {
   return (
-    <div className="card" style={{ height:"auto",position: "relative", padding: "10px" }}>
+    <div className="card" style={{ width:"100%",aspectRatio:"2 / 6",position: "relative", padding: "10px" }}>
       <Swiper
         slidesPerView="auto"
         spaceBetween={10}
