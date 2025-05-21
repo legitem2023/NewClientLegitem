@@ -17,12 +17,13 @@ const ReusableSlickGrid = ({ data }) => {
         autoplay={{ delay: 2500, disableOnInteraction: false }}
         style={{ position: "relative", width: "100%" }}
         loop={false}
+        pagination={true}
         coverflowEffect={{
           depth:100,
           modifier:1,
           slideShadows:true
         }}
-        modules={[Autoplay,EffectCoverflow]}
+        modules={[Autoplay,EffectCoverflow,Pagination]}
       >
         {data.map((item: any, idx: number) => (
           <SwiperSlide key={idx} style={{ backgroundColor: "transparent", textAlign: 'left' }}>
