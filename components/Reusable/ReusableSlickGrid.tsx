@@ -19,7 +19,9 @@ const ReusableSlickGrid = ({ data }) => {
         autoplay={{ delay: 2500, disableOnInteraction: false }}
         style={{ position: "relative", width: "100%" }}
         loop={false}
-        pagination={true}
+        pagination={{
+          dynamicBullets:true
+        }}
         coverflowEffect={{
           depth:300,
           modifier:1,
