@@ -14,6 +14,7 @@ import HomeLoading from './HomeLoading';
 import ReusableCustomCarousel from 'components/Reusable/ReusableCustomCarousel';
 import ReusableSlick from 'components/Reusable/ReusableSlick';
 import ReusableSlickGrid from 'components/Reusable/ReusableSlickGrid';
+import ReusableSlideNames from 'components/Reusable/ReusableSlideNames';
 //import dynamic from 'next/dynamic';
 //import ReusableJSSOR from 'components/Reusable/ReusableJSSOR';
 
@@ -46,7 +47,7 @@ const Home = () => {
           <ReusableLabel icn='nrk:category-active' label='Shop by Category'/>
           <Carousel data={storedcategory} fromData={"Category"}></Carousel>
           <ReusableLabel icn='nrk:category-active' label='Brands'/>
-          <ReusableSlickGrid data={storedcategory} />
+          <ReusableSlideNames data={storedcategory} />
           <ReusableLabel icn='nrk:category-active' label='Product Types'/>
           <ReusableSlick data={storedcategory} />
         </div>
