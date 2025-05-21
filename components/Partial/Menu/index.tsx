@@ -3,8 +3,8 @@
 import React,{ useRef,useEffect } from 'react';
 import menuList from '../../../json/menu.json';
 import { Icon } from '@iconify/react';
-//import { useQuery } from '@apollo/client';
-//import { READ_CATEGORY, READ_PRODUCT_TYPES } from 'graphql/queries'; // Assuming you have this query for Collection Items
+import { useQuery } from '@apollo/client';
+import { READ_CATEGORY, READ_PRODUCT_TYPES } from 'graphql/queries'; // Assuming you have this query for Collection Items
 import { useDispatch,useSelector } from 'react-redux';
 import { setCategory } from 'Redux/categorySlice';
 import { setproductType } from 'Redux/productTypeSlice';
@@ -17,7 +17,7 @@ import ReusableServerDown from 'components/Reusable/ReusableServerDown';
 
 const Menu: React.FC = () => {
 //  const { data: categoryData, loading: categoryLoading, error: categoryError } = useQuery(READ_CATEGORY);
- // const { data: productTypesData, loading: productTypesLoading, error: productTypesError } = useQuery(READ_PRODUCT_TYPES);
+ const { data: productTypesData, loading: productTypesLoading, error: productTypesError } = useQuery(READ_PRODUCT_TYPES);
   const storedcategory = useSelector((state: any) => state.categoryData.getCategoryData);
   const storedproductType = useSelector((state:any) => state.productTypeData.productTypeData);
   const dispatch = useDispatch();
@@ -64,7 +64,9 @@ const Menu: React.FC = () => {
    
   }
 
- // if (categoryLoading || productTypesLoading ) return <MenuLoading/>;
+  if (productTypesLoading){
+   console.log(productTypesData);
+  };
 //  if (categoryError || productTypesError ) return <ReusableServerDown/>
 //  console.log(storedproductType,'redux');
   return (
