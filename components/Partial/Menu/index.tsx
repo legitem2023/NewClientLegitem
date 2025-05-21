@@ -64,7 +64,7 @@ const Menu: React.FC = () => {
    
   }
 
-  if (productTypesLoading){
+  if (productTypesData){
    console.log(productTypesData);
   };
 //  if (categoryError || productTypesError ) return <ReusableServerDown/>
