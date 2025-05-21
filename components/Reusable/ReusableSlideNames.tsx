@@ -9,17 +9,17 @@ import ModelViewer from "../Partial/ThreeJS/ModelViewer";
 import CanvasTextImage from "../UI/CanvasTextImage";
 const ReusableSlideNames = ({ data }) => {
   return (
-    <div className="card" style={{ width:"100%",aspectRatio:"2 / 10",position: "relative", padding: "10px" }}>
+    <div className="card" style={{ width:"100%",aspectRatio:"10 / 2",position: "relative", padding: "10px" }}>
       <Swiper
         slidesPerView="auto"
         spaceBetween={10}
         autoplay={{delay:2500,disableOnInteraction:false}}
-        style={{ position: "relative", width: "100%",aspectRatio: "2 / 8" }}
+        style={{ position: "relative", width: "100%",aspectRatio: "10 / 2" }}
         loop={false}
         modules={[Autoplay]}
       >
         {data.map((item: any, idx: number) => (
-          <SwiperSlide key={idx} style={{ backgroundColor: "red", textAlign:'left' , width: "100%",aspectRatio: "2 / 8" }}>
+          <SwiperSlide key={idx} style={{ backgroundColor: "red", textAlign:'left' , width: "100%",aspectRatio: "10 / 2" }}>
             <CanvasTextImage text={item.Name}/>
           </SwiperSlide>
         ))}
