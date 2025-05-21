@@ -27,7 +27,7 @@ const ReusableSlideNames = ({ data }) => {
                 backgroundColor: "red",
                 textAlign: 'left',
                 width: "100%",
-                width: '100%',aspectRatio:'6 / 2'
+                aspectRatio:'6 / 2'
               }}
             >
               <CanvasTextImage text={item.Name} />
