@@ -25,9 +25,9 @@ const ReusableSlideNames = ({ data }) => {
                   }}>
         <Swiper
           slidesPerView={1}
-          spaceBetween={10}
+          spaceBetween={0}
           autoplay={{ delay: 2500, disableOnInteraction: false }}
-          style={{ position: "relative", width: "100%", height: "100%",boxSizing:"border-box" }}
+          style={{ position: "relative", width: "100%", height:"auto",boxSizing:"border-box" }}
           loop={false}
           modules={[Autoplay]}
         >
