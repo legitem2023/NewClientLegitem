@@ -14,13 +14,13 @@ const ReusableSlideNames = ({ data }) => {
                   display:'flex',
                   alignItems:'center',
                   width: '100%',
-                  aspectRatio:'6 / 2',
+                  aspectRatio:'16 / 4.5',
                   padding:'10px'}}>
       <div style={{ position: 'absolute',
                     display:'flex',
                     alignItems:'center',
                     width: '100%',
-                    aspectRatio:'6 / 2' }}>
+                    aspectRatio:'16 / 4.5' }}>
         <Swiper
           slidesPerView={1}
           spaceBetween={10}
@@ -36,7 +36,7 @@ const ReusableSlideNames = ({ data }) => {
                 backgroundColor: "transparent",
                 textAlign: 'left',
                 width: "100%",
-                aspectRatio:'6 / 2'
+                aspectRatio:'16 / 4.5'
               }}
             >
               <CanvasTextImage text={item.Name} />
