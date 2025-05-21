@@ -35,23 +35,12 @@ const ReusableSlickGrid = ({ data }) => {
               style={{
                 borderRadius: '5px',
                 width: '100%',
-                aspectRatio: '16 / 9',
+                aspectRatio: '4 / 3',
                 objectFit: 'cover',
               }}
               src={item.image}
               alt={item.Name}
             />
-            <b style={{
-              textAlign: 'left',
-              marginTop: '10px',
-              fontSize: '10px',
-              display: '-webkit-box',
-              WebkitLineClamp: 2,
-              WebkitBoxOrient: 'vertical',
-              overflow: 'hidden',
-            }}>
-              {item.Name}
-            </b>
           </SwiperSlide>
         ))}
       </Swiper>
