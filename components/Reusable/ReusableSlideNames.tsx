@@ -10,7 +10,7 @@ import CanvasTextImage from "../UI/CanvasTextImage";
 
 const ReusableSlideNames = ({ data }) => {
   return (
-    <div style={{ position: 'relative', width: '100%'}}>
+    <div style={{ position: 'relative', width: '100%',aspectRatio:'10 / 3'}}>
       <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0 }}>
         <Swiper
           slidesPerView={2}
