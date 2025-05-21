@@ -11,7 +11,7 @@ const ReusableSlideNames = ({ data }) => {
   return (
     <div className="card" style={{ height: "auto", position: "relative", padding: "10px" }}>
       <Swiper
-        slidesPerView={4}
+        slidesPerView={auto}
         spaceBetween={10}
         autoplay={{delay:2500,disableOnInteraction:false}}
         style={{ position: "relative", width: "100%" }}
