@@ -1,9 +1,10 @@
 'use client'
 import React from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Pagination, Autoplay, Grid } from 'swiper/modules';
+import { EffectCoverflow Pagination, Autoplay, Grid } from 'swiper/modules';
 import 'swiper/css/pagination';
 import 'swiper/css';
+import 'swiper/css/effect-coverflow';
 import Element_Title from '../UI/Element_Title';
 import ModelViewer from "../Partial/ThreeJS/ModelViewer";
 
@@ -16,7 +17,12 @@ const ReusableSlickGrid = ({ data }) => {
         autoplay={{ delay: 2500, disableOnInteraction: false }}
         style={{ position: "relative", width: "100%" }}
         loop={false}
-        modules={[Autoplay]}
+        coverflowEffect={{
+          depth:100,
+          modifier:1,
+          slideShadows:true
+        }}
+        modules={[Autoplay,EffectCoverflow]}
       >
         {data.map((item: any, idx: number) => (
           <SwiperSlide key={idx} style={{ backgroundColor: "transparent", textAlign: 'left' }}>
