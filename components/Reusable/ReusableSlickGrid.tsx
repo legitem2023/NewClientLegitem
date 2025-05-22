@@ -34,14 +34,15 @@ const ReusableSlickGrid = ({ data }) => {
               alignItems: 'center',
               justifyContent: 'center',
               padding: '0px',
-              backgroundColor:'red'
+              backgroundColor:'transparent'
             }}
           >
             <div style={{
               width: '100%',
               aspectRatio: '4 / 3', // or '4 / 3'
               overflow: 'hidden',
-              borderRadius: '5px'
+              borderRadius: '5px',
+              boxShadow:'0.5px 0.5px 3px #000000'
             }}>
               <img
                 src={item.image}
