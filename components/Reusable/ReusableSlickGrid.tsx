@@ -7,6 +7,7 @@ import 'swiper/css';
 import 'swiper/css/effect-coverflow';
 
 const ReusableSlickGrid = ({ data }) => {
+  if(data===null && data==="") return;
   return (
     <div className="card" style={{ width: "100%", position: "relative", padding: "10px" }}>
       <Swiper
