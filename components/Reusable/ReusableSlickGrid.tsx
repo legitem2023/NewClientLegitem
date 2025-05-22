@@ -29,11 +29,14 @@ const ReusableSlickGrid = ({ data }) => {
           slideShadows:true
         }}
         breakpoints={{
-       0: {
-         slidesPerView: 2,
+       560: {
+         slidesPerView: 2.5,
        },
-      640: {
-         slidesPerView: 'auto',
+      768: {
+         slidesPerView: 3,
+      },
+      1024:{
+        slidesPerView: 3
       }
   }}
         modules={[Autoplay,EffectCoverflow,Pagination]}
