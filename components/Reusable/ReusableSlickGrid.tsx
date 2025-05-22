@@ -1,7 +1,7 @@
 'use client'
 import React from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { EffectCoverflow, Pagination, Autoplay } from 'swiper/modules';
+import { EffectCoverflow, Pagination, Autoplay, Navigation } from 'swiper/modules';
 import 'swiper/css/pagination';
 import 'swiper/css';
 import 'swiper/css/effect-coverflow';
@@ -16,6 +16,7 @@ const ReusableSlickGrid = ({ data }) => {
         autoplay={{ delay: 2500, disableOnInteraction: false }}
         style={{ width: "100%" }}
         loop={true}
+        navigation={true}
         pagination={{ dynamicBullets: true }}
         coverflowEffect={{
           rotate: 0,
@@ -24,7 +25,7 @@ const ReusableSlickGrid = ({ data }) => {
           modifier: 3.5,
           slideShadows: false,
         }}
-        modules={[Autoplay, EffectCoverflow, Pagination]}
+        modules={[Autoplay, EffectCoverflow, Pagination, Navigation]}
       >
         {data.map((item: any, idx: number) => (
           <SwiperSlide
