@@ -19,6 +19,7 @@ const Element_Title: React.FC<PropsElement> = ({ Label, value }) => {
   const marqueeStyle: React.CSSProperties = shouldAnimate
     ? {
         display: 'inline-block',
+        whiteSpace:'nowrap',
         animation: 'marqueeLoop 8s linear infinite',
       }
     : {};
