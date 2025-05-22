@@ -38,7 +38,7 @@ const ReusableThumbnail: React.FC<ReusableThumbnailProps> = ({
         {item.model===null?"":(<Optional3D/>)}
           <Image
             src={imageSource(item)}
-            style={{filter:item.stock < 1?'grayscale(100%) blur(3px)':''}}
+            style={{filter:item.stock < 1?'grayscale(100%)':''}}
             loading='lazy'
             height="200"
             width="200"
