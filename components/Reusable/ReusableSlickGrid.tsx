@@ -10,11 +10,11 @@ const ReusableSlickGrid = ({ data }) => {
   return (
     <div className="card" style={{ width: "100%", position: "relative", padding: "10px" }}>
       <Swiper
-        effect={'coverflow'}
+        effect="coverflow"
         centeredSlides={true}
         slidesPerView={3}
         autoplay={{ delay: 2500, disableOnInteraction: false }}
-        style={{ position: "relative", width: "100%" }}
+        style={{ width: "100%" }}
         loop={false}
         pagination={{ dynamicBullets: true }}
         coverflowEffect={{
@@ -30,25 +30,27 @@ const ReusableSlickGrid = ({ data }) => {
           <SwiperSlide
             key={idx}
             style={{
-              backgroundColor: "transparent",
-              textAlign: 'left',
-              width: '100%',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              padding: '10px',
             }}
           >
             <div style={{
               width: '100%',
-              aspectRatio: '16 / 9', // Change to '4 / 3' if needed
+              aspectRatio: '16 / 9', // or '4 / 3'
               overflow: 'hidden',
-              borderRadius: '5px',
+              borderRadius: '8px',
+              backgroundColor: '#f0f0f0',
             }}>
               <img
+                src={item.image}
+                alt={item.Name}
                 style={{
                   width: '100%',
                   height: '100%',
                   objectFit: 'cover',
                 }}
-                src={item.image}
-                alt={item.Name}
               />
             </div>
           </SwiperSlide>
