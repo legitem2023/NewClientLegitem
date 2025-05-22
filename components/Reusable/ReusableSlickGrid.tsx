@@ -34,6 +34,7 @@ const ReusableSlickGrid = ({ data }) => {
               alignItems: 'center',
               justifyContent: 'center',
               padding: '0px',
+              backgroundColor:'red'
             }}
           >
             <div style={{
