@@ -33,7 +33,7 @@ const News:React.FC = () => {
   if (NewsError) return <div>Connection Error</div>;
 
   return (
-    <div className='NewsContainer'>
+    <div className='LikeContainer'>
       <UniversalPagination
         currentPage={currentPage}
         totalPages={totalPages}
