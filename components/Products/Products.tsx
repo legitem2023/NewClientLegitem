@@ -27,7 +27,7 @@ import { useRouter, usePathname } from 'next/navigation';
 import ReusableServerDown from 'components/Reusable/ReusableServerDown';
 import { Icon } from '@iconify/react';
 import ReusableLabel from 'components/Reusable/ReusableLabel';
-
+import ReusableSlickGrid from 'components/Reusable/ReusableSlickGrid';
 const itemsPerPage = 50; // Number of items to load per "page"
 
 const Products: React.FC = () => {
@@ -193,7 +193,8 @@ const sampleData = [
        <ReusableSearch search={searchEngine} sort={sort} trigger={sortTrigger} />
       )}
       child2={() => (
-        <RecentlyVisited data={useSaved} fromData={false}/>
+        {/* <RecentlyVisited data={useSaved} fromData={false}/>*/}
+        {useSaved && <ReusableSlickGrid data={useSaved} />}
       )}
       child3={() => (
         <div
