@@ -193,8 +193,8 @@ const sampleData = [
        <ReusableSearch search={searchEngine} sort={sort} trigger={sortTrigger} />
       )}
       child2={() => (
-        {/* <RecentlyVisited data={useSaved} fromData={false}/>*/}
         <ReusableSlickGrid data={useSaved} />
+        {/* <RecentlyVisited data={useSaved} fromData={false}/>*/}
       )}
       child3={() => (
         <div
