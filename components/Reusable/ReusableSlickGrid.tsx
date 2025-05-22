@@ -40,8 +40,7 @@ const ReusableSlickGrid = ({ data }) => {
               width: '100%',
               aspectRatio: '4 / 3', // or '4 / 3'
               overflow: 'hidden',
-              borderRadius: '8px',
-              backgroundColor: 'transparent',
+              borderRadius: '5px'
             }}>
               <img
                 src={item.image}
