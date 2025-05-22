@@ -16,7 +16,8 @@ const ReusableSlick = ({ data }) => {
         autoplay={{delay:2500,disableOnInteraction:false}}
         style={{ position: "relative", width: "100%" }}
         loop={false}
-        modules={[Autoplay]}
+        pagination={{ dynamicBullets: true }}
+        modules={[Autoplay,Pagination]}
         breakpoints={{
           320: {
             slidesPerView: 4,
