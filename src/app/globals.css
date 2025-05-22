@@ -2238,6 +2238,7 @@ input[type='date']{
   width: 100%;
   text-align:left;
   font-weight: bold;
+  white-space: nowrap;
 }
 .thumbElements_addCart{
   display: flex;
