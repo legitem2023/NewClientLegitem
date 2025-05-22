@@ -15,7 +15,7 @@ const ReusableSlickGrid = ({ data }) => {
         slidesPerView={2.5}
         autoplay={{ delay: 2500, disableOnInteraction: false }}
         style={{ width: "100%" }}
-        loop={false}
+        loop={true}
         pagination={{ dynamicBullets: true }}
         coverflowEffect={{
           rotate: 0,
