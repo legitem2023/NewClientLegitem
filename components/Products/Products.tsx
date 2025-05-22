@@ -28,6 +28,7 @@ import ReusableServerDown from 'components/Reusable/ReusableServerDown';
 import { Icon } from '@iconify/react';
 import ReusableLabel from 'components/Reusable/ReusableLabel';
 import ReusableSlickGrid from 'components/Reusable/ReusableSlickGrid';
+
 const itemsPerPage = 50; // Number of items to load per "page"
 
 const Products: React.FC = () => {
@@ -36,7 +37,7 @@ const Products: React.FC = () => {
   const pathname = usePathname();
   const [useSaved,setSaved] = useState("");
   const isModalOpen = useSelector((state: any) => state.modal.modal);
-
+  const storedcategory = useSelector((state: any) => state.categoryData.getCategoryData);
 
   
 const saveRecentlyVisited = (product:ViewedProduct ) => {
@@ -186,14 +187,14 @@ const sampleData = [
   { image: "/images/sample3.jpg", Name: "Product 3" },
   { image: "/images/sample4.jpg", Name: "Product 4" },
 ];
-
+console.log(storedcategory,'x',useSaved,'y');
   return (
     <ReusableCenterLayout
       child1={() => (
        <ReusableSearch search={searchEngine} sort={sort} trigger={sortTrigger} />
       )}
       child2={() => (
-        <ReusableSlickGrid data={useSaved} />
+        <ReusableSlickGrid data={storedcategory} />
       )}
       child3={() => (
         <div
