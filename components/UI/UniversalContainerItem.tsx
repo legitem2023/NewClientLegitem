@@ -14,15 +14,15 @@ interface UniversalContainerItemProps {
 }
 
 const UniversalContainerItem: React.FC<UniversalContainerItemProps> = ({ title, thumbnail, summary, dateCreated, index }) => {
- console.log(thumbnail);
+ 
   return (
-    <div className="UniversalContainerItem">
-      <div className="UniversalThumbnail">
+    <div className="ReusableCardContainer">
+      <div className="ReusableCardContainer_1">
         <Image src={imageSource(thumbnail)} height={100} width={200} alt={`image${index}`} />
       </div>
-      <HtmlRenderer htmlContent={summary} />
-      <div className="UniversalContainerFooter">
-        Date: <TimestampConverter timestamp={dateCreated} />
+      <div className="ReusableCardContainer_1">
+        <HtmlRenderer htmlContent={summary} />
+        <TimestampConverter timestamp={dateCreated} />
       </div>
     </div>
   );
