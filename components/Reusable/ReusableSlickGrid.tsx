@@ -13,8 +13,6 @@ const ReusableSlickGrid = ({ data }) => {
     <div className="card" style={{ height: "auto", position: "relative", padding: "10px" }}>
       <Swiper
         effect={'coverflow'}
-        slidesPerView={2}
-        
         centeredSlides={true}
         autoplay={{ delay: 2500, disableOnInteraction: false }}
         style={{ position: "relative", width: "100%" }}
@@ -29,6 +27,14 @@ const ReusableSlickGrid = ({ data }) => {
           modifier:1,
           slideShadows:true
         }}
+        breakpoints={{
+    0: {
+      slidesPerView: 2,
+    },
+    640: {
+      slidesPerView: 'auto',
+    }
+  }}
         modules={[Autoplay,EffectCoverflow,Pagination]}
       >
         {data.map((item: any, idx: number) => (
