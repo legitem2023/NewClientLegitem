@@ -23,6 +23,7 @@ const ReusableSlickGrid = ({ data }) => {
           dynamicBullets:true
         }}
         coverflowEffect={{
+          rotate:0,
           depth:300,
           modifier:1,
           slideShadows:true
