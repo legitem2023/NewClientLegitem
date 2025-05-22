@@ -13,7 +13,7 @@ const ReusableSlickGrid = ({ data }) => {
     <div className="card" style={{ height: "auto", position: "relative", padding: "10px" }}>
       <Swiper
         effect={'coverflow'}
-        slidesPerView={3}
+        slidesPerView={2}
         
         centeredSlides={true}
         autoplay={{ delay: 2500, disableOnInteraction: false }}
