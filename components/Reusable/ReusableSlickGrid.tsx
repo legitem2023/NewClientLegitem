@@ -32,12 +32,12 @@ const ReusableSlickGrid = ({ data }) => {
         modules={[Autoplay,EffectCoverflow,Pagination]}
       >
         {data.map((item: any, idx: number) => (
-          <SwiperSlide key={idx} style={{ backgroundColor: "transparent", textAlign: 'left',width:'100%',aspectRatio:'16 / 9' }}>
+          <SwiperSlide key={idx} style={{ backgroundColor: "transparent", textAlign: 'left',width:'100%',aspectRatio:'3 / 4' }}>
             <img
               style={{
                 borderRadius: '5px',
                 width: '100%',
-                aspectRatio: '16 / 9',
+                aspectRatio: '3 / 4',
                 objectFit: 'cover',
               }}
               src={item.image}
