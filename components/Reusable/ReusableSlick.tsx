@@ -1,7 +1,7 @@
 'use client'
 import React from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Pagination,Autoplay} from 'swiper/modules';
+import { Pagination, Autoplay, Navigation} from 'swiper/modules';
 import 'swiper/css/pagination';
 import 'swiper/css';
 import Element_Title from '../UI/Element_Title';
