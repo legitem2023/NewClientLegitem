@@ -14,6 +14,7 @@ const ReusableSlickGrid = ({ data }) => {
       <Swiper
         effect={'coverflow'}
         centeredSlides={true}
+        slidesPerView={'auto'}
         autoplay={{ delay: 2500, disableOnInteraction: false }}
         style={{ position: "relative", width: "100%" }}
         loop={false}
@@ -28,12 +29,12 @@ const ReusableSlickGrid = ({ data }) => {
           slideShadows:true
         }}
         breakpoints={{
-    0: {
-      slidesPerView: 2,
-    },
-    640: {
-      slidesPerView: 'auto',
-    }
+       0: {
+         slidesPerView: 2,
+       },
+      640: {
+         slidesPerView: 'auto',
+      }
   }}
         modules={[Autoplay,EffectCoverflow,Pagination]}
       >
