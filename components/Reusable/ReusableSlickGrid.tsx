@@ -25,7 +25,7 @@ const ReusableSlickGrid = ({ data }) => {
           rotate:0,
           stretch:0,
           depth:200,
-          modifier:5,
+          modifier:2,
           slideShadows:true
         }}
       
