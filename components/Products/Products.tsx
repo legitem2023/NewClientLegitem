@@ -194,7 +194,7 @@ const sampleData = [
       )}
       child2={() => (
         {/* <RecentlyVisited data={useSaved} fromData={false}/>*/}
-        {useSaved?(<ReusableSlickGrid data={useSaved} />):<></>}
+        <ReusableSlickGrid data={useSaved} />
       )}
       child3={() => (
         <div
