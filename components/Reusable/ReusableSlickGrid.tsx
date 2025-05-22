@@ -22,7 +22,7 @@ const ReusableSlickGrid = ({ data }) => {
           stretch: 10,
           depth: 150,
           modifier: 3.5,
-          slideShadows: true,
+          slideShadows: false,
         }}
         modules={[Autoplay, EffectCoverflow, Pagination]}
       >
