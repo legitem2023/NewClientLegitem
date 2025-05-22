@@ -20,7 +20,7 @@ const ReusableSlickGrid = ({ data }) => {
         coverflowEffect={{
           rotate: 0,
           stretch: 10,
-          depth: 100,
+          depth: 200,
           modifier: 3.5,
           slideShadows: true,
         }}
