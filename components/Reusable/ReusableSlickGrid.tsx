@@ -12,7 +12,7 @@ const ReusableSlickGrid = ({ data }) => {
       <Swiper
         effect="coverflow"
         centeredSlides={true}
-        slidesPerView={3}
+        slidesPerView={2.5}
         autoplay={{ delay: 2500, disableOnInteraction: false }}
         style={{ width: "100%" }}
         loop={false}
@@ -33,7 +33,7 @@ const ReusableSlickGrid = ({ data }) => {
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              padding: '10px',
+              padding: '0px',
             }}
           >
             <div style={{
