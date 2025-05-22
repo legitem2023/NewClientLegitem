@@ -10,7 +10,7 @@ import ModelViewer from "../Partial/ThreeJS/ModelViewer";
 
 const ReusableSlickGrid = ({ data }) => {
   return (
-    <div className="card" style={{ width: "100%",aspectRatio:'16 / 9', position: "relative", padding: "10px" }}>
+    <div className="card" style={{ width: "100%",aspectRatio:'3 / 1', position: "relative", padding: "10px" }}>
       <Swiper
         effect={'coverflow'}
         centeredSlides={true}
