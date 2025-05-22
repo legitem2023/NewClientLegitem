@@ -31,7 +31,7 @@ const Element_Title: React.FC<PropsElement> = ({ Label, value }) => {
   `;
 
   return (
-    <div className="UniversalLabels" ref={containerRef}>
+    <div className="UniversalLabels"  style={{overflow:'hidden'}} ref={containerRef}>
       <style>{keyframes}</style>
       <span className="thumbElements_Title" ref={spanRef} style={marqueeStyle}>
         {value}
