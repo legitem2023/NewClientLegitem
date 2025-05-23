@@ -4,9 +4,16 @@
 /* Active navigation buttons */
 .swiper-button-next,
 .swiper-button-prev {
-  color: #f3a093;
+  color: #f3a093!important;
   transform: scale(0.5); /* Optional scale */
   transition: opacity 0.3s ease, transform 0.3s ease;
+}
+/* Inactive (disabled) navigation buttons */
+.swiper-button-disabled {
+  color: #f3a093!important;
+  opacity: 0.4; /* Make it lighter */
+  pointer-events: none; /* Disable interaction */
+  transform: scale(0.5); /* Optional: reset scale */
 }
 #input_video {
   background-color:purple;
@@ -22,13 +29,7 @@
   background-color:green;
   z-index:9;
 }
-/* Inactive (disabled) navigation buttons */
-.swiper-button-disabled {
-  color: #f3a093;
-  opacity: 0.4; /* Make it lighter */
-  pointer-events: none; /* Disable interaction */
-  transform: scale(0.5); /* Optional: reset scale */
-}
+
 
 .card {
   background: radial-gradient(
