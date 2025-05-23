@@ -39,7 +39,7 @@ export const Gallery:React.FC<PropsGallery> = ({data,length,slidesPerView,spaceB
                    src={imageSourceGallery(item)} 
                    onError={handleError}
                    alt={"alt" + i} 
-                   style={{aspectRatio:'16 / 9', width:100%}}
+                   style={{aspectRatio:'16 / 9', width:'100%'}}
                    width='100' />
             {item.title}
         </SwiperSlide>
@@ -47,7 +47,7 @@ export const Gallery:React.FC<PropsGallery> = ({data,length,slidesPerView,spaceB
       <Image src={`${imgPath}`} 
              onError={handleError}
              alt={"alt" + 1} 
-             style={{aspectRatio:'16 / 9', width:100%}}
+             style={{aspectRatio:'16 / 9', width:'100%'}}
              width='100'/>
         </SwiperSlide>
       }
