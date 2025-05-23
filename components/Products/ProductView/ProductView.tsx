@@ -16,6 +16,7 @@ import InsertView from './InsertView';
 import { INSERT_VIEWS_COUNT } from 'graphql/mutation';
 import RelatedColor from './RelatedColor';
 import RelatedSize from './RelatedSize';
+import EffectsRenderer from "components/Partial/VTO/EffectsRenderer";
 import LikeCmd from 'components/Commands/LikeCmd';
 import AddCartCmdView from 'components/Commands/AddCartCmdView';
 import LinkStoreCmd from 'components/Commands/LinkStoreCmd';
@@ -74,7 +75,7 @@ const ProductView: React.FC = () => {
           {
             icon: "guidance:wear-goggles",
             content: (
-              <ModelViewer data={viewItem}/>
+              <EffectsRenderer/>
             ),
             notification: 0,
           }
