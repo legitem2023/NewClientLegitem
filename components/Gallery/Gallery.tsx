@@ -27,7 +27,7 @@ console.log(data.subImageFieldOut);
       loop={true}
       style={{ aspectRatio: '4 / 3' }} // Changed here
     >
-      {length.subImageFieldOut.length > 0 ?
+      {
         data.subImageFieldOut.map((item:any, i:any) => (
           <SwiperSlide key={i}>
             <Image key={i} 
@@ -39,17 +39,7 @@ console.log(data.subImageFieldOut);
             />
             {item.title}
           </SwiperSlide>
-        )) : (
-        <SwiperSlide>
-          <Image 
-            src={`${imgPath}`} 
-            onError={handleError}
-            alt={"alt" + 1} 
-            style={{ aspectRatio: '4 / 3', width: '100%' }} // Changed here
-            width='1600' height='1200' // Optional
-          />
-        </SwiperSlide>
-      )}
+        )) }
     </Swiper>
   );
 };
