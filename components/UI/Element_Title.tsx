@@ -26,9 +26,10 @@ const Element_Title: React.FC<PropsElement> = ({ Label, value }) => {
 
   const keyframes = `
     @keyframes marqueeLoop {
-      0% { transform: translateX(100%); }
-      100% { transform: translateX(-100%); }
-    }
+  0% { transform: translateX(100%); }
+  50% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
   `;
 
   return (
