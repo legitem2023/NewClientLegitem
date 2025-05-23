@@ -18,6 +18,10 @@
 #output_canvas{
   background-color:red;
 }
+#threejs_canvas{
+  background-color:green;
+  z-index:9;
+}
 /* Inactive (disabled) navigation buttons */
 .swiper-button-disabled {
   color: #f3a093;
