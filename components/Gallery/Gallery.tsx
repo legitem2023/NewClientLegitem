@@ -31,7 +31,7 @@ console.log(data.subImageFieldOut);
         data.subImageFieldOut.map((item:any, i:any) => (
           <SwiperSlide key={i}>
             <Image key={i} 
-              src={item.ImagePath} 
+              src={imageSourceGallery(item)} 
               onError={handleError}
               alt={"alt" + i} 
               style={{ aspectRatio: '4 / 3', width: '100%' }} // Changed here
