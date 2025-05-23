@@ -34,14 +34,15 @@ const News:React.FC = () => {
 
   return (
     <div className='LikeContainer'>
-      <UniversalPagination
-        currentPage={currentPage}
-        totalPages={totalPages}
-        onPageChange={handlePageChange}
-      />
+      
       {paginatedNews.length > 0?paginatedNews?.map((item: any, idx: number) => (
         <UniversalContainerItem key={idx} title={item.title} thumbnail={imageSource(item.thumbnail)} summary={item.summary} dateCreated={item.dateCreated} index={idx}/>
       )):(<h1>No Data</h1>)}
+      {/*<UniversalPagination
+        currentPage={currentPage}
+        totalPages={totalPages}
+        onPageChange={handlePageChange}
+      />*/}
     </div>
   );
 };
