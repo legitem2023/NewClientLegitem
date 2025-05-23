@@ -9,7 +9,7 @@
   transition: opacity 0.3s ease, transform 0.3s ease;
 }
 #input_video {
-  display:none;
+  background-color:purple;
 }
 #input_video,#output_canvas, #threejs_canvas {
   width:100%!important;
