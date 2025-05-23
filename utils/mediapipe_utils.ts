@@ -15,8 +15,8 @@ class Mediapipe {
             onFrame: async () => {
                 await faceDection.send({ image: videoElement })
             },
-            width: 1280,
-            height: 720
+            width: 1600,
+            height: 900
         })
         return camera
     }
