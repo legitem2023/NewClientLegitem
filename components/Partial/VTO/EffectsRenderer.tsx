@@ -105,7 +105,7 @@ const EffectsRenderer: React.FC = () => {
     })
     return (
         <div className="container">
-            <video className="input_video -scale-x-100" id="input_video"></video>
+            <video className="input_video -scale-x-100" id="input_video" style={{width:'100%',aspectRatio:'16 / 9'}}></video>
             <canvas className="output_canvas" id="output_canvas" width="1600px" height="900px" style={{width:'100%',aspectRatio:'16 / 9'}}></canvas>
             <canvas className="threejs_canvas" id="threejs_canvas" width="1600px" height="900px" style={{width:'100%',aspectRatio:'16 / 9'}}></canvas>
             <div id="Loading_animation">
