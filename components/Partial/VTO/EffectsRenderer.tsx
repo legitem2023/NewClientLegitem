@@ -33,10 +33,10 @@ const EffectsRenderer: React.FC = () => {
         const vector = threejs.Vector();
         threejs.GLTFLoader();
         const scene = threejs.scene();
-        const threejscamera = threejs.threejscamera(canvasElement.width, canvasElement.height);
+        const threejscamera = threejs.threejscamera(1600,900);
         threejscamera.position.set(0, 0, 20);
-        const renderer: any = threejs.renderer(threeJSElement, canvasElement.width, canvasElement.height, true);
-        renderer.setSize(canvasElement.width, canvasElement.height);
+        const renderer: any = threejs.renderer(threeJSElement, 1600, 900, true);
+        renderer.setSize(1600,900);
         const Environment = (path: any) => {
             const HDR = threejs.HDRLighting(path);
             scene.environment = HDR;
@@ -52,8 +52,8 @@ const EffectsRenderer: React.FC = () => {
 
             // Draw the overlays.
             canvasCtx.save();
-            canvasCtx.clearRect(0, 0, canvasElement.width, canvasElement.height);
-            canvasCtx.drawImage(results.image, 0, 0, canvasElement.width, canvasElement.height);
+            canvasCtx.clearRect(0, 0, 1600, 900);
+            canvasCtx.drawImage(results.image, 0, 0, 1600, 900);
 
             if (results.multiFaceLandmarks) {
                 if (results.multiFaceLandmarks.length > 0) {
