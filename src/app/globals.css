@@ -8,12 +8,16 @@
   transform: scale(0.5); /* Optional scale */
   transition: opacity 0.3s ease, transform 0.3s ease;
 }
-
+#input_video {
+  display:none;
+}
 #input_video,#output_canvas, #threejs_canvas {
   width:100%!important;
   aspect-ratio: 16 / 9!important;
 }
-
+#output_canvas{
+  background-color:red;
+}
 /* Inactive (disabled) navigation buttons */
 .swiper-button-disabled {
   color: #f3a093;
