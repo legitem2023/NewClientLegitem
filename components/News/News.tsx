@@ -1,5 +1,6 @@
 import { useQuery } from '@apollo/client';
 import Loading from 'components/Partial/LoadingAnimation/Loading';
+import LikesLoading from '../Likes/LikesLoading';
 import UniversalPagination from 'components/Partial/Pagination/UniversalPagination';
 import UniversalContainerItem from 'components/UI/UniversalContainerItem';
 import { READ_NEWS } from 'graphql/queries';
@@ -29,7 +30,7 @@ const News:React.FC = () => {
     setCurrentPage(page);
   }, []);
 
-  if (NewsLoading) return <Loading />;
+  if (NewsLoading) return <LikesLoading />;
   if (NewsError) return <div>Connection Error</div>;
 
   return (
