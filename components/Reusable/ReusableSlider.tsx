@@ -19,11 +19,11 @@ const ReusableSlider: React.FC<ReusableSliderProps> = ({ items }) => {
         freeMode={true}
         scrollbar={{ draggable: true }}
         modules={[FreeMode]}
-        style={{ backgroundColor:'red',padding: 0,width:'100%',height:'100%',boxShadow:'0.5px 0.5px 3px #000000' }}
+        style={{ padding: 0,width:'100%',height:'100%',boxShadow:'0.5px 0.5px 3px #000000' }}
       >
         {items.map((item, index) => (
-          <SwiperSlide key={index}>
-            <div style={{ width:'100%', height:'100%'}}>
+          <SwiperSlide key={index} style={{backgroundColor:'red'}}>
+            <div style={{ width:'100%', height:'100%',backgroundColor:'green'}}>
               {item}
             </div>
           </SwiperSlide>
