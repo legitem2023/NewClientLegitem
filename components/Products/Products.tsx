@@ -185,7 +185,7 @@ setSaved(formattedData);
     (
       <div key="sort-select">
         <label htmlFor="mySelect" className="hidden">Choose an option:</label>
-        <select onChange={(e: any) => sort(e)}>
+        <select onChange={sort}>
           <option value="">Sort</option>
           <option value="name">By Name</option>
           <option value="price">By Price</option>
@@ -194,7 +194,7 @@ setSaved(formattedData);
     ),
     (
       <div key="sort-button">
-        <button onClick={(e) => sortTrigger(e)} aria-label="sort">
+        <button onClick={sortTrigger} aria-label="sort">
           <Icon icon="bx:sort" />
         </button>
       </div>
