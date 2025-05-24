@@ -28,6 +28,7 @@ import ReusableServerDown from 'components/Reusable/ReusableServerDown';
 import { Icon } from '@iconify/react';
 import ReusableLabel from 'components/Reusable/ReusableLabel';
 import ReusableSlickGrid from 'components/Reusable/ReusableSlickGrid';
+import ReusableSlider from 'components/Reusable/ReusableSlider';
 
 const itemsPerPage = 50; // Number of items to load per "page"
 
@@ -180,11 +181,29 @@ setSaved(formattedData);
 
   if (productsLoading) return <ProductLoading />;
   if (productsError) return <ReusableServerDown />;
- 
+ const items: React.ReactNode[] = [
+    (
+      <div key="sort-select">
+        <label htmlFor="mySelect" className="hidden">Choose an option:</label>
+        <select onChange={(e: any) => sort(e)}>
+          <option value="">Sort</option>
+          <option value="name">By Name</option>
+          <option value="price">By Price</option>
+        </select>
+      </div>
+    ),
+    (
+      <div key="sort-button">
+        <button onClick={(e) => sortTrigger(e)} aria-label="sort">
+          <Icon icon="bx:sort" />
+        </button>
+      </div>
+    )
+  ];
   return (
     <ReusableCenterLayout
       child1={() => (
-       <ReusableSearch search={searchEngine} sort={sort} trigger={sortTrigger} />
+        <ReusableSlider items={items}/>
       )}
       child2={() => (
         <ReusableSlickGrid data={storedcategory} />
