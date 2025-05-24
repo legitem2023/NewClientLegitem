@@ -18,11 +18,11 @@ const ReusableSlider: React.FC<ReusableSliderProps> = ({ items }) => {
         freeMode={true}
         modules={[FreeMode]}
         spaceBetween={0}
-        style={{ padding: 0 }}
+        style={{ padding: 0,width:'100%' }}
       >
         {items.map((item, index) => (
           <SwiperSlide key={index}>
-            <div className="w-full" style={{ aspectRatio: '8 / 1' }}>
+            <div style={{ aspectRatio: '8 / 1', width:'100%', height:'100%'}}>
               {item}
             </div>
           </SwiperSlide>
