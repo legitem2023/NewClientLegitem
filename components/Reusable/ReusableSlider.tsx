@@ -26,7 +26,7 @@ const ReusableSlider: React.FC<ReusableSliderProps> = ({ items }) => {
         {items.map((item, index) => (
           <SwiperSlide key={index} style={{ backgroundColor: 'red' }}>
             <div style={{ width: '100%', height: '100%', backgroundColor: 'green' }}>
-              {item}
+              
             </div>
           </SwiperSlide>
         ))}
