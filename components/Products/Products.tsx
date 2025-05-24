@@ -195,6 +195,16 @@ setSaved(formattedData);
       <div key="sort-select">
         <label htmlFor="mySelect" className="hidden">Choose an option:</label>
         <select onChange={sort}>
+          <option value="">Type</option>
+          <option value="name">Jewelries</option>
+          <option value="price">Mobile Devices</option>
+          <option value="price">Computer Devices</option>
+        </select>
+      </div>
+    ),(
+      <div key="sort-select">
+        <label htmlFor="mySelect" className="hidden">Choose an option:</label>
+        <select onChange={sort}>
           <option value="">Department</option>
           <option value="Men">Men</option>
           <option value="Women">Women</option>
