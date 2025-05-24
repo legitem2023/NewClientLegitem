@@ -15,9 +15,9 @@ const ReusableSlider: React.FC<ReusableSliderProps> = ({ items }) => {
     <div className="searchContaier" style={{width:'100%',backgroundColor:'red'}}>
       <Swiper
         slidesPerView={3}
+        spaceBetween={5}
         freeMode={true}
         modules={[FreeMode]}
-        spaceBetween={0}
         style={{ padding: 0,width:'100%',boxShadow:'0.5px 0.5px 3px #000000' }}
       >
         {items.map((item, index) => (
