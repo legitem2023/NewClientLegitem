@@ -11,7 +11,7 @@ type ReusableSearchProps = {
 const ReusableSearch: FC<ReusableSearchProps> = ({ search, sort, trigger }) => {
   const items: React.ReactNode[] = [
     (
-      <div>
+      <div key="sort-select">
         <label htmlFor="mySelect" className="hidden">Choose an option:</label>
         <select onChange={(e: any) => sort(e)}>
           <option value="">Sort</option>
@@ -21,7 +21,7 @@ const ReusableSearch: FC<ReusableSearchProps> = ({ search, sort, trigger }) => {
       </div>
     ),
     (
-      <div>
+      <div key="sort-button">
         <button onClick={(e) => trigger(e)} aria-label="sort">
           <Icon icon="bx:sort" />
         </button>
