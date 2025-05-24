@@ -237,13 +237,13 @@
         grid-column: 1 / span 4;
     }
 
-    .carousel {
+   /* .carousel {
         padding: 1px;
         min-height: 10vh;
         display: flex;
         flex-direction: column;
     }
-
+*/
     .CartCols {
          grid-template-columns: 50% 50%;
     }
@@ -281,22 +281,7 @@
     .LabelBack {
         grid-template-columns: auto auto;
     }
-    /* .searchContaier{
-        margin:0px;
-    }
-    .searchContaier div {
-        display: flex;
-        position: relative;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .searchContaier div input,
-    .searchContaier div select {
-        width: 100%;
-        margin: 5px;
-        padding: 10px;
-    } */
+    
     .game-icons--shopping-cart{
         height: 60vw;
     }
@@ -304,12 +289,10 @@
         height: 20vh !important;
     }
 
-    .carouselImage {
-        /* transform: scale(0.5); */
-    }
-    .my-slide-component{
+    
+    /*.my-slide-component{
         transform: scale(0.5);
-    }
+    }*/
     .CartColsHead {
         display: none;
     }
@@ -368,21 +351,18 @@
     .searchEngine{
         padding:5px;
     }
-    #canvas {
+    /*#canvas {
         width: 100vw !important;
         height: auto !important;
-    }
+    }*/
     /* .searchContaier button {
         height: 78%;
     } */
-    .MainView_RelatedProducts{
-        /* margin-bottom: 72px; */
-    }
-    .MainView_RelatedProducts div button{
+   /* .MainView_RelatedProducts div button{
         width:100%;
         padding:10px;
     }
-    
+    */
     .LikeContainer{
         grid-template-columns: 50% 50%;
         box-sizing:border-box;
