@@ -2,7 +2,7 @@
 
 import React from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
-import { FreeMode } from 'swiper/modules'
+import { FreeMode, Navigation } from 'swiper/modules'
 import 'swiper/css'
 import 'swiper/css/free-mode'
 
@@ -16,9 +16,10 @@ const ReusableSlider: React.FC<ReusableSliderProps> = ({ items }) => {
       <Swiper
         slidesPerView={2}
         spaceBetween={5}
+        navigation={true}
         freeMode={true}
-        scrollbar={{ draggable: true }}
-        modules={[FreeMode]}
+        scrollbar={{ draggable: false }}
+        modules={[FreeMode, Navigation]}
         style={{ padding: 0,width:'100%',height:'100%',boxShadow:'0.5px 0.5px 3px #000000' }}
       >
         {items.map((item, index) => (
