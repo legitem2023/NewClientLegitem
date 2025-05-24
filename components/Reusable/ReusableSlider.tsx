@@ -22,7 +22,7 @@ const ReusableSlider: React.FC<ReusableSliderProps> = ({ items }) => {
       >
         {items.map((item, index) => (
           <SwiperSlide key={index}>
-            <div style={{ aspectRatio: '8 / 1', width:'100%', height:'100%'}}>
+            <div style={{ width:'100%', height:'100%'}}>
               {item}
             </div>
           </SwiperSlide>
