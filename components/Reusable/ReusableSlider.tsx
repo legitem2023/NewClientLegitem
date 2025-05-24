@@ -12,7 +12,7 @@ interface ReusableSliderProps {
 
 const ReusableSlider: React.FC<ReusableSliderProps> = ({ items }) => {
   return (
-    <div style={{width:'100%'}}>
+    <div className="searchContaier" style={{width:'100%'}}>
       <Swiper
         slidesPerView={3}
         freeMode={true}
