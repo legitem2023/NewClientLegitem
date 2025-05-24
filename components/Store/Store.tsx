@@ -18,7 +18,7 @@ import { decode } from 'js-base64';
 import { useDispatch, useSelector } from 'react-redux';
 import { setcurrentPage } from 'Redux/currentPageSlice';
 import ReusableCenterLayout from 'components/Layout/ReusableCenterLayout';
-import ReusableSearch from 'components/Reusable/ReusableSearch';
+//import ReusableSearch from 'components/Reusable/ReusableSearch';
 import { setSearch } from 'Redux/searchSlice';
 import { setsortBy } from 'Redux/sortBySlice';
 import { setsortDirection } from 'Redux/sortDirectionSlice';
@@ -143,7 +143,7 @@ const isModalOpen = useSelector((state: any) => state.modal.modal);
       <Carousel data={Category?.getCategory} fromData={"Category"}></Carousel>
     )}
     child2={()=>(
-      <ReusableSearch search={searchEngine} sort={sort} trigger={sortTrigger}/>
+      <></>
     )}
     child3={()=>(
       <div className="Thumbnails">
