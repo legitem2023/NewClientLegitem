@@ -10,7 +10,7 @@ import ReusableCustomCarousel from 'components/Reusable/ReusableCustomCarousel';
 import AddCartCmd from 'components/Commands/AddCartCmd';
 import { ViewedProduct } from 'types/types';
 import { useDispatch, useSelector } from 'react-redux';
-import ReusableSearch from 'components/Reusable/ReusableSearch';
+//import ReusableSearch from 'components/Reusable/ReusableSearch';
 import { setSearch } from 'Redux/searchSlice';
 import { setsortBy } from 'Redux/sortBySlice';
 import { setsortDirection } from 'Redux/sortDirectionSlice';
