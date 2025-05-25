@@ -29,8 +29,9 @@ const ReusableSelect: React.FC<ReusableSelectProps> = ({ data, event }) => {
       style={{
         padding: '8px',
         borderRadius: '4px',
-        border: '1px solid #ccc',
+        border: '1px solid transparent',
         backgroundColor: 'white',
+        width:'100%',
         fontSize: '14px',
       }}
     >
