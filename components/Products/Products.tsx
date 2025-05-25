@@ -185,7 +185,7 @@ setSaved(formattedData);
     (
       <div key="sort-select">
         <label htmlFor="mySelect" className="hidden">Choose an option:</label>
-        <select onChange={sort}>
+        <select onChange={sort} style={{padding:'5px',width:'100%'}}>
           <option value="">Sort</option>
           <option value="name">By Name</option>
           <option value="price">By Price</option>
@@ -194,7 +194,7 @@ setSaved(formattedData);
     ),(
       <div key="sort-select">
         <label htmlFor="mySelect" className="hidden">Choose an option:</label>
-        <select onChange={sort}>
+        <select onChange={sort} style={{padding:'5px',width:'100%'}}>
           <option value="">Type</option>
           <option value="name">Jewelries</option>
           <option value="price">Mobile Devices</option>
@@ -204,7 +204,7 @@ setSaved(formattedData);
     ),(
       <div key="sort-select">
         <label htmlFor="mySelect" className="hidden">Choose an option:</label>
-        <select onChange={sort}>
+        <select onChange={sort} style={{padding:'5px',width:'100%'}}>
           <option value="">Department</option>
           <option value="Men">Men</option>
           <option value="Women">Women</option>
@@ -215,7 +215,7 @@ setSaved(formattedData);
     ),
     (
       <div key="sort-button">
-        <button onClick={sortTrigger} aria-label="sort">
+        <button onClick={sortTrigger} aria-label="sort" style={{padding:'5px',width:'100%'}}>
           <Icon icon="bx:sort" />
         </button>
       </div>
