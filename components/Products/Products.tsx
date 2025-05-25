@@ -195,14 +195,20 @@ const sort_name_price = [{
   
   const items: React.ReactNode[] = [
     (
-      <ReusableSelect data={sort_name_price} event={sort} />
+      <div key={0}>
+            <ReusableSelect data={sort_name_price} event={sort} />
+      </div>
     ),(
-      <ReusableSelect data={sort_name_price} event={sort} />
+      <div key={1}>
+            <ReusableSelect data={sort_name_price} event={sort} />
+      </div>
     ),(
-      <ReusableSelect data={sort_name_price} event={sort} />
+      <div key={2}>
+            <ReusableSelect data={sort_name_price} event={sort} />
+      </div>
     ),
     (
-      <div key="sort-button">
+      <div key={3}>
         <button onClick={sortTrigger} aria-label="sort" style={{padding:'5px',width:'100%'}}>
           <Icon icon="bx:sort" />
         </button>
