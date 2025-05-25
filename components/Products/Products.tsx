@@ -181,49 +181,25 @@ setSaved(formattedData);
 
   if (productsLoading) return <ProductLoading />;
   if (productsError) return <ReusableServerDown />;
- const items: React.ReactNode[] = [
+
+const sort_name_price = [{
+  value:"Sort",
+  label:"",
+  },{
+  value:"By Name",
+  label:"By Name",
+  },{
+  value:"By Price",
+  label:"By Price",
+  }]
+  
+  const items: React.ReactNode[] = [
     (
-      <div key="sort-select">
-        <label htmlFor="mySelect" className="hidden">Choose an option:</label>
-        <select onChange={sort}   
-                onTouchStart={(e) => e.stopPropagation()}
-                onTouchMove={(e) => e.stopPropagation()}
-                onTouchEnd={(e) => e.stopPropagation()} style={{padding:'5px',width:'100%'}}>
-          <option value="">Sort</option>
-          <option value="name">By Name</option>
-          <option value="price">By Price</option>
-        </select>
-      </div>
+      <ReusableSelect data={sort_name_price} event={sort} />
     ),(
-      <div key="sort-select">
-        <label htmlFor="mySelect" className="hidden">Choose an option:</label>
-        <select  onChange={sort} 
-                 onTouchStart={(e) => e.stopPropagation()}
-                 onTouchMove={(e) => e.stopPropagation()}
-                 onTouchEnd={(e) => e.stopPropagation()} 
-                style={{padding:'5px',width:'100%'}}>
-          <option value="">Type</option>
-          <option value="name">Jewelries</option>
-          <option value="price">Mobile Devices</option>
-          <option value="price">Computer Devices</option>
-        </select>
-      </div>
+      <ReusableSelect data={sort_name_price} event={sort} />
     ),(
-      <div key="sort-select">
-        <label htmlFor="mySelect" className="hidden">Choose an option:</label>
-        <select 
-          onChange={sort}
-          onTouchStart={(e) => e.stopPropagation()}
-          onTouchMove={(e) => e.stopPropagation()}
-          onTouchEnd={(e) => e.stopPropagation()}       
-          style={{padding:'5px',width:'100%'}}>
-          <option value="">Department</option>
-          <option value="Men">Men</option>
-          <option value="Women">Women</option>
-          <option value="Kids">Kids</option>
-          <option value="Unisex">Unisex</option>
-        </select>
-      </div>
+      <ReusableSelect data={sort_name_price} event={sort} />
     ),
     (
       <div key="sort-button">
