@@ -183,13 +183,13 @@ setSaved(formattedData);
   if (productsError) return <ReusableServerDown />;
 
 const sort_name_price = [{
-  value:"Sort",
-  label:"",
+  value:"",
+  label:"Sort",
   },{
-  value:"By Name",
+  value:"name",
   label:"By Name",
   },{
-  value:"By Price",
+  value:"price",
   label:"By Price",
   }]
   
