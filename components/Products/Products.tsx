@@ -29,7 +29,7 @@ import { Icon } from '@iconify/react';
 import ReusableLabel from 'components/Reusable/ReusableLabel';
 import ReusableSlickGrid from 'components/Reusable/ReusableSlickGrid';
 import ReusableSlider from 'components/Reusable/ReusableSlider';
-
+import ReusableSelect from 'components/Reusable/ReusableSelect';
 const itemsPerPage = 50; // Number of items to load per "page"
 
 const Products: React.FC = () => {
