@@ -1,6 +1,7 @@
 'use client'
 import { configureStore } from '@reduxjs/toolkit';
 import categoryReducer from './categorySlice';
+import nameSortReducer from './nameSortSlice';
 import categoryDataReducer from './categoryDataSlice';
 import productTypeDataReducer from './productTypeDataSlice';
 import cartReducer from "./cartSlice";
@@ -55,7 +56,8 @@ const store = configureStore({
     streaming:streamingReducer,
     ipAddress:ipReducer,
     suggestedItems:suggestedItemReducer,
-    activeIndex:activeIndexReducer
+    activeIndex:activeIndexReducer,
+    sort:nameSortReducer
   },
 });
 
