@@ -33,10 +33,10 @@ const EffectsRenderer: React.FC = () => {
         const vector = threejs.Vector();
         threejs.GLTFLoader();
         const scene = threejs.scene();
-        const threejscamera = threejs.threejscamera(1280,720);
+        const threejscamera = threejs.threejscamera(1280,960);
         threejscamera.position.set(0, 0, 20);
-        const renderer: any = threejs.renderer(threeJSElement, 1280, 720, true);
-        renderer.setSize(1280,720);
+        const renderer: any = threejs.renderer(threeJSElement, 1280, 960, true);
+        renderer.setSize(1280,960);
         const Environment = (path: any) => {
             const HDR = threejs.HDRLighting(path);
             scene.environment = HDR;
@@ -52,8 +52,8 @@ const EffectsRenderer: React.FC = () => {
 
             // Draw the overlays.
             canvasCtx.save();
-            canvasCtx.clearRect(0, 0, 1280, 720);
-            canvasCtx.drawImage(results.image, 0, 0, 1280, 720);
+            canvasCtx.clearRect(0, 0, 1280, 960);
+            canvasCtx.drawImage(results.image, 0, 0, 1280, 960);
 
             if (results.multiFaceLandmarks) {
                 if (results.multiFaceLandmarks.length > 0) {
@@ -99,15 +99,15 @@ const EffectsRenderer: React.FC = () => {
         const camera = new Camera(video, {
             onFrame: async () => {
                 await faceDetection.send({ image: video, smoothFaceIntensity: 0.5 })
-            }, width: 1280, height: 720
+            }, width: 1280, height: 960
         })
         camera.start();
     })
     return (
         <div className="container">
             <video className="input_video -scale-x-100" id="input_video" ></video>
-            <canvas className="output_canvas" id="output_canvas" width="1280" height="720" ></canvas>
-            <canvas className="threejs_canvas" id="threejs_canvas" width="1280" height="720" ></canvas>
+            <canvas className="output_canvas" id="output_canvas" width="1280" height="960" ></canvas>
+            <canvas className="threejs_canvas" id="threejs_canvas" width="1280" height="960" ></canvas>
             <div id="Loading_animation">
                 <div className="lds-dual-ring"></div>
             </div>
