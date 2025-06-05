@@ -20,7 +20,7 @@
 }
 #input_video,#output_canvas, #threejs_canvas {
   width:100%!important;
-  aspect-ratio: 16 / 9!important;
+  aspect-ratio: 4 / 3!important;
 }
 #output_canvas{
   background-color:red;
