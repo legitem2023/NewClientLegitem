@@ -2163,6 +2163,7 @@ input[type='date']{
 */
 .thumbnailImage {
   height:100%;
+  width:100%;
   aspect-ratio: 1 / 1;
   transition: ease 0.5s;
   cursor: pointer;
