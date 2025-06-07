@@ -12,9 +12,8 @@ type PropsGallery = { data: (item: string) => void; length:any, slidesPerView:nu
 export const Gallery:React.FC<PropsGallery> = ({data,length,slidesPerView,spaceBetween}:any) => {
   const imgPath = process.env.NEXT_PUBLIC_SERVER_PRODUCT_IMAGE_PATH || '';
   const viewedID = useSelector((state:any) => state.viewed.viewed); // Access category state
-
   const initialSlideIndex = data.subImageFieldOut.findIndex((img) => img.ImagePath === viewedID);
-console.log(data.subImageFieldOut);
+
   return (
     <Swiper
       spaceBetween={spaceBetween}

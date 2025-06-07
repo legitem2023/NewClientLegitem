@@ -42,7 +42,7 @@ class Threejs {
         renderer.clear();
         renderer.clearDepth();
         renderer.setClearColor(0xc0c0c0);
-        renderer.setSize(width, height);
+        // renderer.setSize(960,1280);
         renderer.setPixelRatio(window.devicePixelRatio || 1);
         renderer.shadowMap.enabled = true;
         renderer.shadowMap.type = THREE.PCFSoftShadowMap;

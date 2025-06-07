@@ -36,7 +36,7 @@ const EffectsRenderer: React.FC = () => {
         const threejscamera = threejs.threejscamera(1280,960);
         threejscamera.position.set(0, 0, 20);
         const renderer: any = threejs.renderer(threeJSElement, 1280, 960, true);
-        renderer.setSize(1280,960);
+        // renderer.setSize(960,1280);
         const Environment = (path: any) => {
             const HDR = threejs.HDRLighting(path);
             scene.environment = HDR;
