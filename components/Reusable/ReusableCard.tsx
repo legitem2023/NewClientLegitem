@@ -22,6 +22,7 @@ const ReusableCard: React.FC<ReusableCardProps> = ({ item, view, imageSource, ha
         height={150}
         width={150}
         quality={1}
+        style={{aspectRatio:'4/3'}}
         alt={`Image_`+item.id}
         priority
         onError={handleError}
