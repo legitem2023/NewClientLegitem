@@ -16,7 +16,7 @@ import { setsortBy } from 'Redux/sortBySlice';
 import { setsortDirection } from 'Redux/sortDirectionSlice';
 import { addSuggestedItems } from 'Redux/suggestedItemSlice';
 import Modal from './Modal';
-import RecentlyVisited from './RecentlyVisited';
+//import RecentlyVisited from './RecentlyVisited';
 import ProductView from 'components/Products/ProductView/ProductView';
 import { setmodal } from 'Redux/modalSlice';
 import ReusableCenterLayout from 'components/Layout/ReusableCenterLayout';
