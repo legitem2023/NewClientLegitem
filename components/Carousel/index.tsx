@@ -9,7 +9,7 @@ import React from "react";
 import { imageSource, imageSource_category } from "utils/scripts";
 
 export default function Carousel({ data, fromData }) {
-  const ref: any = React.useRef(StackedCarousel);
+ /* const ref: any = React.useRef(StackedCarousel);
   const imgPath = process.env.NEXT_PUBLIC_SERVER_PRODUCT_IMAGE_PATH || '';
   const pathname = usePathname();
   const Products = pathname.startsWith('/Products');
@@ -59,7 +59,7 @@ export default function Carousel({ data, fromData }) {
       </div>
     );
   };
-
+*/
   return (
     <div
       className="card"
