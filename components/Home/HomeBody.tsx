@@ -1,7 +1,7 @@
 'use client'
 import Menu from 'components/Partial/Menu'
 import React from 'react'
-import { ViewGallery } from 'components/Gallery/ViewGallery'
+//import { ViewGallery } from 'components/Gallery/ViewGallery'
 // import { useGlobalState } from 'state'
 import { Icon } from '@iconify/react'
 import Carousel from 'components/Carousel'
