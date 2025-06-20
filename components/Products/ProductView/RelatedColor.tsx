@@ -39,6 +39,9 @@ const RelatedColor = ({styleCode,currentcolor}) => {
         data.getChildInventory_details.map((item:any)=>(
     <SwiperSlide
           key={item.id}
+          style={{
+            borderRadius:'100%',
+          }}
           onClick={() => view(item)}> 
   <ReusableFirstLetterImage
     text={item.color}

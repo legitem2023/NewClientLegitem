@@ -178,6 +178,12 @@
         /*grid-template-columns: 49% 49% !important;*/
         grid-template-columns: 33% 33% 33% !important;
     }
+    .thumbnail {
+        border:solid 0px transparent;
+    }
+    .thumbnailTextContainer{
+        padding:2px!important;
+    }
     .UniversalLabels .thumbElements_Title{
         font-weight: bold;
         font-size: 12px;
