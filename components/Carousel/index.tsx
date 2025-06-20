@@ -5,7 +5,7 @@ import { GET_CATEGORY } from "graphql/queries";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import React from "react";
-import { StackedCarousel, ResponsiveContainer } from "react-stacked-center-carousel";
+//import { StackedCarousel, ResponsiveContainer } from "react-stacked-center-carousel";
 import { imageSource, imageSource_category } from "utils/scripts";
 
 export default function Carousel({ data, fromData }) {
@@ -71,6 +71,7 @@ export default function Carousel({ data, fromData }) {
         justifyContent: 'center',
       }}
     >
+      {/*
       <div style={{ width: "100%", position: "relative" }}>
         <ResponsiveContainer
           carouselRef={ref}
@@ -119,7 +120,7 @@ export default function Carousel({ data, fromData }) {
         >
           <Icon icon='ic:sharp-double-arrow' style={{ fontSize: 30, color: "rgb(87,39,0)" }} />
         </div>
-      </div>
+      </div>*/}
     </div>
   );
 }
