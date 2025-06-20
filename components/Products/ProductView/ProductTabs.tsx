@@ -4,7 +4,7 @@ import ModelViewer from "components/Partial/ThreeJS/ModelViewer";
 import 'react-tabs/style/react-tabs.css';
 import { Icon } from "@iconify/react";
 import EffectsRenderer from "components/Partial/VTO/EffectsRenderer";
-import { ViewGallery } from "components/Gallery/ViewGallery";
+//import { ViewGallery } from "components/Gallery/ViewGallery";
 import { handleError, imageSourceGallery } from 'utils/scripts';
 
 import ReusableCustomCarousel from 'components/Reusable/ReusableCustomCarousel';
