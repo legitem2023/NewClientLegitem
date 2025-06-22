@@ -6,7 +6,27 @@ import HomeBody from '../../components/Home/HomeBody'
 import { Suspense } from 'react';
 import Loading from 'components/Partial/LoadingAnimation/Loading';
 import ReusableSwiperTabs from 'components/Layout/ReusableSwiperTabs';
+import cookies from 'components/cookies/cookies';
 export default function Index() {
+    const [isAuthorized, setIsAuthorized] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
+  const router = useRouter();
+  useEffect(() => {
+    const cookie = cookies();
+    if (!cookie) {
+      router.push('/Login');
+    } else {
+      setIsAuthorized(true);
+    }
+    setIsLoading(false); // End loading state
+  }, [router]);
+
+  if (isLoading) {
+    return <Loading/>; // Show loading state while checking
+  }
+
+
+  
   const tabItems = [
     { name: 'Home', icon: '📄', content: <HomeBody /> },
     { name: 'Products', icon: '🛒', content: <ProductsBody  /> },
