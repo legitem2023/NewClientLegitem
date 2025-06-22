@@ -2,9 +2,11 @@
 import React, { useEffect, useState } from 'react'
 import PageHeader from '../../components/Partial/Header/PageHeader';
 import PageFooter from '../../components/Partial/Footer/PageFooter';
-import ProductsBody from '../../components/Products/ProductsBody';
+import Products from '../../components/Products/Products';
+import NewsData from 'components/News/NewsData'
+import CartBody from 'components/Cart/CartBody'
 import CrowdMessages from 'components/Crowd/CrowdMessages'
-import HomeBody from '../../components/Home/HomeBody'
+import Home from '../../components/Home/Home'
 import { Suspense } from 'react';
 import Loading from 'components/Partial/LoadingAnimation/Loading';
 import ReusableSwiperTabs from 'components/Layout/ReusableSwiperTabs';
@@ -31,9 +33,12 @@ export default function Index() {
 
   
   const tabItems = [
-    { name: 'Home', icon: '📄', content: <HomeBody /> },
-    { name: 'Products', icon: '🛒', content: <ProductsBody  /> },
-    { name: 'Crowd', icon: '⚙️', content: <CrowdMessages /> }
+    { name: 'Home', icon: '📄', content: <Home/> },
+    { name: 'Products', icon: '🛒', content: <Products/> },
+    { name: 'News', icon: '🛒', content: <NewsData/> },
+    { name: 'Crowd', icon: '⚙️', content: <CrowdMessages/> },
+    { name: 'Cart', icon: '🛒', content: <CartBody/> }
+      
   ];
   return (
     <Suspense fallback={<Loading/>}>
