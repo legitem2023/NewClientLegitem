@@ -9,7 +9,7 @@ import { Suspense } from 'react';
 import Loading from 'components/Partial/LoadingAnimation/Loading';
 import ReusableSwiperTabs from 'components/Layout/ReusableSwiperTabs';
 import { cookies } from 'components/cookies/cookie';
-
+import { useRouter } from 'next/navigation'
 export default function Index() {
     const [isAuthorized, setIsAuthorized] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
