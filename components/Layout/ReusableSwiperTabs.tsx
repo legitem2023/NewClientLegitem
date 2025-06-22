@@ -13,7 +13,7 @@ export default function ReusableSwiperTabs({ tabs }) {
   };
 
   return (
-    <div style={{ width: '100%', height: '100%', fontFamily: 'Arial' }}>
+    <div style={{ left:'0px',right:'0px',margin:'auto',position:'absolute',width: '100%', height: '100%', fontFamily: 'Arial' }}>
       {/* Tab Buttons */}
       <div style={{
         display: 'flex',
