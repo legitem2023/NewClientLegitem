@@ -18,7 +18,7 @@ export default function ReusableSwiperTabs({ tabs }) {
       <div style={{
         display: 'flex',
         borderBottom: '1px solid #ccc',
-        padding: '10px',
+        padding: '2px',
         justifyContent: 'space-around'
       }}>
         {tabs.map((tab, index) => (
@@ -50,7 +50,7 @@ export default function ReusableSwiperTabs({ tabs }) {
         style={{ width: '100%', height: 'calc(100vh - 60px)' }}
       >
         {tabs.map((tab, index) => (
-          <SwiperSlide key={index} style={{ padding: '20px' }}>
+          <SwiperSlide key={index} style={{ padding: '2px' }}>
             {tab.content}
           </SwiperSlide>
         ))}
