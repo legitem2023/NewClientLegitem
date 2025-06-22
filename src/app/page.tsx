@@ -1,3 +1,5 @@
+'use client'
+import React, { useEffect, useState } from 'react'
 import PageHeader from '../../components/Partial/Header/PageHeader';
 import PageFooter from '../../components/Partial/Footer/PageFooter';
 import ProductsBody from '../../components/Products/ProductsBody';
@@ -7,7 +9,7 @@ import { Suspense } from 'react';
 import Loading from 'components/Partial/LoadingAnimation/Loading';
 import ReusableSwiperTabs from 'components/Layout/ReusableSwiperTabs';
 import { cookies } from 'components/cookies/cookie';
-import { useEffect,useState } from 'react';
+
 export default function Index() {
     const [isAuthorized, setIsAuthorized] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
