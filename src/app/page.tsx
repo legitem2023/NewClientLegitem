@@ -13,11 +13,11 @@ export default function Index() {
   ];
   return (
     <Suspense fallback={<Loading/>}>
-    <div className='Main'>
+      {/*<div className='Main'>
       <PageHeader />
       <HomeBody/>
       <PageFooter />
-    </div>
+    </div>*/}
       <ReusableSwiperTabs tabs={tabItems}/>
     </Suspense>
   )
