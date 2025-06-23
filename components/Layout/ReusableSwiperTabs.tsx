@@ -16,12 +16,12 @@ const drawerState = useSelector((state: any) => state.drawer.drawer);
 const allItems = useSelector((state:any)=> state.suggestedItems.suggestedItems);//ProductsData?.getChildInventory || [];
 
 const [loadingLink, setLoadingLink] = useState<string | null>(null);
-const currentPath = usePathname();
-const redirect = useRouter();
-const [isFocused, setIsFocused] = useState(false);
-const [query, setQuery] = useState("");
-const [suggestions, setSuggestions] = useState<string[]>([]);
-const Ref = useRef<HTMLInputElement>(null);
+//const currentPath = usePathname();
+//const redirect = useRouter();
+//const [isFocused, setIsFocused] = useState(false);
+//const [query, setQuery] = useState("");
+//const [suggestions, setSuggestions] = useState<string[]>([]);
+//const Ref = useRef<HTMLInputElement>(null);
 const {data:cat,loading:catload } = useQuery(GET_CATEGORY);
 const {data:prodType,loading:prodTypeload } = useQuery(READ_PRODUCT_TYPES);
 //if (catload) return <Loading/>
