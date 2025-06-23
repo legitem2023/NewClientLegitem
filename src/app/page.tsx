@@ -19,7 +19,7 @@ import ReusableTabs from 'components/Reusable/ReusableTabs';
 export default function Index() {
   const [isAuthorized, setIsAuthorized] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
-
+  const router = useRouter();
   const tabItms = [
     { name: 'Address Book', icon: 'ic:sharp-home', content: <Order/> },
     { name: 'My Orders', icon: 'bi:tags-fill', content: <Order/> },
