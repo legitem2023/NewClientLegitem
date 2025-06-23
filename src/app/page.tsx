@@ -5,7 +5,7 @@ import PageFooter from '../../components/Partial/Footer/PageFooter';
 
 import PageOrder from '../../components/Order/PageOrder';
 
-import PageAccount from '../../components/Account/PageAccount
+import PageAccount from '../../components/Account/PageAccount';
 import Products from '../../components/Products/Products';
 import News from 'components/News/News'
 import CartBody from 'components/Cart/CartBody'
