@@ -37,8 +37,8 @@ export default function Index() {
     { name: 'Products', icon: 'bi:tags-fill', content: <Products/> },
     { name: 'News', icon: 'fa6-solid:newspaper', content: <News/> },
     { name: 'Crowd', icon: 'simple-icons:crowdsource', content: <Messages/> },
-    { name: 'Cart', icon: 'mdi:cart', content: <CartBody/> }
-      
+    { name: 'Account', icon: 'mdi:badge-account-horizontal', content: <CartBody/> },
+    { name: 'Cart', icon: 'mdi:cart', content: <CartBody/> }  
   ];
   return (
     <Suspense fallback={<Loading/>}>
