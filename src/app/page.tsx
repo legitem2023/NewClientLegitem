@@ -30,14 +30,21 @@ export default function Index() {
     return <Loading/>; // Show loading state while checking
   }
 
-
+const tabItms = [
+    { name: 'Address Book', icon: 'ic:sharp-home', content: <Home/> },
+    { name: 'My Orders', icon: 'bi:tags-fill', content: <Products/> },
+    { name: 'Likes', icon: 'fa6-solid:newspaper', content: <News/> },
+    { name: 'Messages', icon: 'simple-icons:crowdsource', content: <Messages/> },
+    { name: 'Logout', icon: 'mdi:badge-account-horizontal', content: <CartBody/> },
+      
+  ];
   
   const tabItems = [
     { name: 'Home', icon: 'ic:sharp-home', content: <Home/> },
     { name: 'Products', icon: 'bi:tags-fill', content: <Products/> },
     { name: 'News', icon: 'fa6-solid:newspaper', content: <News/> },
     { name: 'Crowd', icon: 'simple-icons:crowdsource', content: <Messages/> },
-    { name: 'Account', icon: 'mdi:badge-account-horizontal', content: <CartBody/> },
+    { name: 'Account', icon: 'mdi:badge-account-horizontal', content: <ReusableSwiperTabs tabs={tabItms}/> },
     { name: 'Cart', icon: 'mdi:cart', content: <CartBody/> }  
   ];
   return (
