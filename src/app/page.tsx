@@ -37,10 +37,10 @@ export default function Index() {
     { name: 'Account', icon: 'mdi:badge-account-horizontal', content: <ReusableTabs tabs={tabItms}/> },
     { name: 'Cart', icon: 'mdi:cart', content: <CartBody /> },
   ];
-
-  useEffect(() => {
-    const cookieState = useSelector((state: any) => state.cookie.cookie);
+const cookieState = useSelector((state: any) => state.cookie.cookie);
 console.log(cookieState);
+  useEffect(() => {
+    
     const cookie = cookies();
     if (!cookie) {
       router.push('/Login');
