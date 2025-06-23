@@ -68,7 +68,7 @@ export default function ReusableSwiperTabs({ tabs }) {
         justifyContent: 'space-around'
       }}>
         {tabs.map((tab, index) => (
-          <div
+          <nav
             key={index}
             onClick={() => handleTabClick(index)}
             style={{
@@ -89,7 +89,7 @@ export default function ReusableSwiperTabs({ tabs }) {
                 color:activeTab === index ? '#ffffff' : '#572700',
             }} />
             {/*<span>{tab.name}</span>*/}
-          </div>
+          </nav>
         ))}
       </div>
     </div>
