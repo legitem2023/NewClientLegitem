@@ -72,19 +72,20 @@ export default function ReusableSwiperTabs({ tabs }) {
             key={index}
             onClick={() => handleTabClick(index)}
             style={{
-              background: 'none',
               border: 'none',
               cursor: 'pointer',
               display: 'flex',
               flexDirection: 'column',
               alignItems: 'center',
               fontSize: '14px',
-              color: activeTab === index ? '#007bff' : '#333',
+              backgroundColor: activeTab === index ? '#007bff' : '#333',
               fontWeight: activeTab === index ? 'bold' : 'normal'
             }}
           >
-            <Icon icon={tab.icon} />
-            <span>{tab.name}</span>
+            <Icon icon={tab.icon} style={{
+                color:activeTab === index ? '#007bff' : '#333',
+            }} />
+            {/*<span>{tab.name}</span>*/}
           </button>
         ))}
       </div>
