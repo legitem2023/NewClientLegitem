@@ -97,6 +97,7 @@ export default function ReusableSwiperTabs({ tabs }) {
         onSwiper={(swiper) => (swiperRef.current = swiper)}
         onSlideChange={(swiper) => setActiveTab(swiper.activeIndex)}
         modules={[Navigation]}
+        allowTouchMove={false}
         loop={false}
         autoHeight={true}
         style={{ width: '100%' }}
