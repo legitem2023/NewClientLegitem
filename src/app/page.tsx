@@ -10,6 +10,7 @@ import Home from '../../components/Home/Home'
 import { Suspense } from 'react';
 import Loading from 'components/Partial/LoadingAnimation/Loading';
 import ReusableSwiperTabs from 'components/Layout/ReusableSwiperTabs';
+import ReusableTabs from 'components/Layout/ReusableTabs';
 import { cookies } from 'components/cookies/cookie';
 import { useRouter } from 'next/navigation'
 export default function Index() {
@@ -44,7 +45,7 @@ const tabItms = [
     { name: 'Products', icon: 'bi:tags-fill', content: <Products/> },
     { name: 'News', icon: 'fa6-solid:newspaper', content: <News/> },
     { name: 'Crowd', icon: 'simple-icons:crowdsource', content: <Messages/> },
-    { name: 'Account', icon: 'mdi:badge-account-horizontal', content: <ReusableSwiperTabs tabs={tabItms}/> },
+    { name: 'Account', icon: 'mdi:badge-account-horizontal', content: <ReusableTabs tabs={tabItms}/> },
     { name: 'Cart', icon: 'mdi:cart', content: <CartBody/> }  
   ];
   return (
