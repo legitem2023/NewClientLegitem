@@ -20,10 +20,9 @@ export default function Index() {
   const [isAuthorized, setIsAuthorized] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const router = useRouter();
-  const cookieState = useSelector((state: any) => state.cookie.cookie);
-
+  
   const tabItms = [
-    { name: 'Address Book', icon: 'icomoon-free:address-book', content: <AddressBook userId={cookieState.userId}/> },
+    { name: 'Address Book', icon: 'icomoon-free:address-book', content: <></> },
     { name: 'My Orders', icon: 'bxs:basket', content: <Order/> },
     { name: 'Likes', icon: 'fa6-solid:newspaper', content: <News /> },
     { name: 'Messages', icon: 'simple-icons:crowdsource', content: <Messages /> },
@@ -40,6 +39,8 @@ export default function Index() {
   ];
 
   useEffect(() => {
+    const cookieState = useSelector((state: any) => state.cookie.cookie);
+console.log(cookieState);
     const cookie = cookies();
     if (!cookie) {
       router.push('/Login');
