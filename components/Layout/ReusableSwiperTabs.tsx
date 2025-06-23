@@ -78,12 +78,12 @@ export default function ReusableSwiperTabs({ tabs }) {
               flexDirection: 'column',
               alignItems: 'center',
               fontSize: '14px',
-              backgroundColor: activeTab === index ? '#007bff' : '#333',
+              backgroundColor: activeTab === index ? '#007bff' : 'transparent',
               fontWeight: activeTab === index ? 'bold' : 'normal'
             }}
           >
             <Icon icon={tab.icon} style={{
-                color:activeTab === index ? '#007bff' : '#333',
+                color:activeTab === index ? '#ffffff' : '#333',
             }} />
             {/*<span>{tab.name}</span>*/}
           </button>
