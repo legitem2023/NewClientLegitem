@@ -104,7 +104,7 @@ export default function ReusableSwiperTabs({ tabs }) {
       >
         {tabs.map((tab, index) => (
           <SwiperSlide key={index}>
-            <div style={{ padding: '10px' }}>
+            <div style={{ padding: '2px' }}>
               {tab.content}
             </div>
           </SwiperSlide>
