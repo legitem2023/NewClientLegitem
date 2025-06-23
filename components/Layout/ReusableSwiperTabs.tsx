@@ -90,7 +90,7 @@ export default function ReusableSwiperTabs({ tabs }) {
         ))}
       </div>
     </div>
-    
+    </div>
       {/* Swiper Slides */}
       <Swiper
         onSwiper={(swiper) => (swiperRef.current = swiper)}
@@ -108,7 +108,7 @@ export default function ReusableSwiperTabs({ tabs }) {
           </SwiperSlide>
         ))}
       </Swiper>
-     </div>
+     
     </div>
   );
 }
