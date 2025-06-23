@@ -64,7 +64,6 @@ export default function ReusableSwiperTabs({ tabs }) {
         <div className="Navigation">
       <div className="HeaderNav" style={{
         display: 'flex',
-        padding:'2px',
         justifyContent: 'space-around'
       }}>
         {tabs.map((tab, index) => (
@@ -80,7 +79,6 @@ export default function ReusableSwiperTabs({ tabs }) {
               width:'100%',
               margin:'0px',
               height:'100%',
-            
               backgroundColor: activeTab === index ? '#572700' : 'transparent',
               fontWeight: activeTab === index ? 'bold' : 'normal'
             }}
@@ -88,7 +86,6 @@ export default function ReusableSwiperTabs({ tabs }) {
             <Icon icon={tab.icon} style={{
                 color:activeTab === index ? '#ffffff' : '#572700',
             }} />
-            {/*<span>{tab.name}</span>*/}
           </nav>
         ))}
       </div>
