@@ -6,7 +6,7 @@ import { useRouter } from 'next/navigation';
 import { cookies } from 'components/cookies/cookie'
 import ReusableArrowTabs from 'components/Reusable/ReusableArrowTabs';
 import Order from 'components/Order/Order';
-//import PageAccount from 'components/Account/PageAccount';
+import AddressBook from 'components/Account/AddressBook';
 import Products from 'components/Products/Products';
 import News from 'components/News/News';
 import CartBody from 'components/Cart/CartBody';
@@ -21,7 +21,7 @@ export default function Index() {
   const [isLoading, setIsLoading] = useState(true);
   const router = useRouter();
   const tabItms = [
-    { name: 'Address Book', icon: 'icomoon-free:address-book', content: <Order/> },
+    { name: 'Address Book', icon: 'icomoon-free:address-book', content: <AddressBook/> },
     { name: 'My Orders', icon: 'bxs:basket', content: <Order/> },
     { name: 'Likes', icon: 'fa6-solid:newspaper', content: <News /> },
     { name: 'Messages', icon: 'simple-icons:crowdsource', content: <Messages /> },
