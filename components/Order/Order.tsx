@@ -129,7 +129,6 @@ notification:updateDelivered
 
   return (
     <>
-      <AccountMenu />
       <ReusableArrowTabs tabs={tabs}/>
     </>
   )
