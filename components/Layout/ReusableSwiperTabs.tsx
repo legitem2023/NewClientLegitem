@@ -4,6 +4,7 @@ import { Icon } from '@iconify/react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setCategoryData } from 'Redux/categoryDataSlice';
 import { setProductTypeData } from 'Redux/productTypeDataSlice';
+import { setCategory } from 'Redux/categorySlice';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
 import 'swiper/css';
@@ -17,6 +18,11 @@ export default function ReusableSwiperTabs({ tabs }) {
   const drawerState = useSelector((state: any) => state.drawer.drawer);
   const allItems = useSelector((state: any) => state.suggestedItems.suggestedItems);
 
+  const sortEngine = (value: any) => {
+    dispatch(setCategory(value));
+  };
+
+  
   const [activeTab, setActiveTab] = useState(0);
   const swiperRef = useRef<any>(null);
 
