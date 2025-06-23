@@ -21,7 +21,7 @@ export default function ReusableSwiperTabs({ tabs }) {
   const { data: prodType, loading: prodTypeload } = useQuery(READ_PRODUCT_TYPES);
   const [activeTab, setActiveTab] = useState(0);
 
-  if (catload) return <Loading />;
+  //if (catload) return <Loading />;
   if (cat) {
     dispatch(setCategoryData(cat.getCategory));
   }
