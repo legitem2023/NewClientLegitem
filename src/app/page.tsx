@@ -30,6 +30,7 @@ import ReusableTabs from 'components/Reusable/ReusableTabs';
 import { cookies } from 'components/cookies/cookie';
 import { useRouter } from 'next/navigation'
 import { useSelector,useDispatch } from 'react-redux';
+import { setorderStage } from 'Redux/orderStageSlice'
 export default function Index() {
   const [isAuthorized, setIsAuthorized] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
