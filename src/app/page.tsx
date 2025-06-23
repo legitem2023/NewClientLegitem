@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react'
 import PageHeader from '../../components/Partial/Header/PageHeader';
 import PageFooter from '../../components/Partial/Footer/PageFooter';
 import Products from '../../components/Products/Products';
-import NewsData from 'components/News/NewsData'
+import News from 'components/News/News'
 import CartBody from 'components/Cart/CartBody'
 import CrowdMessages from 'components/Crowd/CrowdMessages'
 import Home from '../../components/Home/Home'
@@ -35,7 +35,7 @@ export default function Index() {
   const tabItems = [
     { name: 'Home', icon: '📄', content: <Home/> },
     { name: 'Products', icon: '🛒', content: <Products/> },
-    { name: 'News', icon: '🛒', content: <NewsData/> },
+    { name: 'News', icon: '🛒', content: <News/> },
     { name: 'Crowd', icon: '⚙️', content: <CrowdMessages/> },
     { name: 'Cart', icon: '🛒', content: <CartBody/> }
       
