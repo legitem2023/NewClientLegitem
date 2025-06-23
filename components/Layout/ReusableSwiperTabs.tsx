@@ -15,7 +15,7 @@ export default function ReusableSwiperTabs({ tabs }) {
   return (
     <div style={{ left:'0px',right:'0px',margin:'auto',position:'absolute',width: '100%', height: '100%', fontFamily: 'Arial' }}>
       {/* Tab Buttons */}
-      <div style={{
+      <div className="HeaderNav" style={{
         display: 'flex',
         borderBottom: '1px solid #ccc',
         padding: '2px',
