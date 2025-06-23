@@ -7,7 +7,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
 import 'swiper/css';
 import { GET_CATEGORY, READ_PRODUCT_TYPES } from 'graphql/queries';
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { useQuery } from '@apollo/client';
 
 export default function ReusableSwiperTabs({ tabs }) {
@@ -17,12 +17,12 @@ export default function ReusableSwiperTabs({ tabs }) {
   const allItems = useSelector((state: any) => state.suggestedItems.suggestedItems);
 
   const [activeTab, setActiveTab] = useState(0);
-  const swiperRef = useRef(null);
+  const swiperRef = useRef<any>(null);
 
   const { data: cat, loading: catload } = useQuery(GET_CATEGORY);
   const { data: prodType, loading: prodTypeload } = useQuery(READ_PRODUCT_TYPES);
 
-  
+  //if (catload) return <Loading />;
   if (cat) dispatch(setCategoryData(cat.getCategory));
   if (prodType) dispatch(setProductTypeData(prodType.getProductTypes));
 
@@ -31,8 +31,15 @@ export default function ReusableSwiperTabs({ tabs }) {
     setActiveTab(index);
   };
 
+  // Ensure Swiper updates height on tab change or content change
+  useEffect(() => {
+    setTimeout(() => {
+      swiperRef.current?.updateAutoHeight();
+    }, 50); // Delay needed to allow DOM to update
+  }, [activeTab]);
+
   return (
-    <div style={{ left: '0px', right: '0px', margin: 'auto', position: 'absolute', width: '100%', height: '100%', fontFamily: 'Arial' }}>
+    <div style={{ left: '0px', right: '0px', margin: 'auto', position: 'absolute', width: '100%', fontFamily: 'Arial' }}>
       {/* Tab Buttons */}
       <div className="HeaderNav" style={{
         display: 'flex',
@@ -65,18 +72,17 @@ export default function ReusableSwiperTabs({ tabs }) {
       {/* Swiper Slides */}
       <Swiper
         onSwiper={(swiper) => (swiperRef.current = swiper)}
-        onSlideChange={(swiper) => {
-          setActiveTab(swiper.activeIndex);
-          swiper.updateAutoHeight(300); // Ensure Swiper recalculates height
-        }}
+        onSlideChange={(swiper) => setActiveTab(swiper.activeIndex)}
         modules={[Navigation]}
         loop={false}
         autoHeight={true}
-        style={{ width: '100%', height: 'auto', overflow: 'visible' }}
+        style={{ width: '100%' }}
       >
         {tabs.map((tab, index) => (
-          <SwiperSlide key={index} style={{ padding: '0px' }}>
-            <div style={{ padding: '8px' }}>{tab.content}</div>
+          <SwiperSlide key={index}>
+            <div style={{ padding: '10px' }}>
+              {tab.content}
+            </div>
           </SwiperSlide>
         ))}
       </Swiper>
