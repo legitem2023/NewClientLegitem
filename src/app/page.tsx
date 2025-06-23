@@ -33,11 +33,11 @@ export default function Index() {
 
   
   const tabItems = [
-    { name: 'Home', icon: '📄', content: <Home/> },
-    { name: 'Products', icon: '🛒', content: <Products/> },
-    { name: 'News', icon: '🛒', content: <News/> },
-    { name: 'Crowd', icon: '⚙️', content: <Messages/> },
-    { name: 'Cart', icon: '🛒', content: <CartBody/> }
+    { name: 'Home', icon: 'ic:sharp-home', content: <Home/> },
+    { name: 'Products', icon: 'icon":"bi:tags-fill', content: <Products/> },
+    { name: 'News', icon: 'fa6-solid:newspaper', content: <News/> },
+    { name: 'Crowd', icon: 'simple-icons:crowdsource', content: <Messages/> },
+    { name: 'Cart', icon: 'mdi:cart', content: <CartBody/> }
       
   ];
   return (
