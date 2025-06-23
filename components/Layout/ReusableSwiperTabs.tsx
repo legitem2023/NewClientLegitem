@@ -51,7 +51,7 @@ export default function ReusableSwiperTabs({ tabs }) {
               width={874}
               height={373}
               className='Logo'
-              onClick={() => redirect.push('/Home')}
+              
               onError={(e) => {
                 console.error('Image failed to load', e);
               }}
