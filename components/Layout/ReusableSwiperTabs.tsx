@@ -78,6 +78,7 @@ export default function ReusableSwiperTabs({ tabs }) {
               flexDirection: 'column',
               alignItems: 'center',
               fontSize: '14px',
+              padding:'2px',
               backgroundColor: activeTab === index ? '#572700' : 'transparent',
               fontWeight: activeTab === index ? 'bold' : 'normal'
             }}
