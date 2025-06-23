@@ -34,7 +34,7 @@ export default function Index() {
   
   const tabItems = [
     { name: 'Home', icon: 'ic:sharp-home', content: <Home/> },
-    { name: 'Products', icon: 'icon":"bi:tags-fill', content: <Products/> },
+    { name: 'Products', icon: 'bi:tags-fill', content: <Products/> },
     { name: 'News', icon: 'fa6-solid:newspaper', content: <News/> },
     { name: 'Crowd', icon: 'simple-icons:crowdsource', content: <Messages/> },
     { name: 'Cart', icon: 'mdi:cart', content: <CartBody/> }
