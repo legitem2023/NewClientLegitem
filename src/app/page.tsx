@@ -24,9 +24,9 @@ export default function Index() {
   const tabItms = [
     { name: 'Address Book', icon: 'icomoon-free:address-book', content: <></> },
     { name: 'My Orders', icon: 'wpf:shopping-basket', content: <Order/> },
-    { name: 'Likes', icon: 'fa6-solid:newspaper', content: <News /> },
-    { name: 'Messages', icon: 'simple-icons:crowdsource', content: <Messages /> },
-    { name: 'Logout', icon: 'mdi:badge-account-horizontal', content: <CartBody /> },
+    { name: 'Likes', icon: 'mdi:like', content: <News /> },
+    { name: 'Messages', icon: 'typcn:messages', content: <Messages /> },
+    { name: 'Logout', icon: 'ic:sharp-logout', content: <CartBody /> },
   ];
 
   const tabItems = [
