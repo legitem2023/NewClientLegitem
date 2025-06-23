@@ -6,8 +6,17 @@ import 'swiper/css/pagination';
 import 'swiper/css';
 import Element_Title from '../UI/Element_Title';
 import ModelViewer from "../Partial/ThreeJS/ModelViewer";
+import { useDispatch,useSelector } from 'react-redux';
+import { setCategory } from 'Redux/categorySlice';
 
 const ReusableSlick = ({ data }) => {
+   
+  const dispatch = useDispatch();
+   const sortEngine = (value:any) => {
+    dispatch(setCategory(value));
+  };
+  
+  
   return (
     <div className="card" style={{ height: "auto", position: "relative", padding: "10px" }}>
       <Swiper
@@ -43,6 +52,7 @@ const ReusableSlick = ({ data }) => {
               }}
               src={item.image}
               alt={item.Name}
+              onClick={()=> sortEngine(item.Name)}
             />
             <b style={{
               textAlign: 'left',
