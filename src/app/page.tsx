@@ -27,7 +27,7 @@ import ReusableSwiperTabs from 'components/Layout/ReusableSwiperTabs';
 import ReusableTabs from 'components/Reusable/ReusableTabs';
 import { cookies } from 'components/cookies/cookie';
 import { useRouter } from 'next/navigation'
-import { useSelector } from 'react-redux';
+import { useSelector,useDispatch } from 'react-redux';
 export default function Index() {
   const [isAuthorized, setIsAuthorized] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
