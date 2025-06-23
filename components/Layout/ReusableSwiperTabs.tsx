@@ -75,12 +75,11 @@ export default function ReusableSwiperTabs({ tabs }) {
               display: 'flex',
               flexDirection: 'column',
               alignItems: 'center',
-              fontSize: '14px',
               width:'100%',
               margin:'0px',
-              height:'100%',
-              backgroundColor: activeTab === index ? '#572700' : 'transparent',
-              fontWeight: activeTab === index ? 'bold' : 'normal'
+              minHeight:'45px',
+              height:'auto',
+              backgroundColor: activeTab === index ? '#572700' : 'transparent'
             }}
           >
             <Icon icon={tab.icon} style={{
