@@ -6,8 +6,8 @@ import { setProductTypeData } from 'Redux/productTypeDataSlice';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
 import 'swiper/css';
-import { GET_CATEGORY, GET_CHILD_INVENTORY, READ_PRODUCT_TYPES } from 'graphql/queries';
-import React, { useCallback, useEffect, useMemo, useState, useRef } from 'react';
+import { GET_CATEGORY, READ_PRODUCT_TYPES } from 'graphql/queries';
+import React, { useState, useRef } from 'react';
 import { useQuery } from '@apollo/client';
 
 export default function ReusableSwiperTabs({ tabs }) {
@@ -16,23 +16,18 @@ export default function ReusableSwiperTabs({ tabs }) {
   const drawerState = useSelector((state: any) => state.drawer.drawer);
   const allItems = useSelector((state: any) => state.suggestedItems.suggestedItems);
 
-  const [loadingLink, setLoadingLink] = useState<string | null>(null);
-  const { data: cat, loading: catload } = useQuery(GET_CATEGORY);
-  const { data: prodType, loading: prodTypeload } = useQuery(READ_PRODUCT_TYPES);
   const [activeTab, setActiveTab] = useState(0);
-
-  //if (catload) return <Loading />;
-  if (cat) {
-    dispatch(setCategoryData(cat.getCategory));
-  }
-  if (prodType) {
-    dispatch(setProductTypeData(prodType.getProductTypes));
-  }
-
   const swiperRef = useRef(null);
 
+  const { data: cat, loading: catload } = useQuery(GET_CATEGORY);
+  const { data: prodType, loading: prodTypeload } = useQuery(READ_PRODUCT_TYPES);
+
+  
+  if (cat) dispatch(setCategoryData(cat.getCategory));
+  if (prodType) dispatch(setProductTypeData(prodType.getProductTypes));
+
   const handleTabClick = (index) => {
-    swiperRef.current?.slideToLoop(index);
+    swiperRef.current?.slideTo(index);
     setActiveTab(index);
   };
 
@@ -57,12 +52,12 @@ export default function ReusableSwiperTabs({ tabs }) {
               flexDirection: 'column',
               alignItems: 'center',
               fontSize: '14px',
-              color: activeTab === index ? '#007bff' : '#333', // Active tab color
-              fontWeight: activeTab === index ? 'bold' : 'normal' // Optional: bold text
+              color: activeTab === index ? '#007bff' : '#333',
+              fontWeight: activeTab === index ? 'bold' : 'normal'
             }}
           >
             <Icon icon={tab.icon} />
-            {/* <span>{tab.name}</span>*/}
+            <span>{tab.name}</span>
           </button>
         ))}
       </div>
@@ -70,18 +65,21 @@ export default function ReusableSwiperTabs({ tabs }) {
       {/* Swiper Slides */}
       <Swiper
         onSwiper={(swiper) => (swiperRef.current = swiper)}
-        onSlideChange={(swiper) => setActiveTab(swiper.activeIndex)}
+        onSlideChange={(swiper) => {
+          setActiveTab(swiper.activeIndex);
+          swiper.updateAutoHeight(300); // Ensure Swiper recalculates height
+        }}
         modules={[Navigation]}
         loop={false}
         autoHeight={true}
-        style={{ width: '100%', height: 'auto', overflow: 'auto' }}
+        style={{ width: '100%', height: 'auto', overflow: 'visible' }}
       >
         {tabs.map((tab, index) => (
           <SwiperSlide key={index} style={{ padding: '0px' }}>
-            {tab.content}
+            <div style={{ padding: '8px' }}>{tab.content}</div>
           </SwiperSlide>
         ))}
       </Swiper>
     </div>
   );
-          }
+}
