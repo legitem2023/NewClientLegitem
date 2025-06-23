@@ -58,19 +58,7 @@ export default function Index() {
   const { data:deliverOrder,loading:deliverOrderLoading,refetch:refetchdeliver} = useQuery(READ_ORDERS_DELIVER,{variables:{emailAddress:cookieEmailAddress.emailAddress}});
   const { data:deliveredOrder,loading:deliveredOrderLoading,refetch:refetchdelivered} = useQuery(READ_ORDERS_DELIVERED,{variables:{emailAddress:cookieEmailAddress.emailAddress}});
 
-  if(newOrderLoading) return <Loading/> 
-  if(recievedOrderLoading) return <Loading/>
-  if(packedOrderLoading) return <Loading/>
-  if(logisticOrderLoading) return <Loading/>
-  if(deliverOrderLoading) return <Loading/>
-  if(deliveredOrderLoading) return <Loading/>
- // if(error) return <ReusableServerDown/>;
-  refetchNew();
-  refetchrecieved();
-  refetchpacked();
-  refetchlogistic();
-  refetchdeliver();
-  refetchdelivered();
+  
 
   const optionalRender = () =>{
       if(CurrentOrderStage==='New Order'){
@@ -151,6 +139,21 @@ notification:updateDelivered
     return <Loading/>; // Show loading state while checking
   }
 
+if(newOrderLoading) return <Loading/> 
+  if(recievedOrderLoading) return <Loading/>
+  if(packedOrderLoading) return <Loading/>
+  if(logisticOrderLoading) return <Loading/>
+  if(deliverOrderLoading) return <Loading/>
+  if(deliveredOrderLoading) return <Loading/>
+ // if(error) return <ReusableServerDown/>;
+  refetchNew();
+  refetchrecieved();
+  refetchpacked();
+  refetchlogistic();
+  refetchdeliver();
+  refetchdelivered();
+
+  
 const tabItms = [
     { name: 'Address Book', icon: 'ic:sharp-home', content: <PageAccount userId={saved_cookie.userid}/> },
     { name: 'My Orders', icon: 'bi:tags-fill', content: <ReusableArrowTabs tabs={tabss}/> },
