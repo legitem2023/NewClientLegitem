@@ -43,88 +43,11 @@ export default function Index() {
   const dispatch = useDispatch();
   const saved_cookie = useSelector((state: any) => state.cookie.cookie);
   const cookieEmailAddress = saved_cookie?.emailAddress;
-  const CurrentOrderStage = useSelector((state: any) => state.orderStage.orderStage);
-
-  const {
-    updateNewOrder,
-    updateRecieved,
-    updatePacked,
-    updateLogistic,
-    updateDelivery,
-    updateDelivered,
-    setUpdateNewOrder,
-    setUpdateRecieved,
-    setUpdatePacked,
-    setUpdateLogistic,
-    setUpdateDelivery,
-    setUpdateDelivered,
-  } = useOrderStatusNotification();
-
-  const { data: newOrder, loading: newOrderLoading, refetch: refetchNew } = useQuery(READ_ORDERS, {
-    variables: { emailAddress: cookieEmailAddress },
-  });
-  const { data: recievedOrder, loading: recievedOrderLoading, refetch: refetchrecieved } = useQuery(
-    READ_ORDERS_RECIEVED,
-    { variables: { emailAddress: cookieEmailAddress } }
-  );
-  const { data: packedOrder, loading: packedOrderLoading, refetch: refetchpacked } = useQuery(
-    READ_ORDERS_PACKED,
-    { variables: { emailAddress: cookieEmailAddress } }
-  );
-  const { data: logisticOrder, loading: logisticOrderLoading, refetch: refetchlogistic } = useQuery(
-    READ_ORDERS_LOGISTIC,
-    { variables: { emailAddress: cookieEmailAddress } }
-  );
-  const { data: deliverOrder, loading: deliverOrderLoading, refetch: refetchdeliver } = useQuery(
-    READ_ORDERS_DELIVER,
-    { variables: { emailAddress: cookieEmailAddress } }
-  );
-  const { data: deliveredOrder, loading: deliveredOrderLoading, refetch: refetchdelivered } = useQuery(
-    READ_ORDERS_DELIVERED,
-    { variables: { emailAddress: cookieEmailAddress } }
-  );
-
-  const tabss = [
-    {
-      icon: 'fluent:document-add-24-filled',
-      content: <AccordionOrders json={newOrder?.getGroupedOrderHistory} />,
-      notification: updateNewOrder,
-    },
-    {
-      icon: 'mdi:inbox-arrow-down',
-      content: <AccordionOrderRecieved json={recievedOrder?.getGroupedOrderHistoryRecieved} />,
-      notification: updateRecieved,
-    },
-    {
-      icon: 'solar:settings-bold',
-      content: <AccordionOrderPacked json={packedOrder?.getGroupedOrderHistoryPacked} />,
-      notification: updatePacked,
-    },
-    {
-      icon: 'mdi:truck-cargo-container',
-      content: <AccordionOrderLogistic json={logisticOrder?.getGroupedOrderHistoryLogistic} />,
-      notification: updateLogistic,
-    },
-    {
-      icon: 'material-symbols:local-shipping',
-      content: <AccordionOrderDeliver json={deliverOrder?.getGroupedOrderHistoryDelivery} />,
-      notification: updateDelivery,
-    },
-    {
-      icon: 'mdi:check-decagram',
-      content: (
-        <AccordionOrderDelivered
-          json={deliveredOrder?.getGroupedOrderHistoryDelivered}
-          refetchdelivered={refetchdelivered}
-        />
-      ),
-      notification: updateDelivered,
-    },
-  ];
+  //const CurrentOrderStage = useSelector((state: any) => state.orderStage.orderStage);
 
   const tabItms = [
     { name: 'Address Book', icon: 'ic:sharp-home', content: <PageAccount userId={saved_cookie.userid} /> },
-    { name: 'My Orders', icon: 'bi:tags-fill', content: <ReusableArrowTabs tabs={tabss} /> },
+    { name: 'My Orders', icon: 'bi:tags-fill', content: </> },
     { name: 'Likes', icon: 'fa6-solid:newspaper', content: <News /> },
     { name: 'Messages', icon: 'simple-icons:crowdsource', content: <Messages /> },
     { name: 'Logout', icon: 'mdi:badge-account-horizontal', content: <CartBody /> },
@@ -150,24 +73,7 @@ export default function Index() {
   }, [router]);
 
   if (isLoading) return <Loading />;
-  if (
-    newOrderLoading ||
-    recievedOrderLoading ||
-    packedOrderLoading ||
-    logisticOrderLoading ||
-    deliverOrderLoading ||
-    deliveredOrderLoading
-  )
-    return <Loading />;
-
-  // Refetch updated data
-  refetchNew();
-  refetchrecieved();
-  refetchpacked();
-  refetchlogistic();
-  refetchdeliver();
-  refetchdelivered();
-
+ 
   return (
     <Suspense fallback={<Loading />}>
       <ReusableSwiperTabs tabs={tabItems} />
