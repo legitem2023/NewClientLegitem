@@ -48,7 +48,6 @@ export default function Index() {
       <PageFooter />
     </div>*/}
       <ReusableSwiperTabs tabs={tabItems}/>
-      <PageFooter/>
     </Suspense>
   )
 }
