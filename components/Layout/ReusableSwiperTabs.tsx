@@ -1,5 +1,6 @@
 'use client';
 import Image from 'next/image';
+import PageFooter from '../components/Partial/Footer/PageFooter';
 import { Icon } from '@iconify/react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setCategoryData } from 'Redux/categoryDataSlice';
@@ -113,7 +114,7 @@ export default function ReusableSwiperTabs({ tabs }) {
           </SwiperSlide>
         ))}
       </Swiper>
-     
+     <PageFooter/>
     </div>
   );
 }
