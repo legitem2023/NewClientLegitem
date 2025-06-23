@@ -2,6 +2,10 @@
 import React, { useEffect, useState } from 'react'
 import PageHeader from '../../components/Partial/Header/PageHeader';
 import PageFooter from '../../components/Partial/Footer/PageFooter';
+
+import PageOrder from '../../components/Order/PageOrder';
+
+import PageAccount from '../../components/Account/PageAccount
 import Products from '../../components/Products/Products';
 import News from 'components/News/News'
 import CartBody from 'components/Cart/CartBody'
@@ -32,8 +36,8 @@ export default function Index() {
   }
 
 const tabItms = [
-    { name: 'Address Book', icon: 'ic:sharp-home', content: <Home/> },
-    { name: 'My Orders', icon: 'bi:tags-fill', content: <Products/> },
+    { name: 'Address Book', icon: 'ic:sharp-home', content: <PageAccount/> },
+    { name: 'My Orders', icon: 'bi:tags-fill', content: <PageOrder/> },
     { name: 'Likes', icon: 'fa6-solid:newspaper', content: <News/> },
     { name: 'Messages', icon: 'simple-icons:crowdsource', content: <Messages/> },
     { name: 'Logout', icon: 'mdi:badge-account-horizontal', content: <CartBody/> },
