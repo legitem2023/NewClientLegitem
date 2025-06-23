@@ -31,6 +31,7 @@ import { cookies } from 'components/cookies/cookie';
 import { useRouter } from 'next/navigation'
 import { useSelector,useDispatch } from 'react-redux';
 import { setorderStage } from 'Redux/orderStageSlice'
+import { ClearStorage } from 'utils/scripts'
 export default function Index() {
   const [isAuthorized, setIsAuthorized] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
