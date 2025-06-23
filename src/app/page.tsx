@@ -3,8 +3,18 @@ import React, { useEffect, useState } from 'react'
 import PageHeader from '../../components/Partial/Header/PageHeader';
 import PageFooter from '../../components/Partial/Footer/PageFooter';
 
-import PageOrder from '../../components/Order/PageOrder';
+import AccordionOrders from '../../components/AccordionOrders/AccordionOrders'
+import AccordionOrderRecieved from '../../components/AccordionOrders/AccordionOrderRecieved'
+import AccordionOrderPacked from '../../components/AccordionOrders/AccordionOrderPacked'
+import AccordionOrderLogistic from '../../components/AccordionOrders/AccordionOrderLogistic'
+import AccordionOrderDelivered from '../../components/AccordionOrders/AccordionOrderDelivered'
+import AccordionOrderDeliver from '../../components/AccordionOrders/AccordionOrderDeliver'
+import useOrderStatusNotification from '../../components/Hooks/useOrderStatusNotification'
+//import OrderStageNotification from './OrderStageNotification'
 
+import ReusableArrowTabs from '../../components/Reusable/ReusableArrowTabs';
+
+import PageOrder from '../../components/Order/PageOrder';
 import PageAccount from '../../components/Account/PageAccount';
 import Products from '../../components/Products/Products';
 import News from 'components/News/News'
@@ -23,6 +33,110 @@ export default function Index() {
   const [isLoading, setIsLoading] = useState(true);
   const saved_cookie = useSelector((state:any)=> state.cookie.cookie);
   const router = useRouter();
+  
+    const { updateNewOrder,
+          updateRecieved,
+          updatePacked,
+          updateLogistic,
+          updateDelivery,
+          updateDelivered,
+          setUpdateNewOrder,
+          setUpdateRecieved,
+          setUpdatePacked,
+          setUpdateLogistic,
+          setUpdateDelivery,
+          setUpdateDelivered
+        } = useOrderStatusNotification();
+  const CurrentOrderStage:any = useSelector((state:any)=> state.orderStage.orderStage);//'';//useGlobalState("CurrentOrderStage");
+  const cookieEmailAddress = useSelector((state:any)=> state.cookie.cookie);
+  const dispatch = useDispatch();
+
+  const { data:newOrder,loading:newOrderLoading,error,refetch:refetchNew} = useQuery(READ_ORDERS,{variables:{emailAddress:cookieEmailAddress.emailAddress}});
+  const { data:recievedOrder,loading:recievedOrderLoading,refetch:refetchrecieved} = useQuery(READ_ORDERS_RECIEVED,{variables:{emailAddress:cookieEmailAddress.emailAddress}});
+  const { data:packedOrder,loading:packedOrderLoading,refetch:refetchpacked} = useQuery(READ_ORDERS_PACKED,{variables:{emailAddress:cookieEmailAddress.emailAddress}});
+  const { data:logisticOrder,loading:logisticOrderLoading,refetch:refetchlogistic} = useQuery(READ_ORDERS_LOGISTIC,{variables:{emailAddress:cookieEmailAddress.emailAddress}});
+  const { data:deliverOrder,loading:deliverOrderLoading,refetch:refetchdeliver} = useQuery(READ_ORDERS_DELIVER,{variables:{emailAddress:cookieEmailAddress.emailAddress}});
+  const { data:deliveredOrder,loading:deliveredOrderLoading,refetch:refetchdelivered} = useQuery(READ_ORDERS_DELIVERED,{variables:{emailAddress:cookieEmailAddress.emailAddress}});
+
+  if(newOrderLoading) return <OrderLoading/> 
+  if(recievedOrderLoading) return <OrderLoading/>
+  if(packedOrderLoading) return <OrderLoading/>
+  if(logisticOrderLoading) return <OrderLoading/>
+  if(deliverOrderLoading) return <OrderLoading/>
+  if(deliveredOrderLoading) return <OrderLoading/>
+  if(error) return <ReusableServerDown/>;
+  refetchNew();
+  refetchrecieved();
+  refetchpacked();
+  refetchlogistic();
+  refetchdeliver();
+  refetchdelivered();
+
+  const optionalRender = () =>{
+      if(CurrentOrderStage==='New Order'){
+        return <AccordionOrders json={newOrder?.getGroupedOrderHistory}/>
+      }
+      if(CurrentOrderStage==='Recieved'){
+        return <AccordionOrderRecieved json={recievedOrder?.getGroupedOrderHistoryRecieved}/>
+      }
+      if(CurrentOrderStage==='Packed'){
+        return <AccordionOrderPacked json={packedOrder?.getGroupedOrderHistoryPacked}/>
+      }
+      if(CurrentOrderStage==='Logistic'){
+        return <AccordionOrderLogistic json={logisticOrder?.getGroupedOrderHistoryLogistic}/>
+      }
+      if(CurrentOrderStage==='Delivery'){
+        return <AccordionOrderDeliver json={deliverOrder?.getGroupedOrderHistoryDelivery}/>
+      }
+      if(CurrentOrderStage==='Delivered'){
+        return <AccordionOrderDelivered json={deliveredOrder?.getGroupedOrderHistoryDelivered} refetchdelivered={refetchdelivered}/>
+      }
+
+  }
+
+
+  const ClearLocalStorage = (item:any) =>{
+    dispatch(setorderStage(item.URL));
+    item.Name==='New Order'?ClearStorage(setUpdateNewOrder,"NewOrder"):"";
+    item.Name==='Recieve'?ClearStorage(setUpdateRecieved,"Recieved"):"";
+    item.Name==='Packed'?ClearStorage(setUpdatePacked,"Packed"):"";
+    item.Name==='Logistic'?ClearStorage(setUpdateLogistic,"Logistic"):"";
+    item.Name==='Delivery'?ClearStorage(setUpdateDelivery,"Delivery"):"";
+    item.Name==='Delivered'?ClearStorage(setUpdateDelivered,"Delivered"):"";
+  }
+
+
+const tabss = [{
+icon: "fluent:document-add-24-filled",
+content: <AccordionOrders json={newOrder?.getGroupedOrderHistory}/>,
+notification:updateNewOrder
+ },{ 
+icon: "mdi:inbox-arrow-down", 
+content: <AccordionOrderRecieved json={recievedOrder?.getGroupedOrderHistoryRecieved}/>,
+notification:updateRecieved
+ },{ 
+icon: "solar:settings-bold", 
+content: <AccordionOrderPacked json={packedOrder?.getGroupedOrderHistoryPacked}/>,
+notification:updatePacked
+ },{ 
+icon: "mdi:truck-cargo-container", 
+content:<AccordionOrderLogistic json={logisticOrder?.getGroupedOrderHistoryLogistic}/>,
+notification:updateLogistic
+
+},{
+icon: "material-symbols:local-shipping", content:<AccordionOrderDeliver json={deliverOrder?.getGroupedOrderHistoryDelivery}/>,
+notification:updateDelivery
+},{
+icon: "mdi:check-decagram", 
+content:  <AccordionOrderDelivered json={deliveredOrder?.getGroupedOrderHistoryDelivered} refetchdelivered={refetchdelivered}/>,
+notification:updateDelivered
+},
+]
+  
+  
+  
+  
+  
   useEffect(() => {
     const cookie = cookies();
     if (!cookie) {
@@ -39,7 +153,7 @@ export default function Index() {
 
 const tabItms = [
     { name: 'Address Book', icon: 'ic:sharp-home', content: <PageAccount userId={saved_cookie.userid}/> },
-    { name: 'My Orders', icon: 'bi:tags-fill', content: <PageOrder/> },
+    { name: 'My Orders', icon: 'bi:tags-fill', content: <ReusableArrowTabs tabs={tabss}/> },
     { name: 'Likes', icon: 'fa6-solid:newspaper', content: <News/> },
     { name: 'Messages', icon: 'simple-icons:crowdsource', content: <Messages/> },
     { name: 'Logout', icon: 'mdi:badge-account-horizontal', content: <CartBody/> },
