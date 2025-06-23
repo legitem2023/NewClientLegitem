@@ -64,7 +64,7 @@ export default function Index() {
   if(logisticOrderLoading) return <Loading/>
   if(deliverOrderLoading) return <Loading/>
   if(deliveredOrderLoading) return <Loading/>
-  if(error) return <ReusableServerDown/>;
+ // if(error) return <ReusableServerDown/>;
   refetchNew();
   refetchrecieved();
   refetchpacked();
