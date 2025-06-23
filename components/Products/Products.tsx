@@ -27,7 +27,7 @@ import { useRouter, usePathname } from 'next/navigation';
 import ReusableServerDown from 'components/Reusable/ReusableServerDown';
 import { Icon } from '@iconify/react';
 import ReusableLabel from 'components/Reusable/ReusableLabel';
-import ReusableSlickGrid from 'components/Reusable/ReusableSlickGrid';
+import ReusableSlick from 'components/Reusable/ReusableSlick';
 import ReusableSlider from 'components/Reusable/ReusableSlider';
 import ReusableSelect from 'components/Reusable/ReusableSelect';
 const itemsPerPage = 50; // Number of items to load per "page"
@@ -221,7 +221,7 @@ const sort_name_price = [{
         <ReusableSlider items={items}/>
       )}
       child2={() => (
-        <ReusableSlickGrid data={storedcategory} />
+        <ReusableSlick data={storedcategory} />
       )}
       child3={() => (
         <div
