@@ -16,23 +16,12 @@ import Loading from 'components/Partial/LoadingAnimation/Loading';
 import ReusableSwiperTabs from 'components/Layout/ReusableSwiperTabs';
 import ReusableTabs from 'components/Reusable/ReusableTabs';
 
-export default function Index() {
-  
+export default function Index() { 
   const [isAuthorized, setIsAuthorized] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const router = useRouter();
   const cookieState = useSelector((state: any) => state.cookie.cookie);
 
-  useEffect(() => {
-    const cookie = cookies();
-    if (!cookie) {
-      router.push('/Login');
-    } else {
-      setIsAuthorized(true);
-    }
-    setIsLoading(false);
-  }, [router]);
-  
   const tabItms = [
     { name: 'Address Book', icon: 'icomoon-free:address-book', content: <AddressBook userId={cookieState.userId}/> },
     { name: 'My Orders', icon: 'bxs:basket', content: <Order/> },
@@ -50,6 +39,15 @@ export default function Index() {
     { name: 'Cart', icon: 'mdi:cart', content: <CartBody /> },
   ];
 
+  useEffect(() => {
+    const cookie = cookies();
+    if (!cookie) {
+      router.push('/Login');
+    } else {
+      setIsAuthorized(true);
+    }
+    setIsLoading(false);
+  }, [router]);
   
   if (isLoading) return <Loading />;
  
