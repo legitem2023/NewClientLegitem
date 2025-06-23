@@ -22,7 +22,7 @@ export default function Index() {
   const router = useRouter();
   const tabItms = [
     { name: 'Address Book', icon: 'icomoon-free:address-book', content: <Order/> },
-    { name: 'My Orders', icon: 'bsx:basket', content: <Order/> },
+    { name: 'My Orders', icon: 'bxs:basket', content: <Order/> },
     { name: 'Likes', icon: 'fa6-solid:newspaper', content: <News /> },
     { name: 'Messages', icon: 'simple-icons:crowdsource', content: <Messages /> },
     { name: 'Logout', icon: 'mdi:badge-account-horizontal', content: <CartBody /> },
