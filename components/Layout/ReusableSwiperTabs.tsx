@@ -86,6 +86,7 @@ export default function ReusableSwiperTabs({ tabs }) {
               margin:'0px',
               minHeight:'45px',
               height:'auto',
+              aspectRatio:'1/1',
               backgroundColor: activeTab === index ? '#572700' : 'transparent'
             }}
           >
