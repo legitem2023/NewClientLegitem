@@ -10,7 +10,7 @@ import Home from '../../components/Home/Home'
 import { Suspense } from 'react';
 import Loading from 'components/Partial/LoadingAnimation/Loading';
 import ReusableSwiperTabs from 'components/Layout/ReusableSwiperTabs';
-import ReusableTabs from 'components/Layout/ReusableTabs';
+import ReusableTabs from 'components/Reusable/ReusableTabs';
 import { cookies } from 'components/cookies/cookie';
 import { useRouter } from 'next/navigation'
 export default function Index() {
