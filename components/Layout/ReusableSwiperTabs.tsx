@@ -72,13 +72,14 @@ export default function ReusableSwiperTabs({ tabs }) {
             key={index}
             onClick={() => handleTabClick(index)}
             style={{
-              border: 'none',
+
               cursor: 'pointer',
               display: 'flex',
               flexDirection: 'column',
               alignItems: 'center',
               fontSize: '14px',
               width:'100%',
+              margin:'0px',
               height:'100%',
               backgroundColor: activeTab === index ? '#572700' : 'transparent',
               fontWeight: activeTab === index ? 'bold' : 'normal'
