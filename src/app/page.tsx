@@ -17,9 +17,11 @@ import ReusableSwiperTabs from 'components/Layout/ReusableSwiperTabs';
 import ReusableTabs from 'components/Reusable/ReusableTabs';
 import { cookies } from 'components/cookies/cookie';
 import { useRouter } from 'next/navigation'
+import { useSelector } from 'react-redux';
 export default function Index() {
-    const [isAuthorized, setIsAuthorized] = useState(false);
+  const [isAuthorized, setIsAuthorized] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
+  const saved_cookie = useSelector((state:any)=> state.cookie.cookie);
   const router = useRouter();
   useEffect(() => {
     const cookie = cookies();
@@ -36,7 +38,7 @@ export default function Index() {
   }
 
 const tabItms = [
-    { name: 'Address Book', icon: 'ic:sharp-home', content: <PageAccount/> },
+    { name: 'Address Book', icon: 'ic:sharp-home', content: <PageAccount userId={saved_cookie.userid}/> },
     { name: 'My Orders', icon: 'bi:tags-fill', content: <PageOrder/> },
     { name: 'Likes', icon: 'fa6-solid:newspaper', content: <News/> },
     { name: 'Messages', icon: 'simple-icons:crowdsource', content: <Messages/> },
