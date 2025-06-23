@@ -1,11 +1,36 @@
 'use client';
 import { Icon } from '@iconify/react';
-import { useRef } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { setCategoryData } from 'Redux/categoryDataSlice';
+import { setProductTypeData } from 'Redux/productTypeDataSlice';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
 import 'swiper/css';
-
+import { GET_CATEGORY, GET_CHILD_INVENTORY, READ_PRODUCT_TYPES } from 'graphql/queries';
+import React, { useCallback, useEffect, useMemo, useState,useRef } from 'react';
+import { useQuery } from '@apollo/client';
 export default function ReusableSwiperTabs({ tabs }) {
+  const dispatch = useDispatch();
+const cookie = useSelector((state: any) => state.cookie.cookie);
+const drawerState = useSelector((state: any) => state.drawer.drawer);
+const allItems = useSelector((state:any)=> state.suggestedItems.suggestedItems);//ProductsData?.getChildInventory || [];
+
+const [loadingLink, setLoadingLink] = useState<string | null>(null);
+const currentPath = usePathname();
+const redirect = useRouter();
+const [isFocused, setIsFocused] = useState(false);
+const [query, setQuery] = useState("");
+const [suggestions, setSuggestions] = useState<string[]>([]);
+const Ref = useRef<HTMLInputElement>(null);
+const {data:cat,loading:catload } = useQuery(GET_CATEGORY);
+const {data:prodType,loading:prodTypeload } = useQuery(READ_PRODUCT_TYPES);
+//if (catload) return <Loading/>
+if(cat){
+  dispatch(setCategoryData(cat.getCategory));
+}
+if(prodType){
+  dispatch(setProductTypeData(prodType.getProductTypes));
+}
   const swiperRef = useRef(null);
 
   const handleTabClick = (index) => {
