@@ -4,8 +4,10 @@ import { useRef } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
 import 'swiper/css';
+import React, { useState, useRef, useEffect } from 'react';
 
 export default function ReusableTabs({ tabs }) {
+  const [activeTab, setActiveTab] = useState(0);
   const swiperRef = useRef(null);
 
   const handleTabClick = (index) => {
@@ -44,9 +46,12 @@ export default function ReusableTabs({ tabs }) {
       {/* Swiper Slides */}
       <Swiper
         onSwiper={(swiper) => (swiperRef.current = swiper)}
+        onSlideChange={(swiper) => setActiveTab(swiper.activeIndex)}
         modules={[Navigation]}
-        loop={true}
-        style={{ width: '100%', height: 'calc(100vh - 60px)' }}
+        allowTouchMove={false}
+        loop={false}
+        autoHeight={true}
+        style={{ width: '100%' }}
       >
         {tabs.map((tab, index) => (
           <SwiperSlide key={index} style={{ padding:'0px'}}>
