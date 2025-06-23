@@ -46,8 +46,9 @@ export default function ReusableSwiperTabs({ tabs }) {
       <Swiper
         onSwiper={(swiper) => (swiperRef.current = swiper)}
         modules={[Navigation]}
-        loop={true}
-        style={{ width: '100%',minHeight:'100vh', height: 'auto',overflow:'auto' }}
+        loop={false}
+        autoHeight={true}
+        style={{ width: '100%', height: 'auto',overflow:'auto' }}
       >
         {tabs.map((tab, index) => (
           <SwiperSlide key={index} style={{ padding: '0px' }}>
