@@ -65,7 +65,6 @@ export default function ReusableSwiperTabs({ tabs }) {
       <div className="HeaderNav" style={{
         display: 'flex',
         borderBottom: '1px solid #ccc',
-        padding: '2px',
         justifyContent: 'space-around'
       }}>
         {tabs.map((tab, index) => (
@@ -73,7 +72,6 @@ export default function ReusableSwiperTabs({ tabs }) {
             key={index}
             onClick={() => handleTabClick(index)}
             style={{
-
               cursor: 'pointer',
               display: 'flex',
               flexDirection: 'column',
@@ -107,9 +105,7 @@ export default function ReusableSwiperTabs({ tabs }) {
       >
         {tabs.map((tab, index) => (
           <SwiperSlide key={index}>
-            <div style={{ padding: '2px' }}>
-              {tab.content}
-            </div>
+              {tab.content} 
           </SwiperSlide>
         ))}
       </Swiper>
