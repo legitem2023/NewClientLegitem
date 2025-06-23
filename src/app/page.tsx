@@ -5,7 +5,7 @@ import PageFooter from '../../components/Partial/Footer/PageFooter';
 import Products from '../../components/Products/Products';
 import News from 'components/News/News'
 import CartBody from 'components/Cart/CartBody'
-import CrowdMessages from 'components/Crowd/CrowdMessages'
+import Messages from 'components/Crowd/Messages'
 import Home from '../../components/Home/Home'
 import { Suspense } from 'react';
 import Loading from 'components/Partial/LoadingAnimation/Loading';
@@ -36,7 +36,7 @@ export default function Index() {
     { name: 'Home', icon: '📄', content: <Home/> },
     { name: 'Products', icon: '🛒', content: <Products/> },
     { name: 'News', icon: '🛒', content: <News/> },
-    { name: 'Crowd', icon: '⚙️', content: <CrowdMessages/> },
+    { name: 'Crowd', icon: '⚙️', content: <Messages/> },
     { name: 'Cart', icon: '🛒', content: <CartBody/> }
       
   ];
