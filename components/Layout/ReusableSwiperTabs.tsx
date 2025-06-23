@@ -1,5 +1,5 @@
 'use client';
-
+import { Icon } from '@iconify/react';
 import { useRef } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
@@ -36,7 +36,7 @@ export default function ReusableSwiperTabs({ tabs }) {
               color: '#333'
             }}
           >
-            <span style={{ fontSize: '20px' }}>{tab.icon}</span>
+            <Icon icon={tab.icon} />
             <span>{tab.name}</span>
           </button>
         ))}
