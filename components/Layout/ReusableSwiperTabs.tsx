@@ -41,6 +41,23 @@ export default function ReusableSwiperTabs({ tabs }) {
   return (
     <div style={{ left: '0px', right: '0px', margin: 'auto', position: 'absolute', width: '100%', fontFamily: 'Arial' }}>
       {/* Tab Buttons */}
+      <div className="Header">
+      <div className="HeaderRight">
+        <div>
+            <Image
+              src="/image/Crowd.svg"
+              alt="Logo"
+              width={874}
+              height={373}
+              className='Logo'
+              onClick={() => redirect.push('/Home')}
+              onError={(e) => {
+                console.error('Image failed to load', e);
+              }}
+            />
+          </div>
+      </div>
+      <div className="HeaderLeft">
       <div className="HeaderNav" style={{
         display: 'flex',
         borderBottom: '1px solid #ccc',
@@ -68,7 +85,8 @@ export default function ReusableSwiperTabs({ tabs }) {
           </button>
         ))}
       </div>
-
+    </div>
+    </div>
       {/* Swiper Slides */}
       <Swiper
         onSwiper={(swiper) => (swiperRef.current = swiper)}
