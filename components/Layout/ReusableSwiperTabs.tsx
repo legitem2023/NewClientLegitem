@@ -61,7 +61,7 @@ export default function ReusableSwiperTabs({ tabs }) {
         </div>
       </div>
       <div className="HeaderLeft">
-        <div className="Navigation"
+        <div className="Navigation">
       <div className="HeaderNav" style={{
         display: 'flex',
         borderBottom: '1px solid #ccc',
