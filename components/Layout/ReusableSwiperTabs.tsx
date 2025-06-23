@@ -62,7 +62,7 @@ export default function ReusableSwiperTabs({ tabs }) {
             }}
           >
             <Icon icon={tab.icon} />
-            <span>{tab.name}</span>
+            {/* <span>{tab.name}</span>*/}
           </button>
         ))}
       </div>
