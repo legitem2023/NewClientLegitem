@@ -1,9 +1,9 @@
 'use client';
 import React, { useEffect, useState, Suspense } from 'react';
-import { useQuery } from '@apollo/client';
-import { useSelector, useDispatch } from 'react-redux';
+//import { useQuery } from '@apollo/client';
+//import { useSelector, useDispatch } from 'react-redux';
 import { useRouter } from 'next/navigation';
-
+import { cookies } from 'components/cookies/cookie'
 import ReusableArrowTabs from 'components/Reusable/ReusableArrowTabs';
 import Order from 'components/Order/Order';
 //import PageAccount from 'components/Account/PageAccount';
