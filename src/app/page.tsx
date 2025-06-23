@@ -1,7 +1,7 @@
 'use client';
 import React, { useEffect, useState, Suspense } from 'react';
 //import { useQuery } from '@apollo/client';
-//import { useSelector, useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { useRouter } from 'next/navigation';
 import { cookies } from 'components/cookies/cookie'
 import ReusableArrowTabs from 'components/Reusable/ReusableArrowTabs';
@@ -17,11 +17,12 @@ import ReusableSwiperTabs from 'components/Layout/ReusableSwiperTabs';
 import ReusableTabs from 'components/Reusable/ReusableTabs';
 
 export default function Index() {
+  const cookieState = useSelector((state: any) => state.cookie.cookie);
   const [isAuthorized, setIsAuthorized] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const router = useRouter();
   const tabItms = [
-    { name: 'Address Book', icon: 'icomoon-free:address-book', content: <AddressBook/> },
+    { name: 'Address Book', icon: 'icomoon-free:address-book', content: <AddressBook userId={cookie.userId}/> },
     { name: 'My Orders', icon: 'bxs:basket', content: <Order/> },
     { name: 'Likes', icon: 'fa6-solid:newspaper', content: <News /> },
     { name: 'Messages', icon: 'simple-icons:crowdsource', content: <Messages /> },
