@@ -1,15 +1,24 @@
-// SlideMenu.jsx
+// ReusableSwipeMenu.tsx
 import { useState, useRef, useEffect } from "react";
 
-export default function ReusableSwipeMenu({ menuItems = [] }) {
+type MenuItem = {
+  label: string;
+  href: string;
+};
+
+type Props = {
+  menuItems?: MenuItem[];
+};
+
+export default function ReusableSwipeMenu({ menuItems = [] }: Props) {
   const [isOpen, setIsOpen] = useState(false);
-  const menuRef = useRef();
+  const menuRef = useRef<HTMLDivElement | null>(null);
 
   const toggleMenu = () => setIsOpen(!isOpen);
 
   useEffect(() => {
-    const handleClickOutside = (e) => {
-      if (menuRef.current && !menuRef.current.contains(e.target)) {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (menuRef.current && !menuRef.current.contains(e.target as Node)) {
         setIsOpen(false);
       }
     };
@@ -27,7 +36,7 @@ export default function ReusableSwipeMenu({ menuItems = [] }) {
       margin: "10px",
     },
     overlay: {
-      position: "fixed",
+      position: "fixed" as const,
       top: 0,
       left: 0,
       width: "100vw",
@@ -36,7 +45,7 @@ export default function ReusableSwipeMenu({ menuItems = [] }) {
       zIndex: 999,
     },
     sidebarContainer: {
-      position: "fixed",
+      position: "fixed" as const,
       top: 0,
       left: 0,
       height: "100%",
@@ -51,13 +60,13 @@ export default function ReusableSwipeMenu({ menuItems = [] }) {
       backgroundColor: "#fff",
       boxShadow: "2px 0 8px rgba(0,0,0,0.2)",
       padding: "20px",
-      position: "relative",
+      position: "relative" as const,
     },
     closeButton: {
       background: "none",
       border: "none",
       fontSize: "20px",
-      position: "absolute",
+      position: "absolute" as const,
       top: "10px",
       right: "10px",
       cursor: "pointer",
@@ -76,7 +85,6 @@ export default function ReusableSwipeMenu({ menuItems = [] }) {
         ☰ Open Menu
       </button>
 
-      {/* Sidebar and overlay rendered conditionally */}
       {isOpen && <div style={styles.overlay} onClick={() => setIsOpen(false)} />}
 
       <div ref={menuRef} style={styles.sidebarContainer}>
