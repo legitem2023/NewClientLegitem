@@ -44,9 +44,8 @@ export default function ReusableSwipeMenu({ menuItems = [], main }: Props) {
       <button
         onClick={toggleMenu}
         style={{
-          fontSize: "24px",
+          fontSize: "20px",
           cursor: "pointer",
-          padding: "10px",
           background: "none",
           zIndex: 1001,
           height: "40px",
@@ -55,7 +54,7 @@ export default function ReusableSwipeMenu({ menuItems = [], main }: Props) {
         }}
         aria-label="Toggle menu"
       >
-        {isOpen ? "×" : "☰"}
+        {isOpen ? "x" : "☰"}
       </button>
 
       {/* Overlay */}
@@ -124,7 +123,8 @@ export default function ReusableSwipeMenu({ menuItems = [], main }: Props) {
           width: "100%",
           left:"0px",
           right:"0px",
-          margin:"auto"
+          margin:"auto",
+          position:"relative"
         }}
       >
         {main()}
