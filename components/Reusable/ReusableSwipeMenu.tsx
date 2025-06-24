@@ -1,70 +1,94 @@
-'use client';
+// SlideMenu.jsx
+import { useState, useRef, useEffect } from "react";
 
-import { useState } from 'react';
+export default function ReusableSwipeMenu({ menuItems = [] }) {
+  const [isOpen, setIsOpen] = useState(false);
+  const menuRef = useRef();
 
-export default function ReusableSwipeMenu() {
-  const [open, setOpen] = useState(false);
+  const toggleMenu = () => setIsOpen(!isOpen);
 
-  const drawerStyle = {
-    position: 'fixed',
-    top: 0,
-    left: open ? '0' : '-260px',
-    width: '250px',
-    height: '100%',
-    backgroundColor: '#111',
-    color: '#fff',
-    padding: '20px',
-    boxShadow: '2px 0 6px rgba(0,0,0,0.4)',
-    transition: 'left 0.3s ease-in-out',
-    zIndex: 1000,
-  };
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      if (menuRef.current && !menuRef.current.contains(e.target)) {
+        setIsOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
 
-  const overlayStyle = {
-    position: 'fixed',
-    top: 0,
-    left: 0,
-    width: '100vw',
-    height: '100vh',
-    backgroundColor: 'rgba(0,0,0,0.4)',
-    opacity: open ? 1 : 0,
-    visibility: open ? 'visible' : 'hidden',
-    transition: 'opacity 0.3s ease-in-out',
-    zIndex: 999,
-  };
-
-  const toggleButtonStyle = {
-    position: 'fixed',
-    top: '20px',
-    left: '20px',
-    zIndex: 1100,
-    backgroundColor: '#007bff',
-    color: '#fff',
-    padding: '10px 15px',
-    border: 'none',
-    borderRadius: '5px',
-    cursor: 'pointer',
-    fontSize: '16px',
+  const styles = {
+    menuButton: {
+      padding: "10px",
+      fontSize: "16px",
+      cursor: "pointer",
+      background: "none",
+      border: "1px solid #ccc",
+      margin: "10px",
+    },
+    overlay: {
+      position: "fixed",
+      top: 0,
+      left: 0,
+      width: "100vw",
+      height: "100vh",
+      backgroundColor: "rgba(0,0,0,0.3)",
+      zIndex: 999,
+    },
+    sidebar: {
+      position: "fixed",
+      top: 0,
+      left: 0,
+      height: "100%",
+      width: "250px",
+      backgroundColor: "#fff",
+      boxShadow: "2px 0 8px rgba(0,0,0,0.2)",
+      transform: isOpen ? "translateX(0)" : "translateX(-100%)",
+      transition: "transform 0.3s ease-in-out",
+      zIndex: 1000,
+      padding: "20px",
+    },
+    closeButton: {
+      background: "none",
+      border: "none",
+      fontSize: "20px",
+      position: "absolute",
+      top: "10px",
+      right: "10px",
+      cursor: "pointer",
+    },
+    menuItem: {
+      display: "block",
+      padding: "10px 0",
+      color: "#333",
+      textDecoration: "none",
+    },
   };
 
   return (
     <>
-      <button onClick={() => setOpen(true)} style={toggleButtonStyle}>
+      <button onClick={toggleMenu} style={styles.menuButton}>
         ☰ Open Menu
       </button>
 
-      {/* Overlay */}
-      <div onClick={() => setOpen(false)} style={overlayStyle} />
-
-      {/* Drawer Menu */}
-      <div style={drawerStyle}>
-        <h2 style={{ marginTop: 0 }}>Menu</h2>
-        <ul style={{ listStyle: 'none', padding: 0 }}>
-          <li style={{ marginBottom: '15px', cursor: 'pointer' }}>Home</li>
-          <li style={{ marginBottom: '15px', cursor: 'pointer' }}>About</li>
-          <li style={{ marginBottom: '15px', cursor: 'pointer' }}>Services</li>
-          <li style={{ marginBottom: '15px', cursor: 'pointer' }}>Contact</li>
-        </ul>
+      <div ref={menuRef} style={styles.sidebar}>
+        <button onClick={toggleMenu} style={styles.closeButton}>
+          ×
+        </button>
+        <h2 style={{ marginBottom: "20px" }}>Menu</h2>
+        {menuItems.map((item, idx) => (
+          <a
+            key={idx}
+            href={item.href}
+            style={styles.menuItem}
+            onClick={() => setIsOpen(false)}
+          >
+            {item.label}
+          </a>
+        ))}
       </div>
+
+      {isOpen && <div style={styles.overlay} onClick={() => setIsOpen(false)} />}
     </>
   );
 }
