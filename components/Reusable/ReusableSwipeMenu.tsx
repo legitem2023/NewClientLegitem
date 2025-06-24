@@ -35,18 +35,23 @@ export default function ReusableSwipeMenu({ menuItems = [] }) {
       backgroundColor: "rgba(0,0,0,0.3)",
       zIndex: 999,
     },
-    sidebar: {
+    sidebarContainer: {
       position: "fixed",
       top: 0,
       left: 0,
       height: "100%",
       width: "250px",
+      zIndex: 1000,
+      transition: "transform 0.3s ease-in-out",
+      transform: isOpen ? "translateX(0)" : "translateX(-100%)",
+    },
+    sidebar: {
+      height: "100%",
+      width: "100%",
       backgroundColor: "#fff",
       boxShadow: "2px 0 8px rgba(0,0,0,0.2)",
-      transform: isOpen ? "translateX(0)" : "translateX(-100%)",
-      transition: "transform 0.3s ease-in-out",
-      zIndex: 1000,
       padding: "20px",
+      position: "relative",
     },
     closeButton: {
       background: "none",
@@ -71,24 +76,27 @@ export default function ReusableSwipeMenu({ menuItems = [] }) {
         ☰ Open Menu
       </button>
 
-      <div ref={menuRef} style={styles.sidebar}>
-        <button onClick={toggleMenu} style={styles.closeButton}>
-          ×
-        </button>
-        <h2 style={{ marginBottom: "20px" }}>Menu</h2>
-        {menuItems.map((item, idx) => (
-          <a
-            key={idx}
-            href={item.href}
-            style={styles.menuItem}
-            onClick={() => setIsOpen(false)}
-          >
-            {item.label}
-          </a>
-        ))}
-      </div>
-
+      {/* Sidebar and overlay rendered conditionally */}
       {isOpen && <div style={styles.overlay} onClick={() => setIsOpen(false)} />}
+
+      <div ref={menuRef} style={styles.sidebarContainer}>
+        <div style={styles.sidebar}>
+          <button onClick={toggleMenu} style={styles.closeButton}>
+            ×
+          </button>
+          <h2 style={{ marginBottom: "20px" }}>Menu</h2>
+          {menuItems.map((item, idx) => (
+            <a
+              key={idx}
+              href={item.href}
+              style={styles.menuItem}
+              onClick={() => setIsOpen(false)}
+            >
+              {item.label}
+            </a>
+          ))}
+        </div>
+      </div>
     </>
   );
 }
