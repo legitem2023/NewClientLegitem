@@ -3,7 +3,6 @@ import { useState, useRef, useEffect } from "react";
 
 type MenuItem = {
   label: string;
-  href: string;
 };
 
 type Props = {
@@ -27,6 +26,15 @@ export default function ReusableSwipeMenu({ menuItems = [] }: Props) {
   }, []);
 
   const styles = {
+    container: {
+      display: "flex",
+      flexDirection: "row" as const,
+    },
+    mainContent: {
+      flex: 1,
+      padding: "20px",
+      marginLeft: "10px",
+    },
     menuButton: {
       padding: "10px",
       fontSize: "16px",
@@ -75,12 +83,11 @@ export default function ReusableSwipeMenu({ menuItems = [] }: Props) {
       display: "block",
       padding: "10px 0",
       color: "#333",
-      textDecoration: "none",
     },
   };
 
   return (
-    <>
+    <div style={styles.container}>
       <button onClick={toggleMenu} style={styles.menuButton}>
         ☰ Open Menu
       </button>
@@ -94,17 +101,18 @@ export default function ReusableSwipeMenu({ menuItems = [] }: Props) {
           </button>
           <h2 style={{ marginBottom: "20px" }}>Menu</h2>
           {menuItems.map((item, idx) => (
-            <a
-              key={idx}
-              href={item.href}
-              style={styles.menuItem}
-              onClick={() => setIsOpen(false)}
-            >
+            <span key={idx} style={styles.menuItem}>
               {item.label}
-            </a>
+            </span>
           ))}
         </div>
       </div>
-    </>
+
+      <div style={styles.mainContent}>
+        <h1>Welcome to the Page</h1>
+        <p>This is your main content area. You can place anything you want here.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet urna vel magna tristique elementum.</p>
+      </div>
+    </div>
   );
 }
