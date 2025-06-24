@@ -3,6 +3,7 @@ import { useState, useRef, useEffect } from "react";
 
 type MenuItem = {
   label: string;
+  onClick?: () => void;
 };
 
 type Props = {
@@ -14,24 +15,35 @@ export default function ReusableSwipeMenu({ menuItems = [] }: Props) {
   const menuRef = useRef<HTMLDivElement | null>(null);
 
   const toggleMenu = () => setIsOpen((prev) => !prev);
+  const closeMenu = () => setIsOpen(false);
 
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
       if (menuRef.current && !menuRef.current.contains(e.target as Node)) {
-        setIsOpen(false);
+        closeMenu();
       }
     };
+
+    const handleEsc = (e: KeyboardEvent) => {
+      if (e.key === "Escape") closeMenu();
+    };
+
     document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
+    document.addEventListener("keydown", handleEsc);
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener("keydown", handleEsc);
+    };
   }, []);
 
   const styles = {
     container: {
       display: "flex",
-      flexDirection: "row" as const,
       position: "relative" as const,
+      height: "100vh",
     },
-    toggleIcon: {
+    toggleButton: {
       fontSize: "24px",
       cursor: "pointer",
       padding: "10px",
@@ -67,12 +79,12 @@ export default function ReusableSwipeMenu({ menuItems = [] }: Props) {
       backgroundColor: "#fff",
       boxShadow: "2px 0 8px rgba(0,0,0,0.2)",
       padding: "20px",
-      position: "relative" as const,
     },
     menuItem: {
       display: "block",
       padding: "10px 0",
       color: "#333",
+      cursor: "pointer",
     },
     mainContent: {
       flex: 1,
@@ -83,28 +95,48 @@ export default function ReusableSwipeMenu({ menuItems = [] }: Props) {
 
   return (
     <div style={styles.container}>
-      <button onClick={toggleMenu} style={styles.toggleIcon}>
+      {/* Toggle Button */}
+      <button
+        aria-label={isOpen ? "Close menu" : "Open menu"}
+        onClick={toggleMenu}
+        style={styles.toggleButton}
+      >
         {isOpen ? "×" : "☰"}
       </button>
 
-      <div style={styles.overlay} onClick={() => setIsOpen(false)} />
+      {/* Overlay */}
+      <div style={styles.overlay} onClick={closeMenu} />
 
-      <div ref={menuRef} style={styles.sidebarContainer}>
+      {/* Sidebar Menu */}
+      <nav ref={menuRef} style={styles.sidebarContainer} aria-hidden={!isOpen}>
         <div style={styles.sidebar}>
           <h2 style={{ marginBottom: "20px" }}>Menu</h2>
-          {menuItems.map((item, idx) => (
-            <span key={idx} style={styles.menuItem}>
-              {item.label}
-            </span>
-          ))}
+          <ul style={{ listStyle: "none", padding: 0, margin: 0 }}>
+            {menuItems.map((item, idx) => (
+              <li
+                key={item.label + idx}
+                style={styles.menuItem}
+                onClick={() => {
+                  item.onClick?.();
+                  closeMenu();
+                }}
+              >
+                {item.label}
+              </li>
+            ))}
+          </ul>
         </div>
-      </div>
+      </nav>
 
-      <div style={styles.mainContent}>
+      {/* Main Content */}
+      <main style={styles.mainContent}>
         <h1>Welcome to the Page</h1>
         <p>This is your main content area. You can place anything you want here.</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet urna vel magna tristique elementum.</p>
-      </div>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet urna vel magna
+          tristique elementum.
+        </p>
+      </main>
     </div>
   );
 }
