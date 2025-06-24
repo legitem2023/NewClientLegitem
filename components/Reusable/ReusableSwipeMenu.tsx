@@ -1,5 +1,5 @@
 // ReusableSwipeMenu.tsx
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, ReactElement } from "react";
 
 type MenuItem = {
   label: string;
@@ -8,9 +8,10 @@ type MenuItem = {
 
 type Props = {
   menuItems?: MenuItem[];
+  main:ReactElement;
 };
 
-export default function ReusableSwipeMenu({ menuItems = [] }: Props) {
+export default function ReusableSwipeMenu({ menuItems = [], main }: Props) {
   const [isOpen, setIsOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement | null>(null);
 
