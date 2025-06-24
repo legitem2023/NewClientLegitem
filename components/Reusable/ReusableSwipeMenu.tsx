@@ -91,13 +91,7 @@ export default function ReusableSwipeMenu({ menuItems = [], main }: Props) {
 
       {/* Main Content */}
       <main style={styles.mainContent}>
-        <h1>Welcome to the Page</h1>
-        <p>This is your main content area. You can place anything you want here.</p>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet urna vel magna
-          tristique elementum.
-        </p>
-      </main>
+        {main()}
     </div>
   );
 }
