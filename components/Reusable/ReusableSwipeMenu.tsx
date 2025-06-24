@@ -38,14 +38,6 @@ export default function ReusableSwipeMenu({ menuItems = [] }: Props) {
   }, []);
 
   const styles = {
-    toggleButton: {
-      fontSize: "24px",
-      cursor: "pointer",
-      padding: "10px",
-      border: "none",
-      background: "none",
-      zIndex: 1001,
-    },
     menuItem: {
       display: "block",
       padding: "10px 0",
@@ -65,13 +57,12 @@ export default function ReusableSwipeMenu({ menuItems = [] }: Props) {
       <button
         aria-label={isOpen ? "Close menu" : "Open menu"}
         onClick={toggleMenu}
-        style={styles.toggleButton}
-      >
+        style={{ fontSize: "24px", cursor: "pointer", padding: "10px", border: "none", background: "none", zIndex: 1001 }} >
         {isOpen ? "×" : "☰"}
       </button>
 
       {/* Overlay */}
-      <div style={{position: "fixed",top: 0, left: 0, width: "100vw", height: "100vh", backgroundColor: "rgba(0,0,0,0.3)", zIndex: 999, opacity: isOpen ? 1 : 0, transition: "opacity 0.3s ease-in-out", pointerEvents: isOpen ? "auto" : "none" }} onClick={closeMenu} />
+      <div style={{ position: "fixed", top: 0, left: 0, width: "100vw", height: "100vh", backgroundColor: "rgba(0,0,0,0.3)", zIndex: 999, opacity: isOpen ? 1 : 0, transition: "opacity 0.3s ease-in-out", pointerEvents: isOpen ? "auto" : "none" }} onClick={closeMenu} />
 
       {/* Sidebar Menu */}
       <nav ref={menuRef} style={{ position: "fixed", top: 0, left: 0, height: "100%", width: "250px", zIndex: 1000, transform: isOpen ? "translateX(0)" : "translateX(-100%)", transition: "transform 0.3s ease-in-out" }} aria-hidden={!isOpen}>
