@@ -87,7 +87,7 @@ export default function ReusableSwipeMenu({ menuItems = [], main }: Props) {
           height: "100%",
           width: "250px",
           zIndex: 1000,
-          transform: isOpen ? "translateX(0)" : "translateX(-100%)",
+          transform: isOpen ? "translateX(0) scaleX(1)" : "translateX(-100%) scaleX(-0)",
           transition: "transform 0.3s ease-in-out",
         }}
         aria-hidden={!isOpen}
@@ -125,7 +125,7 @@ export default function ReusableSwipeMenu({ menuItems = [], main }: Props) {
       </nav>
 
       {/* Main Content */}
-      <main style={{ flex: 1, width: "100%", backgroundColor:'green' }}>
+      <main style={{ position:'absolute', flex: 1, width: "100%", left: '0px', right: '0px' }}>
         {main()}
       </main>
     </div>
