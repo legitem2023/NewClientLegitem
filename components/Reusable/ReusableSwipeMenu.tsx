@@ -49,8 +49,8 @@ export default function ReusableSwipeMenu({ menuItems = [], main }: Props) {
           cursor: "pointer",
           background: "none",
           zIndex: 1001,
-          height: "40px",
-          width: "40px",
+          height: "50px",
+          width: "50px",
           border:'none',
           aspectRatio:"1 / 1"
         }}
