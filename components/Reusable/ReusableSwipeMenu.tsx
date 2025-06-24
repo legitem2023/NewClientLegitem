@@ -8,7 +8,7 @@ type MenuItem = {
 
 type Props = {
   menuItems?: MenuItem[];
-  main:?() => ReactElement;
+  main:() => ReactElement;
 };
 
 export default function ReusableSwipeMenu({ menuItems = [], main }: Props) {
