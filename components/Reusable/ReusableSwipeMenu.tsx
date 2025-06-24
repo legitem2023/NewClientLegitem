@@ -15,18 +15,7 @@ export default function ReusableSwipeMenu({ menuItems = [], main }: Props) {
   const [isOpen, setIsOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement | null>(null);
 
-  const toggleMenu = () => {
-  setIsOpen((prev) => {
-    let newState = !prev;
-    if (newState === true) {
-      newState = false;
-    } else {
-      newState = true;
-    }
-    return newState;
-  });
-};
-
+  const toggleMenu = () => setIsOpen((prev) => !prev);
   const closeMenu = () => setIsOpen(false);
 
   useEffect(() => {
@@ -50,10 +39,7 @@ export default function ReusableSwipeMenu({ menuItems = [], main }: Props) {
   }, []);
 
   return (
-    <div style={{ display: "flex", 
-                  position: "relative",
-                  minHeight:"100vh",
-                  width: "100vw" }}>
+    <div style={{ display: "flex", position: "relative", minHeight: "100vh", width: "100vw" }}>
       {/* Toggle Button */}
       <button
         onClick={toggleMenu}
@@ -65,8 +51,9 @@ export default function ReusableSwipeMenu({ menuItems = [], main }: Props) {
           zIndex: 1001,
           height: "40px",
           width: "40px",
-          boxShadow: "0.5px 0.5px 3px #000000"
+          boxShadow: "0.5px 0.5px 3px #000000",
         }}
+        aria-label="Toggle menu"
       >
         {isOpen ? "×" : "☰"}
       </button>
@@ -98,49 +85,45 @@ export default function ReusableSwipeMenu({ menuItems = [], main }: Props) {
           height: "100%",
           width: "250px",
           zIndex: 1000,
-          transform: isOpen ? "translateX(0) scaleX(1)" : "translateX(-100%) scaleX(-0)",
+          transform: isOpen ? "translateX(0)" : "translateX(-100%)",
           transition: "transform 0.3s ease-in-out",
+          backgroundColor: "#fff",
+          boxShadow: "2px 0 8px rgba(0,0,0,0.2)",
+          boxSizing: "border-box",
+          padding: "20px",
         }}
         aria-hidden={!isOpen}
       >
-        <div
-          style={{
-            height: "100%",
-            width: "100%",
-            backgroundColor: "#fff",
-            boxShadow: "2px 0 8px rgba(0,0,0,0.2)",
-            padding: "20px",
-          }}
-        >
-          <ul style={{ listStyle: "none", padding: 0, margin: 0 }}>
-            {menuItems.map((item, idx) => (
-              <li
-                key={item.label + idx}
-                style={{
-                  display: "block",
-                  padding: "10px 0",
-                  color: "#333",
-                  cursor: "pointer"
-                }}
-                onClick={() => {
-                  item.onClick?.();
-                  closeMenu();
-                }}
-              >
-                {item.label}
-              </li>
-            ))}
-          </ul>
-        </div>
+        <ul style={{ listStyle: "none", padding: 0, margin: 0 }}>
+          {menuItems.map((item, idx) => (
+            <li
+              key={`${item.label}-${idx}`}
+              style={{
+                display: "block",
+                padding: "10px 0",
+                color: "#333",
+                cursor: "pointer",
+              }}
+              onClick={() => {
+                item.onClick?.();
+                closeMenu();
+              }}
+            >
+              {item.label}
+            </li>
+          ))}
+        </ul>
       </nav>
 
       {/* Main Content */}
-      <main style={{ position:'absolute', 
-                     width: "100%", 
-                     left: '0px',
-                     minHeight:"100vh",
-                     right: '0px', 
-                     paddingTop:"50px" }}>
+      <main
+        style={{
+          flex: 1,
+          minHeight: "100vh",
+          paddingTop: "50px",
+          width: "100%",
+        }}
+      >
         {main()}
       </main>
     </div>
