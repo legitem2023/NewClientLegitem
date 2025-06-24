@@ -41,20 +41,6 @@ export default function ReusableSwipeMenu({ menuItems = [], main }: Props) {
     };
   }, []);
 
-  const styles = {
-    menuItem: {
-      display: "block",
-      padding: "10px 0",
-      color: "#333",
-      cursor: "pointer",
-    },
-    mainContent: {
-      flex: 1,
-      padding: "20px",
-      marginLeft: "10px",
-    },
-  };
-
   return (
     <div style={{display:"flex",position:"relative",height:"100vh"}}>
       {/* Toggle Button */}
@@ -75,7 +61,7 @@ export default function ReusableSwipeMenu({ menuItems = [], main }: Props) {
             {menuItems.map((item, idx) => (
               <li
                 key={item.label + idx}
-                style={styles.menuItem}
+                style={{ display: "block", padding: "10px 0", color: "#333", cursor: "pointer" }}
                 onClick={() => {
                   item.onClick?.();
                   closeMenu();
@@ -89,7 +75,7 @@ export default function ReusableSwipeMenu({ menuItems = [], main }: Props) {
       </nav>
 
       {/* Main Content */}
-      <main style={styles.mainContent}>
+      <main style={{ flex: 1, padding: "20px", marginLeft: "10px"}}>
         {main()}
     </div>
   );
