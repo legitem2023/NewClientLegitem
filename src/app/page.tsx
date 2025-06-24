@@ -13,7 +13,7 @@ import Account from 'components/Account/Account'
 import Products from 'components/Products/Products';
 import News from 'components/News/News';
 import CartBody from 'components/Cart/CartBody';
-import Messages from 'components/Crowd/Messages';
+import PrivateMessages from 'components/PersonalMessages/PrivateMessages';
 import Home from 'components/Home/Home';
 import Loading from 'components/Partial/LoadingAnimation/Loading';
 import ReusableSwiperTabs from 'components/Layout/ReusableSwiperTabs';
@@ -36,9 +36,9 @@ export default function Index() {
   const tabItms = [
     { name: 'Address Book', icon: 'icomoon-free:address-book', content: <Account/> },
     { name: 'My Orders', icon: 'wpf:shopping-basket', content: <Order/> },
-    { name: 'Likes', icon: 'mdi:like', content: <News /> },
-    { name: 'Messages', icon: 'typcn:messages', content: <ReusableSwipeMenu menuItems={menu}  main={()=>(<Messages/>)}/> },
-    { name: 'Logout', icon: 'ic:sharp-logout', content: <CartBody /> },
+    { name: 'Likes', icon: 'mdi:like', content: <News/> },
+    { name: 'Messages', icon: 'typcn:messages', content: <PrivateMessages/> },
+    { name: 'Logout', icon: 'ic:sharp-logout', content: <CartBody/> },
   ];
 
   const tabItems = [
