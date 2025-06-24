@@ -38,11 +38,6 @@ export default function ReusableSwipeMenu({ menuItems = [] }: Props) {
   }, []);
 
   const styles = {
-    container: {
-      display: "flex",
-      position: "relative",
-      height: "100vh",
-    },
     toggleButton: {
       fontSize: "24px",
       cursor: "pointer",
@@ -50,35 +45,6 @@ export default function ReusableSwipeMenu({ menuItems = [] }: Props) {
       border: "none",
       background: "none",
       zIndex: 1001,
-    },
-    overlay: {
-      position: "fixed",
-      top: 0,
-      left: 0,
-      width: "100vw",
-      height: "100vh",
-      backgroundColor: "rgba(0,0,0,0.3)",
-      zIndex: 999,
-      opacity: isOpen ? 1 : 0,
-      transition: "opacity 0.3s ease-in-out",
-      pointerEvents: isOpen ? "auto" : "none",
-    },
-    sidebarContainer: {
-      position: "fixed",
-      top: 0,
-      left: 0,
-      height: "100%",
-      width: "250px",
-      zIndex: 1000,
-      transform: isOpen ? "translateX(0)" : "translateX(-100%)",
-      transition: "transform 0.3s ease-in-out",
-    },
-    sidebar: {
-      height: "100%",
-      width: "100%",
-      backgroundColor: "#fff",
-      boxShadow: "2px 0 8px rgba(0,0,0,0.2)",
-      padding: "20px",
     },
     menuItem: {
       display: "block",
@@ -94,7 +60,9 @@ export default function ReusableSwipeMenu({ menuItems = [] }: Props) {
   };
 
   return (
-    <div style={styles.container}>
+    <div style={{ display: "flex",
+      position: "relative",
+      height: "100vh" }}>
       {/* Toggle Button */}
       <button
         aria-label={isOpen ? "Close menu" : "Open menu"}
@@ -105,11 +73,36 @@ export default function ReusableSwipeMenu({ menuItems = [] }: Props) {
       </button>
 
       {/* Overlay */}
-      <div style={styles.overlay} onClick={closeMenu} />
+      <div style={{
+      position: "fixed",
+      top: 0,
+      left: 0,
+      width: "100vw",
+      height: "100vh",
+      backgroundColor: "rgba(0,0,0,0.3)",
+      zIndex: 999,
+      opacity: isOpen ? 1 : 0,
+      transition: "opacity 0.3s ease-in-out",
+      pointerEvents: isOpen ? "auto" : "none",
+    },
+      }} onClick={closeMenu} />
 
       {/* Sidebar Menu */}
-      <nav ref={menuRef} style={styles.sidebarContainer} aria-hidden={!isOpen}>
-        <div style={styles.sidebar}>
+      <nav ref={menuRef} style={{
+            position: "fixed",
+      top: 0,
+      left: 0,
+      height: "100%",
+      width: "250px",
+      zIndex: 1000,
+      transform: isOpen ? "translateX(0)" : "translateX(-100%)",
+      transition: "transform 0.3s ease-in-out",
+      }} aria-hidden={!isOpen}>
+        <div style={{height: "100%",
+      width: "100%",
+      backgroundColor: "#fff",
+      boxShadow: "2px 0 8px rgba(0,0,0,0.2)",
+      padding: "20px"}}>
           <h2 style={{ marginBottom: "20px" }}>Menu</h2>
           <ul style={{ listStyle: "none", padding: 0, margin: 0 }}>
             {menuItems.map((item, idx) => (
