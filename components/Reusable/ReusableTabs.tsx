@@ -1,6 +1,6 @@
 'use client';
 import { Icon } from '@iconify/react';
-import { useRef } from 'react';
+//import { useRef } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
 import 'swiper/css';
