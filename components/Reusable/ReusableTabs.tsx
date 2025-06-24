@@ -27,7 +27,7 @@ export default function ReusableTabs({ tabs }) {
             key={index}
             onClick={() => handleTabClick(index)}
             style={{
-              background: activeTab === index ? 'white' : '#f0f0f0',
+              background: activeTab === index ? 'white' : '#d0d0d0',
               border: 'solid 1px #c0c0c0',
               borderBottom: activeTab === index ? 'none' : 'solid 1px #c0c0c0',
               borderRadius: '5px 5px 0px 0px',
