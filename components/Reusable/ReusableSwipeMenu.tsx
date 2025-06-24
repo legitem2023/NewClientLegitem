@@ -40,7 +40,7 @@ export default function ReusableSwipeMenu({ menuItems = [] }: Props) {
   const styles = {
     container: {
       display: "flex",
-      position: "relative" as const,
+      position: "relative",
       height: "100vh",
     },
     toggleButton: {
@@ -52,7 +52,7 @@ export default function ReusableSwipeMenu({ menuItems = [] }: Props) {
       zIndex: 1001,
     },
     overlay: {
-      position: "fixed" as const,
+      position: "fixed",
       top: 0,
       left: 0,
       width: "100vw",
@@ -64,7 +64,7 @@ export default function ReusableSwipeMenu({ menuItems = [] }: Props) {
       pointerEvents: isOpen ? "auto" : "none",
     },
     sidebarContainer: {
-      position: "fixed" as const,
+      position: "fixed",
       top: 0,
       left: 0,
       height: "100%",
