@@ -39,6 +39,7 @@ export default function ReusableSwipeMenu({ menuItems = [], main }: Props) {
   }, []);
 
   return (
+    <div style={{overflow:'hidden'}}>
     <div style={{ display: "flex", position: "relative", minHeight: "100vh", width: "100vw" }}>
       {/* Toggle Button */}
       <button
@@ -129,5 +130,6 @@ export default function ReusableSwipeMenu({ menuItems = [], main }: Props) {
         {main()}
       </main>
     </div>
+      </div>
   );
 }
