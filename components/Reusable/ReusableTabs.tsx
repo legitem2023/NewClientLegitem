@@ -29,7 +29,8 @@ export default function ReusableTabs({ tabs }) {
             onClick={() => handleTabClick(index)}
             style={{
               background: 'none',
-              border: 'none',
+              border: 'solid 1px #c0c0c0',
+              borderRadius: '0px 0px 3px 3px',
               cursor: 'pointer',
               display: 'flex',
               flexDirection: 'column',
