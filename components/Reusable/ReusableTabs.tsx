@@ -30,8 +30,9 @@ export default function ReusableTabs({ tabs }) {
             style={{
               background: 'none',
               border: 'solid 1px #c0c0c0',
-              borderRadius: '0px 0px 3px 3px',
+              borderRadius: '3px 3px 0px 0px',
               cursor: 'pointer',
+              padding:'10px',
               display: 'flex',
               flexDirection: 'column',
               alignItems: 'center',
