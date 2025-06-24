@@ -24,6 +24,12 @@ export default function Index() {
   const [isLoading, setIsLoading] = useState(true);
   const router = useRouter();
   
+  const menu = [{ label: "Dashboard", href: "/" },
+  { label: "Profile", href: "/profile" },
+  { label: "Settings", href: "/settings" },
+  { label: "Logout", href: "/logout" },
+];
+  
   const tabItms = [
     { name: 'Address Book', icon: 'icomoon-free:address-book', content: <></> },
     { name: 'My Orders', icon: 'wpf:shopping-basket', content: <Order/> },
@@ -43,11 +49,7 @@ export default function Index() {
 
 
 
- const menu = [{ label: "Dashboard", href: "/" },
-  { label: "Profile", href: "/profile" },
-  { label: "Settings", href: "/settings" },
-  { label: "Logout", href: "/logout" },
-];
+ 
 
 const cookieState = useSelector((state: any) => state.cookie.cookie);
 console.log(cookieState);
