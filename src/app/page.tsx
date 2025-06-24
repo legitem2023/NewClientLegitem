@@ -28,7 +28,7 @@ export default function Index() {
     { name: 'Address Book', icon: 'icomoon-free:address-book', content: <></> },
     { name: 'My Orders', icon: 'wpf:shopping-basket', content: <Order/> },
     { name: 'Likes', icon: 'mdi:like', content: <News /> },
-    { name: 'Messages', icon: 'typcn:messages', content: <Messages /> },
+    { name: 'Messages', icon: 'typcn:messages', content: <ReusableSwipeMenu menuItems={menu} /> },
     { name: 'Logout', icon: 'ic:sharp-logout', content: <CartBody /> },
   ];
 
@@ -67,7 +67,7 @@ console.log(cookieState);
   return (
     <Suspense fallback={<Loading />}>
       <ReusableSwiperTabs tabs={tabItems} />
-      <ReusableSwipeMenu menuItems={menu} />
+      
     </Suspense>
   );
      }
