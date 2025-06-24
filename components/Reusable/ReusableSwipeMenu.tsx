@@ -52,7 +52,8 @@ export default function ReusableSwipeMenu({ menuItems = [], main }: Props) {
           height: "50px",
           width: "50px",
           border:'none',
-          aspectRatio:"1 / 1"
+          aspectRatio:"1 / 1",
+          position:'absolute'
         }}
         aria-label="Toggle menu"
       >
