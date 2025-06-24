@@ -121,9 +121,7 @@ export default function ReusableSwipeMenu({ menuItems = [], main }: Props) {
           minHeight: "100vh",
           paddingTop: "50px",
           width: "100%",
-          left:"0px",
-          right:"0px",
-          margin:"auto",
+          margin:"0",
           position:"relative"
         }}
       >
