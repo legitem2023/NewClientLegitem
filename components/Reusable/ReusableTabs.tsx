@@ -38,8 +38,7 @@ export default function ReusableTabs({ tabs }) {
               alignItems: 'center',
               fontSize: '14px',
               color: '#333',
-              width:'100%',
-              boxShadow: '0.5px 0.5px 3px #000000'
+              width:'100%'
             }}
           >
             <Icon icon={tab.icon}/>
