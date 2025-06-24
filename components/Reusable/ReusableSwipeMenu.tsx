@@ -50,7 +50,10 @@ export default function ReusableSwipeMenu({ menuItems = [], main }: Props) {
   }, []);
 
   return (
-    <div style={{ display: "flex", position: "relative", width: "100vw" }}>
+    <div style={{ display: "flex", 
+                  position: "relative",
+                  minHeight:"100vh",
+                  width: "100vw" }}>
       {/* Toggle Button */}
       <button
         onClick={toggleMenu}
@@ -60,8 +63,8 @@ export default function ReusableSwipeMenu({ menuItems = [], main }: Props) {
           padding: "10px",
           background: "none",
           zIndex: 1001,
-          height: "35px",
-          width: "35px",
+          height: "40px",
+          width: "40px",
           boxShadow: "0.5px 0.5px 3px #000000"
         }}
       >
@@ -109,7 +112,6 @@ export default function ReusableSwipeMenu({ menuItems = [], main }: Props) {
             padding: "20px",
           }}
         >
-          <h2 style={{ marginBottom: "20px" }}>Menu</h2>
           <ul style={{ listStyle: "none", padding: 0, margin: 0 }}>
             {menuItems.map((item, idx) => (
               <li
@@ -118,9 +120,7 @@ export default function ReusableSwipeMenu({ menuItems = [], main }: Props) {
                   display: "block",
                   padding: "10px 0",
                   color: "#333",
-                  cursor: "pointer",
-                  border: "solid 1px #cccccc",
-                  borderRadius:" 0px 0px 3px 3px"
+                  cursor: "pointer"
                 }}
                 onClick={() => {
                   item.onClick?.();
@@ -137,7 +137,8 @@ export default function ReusableSwipeMenu({ menuItems = [], main }: Props) {
       {/* Main Content */}
       <main style={{ position:'absolute', 
                      width: "100%", 
-                     left: '0px', 
+                     left: '0px',
+                     minHeight:"100vh",
                      right: '0px', 
                      paddingTop:"50px" }}>
         {main()}
