@@ -13,7 +13,7 @@ export default function ReusableSwipeMenu({ menuItems = [] }: Props) {
   const [isOpen, setIsOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement | null>(null);
 
-  const toggleMenu = () => setIsOpen(!isOpen);
+  const toggleMenu = () => setIsOpen((prev) => !prev);
 
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
@@ -29,19 +29,15 @@ export default function ReusableSwipeMenu({ menuItems = [] }: Props) {
     container: {
       display: "flex",
       flexDirection: "row" as const,
+      position: "relative" as const,
     },
-    mainContent: {
-      flex: 1,
-      padding: "20px",
-      marginLeft: "10px",
-    },
-    menuButton: {
-      padding: "10px",
-      fontSize: "16px",
+    toggleIcon: {
+      fontSize: "24px",
       cursor: "pointer",
+      padding: "10px",
+      border: "none",
       background: "none",
-      border: "1px solid #ccc",
-      margin: "10px",
+      zIndex: 1001,
     },
     overlay: {
       position: "fixed" as const,
@@ -51,6 +47,9 @@ export default function ReusableSwipeMenu({ menuItems = [] }: Props) {
       height: "100vh",
       backgroundColor: "rgba(0,0,0,0.3)",
       zIndex: 999,
+      opacity: isOpen ? 1 : 0,
+      transition: "opacity 0.3s ease-in-out",
+      pointerEvents: isOpen ? "auto" : "none",
     },
     sidebarContainer: {
       position: "fixed" as const,
@@ -59,8 +58,8 @@ export default function ReusableSwipeMenu({ menuItems = [] }: Props) {
       height: "100%",
       width: "250px",
       zIndex: 1000,
-      transition: "transform 0.3s ease-in-out",
       transform: isOpen ? "translateX(0)" : "translateX(-100%)",
+      transition: "transform 0.3s ease-in-out",
     },
     sidebar: {
       height: "100%",
@@ -70,35 +69,28 @@ export default function ReusableSwipeMenu({ menuItems = [] }: Props) {
       padding: "20px",
       position: "relative" as const,
     },
-    closeButton: {
-      background: "none",
-      border: "none",
-      fontSize: "20px",
-      position: "absolute" as const,
-      top: "10px",
-      right: "10px",
-      cursor: "pointer",
-    },
     menuItem: {
       display: "block",
       padding: "10px 0",
       color: "#333",
     },
+    mainContent: {
+      flex: 1,
+      padding: "20px",
+      marginLeft: "10px",
+    },
   };
 
   return (
     <div style={styles.container}>
-      <button onClick={toggleMenu} style={styles.menuButton}>
-        ☰ Open Menu
+      <button onClick={toggleMenu} style={styles.toggleIcon}>
+        {isOpen ? "×" : "☰"}
       </button>
 
-      {isOpen && <div style={styles.overlay} onClick={() => setIsOpen(false)} />}
+      <div style={styles.overlay} onClick={() => setIsOpen(false)} />
 
       <div ref={menuRef} style={styles.sidebarContainer}>
         <div style={styles.sidebar}>
-          <button onClick={toggleMenu} style={styles.closeButton}>
-            ×
-          </button>
           <h2 style={{ marginBottom: "20px" }}>Menu</h2>
           {menuItems.map((item, idx) => (
             <span key={idx} style={styles.menuItem}>
