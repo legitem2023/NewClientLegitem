@@ -12,13 +12,11 @@ import ReusableMainLayout from 'components/Layout/ReusableMainLayout';
 import ReusableCenterLayout from 'components/Layout/ReusableCenterLayout';
 import ReusableLabel from 'components/Reusable/ReusableLabel';
 import ReusableServerDown from 'components/Reusable/ReusableServerDown';
-interface PageAccountProps {
-  userId: string;
-}
-
-const Account:React.FC<PageAccountProps> = ({ userId }) => {
+import { useSelector } from 'react-redux';
+const Account = () => {
+  const cookie = useSelector((state:any)=> state.cookie.cookie);
   const [useScale,setScale] = useState(0);
-  const { data:AccountDetails, loading:AccountLoading, error:AccountError,refetch:AccountRefetch } = useQuery(GET_ACCOUNT_DETAILS_ID, { variables: { getAccountDetailsIdId: userId } });
+  const { data:AccountDetails, loading:AccountLoading, error:AccountError,refetch:AccountRefetch } = useQuery(GET_ACCOUNT_DETAILS_ID, { variables: { getAccountDetailsIdId: cookie.userid } });
 if(AccountLoading) return <Loading/>
 if(AccountError) return <ReusableServerDown/>;
   return ( <>
