@@ -1,43 +1,70 @@
-'use client'; // Only needed in Next.js App Router with client components
+'use client';
 
-import { Swiper, SwiperSlide } from 'swiper/react';
-import 'swiper/css';
-import { FreeMode } from 'swiper/modules';
+import { useState } from 'react';
 
-const ReusableSwipeMenu = () => {
-  const menuItems = ['Home', 'About', 'Services', 'Contact', 'Blog'];
+export default function ReusableSwipeMenu() {
+  const [open, setOpen] = useState(false);
+
+  const drawerStyle = {
+    position: 'fixed',
+    top: 0,
+    left: open ? '0' : '-260px',
+    width: '250px',
+    height: '100%',
+    backgroundColor: '#111',
+    color: '#fff',
+    padding: '20px',
+    boxShadow: '2px 0 6px rgba(0,0,0,0.4)',
+    transition: 'left 0.3s ease-in-out',
+    zIndex: 1000,
+  };
+
+  const overlayStyle = {
+    position: 'fixed',
+    top: 0,
+    left: 0,
+    width: '100vw',
+    height: '100vh',
+    backgroundColor: 'rgba(0,0,0,0.4)',
+    opacity: open ? 1 : 0,
+    visibility: open ? 'visible' : 'hidden',
+    transition: 'opacity 0.3s ease-in-out',
+    zIndex: 999,
+  };
+
+  const toggleButtonStyle = {
+    position: 'fixed',
+    top: '20px',
+    left: '20px',
+    zIndex: 1100,
+    backgroundColor: '#007bff',
+    color: '#fff',
+    padding: '10px 15px',
+    border: 'none',
+    borderRadius: '5px',
+    cursor: 'pointer',
+    fontSize: '16px',
+  };
 
   return (
-    <div style={{ width: '100%', padding: '10px 0', background: '#f5f5f5' }}>
-      <Swiper
-        slidesPerView="auto"
-        spaceBetween={10}
-        freeMode={true}
-        modules={[FreeMode]}
-        style={{ paddingLeft: '10px' }}
-      >
-        {menuItems.map((item, index) => (
-          <SwiperSlide
-            key={index}
-            style={{
-              flexShrink: 0,
-              width: 'auto',
-              padding: '10px 20px',
-              marginRight: '10px',
-              backgroundColor: ['#007bff', '#28a745', '#ffc107', '#dc3545', '#6f42c1'][index % 5],
-              color: index === 2 ? 'black' : 'white',
-              borderRadius: '20px',
-              textAlign: 'center',
-              cursor: 'pointer',
-              fontWeight: 'bold',
-            }}
-          >
-            {item}
-          </SwiperSlide>
-        ))}
-      </Swiper>
-    </div>
-  );
-};
+    <>
+      <button onClick={() => setOpen(true)} style={toggleButtonStyle}>
+        ☰ Open Menu
+      </button>
 
-export default ReusableSwipeMenu;
+      {/* Overlay */}
+      <div onClick={() => setOpen(false)} style={overlayStyle} />
+
+      {/* Drawer Menu */}
+      <div style={drawerStyle}>
+        <h2 style={{ marginTop: 0 }}>Menu</h2>
+        <ul style={{ listStyle: 'none', padding: 0 }}>
+          <li style={{ marginBottom: '15px', cursor: 'pointer' }}>Home</li>
+          <li style={{ marginBottom: '15px', cursor: 'pointer' }}>About</li>
+          <li style={{ marginBottom: '15px', cursor: 'pointer' }}>Services</li>
+          <li style={{ marginBottom: '15px', cursor: 'pointer' }}>Contact</li>
+        </ul>
+      </div>
+    </>
+  );
+}
