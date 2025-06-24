@@ -80,7 +80,7 @@ export default function ReusableSwiperTabs({ tabs }) {
               cursor: 'pointer',
               display: 'flex',
               flexDirection: 'column',
-              alignItems: 'center',
+              alignItems: 'left',
               width:'100%',
               margin:'0px',
               minHeight:'40px',
