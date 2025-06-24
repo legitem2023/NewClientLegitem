@@ -87,7 +87,7 @@ export default function ReusableSwipeMenu({ menuItems = [], main }: Props) {
           height: "100%",
           width: "250px",
           zIndex: 1000,
-          transform: isOpen ? "translateX(0)" : "translateX(-100%)",
+          transform: isOpen ? "translateX(0) scaleX(1)" : "translateX(-100%) scaleX(0)",
           transition: "transform 0.3s ease-in-out",
           backgroundColor: "#fff",
           boxShadow: "2px 0 8px rgba(0,0,0,0.2)",
