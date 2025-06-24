@@ -14,7 +14,10 @@ export default function ReusableSwipeMenu({ menuItems = [] }: Props) {
   const [isOpen, setIsOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement | null>(null);
 
-  const toggleMenu = () => setIsOpen((prev) => !prev);
+  const toggleMenu = () => {
+  setIsOpen((prev) => prev ? false : true);
+};
+  //const toggleMenu = () => setIsOpen((prev) => !prev);
   const closeMenu = () => setIsOpen(false);
 
   useEffect(() => {
@@ -57,7 +60,7 @@ export default function ReusableSwipeMenu({ menuItems = [] }: Props) {
       <button
         aria-label={isOpen ? "Close menu" : "Open menu"}
         onClick={toggleMenu}
-        style={{ fontSize: "24px", cursor: "pointer", padding: "10px", border: "none", background: "none", zIndex: 1001 }} >
+        style={{ fontSize: "24px", cursor: "pointer", padding: "10px", border: "none", background: "none", zIndex: 1001, height: '40px', width: '40px' }} >
         {isOpen ? "×" : "☰"}
       </button>
 
