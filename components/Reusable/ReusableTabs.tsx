@@ -1,6 +1,5 @@
 'use client';
 import { Icon } from '@iconify/react';
-//import { useRef } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
 import 'swiper/css';
@@ -28,20 +27,21 @@ export default function ReusableTabs({ tabs }) {
             key={index}
             onClick={() => handleTabClick(index)}
             style={{
-              background: 'none',
+              background: activeTab === index ? 'white' : '#f0f0f0',
               border: 'solid 1px #c0c0c0',
+              borderBottom: activeTab === index ? 'none' : 'solid 1px #c0c0c0',
               borderRadius: '5px 5px 0px 0px',
               cursor: 'pointer',
-              padding:'10px',
+              padding: '10px',
               display: 'flex',
               flexDirection: 'column',
               alignItems: 'center',
               fontSize: '14px',
               color: '#333',
-              width:'100%'
+              width: '100%'
             }}
           >
-            <Icon icon={tab.icon}/>
+            <Icon icon={tab.icon} />
           </button>
         ))}
       </div>
@@ -57,7 +57,7 @@ export default function ReusableTabs({ tabs }) {
         style={{ width: '100%' }}
       >
         {tabs.map((tab, index) => (
-          <SwiperSlide key={index} style={{ padding:'0px'}}>
+          <SwiperSlide key={index} style={{ padding: '0px' }}>
             {tab.content}
           </SwiperSlide>
         ))}
