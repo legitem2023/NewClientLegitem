@@ -10,7 +10,7 @@ type FirstLetterImageProps = {
 
 const ReusableFirstLetterImage: React.FC<FirstLetterImageProps> = ({
   text,
-  size = 100,
+  size = 40,
   bgColor = "rgb(87, 39, 0)",
   textColor = "#ffffff",
 }) => {
