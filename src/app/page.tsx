@@ -14,6 +14,7 @@ import Products from 'components/Products/Products';
 import News from 'components/News/News';
 import CartBody from 'components/Cart/CartBody';
 import PrivateMessages from 'components/PersonalMessages/PrivateMessages';
+import PublicMessages from 'components/Crowd/Messages'
 import Home from 'components/Home/Home';
 import Loading from 'components/Partial/LoadingAnimation/Loading';
 import ReusableSwiperTabs from 'components/Layout/ReusableSwiperTabs';
@@ -45,7 +46,7 @@ export default function Index() {
     { name: 'Home', icon: 'ic:sharp-home', content: <Home /> },
     { name: 'Products', icon: 'bi:tags-fill', content: <Products /> },
     { name: 'News', icon: 'fa6-solid:newspaper', content: <News /> },
-    { name: 'Crowd', icon: 'simple-icons:crowdsource', content: <Messages /> },
+    { name: 'Crowd', icon: 'simple-icons:crowdsource', content: <PublicMessages/> },
     { name: 'Account', icon: 'mdi:badge-account-horizontal', content: <ReusableTabs tabs={tabItms}/> },
     { name: 'Cart', icon: 'mdi:cart', content: <CartBody /> },
   ];
