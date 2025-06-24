@@ -12,7 +12,6 @@ import 'swiper/css';
 import { GET_CATEGORY, READ_PRODUCT_TYPES } from 'graphql/queries';
 import React, { useState, useRef, useEffect } from 'react';
 import { useQuery } from '@apollo/client';
-
 export default function ReusableSwiperTabs({ tabs }) {
   const dispatch = useDispatch();
   const cookie = useSelector((state: any) => state.cookie.cookie);
