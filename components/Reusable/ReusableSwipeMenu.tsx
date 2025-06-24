@@ -17,7 +17,7 @@ export default function ReusableSwipeMenu({ menuItems = [], main }: Props) {
 
   const toggleMenu = () => {
   setIsOpen((prev) => {
-    const newState = !prev;
+    let newState = !prev;
     if (newState === true) {
       newState = false;
     } else {
