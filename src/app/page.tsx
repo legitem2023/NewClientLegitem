@@ -15,6 +15,9 @@ import Home from 'components/Home/Home';
 import Loading from 'components/Partial/LoadingAnimation/Loading';
 import ReusableSwiperTabs from 'components/Layout/ReusableSwiperTabs';
 import ReusableTabs from 'components/Reusable/ReusableTabs';
+import ReusableSwipeMenu from 'components/Reusable/ReusableSwipeMenu';
+
+
 
 export default function Index() { 
   const [isAuthorized, setIsAuthorized] = useState(false);
@@ -55,6 +58,7 @@ console.log(cookieState);
   return (
     <Suspense fallback={<Loading />}>
       <ReusableSwiperTabs tabs={tabItems} />
+      <ReusableSwipeMenu/>
     </Suspense>
   );
      }
