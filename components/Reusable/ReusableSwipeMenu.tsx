@@ -59,7 +59,6 @@ export default function ReusableSwipeMenu({ menuItems = [], main }: Props) {
     <div style={{display:"flex",position:"relative",height:"100vh"}}>
       {/* Toggle Button */}
       <button
-        aria-label={isOpen ? "Close menu" : "Open menu"}
         onClick={toggleMenu}
         style={{ fontSize: "24px", cursor: "pointer", padding: "10px", border: "none", background: "none", zIndex: 1001, height: '40px', width: '40px' }} >
         {isOpen ? "×" : "☰"}
