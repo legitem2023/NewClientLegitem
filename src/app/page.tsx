@@ -7,6 +7,9 @@ import { cookies } from 'components/cookies/cookie'
 import ReusableArrowTabs from 'components/Reusable/ReusableArrowTabs';
 import Order from 'components/Order/Order';
 import AddressBook from 'components/Account/AddressBook';
+
+
+import Account from 'components/Account/Account'
 import Products from 'components/Products/Products';
 import News from 'components/News/News';
 import CartBody from 'components/Cart/CartBody';
@@ -31,7 +34,7 @@ export default function Index() {
 ];
   
   const tabItms = [
-    { name: 'Address Book', icon: 'icomoon-free:address-book', content: <></> },
+    { name: 'Address Book', icon: 'icomoon-free:address-book', content: <Account/> },
     { name: 'My Orders', icon: 'wpf:shopping-basket', content: <Order/> },
     { name: 'Likes', icon: 'mdi:like', content: <News /> },
     { name: 'Messages', icon: 'typcn:messages', content: <ReusableSwipeMenu menuItems={menu}  main={()=>(<Messages/>)}/> },
