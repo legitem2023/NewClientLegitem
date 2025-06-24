@@ -58,12 +58,10 @@ export default function ReusableSwipeMenu({ menuItems = [], main }: Props) {
           fontSize: "24px",
           cursor: "pointer",
           padding: "10px",
-          border: "solid 1px #cccccc",
-          borderRadius:" 0px 0px 3px 3px",
           background: "none",
           zIndex: 1001,
-          height: "40px",
-          width: "40px",
+          height: "35px",
+          width: "35px",
           boxShadow: "0.5px 0.5px 3px #000000"
         }}
       >
@@ -121,6 +119,8 @@ export default function ReusableSwipeMenu({ menuItems = [], main }: Props) {
                   padding: "10px 0",
                   color: "#333",
                   cursor: "pointer",
+                  border: "solid 1px #cccccc",
+                  borderRadius:" 0px 0px 3px 3px"
                 }}
                 onClick={() => {
                   item.onClick?.();
@@ -135,12 +135,11 @@ export default function ReusableSwipeMenu({ menuItems = [], main }: Props) {
       </nav>
 
       {/* Main Content */}
-      <main style={{ position:'relative', 
-                     flex: 1, 
+      <main style={{ position:'absolute', 
                      width: "100%", 
                      left: '0px', 
                      right: '0px', 
-                     paddingTop:"55px" }}>
+                     paddingTop:"50px" }}>
         {main()}
       </main>
     </div>
