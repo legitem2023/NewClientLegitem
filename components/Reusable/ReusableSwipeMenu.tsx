@@ -58,11 +58,13 @@ export default function ReusableSwipeMenu({ menuItems = [], main }: Props) {
           fontSize: "24px",
           cursor: "pointer",
           padding: "10px",
-          border: "none",
+          border: "solid 1px #cccccc",
+          borderRadius:" 0px 0px 3px 3px",
           background: "none",
           zIndex: 1001,
           height: "40px",
           width: "40px",
+          boxShadow: "0.5px 0.5px 3px #000000"
         }}
       >
         {isOpen ? "×" : "☰"}
