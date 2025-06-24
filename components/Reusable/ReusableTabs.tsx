@@ -30,14 +30,16 @@ export default function ReusableTabs({ tabs }) {
             style={{
               background: 'none',
               border: 'solid 1px #c0c0c0',
-              borderRadius: '3px 3px 0px 0px',
+              borderRadius: '5px 5px 0px 0px',
               cursor: 'pointer',
               padding:'10px',
               display: 'flex',
               flexDirection: 'column',
               alignItems: 'center',
               fontSize: '14px',
-              color: '#333'
+              color: '#333',
+              width:'100%',
+              boxShadow: '0.5px 0.5px 3px #000000'
             }}
           >
             <Icon icon={tab.icon}/>
