@@ -18,6 +18,7 @@ export default function ReusableTabs({ tabs }) {
       {/* Tab Buttons */}
       <div style={{
         display: 'flex',
+        position:'sticky',
         borderBottom: '1px solid #ccc',
         padding: '10px',
         justifyContent: 'space-around'
