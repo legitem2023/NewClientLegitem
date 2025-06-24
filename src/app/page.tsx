@@ -40,6 +40,15 @@ export default function Index() {
     { name: 'Account', icon: 'mdi:badge-account-horizontal', content: <ReusableTabs tabs={tabItms}/> },
     { name: 'Cart', icon: 'mdi:cart', content: <CartBody /> },
   ];
+
+
+
+ const menu = [{ label: "Dashboard", href: "/" },
+  { label: "Profile", href: "/profile" },
+  { label: "Settings", href: "/settings" },
+  { label: "Logout", href: "/logout" },
+];
+
 const cookieState = useSelector((state: any) => state.cookie.cookie);
 console.log(cookieState);
   useEffect(() => {
@@ -58,7 +67,7 @@ console.log(cookieState);
   return (
     <Suspense fallback={<Loading />}>
       <ReusableSwiperTabs tabs={tabItems} />
-      <ReusableSwipeMenu/>
+      <ReusableSwipeMenu menuItems={menu} />
     </Suspense>
   );
      }
