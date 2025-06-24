@@ -8,10 +8,11 @@ type MenuItem = {
 
 type Props = {
   menuItems?: MenuItem[];
+  menu: () => ReactElement;
   main: () => ReactElement;
 };
 
-export default function ReusableSwipeMenu({ menuItems = [], main }: Props) {
+export default function ReusableSwipeMenu({ menuItems = [],menu ,main }: Props) {
   const [isOpen, setIsOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement | null>(null);
 
@@ -95,7 +96,8 @@ export default function ReusableSwipeMenu({ menuItems = [], main }: Props) {
           padding: "20px",
         }}
         aria-hidden={!isOpen}
-      >
+      > 
+        {menu()}
         <ul style={{ listStyle: "none", padding: 0, margin: 0 }}>
           {menuItems.map((item, idx) => (
             <li
