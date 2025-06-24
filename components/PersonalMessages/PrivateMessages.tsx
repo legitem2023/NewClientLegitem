@@ -10,7 +10,7 @@ const PrivateMessages = () => {
     const SelectedReciever = useSelector((state:any)=> state.reciever.reciever);
     return (
         <ReusableSwipeMenu menuItems={menu} 
-                           menu={()=> <ActiveUsers/> } 
+                           menu={()=> <ActiveUsers email={SelectedReciever}/> } 
                            main={()=>(<Messages/>)}/>
         />
     )
