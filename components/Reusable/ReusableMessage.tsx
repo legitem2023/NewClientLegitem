@@ -88,7 +88,7 @@ const reactions = [
         
         <div className="messageSender">
           <div className={`messageSenderImgcont ` + border(data)}>
-            <ReusableFirstLetterImage text={data.Sender} size={100} bgColor="rgb(87, 39, 0)" textColor="#ffffff" />
+            <ReusableFirstLetterImage text={data.Sender} size={40} bgColor="rgb(87, 39, 0)" textColor="#ffffff" />
           </div>
           <div className="messageSenderName">
             {cookie.emailAddress===data.Sender?data.Sender:(
