@@ -133,7 +133,7 @@ export default function ReusableSwipeMenu({ menuItems = [], main }: Props) {
       </nav>
 
       {/* Main Content */}
-      <main style={{ position:'absolute', 
+      <main style={{ position:'relative', 
                      flex: 1, 
                      width: "100%", 
                      left: '0px', 
