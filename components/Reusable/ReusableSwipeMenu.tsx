@@ -8,7 +8,7 @@ type MenuItem = {
 
 type Props = {
   menuItems?: MenuItem[];
-  main:() => ReactElement;
+  main: () => ReactElement;
 };
 
 export default function ReusableSwipeMenu({ menuItems = [], main }: Props) {
@@ -16,9 +16,9 @@ export default function ReusableSwipeMenu({ menuItems = [], main }: Props) {
   const menuRef = useRef<HTMLDivElement | null>(null);
 
   const toggleMenu = () => {
-  setIsOpen((prev) => prev ? false : true);
-};
-  //const toggleMenu = () => setIsOpen((prev) => !prev);
+    setIsOpen((prev) => !prev);
+  };
+
   const closeMenu = () => setIsOpen(false);
 
   useEffect(() => {
@@ -42,26 +42,76 @@ export default function ReusableSwipeMenu({ menuItems = [], main }: Props) {
   }, []);
 
   return (
-    <div style={{display:"flex",position:"relative",height:"100vh"}}>
+    <div style={{ display: "flex", position: "relative", height: "100vh" }}>
       {/* Toggle Button */}
       <button
         onClick={toggleMenu}
-        style={{ fontSize: "24px", cursor: "pointer", padding: "10px", border: "none", background: "none", zIndex: 1001, height: '40px', width: '40px' }} >
+        style={{
+          fontSize: "24px",
+          cursor: "pointer",
+          padding: "10px",
+          border: "none",
+          background: "none",
+          zIndex: 1001,
+          height: "40px",
+          width: "40px",
+        }}
+      >
         {isOpen ? "×" : "☰"}
       </button>
 
       {/* Overlay */}
-      <div style={{ position: "fixed", top: 0, left: 0, width: "100vw", height: "100vh", backgroundColor: "rgba(0,0,0,0.3)", zIndex: 999, opacity: isOpen ? 1 : 0, transition: "opacity 0.3s ease-in-out", pointerEvents: isOpen ? "auto" : "none" }} onClick={closeMenu} />
+      <div
+        style={{
+          position: "fixed",
+          top: 0,
+          left: 0,
+          width: "100vw",
+          height: "100vh",
+          backgroundColor: "rgba(0,0,0,0.3)",
+          zIndex: 999,
+          opacity: isOpen ? 1 : 0,
+          transition: "opacity 0.3s ease-in-out",
+          pointerEvents: isOpen ? "auto" : "none",
+        }}
+        onClick={closeMenu}
+      />
 
       {/* Sidebar Menu */}
-      <nav ref={menuRef} style={{ position: "fixed", top: 0, left: 0, height: "100%", width: "250px", zIndex: 1000, transform: isOpen ? "translateX(0)" : "translateX(-100%)", transition: "transform 0.3s ease-in-out" }} aria-hidden={!isOpen}>
-        <div style={{ height: "100%", width: "100%", backgroundColor: "#fff", boxShadow: "2px 0 8px rgba(0,0,0,0.2)", padding: "20px"}}>
+      <nav
+        ref={menuRef}
+        style={{
+          position: "fixed",
+          top: 0,
+          left: 0,
+          height: "100%",
+          width: "250px",
+          zIndex: 1000,
+          transform: isOpen ? "translateX(0)" : "translateX(-100%)",
+          transition: "transform 0.3s ease-in-out",
+        }}
+        aria-hidden={!isOpen}
+      >
+        <div
+          style={{
+            height: "100%",
+            width: "100%",
+            backgroundColor: "#fff",
+            boxShadow: "2px 0 8px rgba(0,0,0,0.2)",
+            padding: "20px",
+          }}
+        >
           <h2 style={{ marginBottom: "20px" }}>Menu</h2>
           <ul style={{ listStyle: "none", padding: 0, margin: 0 }}>
             {menuItems.map((item, idx) => (
               <li
                 key={item.label + idx}
-                style={{ display: "block", padding: "10px 0", color: "#333", cursor: "pointer" }}
+                style={{
+                  display: "block",
+                  padding: "10px 0",
+                  color: "#333",
+                  cursor: "pointer",
+                }}
                 onClick={() => {
                   item.onClick?.();
                   closeMenu();
@@ -75,8 +125,9 @@ export default function ReusableSwipeMenu({ menuItems = [], main }: Props) {
       </nav>
 
       {/* Main Content */}
-      <main style={{ flex: 1, padding: "20px", marginLeft: "10px"}}>
+      <main style={{ flex: 1, padding: "20px", marginLeft: "10px" }}>
         {main()}
+      </main>
     </div>
   );
 }
