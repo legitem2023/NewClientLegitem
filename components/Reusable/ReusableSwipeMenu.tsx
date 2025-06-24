@@ -86,7 +86,7 @@ export default function ReusableSwipeMenu({ menuItems = [],menu ,main }: Props) 
           top: 0,
           left: 0,
           height: "100%",
-          width: "250px",
+          width: "100vw",
           zIndex: 1000,
           transform: isOpen ? "translateX(0) scaleX(1)" : "translateX(-100%) scaleX(0)",
           transition: "transform 0.3s ease-in-out",
@@ -95,28 +95,8 @@ export default function ReusableSwipeMenu({ menuItems = [],menu ,main }: Props) 
           boxSizing: "border-box",
           padding: "20px",
         }}
-        aria-hidden={!isOpen}
-      > 
+        aria-hidden={!isOpen}> 
         {menu()}
-        <ul style={{ listStyle: "none", padding: 0, margin: 0 }}>
-          {menuItems.map((item, idx) => (
-            <li
-              key={`${item.label}-${idx}`}
-              style={{
-                display: "block",
-                padding: "10px 0",
-                color: "#333",
-                cursor: "pointer",
-              }}
-              onClick={() => {
-                item.onClick?.();
-                closeMenu();
-              }}
-            >
-              {item.label}
-            </li>
-          ))}
-        </ul>
       </nav>
 
       {/* Main Content */}
