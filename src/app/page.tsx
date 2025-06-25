@@ -10,7 +10,7 @@ import AddressBook from 'components/Account/AddressBook';
 
 
 import Account from 'components/Account/Account'
-import Products from 'components/Products/Products';
+import ProductsTab from 'components/Products/ProductsTab';
 import News from 'components/News/News';
 import CartBody from 'components/Cart/CartBody';
 import PrivateMessages from 'components/PersonalMessages/PrivateMessages';
@@ -44,7 +44,7 @@ export default function Index() {
 
   const tabItems = [
     { name: 'Home', icon: 'ic:sharp-home', content: <Home /> },
-    { name: 'Products', icon: 'bi:tags-fill', content: <Products /> },
+    { name: 'Products', icon: 'bi:tags-fill', content: <ProductsTab/> },
     { name: 'News', icon: 'fa6-solid:newspaper', content: <News /> },
     { name: 'Crowd', icon: 'simple-icons:crowdsource', content: <PublicMessages/> },
     { name: 'Account', icon: 'mdi:badge-account-horizontal', content: <ReusableTabs tabs={tabItms}/> },
