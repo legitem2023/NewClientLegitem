@@ -11,7 +11,7 @@ import News from 'components/News/News';
 import CartBody from 'components/Cart/CartBody';
 import PrivateMessages from 'components/PersonalMessages/PrivateMessages';
 import PublicMessages from 'components/Crowd/Messages';
-import Home from 'components/Home/Home';
+import HomeTab from 'components/Home/HomeTab';
 import Loading from 'components/Partial/LoadingAnimation/Loading';
 import ReusableTabs from 'components/Reusable/ReusableTabs';
 import ReusableSwiperTabs from 'components/Layout/ReusableSwiperTabs';
@@ -37,7 +37,7 @@ export default function Index() {
   ];
 
   const tabItems = [
-    { name: 'Home', icon: 'ic:sharp-home', content: <Home /> },
+    { name: 'Home', icon: 'ic:sharp-home', content: <HomeTab/> },
     { name: 'Products', icon: 'bi:tags-fill', content: <ProductsTab /> },
     { name: 'News', icon: 'fa6-solid:newspaper', content: <News /> },
     { name: 'Crowd', icon: 'simple-icons:crowdsource', content: <PublicMessages /> },
