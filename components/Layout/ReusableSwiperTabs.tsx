@@ -50,7 +50,7 @@ export default function ReusableSwiperTabs({ tabs }) {
       {/* Tab Buttons */}
       <div className="Header">
       <div className="HeaderRight">
-        <div>
+        <div style={{padding:'5px'}}>
             <Image
               src="/image/Crowd.svg"
               alt="Logo"
