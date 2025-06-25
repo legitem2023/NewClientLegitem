@@ -86,7 +86,7 @@ export default function ReusableSwipeMenu({ menuItems = [],menu ,main }: Props) 
           top: 0,
           left: 0,
           height: "100%",
-          width: "100vw",
+          width: "250px",
           zIndex: 1000,
           transform: isOpen ? "translateX(0) scaleX(1)" : "translateX(-100%) scaleX(0)",
           transition: "transform 0.3s ease-in-out",
