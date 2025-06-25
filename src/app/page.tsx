@@ -15,7 +15,7 @@ import Home from 'components/Home/Home';
 import Loading from 'components/Partial/LoadingAnimation/Loading';
 import ReusableTabs from 'components/Reusable/ReusableTabs';
 import ReusableSwiperTabs from 'components/Layout/ReusableSwiperTabs';
-
+import Likes from 'components/Likes/Likes';
 export default function Index() { 
   const [isAuthorized, setIsAuthorized] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
@@ -31,7 +31,7 @@ export default function Index() {
   const tabItms = [
     { name: 'Address Book', icon: 'icomoon-free:address-book', content: <Account /> },
     { name: 'My Orders', icon: 'wpf:shopping-basket', content: <Order /> },
-    { name: 'Likes', icon: 'mdi:like', content: <News /> },
+    { name: 'Likes', icon: 'mdi:like', content: <Likes/> },
     { name: 'Messages', icon: 'typcn:messages', content: <PrivateMessages /> },
     { name: 'Logout', icon: 'ic:sharp-logout', content: <CartBody /> },
   ];
