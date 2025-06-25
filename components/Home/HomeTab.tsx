@@ -16,7 +16,7 @@ import Home from './Home'
 import ReusableSlideNames from 'components/Reusable/ReusableSlideNames';
 
 const HomeTab:React.FC = () => {
-
+const storeproductType = useSelector((state: any) => state.productTypeData.productTypeData);
   return (
      <ReusableMainLayout childA={()=>(<></>)} 
      childB={()=>(<Home/>
