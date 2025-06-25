@@ -34,6 +34,7 @@ export default function ReusableTabs({ tabs }) {
               borderRadius: '5px 5px 0px 0px',
               cursor: 'pointer',
               padding: '10px',
+              margin:'2px',
               display: 'flex',
               flexDirection: 'column',
               alignItems: 'center',
