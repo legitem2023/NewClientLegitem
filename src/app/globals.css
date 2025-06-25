@@ -2727,8 +2727,8 @@ flex:1;
   grid-column: 1 / span 2;
   display: grid;
   grid-template-columns: 3.5% 96.5%;
-  align-items:flex-start;
-  text-align:left;
+  align-items:center;
+  text-align:left!important;
   padding: 10px!important;
 }
 
