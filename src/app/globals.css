@@ -3081,6 +3081,7 @@ flex:1;
   /* display: none; */
   transform: scale(0);
   z-index:2;
+  box-sizing:border-box;
 }
 
 
