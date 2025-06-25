@@ -1725,6 +1725,9 @@ input[type='date']{
   grid-template-columns: 25% 25% 25% 25%;
   width: 100%;
   border-bottom: solid 1px #749e95;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
 }
 .FootCenter a{
   text-decoration: none;
