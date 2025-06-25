@@ -1694,7 +1694,7 @@ input[type='date']{
   width: 100%;
   padding:20px;
   border-bottom: solid 1px #749e95;
-
+  box-sizing: border-box!important;
 }
 .FootHeader{
   display: flex;
