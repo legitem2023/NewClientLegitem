@@ -53,7 +53,7 @@ export default function ReusableSwiperTabs({ tabs }) {
       swiperRef.current?.slideTo(defaultIndex);
     }
   }, [searchParams, tabs, activeTab]);
-
+console.log(activeTab,tabs.id,"tabs");
   useEffect(() => {
     setTimeout(() => {
       swiperRef.current?.updateAutoHeight();
