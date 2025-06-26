@@ -59,7 +59,12 @@ export default function ReusableSwiperTabs({ tabs }) {
   if (activeTab === null) return null;
 
   return (
-    <div style={{ position: 'absolute', width: '100%', fontFamily: 'Arial' }}>
+    <div style={{ position: 'absolute', 
+                  left: '0px',
+                  right: '0px',
+                  top:'0px',
+                  margin:'0px',
+                  width: '100%'}}>
       {/* Header */}
       <div className="Header">
         <div className="HeaderRight">
