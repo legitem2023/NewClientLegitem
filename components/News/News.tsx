@@ -6,7 +6,7 @@ import UniversalContainerItem from 'components/UI/UniversalContainerItem';
 import { READ_NEWS } from 'graphql/queries';
 import React, { useCallback, useMemo, useState } from 'react';
 import { imageSource } from 'utils/scripts';
-
+import ReusableLabel from 'components/Reusable/ReusableLabel';
 const News:React.FC = () => {
   const { data: News, loading: NewsLoading, error: NewsError } = useQuery(READ_NEWS);
   const [currentPage, setCurrentPage] = useState(1);
