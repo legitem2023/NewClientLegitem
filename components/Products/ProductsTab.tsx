@@ -17,7 +17,7 @@ const ProductsTab = () => {
        childB={()=>(<ReusableSwipeMenu menuItems={menu} 
                            menu={()=>(<Menu/>)} 
                            main={()=>(<Products/>)}/> )}
-       childA={()=>(<></>)}
+       childC={()=>(<></>)}
       />
     
   )
