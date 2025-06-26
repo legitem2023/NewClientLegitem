@@ -11,14 +11,14 @@ import Loading from 'components/Partial/LoadingAnimation/Loading'
 import { useQuery } from '@apollo/client'
 import { GET_CATEGORY } from 'graphql/queries'
 import { useSelector } from 'react-redux'
-import ReusableMainLayout from 'components/Layout/ReusableMainLayout'
+import ReusableFlexLayout from 'components/Layout/ReusableFlexLayout'
 import Home from './Home'
 import ReusableSlideNames from 'components/Reusable/ReusableSlideNames';
 
 const HomeTab:React.FC = () => {
 const storeproductType = useSelector((state: any) => state.productTypeData.productTypeData);
   return (
-     <ReusableMainLayout 
+     <ReusableFlexLayout 
      childA={()=>(<ReusableSlideNames data={storeproductType} />)} 
      childB={()=>(<Home/>)}
      childC={()=>(<ReusableSlideNames data={storeproductType} />)}/>
