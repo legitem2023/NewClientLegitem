@@ -81,7 +81,7 @@ export default function ReusableSwipeMenu({ menuItems = [],menu ,main }: Props) 
       <nav
         ref={menuRef}
         style={{
-          position: "fixed",
+          position: "absolute",
           top: 0,
           left: 0,
           height: "100%",
