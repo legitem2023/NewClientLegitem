@@ -46,7 +46,7 @@ export default function ReusableSwipeMenu({ menuItems = [],menu ,main }: Props) 
       <button
         onClick={toggleMenu}
         style={{
-          fontSize: "20px",
+          fontSize: "25px",
           cursor: "pointer",
           background: "none",
           zIndex: 1001,
