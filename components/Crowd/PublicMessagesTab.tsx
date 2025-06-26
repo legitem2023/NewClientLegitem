@@ -2,7 +2,7 @@
 'use client'
 import React from 'react'
 import Messages from './Messages'
-import ActiveUsers from './ActiveUsers'
+//import ActiveUsers from './ActiveUsers'
 import ReusableMainLayout from 'components/Layout/ReusableMainLayout'
 import { useSelector } from 'react-redux'
 import ReusableSwipeMenu from 'components/Reusable/ReusableSwipeMenu';
@@ -16,7 +16,7 @@ const PublicMessagesTab = () => {
     const SelectedReciever = useSelector((state:any)=> state.reciever.reciever);
     return (
         <ReusableSwipeMenu menuItems={menu} 
-                           menu={()=>(<ActiveUsers email={SelectedReciever}/>)} 
+                           menu={()=>(<></>)} 
                            main={()=>(<Messages/>)}/>
     )
 }
