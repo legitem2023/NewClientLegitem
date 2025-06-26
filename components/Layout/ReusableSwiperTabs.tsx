@@ -12,7 +12,7 @@ import 'swiper/css';
 import { GET_CATEGORY, READ_PRODUCT_TYPES } from 'graphql/queries';
 import React, { useState, useRef, useEffect } from 'react';
 import { useQuery } from '@apollo/client';
-import { useSearchParams } from 'next/navigation'; // ✅ Added for reading URL params
+import { useSearchParams, useRouter } from 'next/navigation'; // ✅ added
 
 export default function ReusableSwiperTabs({ tabs }) {
   const dispatch = useDispatch();
@@ -20,8 +20,9 @@ export default function ReusableSwiperTabs({ tabs }) {
   const drawerState = useSelector((state: any) => state.drawer.drawer);
   const allItems = useSelector((state: any) => state.suggestedItems.suggestedItems);
 
-  const searchParams = useSearchParams(); // ✅ Get query parameters
-  const tabIdFromUrl = searchParams.get('id'); // ✅ Extract `id` from URL
+  const searchParams = useSearchParams(); // ✅ get search params
+  const router = useRouter(); // ✅ get router
+  const tabIdFromUrl = searchParams.get('id'); // ✅ extract id from URL
 
   const sortEngine = (value: any) => {
     dispatch(setCategory(value));
@@ -37,11 +38,17 @@ export default function ReusableSwiperTabs({ tabs }) {
   if (prodType) dispatch(setProductTypeData(prodType.getProductTypes));
 
   const handleTabClick = (index) => {
+    const selectedTab = tabs[index];
+    if (selectedTab?.id) {
+      const url = new URL(window.location.href);
+      url.searchParams.set('id', selectedTab.id);
+      router.push(url.toString(), { scroll: false }); // ✅ update URL
+    }
+
     swiperRef.current?.slideTo(index);
     setActiveTab(index);
   };
 
-  // ✅ Set active tab based on URL `id` once tabs are available
   useEffect(() => {
     if (tabIdFromUrl && tabs && tabs.length > 0) {
       const indexFromId = tabs.findIndex((tab) => tab.id === tabIdFromUrl);
@@ -63,7 +70,7 @@ export default function ReusableSwiperTabs({ tabs }) {
       {/* Tab Buttons */}
       <div className="Header">
         <div className="HeaderRight">
-          <div style={{ padding: '5px' }}>
+          <div style={{padding:'5px'}}>
             <Image
               src="/image/Crowd.svg"
               alt="Logo"
@@ -75,10 +82,14 @@ export default function ReusableSwiperTabs({ tabs }) {
               }}
             />
           </div>
+          <div></div>
         </div>
         <div className="HeaderLeft">
           <div className="Navigation">
-            <div className="HeaderNav" style={{ display: 'flex', justifyContent: 'space-around' }}>
+            <div className="HeaderNav" style={{
+              display: 'flex',
+              justifyContent: 'space-around'
+            }}>
               {tabs.map((tab, index) => (
                 <nav
                   key={index}
@@ -88,21 +99,22 @@ export default function ReusableSwiperTabs({ tabs }) {
                     display: 'flex',
                     flexDirection: 'column',
                     alignItems: 'left',
-                    width: '100%',
-                    margin: '0px',
-                    minHeight: '40px',
-                    height: 'auto',
+                    width:'100%',
+                    margin:'0px',
+                    minHeight:'40px',
+                    height:'auto',
                     backgroundColor: activeTab === index ? '#572700' : 'transparent'
                   }}
                 >
-                  <Icon icon={tab.icon} style={{ color: activeTab === index ? '#ffffff' : '#572700' }} />
+                  <Icon icon={tab.icon} style={{
+                      color:activeTab === index ? '#ffffff' : '#572700',
+                  }} />
                 </nav>
               ))}
             </div>
           </div>
         </div>
       </div>
-
       {/* Swiper Slides */}
       <Swiper
         onSwiper={(swiper) => (swiperRef.current = swiper)}
@@ -115,11 +127,11 @@ export default function ReusableSwiperTabs({ tabs }) {
       >
         {tabs.map((tab, index) => (
           <SwiperSlide key={index}>
-            {tab.content}
+              {tab.content} 
           </SwiperSlide>
         ))}
       </Swiper>
-      <PageFooter />
+     <PageFooter/>
     </div>
   );
 }
