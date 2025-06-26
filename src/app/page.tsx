@@ -75,7 +75,7 @@ export default function Index() {
  
   return (
     <Suspense fallback={<Loading />}>
-      <ReusableSwiperTabs tabs={tabItems} />
+      <ReusableSwiperTabs tabs={usetab} />
     </Suspense>
   );
 }
