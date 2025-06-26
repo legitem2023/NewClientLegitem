@@ -1,4 +1,13 @@
 @media only screen and (max-width : 1080px) {
+   .FlexContainer {
+     flex-direction: row; /* default: horizontal */
+   }
+
+    .FlexContainer > * {
+      flex: 0 0 auto; /* let items take natural height */
+       width: 100%;    /* full width on mobile */
+    }
+    
     body {
         overflow: hidden;
     }
