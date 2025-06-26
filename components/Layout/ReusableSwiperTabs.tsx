@@ -12,7 +12,7 @@ import 'swiper/css';
 import { GET_CATEGORY, READ_PRODUCT_TYPES } from 'graphql/queries';
 import React, { useState, useRef, useEffect } from 'react';
 import { useQuery } from '@apollo/client';
-import { useSearchParams, useRouter } from 'next/navigation'; // ✅ added
+import { useSearchParams, useRouter } from 'next/navigation';
 
 export default function ReusableSwiperTabs({ tabs }) {
   const dispatch = useDispatch();
@@ -20,29 +20,24 @@ export default function ReusableSwiperTabs({ tabs }) {
   const drawerState = useSelector((state: any) => state.drawer.drawer);
   const allItems = useSelector((state: any) => state.suggestedItems.suggestedItems);
 
-  const searchParams = useSearchParams(); // ✅ get search params
-  const router = useRouter(); // ✅ get router
-  const tabIdFromUrl = searchParams.get('id'); // ✅ extract id from URL
+  const searchParams = useSearchParams();
+  const router = useRouter();
 
-  const sortEngine = (value: any) => {
-    dispatch(setCategory(value));
-  };
-
-  const [activeTab, setActiveTab] = useState(0);
+  const [activeTab, setActiveTab] = useState<number | null>(null); // ✅ null initially
   const swiperRef = useRef<any>(null);
 
-  const { data: cat, loading: catload } = useQuery(GET_CATEGORY);
-  const { data: prodType, loading: prodTypeload } = useQuery(READ_PRODUCT_TYPES);
+  const { data: cat } = useQuery(GET_CATEGORY);
+  const { data: prodType } = useQuery(READ_PRODUCT_TYPES);
 
   if (cat) dispatch(setCategoryData(cat.getCategory));
   if (prodType) dispatch(setProductTypeData(prodType.getProductTypes));
 
-  const handleTabClick = (index) => {
+  const handleTabClick = (index: number) => {
     const selectedTab = tabs[index];
     if (selectedTab?.id) {
       const url = new URL(window.location.href);
       url.searchParams.set('id', selectedTab.id);
-      router.push(url.toString(), { scroll: false }); // ✅ update URL
+      router.push(url.toString(), { scroll: false });
     }
 
     swiperRef.current?.slideTo(index);
@@ -50,20 +45,22 @@ export default function ReusableSwiperTabs({ tabs }) {
   };
 
   useEffect(() => {
-    if (tabIdFromUrl && tabs && tabs.length > 0) {
+    if (activeTab === null && tabs.length > 0) {
+      const tabIdFromUrl = searchParams.get('id');
       const indexFromId = tabs.findIndex((tab) => tab.id === tabIdFromUrl);
-      if (indexFromId !== -1) {
-        setActiveTab(indexFromId);
-        swiperRef.current?.slideTo(indexFromId);
-      }
+      const defaultIndex = indexFromId !== -1 ? indexFromId : 0;
+      setActiveTab(defaultIndex);
+      swiperRef.current?.slideTo(defaultIndex);
     }
-  }, [tabIdFromUrl, tabs]);
+  }, [searchParams, tabs, activeTab]);
 
   useEffect(() => {
     setTimeout(() => {
       swiperRef.current?.updateAutoHeight();
     }, 50);
   }, [activeTab]);
+
+  if (activeTab === null) return null; // ✅ wait until tab is determined
 
   return (
     <div style={{ left: '0px', right: '0px', margin: 'auto', position: 'absolute', width: '100%', fontFamily: 'Arial' }}>
