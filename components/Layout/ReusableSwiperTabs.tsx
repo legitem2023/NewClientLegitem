@@ -12,24 +12,27 @@ import 'swiper/css';
 import { GET_CATEGORY, READ_PRODUCT_TYPES } from 'graphql/queries';
 import React, { useState, useRef, useEffect } from 'react';
 import { useQuery } from '@apollo/client';
+import { useSearchParams } from 'next/navigation'; // ✅ Added for reading URL params
+
 export default function ReusableSwiperTabs({ tabs }) {
   const dispatch = useDispatch();
   const cookie = useSelector((state: any) => state.cookie.cookie);
   const drawerState = useSelector((state: any) => state.drawer.drawer);
   const allItems = useSelector((state: any) => state.suggestedItems.suggestedItems);
 
+  const searchParams = useSearchParams(); // ✅ Get query parameters
+  const tabIdFromUrl = searchParams.get('id'); // ✅ Extract `id` from URL
+
   const sortEngine = (value: any) => {
     dispatch(setCategory(value));
   };
 
-  
   const [activeTab, setActiveTab] = useState(0);
   const swiperRef = useRef<any>(null);
 
   const { data: cat, loading: catload } = useQuery(GET_CATEGORY);
   const { data: prodType, loading: prodTypeload } = useQuery(READ_PRODUCT_TYPES);
 
-  //if (catload) return <Loading />;
   if (cat) dispatch(setCategoryData(cat.getCategory));
   if (prodType) dispatch(setProductTypeData(prodType.getProductTypes));
 
@@ -38,65 +41,68 @@ export default function ReusableSwiperTabs({ tabs }) {
     setActiveTab(index);
   };
 
-  // Ensure Swiper updates height on tab change or content change
+  // ✅ Set active tab based on URL `id` once tabs are available
+  useEffect(() => {
+    if (tabIdFromUrl && tabs && tabs.length > 0) {
+      const indexFromId = tabs.findIndex((tab) => tab.id === tabIdFromUrl);
+      if (indexFromId !== -1) {
+        setActiveTab(indexFromId);
+        swiperRef.current?.slideTo(indexFromId);
+      }
+    }
+  }, [tabIdFromUrl, tabs]);
+
   useEffect(() => {
     setTimeout(() => {
       swiperRef.current?.updateAutoHeight();
-    }, 50); // Delay needed to allow DOM to update
+    }, 50);
   }, [activeTab]);
 
   return (
     <div style={{ left: '0px', right: '0px', margin: 'auto', position: 'absolute', width: '100%', fontFamily: 'Arial' }}>
       {/* Tab Buttons */}
       <div className="Header">
-      <div className="HeaderRight">
-        <div style={{padding:'5px'}}>
+        <div className="HeaderRight">
+          <div style={{ padding: '5px' }}>
             <Image
               src="/image/Crowd.svg"
               alt="Logo"
               width={874}
               height={373}
               className='Logo'
-              
               onError={(e) => {
                 console.error('Image failed to load', e);
               }}
             />
           </div>
-        <div>
+        </div>
+        <div className="HeaderLeft">
+          <div className="Navigation">
+            <div className="HeaderNav" style={{ display: 'flex', justifyContent: 'space-around' }}>
+              {tabs.map((tab, index) => (
+                <nav
+                  key={index}
+                  onClick={() => handleTabClick(index)}
+                  style={{
+                    cursor: 'pointer',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'left',
+                    width: '100%',
+                    margin: '0px',
+                    minHeight: '40px',
+                    height: 'auto',
+                    backgroundColor: activeTab === index ? '#572700' : 'transparent'
+                  }}
+                >
+                  <Icon icon={tab.icon} style={{ color: activeTab === index ? '#ffffff' : '#572700' }} />
+                </nav>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
-      <div className="HeaderLeft">
-        <div className="Navigation">
-      <div className="HeaderNav" style={{
-        display: 'flex',
-        justifyContent: 'space-around'
-      }}>
-        {tabs.map((tab, index) => (
-          <nav
-            key={index}
-            onClick={() => handleTabClick(index)}
-            style={{
-              cursor: 'pointer',
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'left',
-              width:'100%',
-              margin:'0px',
-              minHeight:'40px',
-              height:'auto',
-              backgroundColor: activeTab === index ? '#572700' : 'transparent'
-            }}
-          >
-            <Icon icon={tab.icon} style={{
-                color:activeTab === index ? '#ffffff' : '#572700',
-            }} />
-          </nav>
-        ))}
-      </div>
-        </div>
-    </div>
-    </div>
+
       {/* Swiper Slides */}
       <Swiper
         onSwiper={(swiper) => (swiperRef.current = swiper)}
@@ -109,11 +115,11 @@ export default function ReusableSwiperTabs({ tabs }) {
       >
         {tabs.map((tab, index) => (
           <SwiperSlide key={index}>
-              {tab.content} 
+            {tab.content}
           </SwiperSlide>
         ))}
       </Swiper>
-     <PageFooter/>
+      <PageFooter />
     </div>
   );
 }
