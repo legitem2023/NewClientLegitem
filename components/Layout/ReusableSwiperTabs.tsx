@@ -1,5 +1,6 @@
 'use client';
 import Image from 'next/image';
+import InstallPWAButton from '../Partial/InstallationApp/InstallPWAButton';
 import PageFooter from '../Partial/Footer/PageFooter';
 import { Icon } from '@iconify/react';
 import { useDispatch } from 'react-redux';
@@ -59,6 +60,8 @@ export default function ReusableSwiperTabs({ tabs }) {
   if (activeTab === null) return null;
 
   return (
+    <>
+    <InstallPWAButton/>
     <div style={{ position: 'absolute', 
                   left: '0px',
                   right: '0px',
@@ -123,5 +126,6 @@ export default function ReusableSwiperTabs({ tabs }) {
 
       <PageFooter />
     </div>
+    </>
   );
 }
