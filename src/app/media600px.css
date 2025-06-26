@@ -3,9 +3,17 @@
      flex-direction: column; /* default: horizontal */
    }
 
-    .FlexContainer > * {
-      flex: 0 0 auto; /* let items take natural height */
-    }
+  .LeftContainer{
+     width:100%;
+   }
+
+  .CentralContainer {
+     width:100%;
+  }
+
+  .RightContainer {
+    width:100%;
+  }
     
     
     /* .Main {
