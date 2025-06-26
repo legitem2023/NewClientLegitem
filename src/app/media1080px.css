@@ -2,11 +2,18 @@
    .FlexContainer {
      flex-direction: column; /* default: horizontal */
    }
+   
+  .LeftContainer{
+     width:100%;
+   }
 
-    .FlexContainer > * {
-      flex: 0 0 auto; /* let items take natural height */
-       width: 100%;    /* full width on mobile */
-    }
+  .CentralContainer {
+     width:100%;
+  }
+
+  .RightContainer {
+    width:100%;
+  }
     
     body {
         overflow: hidden;
