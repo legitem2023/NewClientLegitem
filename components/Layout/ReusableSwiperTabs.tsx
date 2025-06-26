@@ -45,15 +45,16 @@ export default function ReusableSwiperTabs({ tabs }) {
   };
 
   useEffect(() => {
-    if (activeTab === null && tabs.length > 0) {
-      const tabIdFromUrl = searchParams.get('id');
-      const indexFromId = tabs.findIndex((tab) => tab.id === tabIdFromUrl);
-      const defaultIndex = indexFromId !== -1 ? indexFromId : 0;
-      setActiveTab(defaultIndex);
-      swiperRef.current?.slideTo(defaultIndex);
+    if (typeof window !== "undefined") {
+      const params = new URLSearchParams(window.location.search);
+      const tabId = parseInt(params.get("id") || "0", 10); 
+      setActiveTab(tabId);
+      if (swiperRef.current && swiperRef.current.slideTo) {
+          swiperRef.current.slideTo(tabId);
+        };
     }
-  }, [searchParams, tabs, activeTab]);
-console.log(activeTab,tabs.id,"tabs");
+  }, [tabs]);
+//console.log(activeTab,tabs.id,"tabs");
   useEffect(() => {
     setTimeout(() => {
       swiperRef.current?.updateAutoHeight();
