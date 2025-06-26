@@ -16,8 +16,11 @@ import Loading from 'components/Partial/LoadingAnimation/Loading';
 import ReusableTabs from 'components/Reusable/ReusableTabs';
 import ReusableSwiperTabs from 'components/Layout/ReusableSwiperTabs';
 import LikesTab from 'components/Likes/LikesTab';
+
+import LoginTab from 'components/Login/LoginTab';
 export default function Index() { 
   const [isAuthorized, setIsAuthorized] = useState(false);
+  const [usetab,setTab]= useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const router = useRouter();
 
@@ -36,6 +39,24 @@ export default function Index() {
     { name: 'Logout', icon: 'ic:sharp-logout', content: <CartBody /> },
   ];
 
+  
+  const cookieState = useSelector((state: any) => state.cookie.cookie);
+  console.log(cookieState);
+
+  useEffect(() => {
+    const cookie = cookies();
+    if (!cookie) {
+      //router.push('/Login');
+  const tabItems = [
+    {id: 0, name: 'Home', icon: 'ic:sharp-home', content: <HomeTab/> },
+    {id: 1, name: 'Products', icon: 'bi:tags-fill', content: <ProductsTab /> },
+    {id: 2, name: 'News', icon: 'fa6-solid:newspaper', content: <NewsTab /> },
+    {id: 3, name: 'Crowd', icon: 'simple-icons:crowdsource', content: <LoginTab /> },
+    {id: 4, name: 'Account', icon: 'mdi:badge-account-horizontal', content: <LoginTab/> },
+    {id: 5, name: 'Cart', icon: 'mdi:cart', content: <LoginTab /> },
+  ];
+      setTab(tabItems);
+    } else {
   const tabItems = [
     {id: 0, name: 'Home', icon: 'ic:sharp-home', content: <HomeTab/> },
     {id: 1, name: 'Products', icon: 'bi:tags-fill', content: <ProductsTab /> },
@@ -44,15 +65,7 @@ export default function Index() {
     {id: 4, name: 'Account', icon: 'mdi:badge-account-horizontal', content: <ReusableTabs tabs={tabItms} /> },
     {id: 5, name: 'Cart', icon: 'mdi:cart', content: <CartBody /> },
   ];
-
-  const cookieState = useSelector((state: any) => state.cookie.cookie);
-  console.log(cookieState);
-
-  useEffect(() => {
-    const cookie = cookies();
-    if (!cookie) {
-      router.push('/Login');
-    } else {
+      setTab(tabItems);
       setIsAuthorized(true);
     }
     setIsLoading(false);
