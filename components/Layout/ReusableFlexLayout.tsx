@@ -6,7 +6,7 @@ import { useSelector } from 'react-redux';
 const ReusableFlexLayout:FC<ReusableMainLayoutProps> = ({childA,childB,childC}) => {
     const drawerState = useSelector((state:any)=> state.drawer.drawer)
     return (
-    <div className=''>
+    <div className='FlexContainer'>
       <div className="LeftContainer">
         {childA()}
       </div>
