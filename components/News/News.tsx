@@ -34,7 +34,7 @@ const News:React.FC = () => {
   if (NewsError) return <div>Connection Error</div>;
 
   return (
-    <div style={{ overflowY: 'auto', height: 'auto', scrollbarWidth: 'none' }}>
+    <div style={{ height: 'auto', scrollbarWidth: 'none' }}>
      <ReusableLabel icn='bi:tags-fill' label='News'/>
       <div className='LikeContainer'>  
       {paginatedNews.length > 0?paginatedNews?.map((item: any, idx: number) => (
