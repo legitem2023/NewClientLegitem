@@ -1,6 +1,28 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.FlexContainer {
+  display: flex;
+  flex-direction: row; /* default: horizontal */
+  background-color: rgb(255 246 229);
+  width: 100%;
+  position: relative;
+}
+
+.FlexContainer > *:nth-child(1) {
+  flex: 0 0 20%;
+}
+
+.FlexContainer > *:nth-child(2) {
+  flex: 0 0 60%;
+}
+
+.FlexContainer > *:nth-child(3) {
+  flex: 0 0 20%;
+}
+
+
 /* Active navigation buttons */
 .swiper-button-next,
 .swiper-button-prev {
