@@ -7,13 +7,13 @@ const ReusableFlexLayout:FC<ReusableMainLayoutProps> = ({childA,childB,childC}) 
     const drawerState = useSelector((state:any)=> state.drawer.drawer)
     return (
     <div className='FlexContainer'>
-      <div className="LeftContainer">
+      <div className="LeftContainer" style={{position:'relative'}}>
         {childA()}
       </div>
-      <div className='CentralContainer'>
+      <div className='CentralContainer' style={{position:'relative'}}>
         {childB()}
       </div>
-      <div className='RightContainer'>
+      <div className='RightContainer' style={{position:'relative'}}>
         {childC()}
       </div>
     </div>
