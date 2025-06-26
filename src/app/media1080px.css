@@ -1,6 +1,6 @@
 @media only screen and (max-width : 1080px) {
    .FlexContainer {
-     flex-direction: row; /* default: horizontal */
+     flex-direction: column; /* default: horizontal */
    }
 
     .FlexContainer > * {
