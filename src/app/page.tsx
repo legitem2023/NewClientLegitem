@@ -10,7 +10,7 @@ import ProductsTab from 'components/Products/ProductsTab';
 import NewsTab from 'components/News/NewsTab';
 import CartBody from 'components/Cart/CartBody';
 import PrivateMessages from 'components/PersonalMessages/PrivateMessages';
-import PublicMessages from 'components/Crowd/Messages';
+import PublicMessages from 'components/Crowd/PublicMessagesTab';
 import HomeTab from 'components/Home/HomeTab';
 import Loading from 'components/Partial/LoadingAnimation/Loading';
 import ReusableTabs from 'components/Reusable/ReusableTabs';
