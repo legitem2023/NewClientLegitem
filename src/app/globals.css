@@ -10,16 +10,16 @@
   position: relative;
 }
 
-.FlexContainer > *:nth-child(1) {
-  flex: 0 0 20%;
+.LeftContainer {
+  width:20%;
 }
 
-.FlexContainer > *:nth-child(2) {
-  flex: 0 0 60%;
+.CentralContainer {
+  width:60%;
 }
 
-.FlexContainer > *:nth-child(3) {
-  flex: 0 0 20%;
+.RightContainer {
+  width:20%;
 }
 
 
