@@ -7,7 +7,7 @@ import { cookies } from 'components/cookies/cookie';
 import Account from 'components/Account/Account';
 import Order from 'components/Order/Order';
 import ProductsTab from 'components/Products/ProductsTab';
-import News from 'components/News/News';
+import NewsTab from 'components/News/NewsTab';
 import CartBody from 'components/Cart/CartBody';
 import PrivateMessages from 'components/PersonalMessages/PrivateMessages';
 import PublicMessages from 'components/Crowd/Messages';
@@ -39,7 +39,7 @@ export default function Index() {
   const tabItems = [
     {id:0,name: 'Home', icon: 'ic:sharp-home', content: <HomeTab/> },
     {id:1,name: 'Products', icon: 'bi:tags-fill', content: <ProductsTab /> },
-    {id:2,name: 'News', icon: 'fa6-solid:newspaper', content: <News /> },
+    {id:2,name: 'News', icon: 'fa6-solid:newspaper', content: <NewsTab /> },
     {id:3,name: 'Crowd', icon: 'simple-icons:crowdsource', content: <PublicMessages /> },
     {id:4,name: 'Account', icon: 'mdi:badge-account-horizontal', content: <ReusableTabs tabs={tabItms} /> },
     {id:5,name: 'Cart', icon: 'mdi:cart', content: <CartBody /> },
