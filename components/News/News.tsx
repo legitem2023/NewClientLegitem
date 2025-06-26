@@ -35,7 +35,8 @@ const News:React.FC = () => {
 
   return (
     <div style={{ overflowY: 'auto', height: 'auto', scrollbarWidth: 'none' }}>
-     <div className='LikeContainer'>  
+     <ReusableLabel icn='bi:tags-fill' label='News'/>
+      <div className='LikeContainer'>  
       {paginatedNews.length > 0?paginatedNews?.map((item: any, idx: number) => (
         <UniversalContainerItem key={idx} title={item.title} thumbnail={imageSource(item.thumbnail)} summary={item.summary} dateCreated={item.dateCreated} index={idx}/>
       )):(<h1>No Data</h1>)}
