@@ -33,7 +33,7 @@ export default function ReusableSwiperTabs({ tabs }) {
 
   // Set initial active tab from URL
   useEffect(() => {
-    const tabId = parseInt(searchParams.get("id") || "0", 10);
+    const tabId = parseInt(searchParams.get("TabA") || "0", 10);
     setActiveTab(tabId);
     swiperRef.current?.slideTo(tabId);
   }, [searchParams, tabs]);
@@ -50,7 +50,7 @@ export default function ReusableSwiperTabs({ tabs }) {
     const selectedTab = tabs[index];
     if (selectedTab?.id) {
       const url = new URL(window.location.href);
-      url.searchParams.set('id', selectedTab.id);
+      url.searchParams.set('TabA', selectedTab.id);
       router.replace(url.toString(), { scroll: false });
     }
     swiperRef.current?.slideTo(index);
