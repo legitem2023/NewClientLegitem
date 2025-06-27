@@ -118,7 +118,7 @@ export default function ReusableSwiperTabs({ tabs }) {
       {/* Swiper Content */}
       <Swiper
         onSwiper={(swiper) => (swiperRef.current = swiper)}
-        onSlideChange={(swiper) => setActiveTab(swiper.activeIndex)}
+        onSlideChange={(swiper) => dispatch(setTabValue({ tab: 'TabA', value: swiper.activeIndex }))}
         modules={[Navigation]}
         allowTouchMove={false}
         initialSlide={tabAValue}
