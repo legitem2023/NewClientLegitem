@@ -33,6 +33,7 @@ export default function ReusableSwiperTabs({ tabs }: Props) {
   const swiperRef = useRef<any>(null);
 
   const tabAValue = useSelector((state: any) => state.tabs.TabA);
+  const tabCValue = useSelector((state: any) => state.tabs.TabC);
 
   const { data: cat } = useQuery(GET_CATEGORY);
   const { data: prodType } = useQuery(READ_PRODUCT_TYPES);
@@ -117,10 +118,10 @@ export default function ReusableSwiperTabs({ tabs }: Props) {
       </div>
 <Swiper
     direction='vertical'
-    onSwiper={(swiper) => (swiperRef.current = swiper)}
+    onSwiper={(swiper) => (swiperRef.current = tabCValue)}
     modules={[Navigation]}
     allowTouchMove={true}
-    initialSlide={tabAValue}
+    initialSlide={tabCValue}
     loop={false}
     autoHeight
     style={{ width: '100%' }}
