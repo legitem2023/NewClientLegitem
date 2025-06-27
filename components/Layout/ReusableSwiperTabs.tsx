@@ -30,7 +30,9 @@ export default function ReusableSwiperTabs({ tabs }: Props) {
   const dispatch = useDispatch();
   const searchParams = useSearchParams();
   const router = useRouter();
-  const swiperRef = useRef<any>(null);
+
+  const parentSwiperRef = useRef<any>(null); // For vertical swiper
+  const childSwiperRef = useRef<any>(null);  // For horizontal swiper
 
   const tabAValue = useSelector((state: any) => state.tabs.TabA);
   const tabCValue = useSelector((state: any) => state.tabs.TabC);
@@ -43,18 +45,19 @@ export default function ReusableSwiperTabs({ tabs }: Props) {
     if (prodType) dispatch(setProductTypeData(prodType.getProductTypes));
   }, [cat, prodType, dispatch]);
 
+  // Sync tabA with URL
   useEffect(() => {
     const tabId = parseInt(searchParams.get('TabA') || '0', 10);
     dispatch(setTabValue({ tab: 'TabA', value: tabId }));
-    swiperRef.current?.slideTo(tabAValue);
-  }, [searchParams, tabs, tabAValue]);
+    childSwiperRef.current?.slideTo(tabId);
+  }, [searchParams, dispatch]);
 
+  // Sync vertical parent swiper with tabC
   useEffect(() => {
-    const timer = setTimeout(() => {
-      swiperRef.current?.updateAutoHeight();
-    }, 50);
-    return () => clearTimeout(timer);
-  }, [tabAValue]);
+    if (parentSwiperRef.current) {
+      parentSwiperRef.current.slideTo(tabCValue);
+    }
+  }, [tabCValue]);
 
   const handleTabClick = (index: number) => {
     const selectedTab = tabs[index];
@@ -62,7 +65,7 @@ export default function ReusableSwiperTabs({ tabs }: Props) {
       const url = new URL(window.location.href);
       url.searchParams.set('TabA', selectedTab.id.toString());
       router.replace(url.toString(), { scroll: false });
-      swiperRef.current?.slideTo(selectedTab.id);
+      childSwiperRef.current?.slideTo(selectedTab.id);
       dispatch(setTabValue({ tab: 'TabA', value: selectedTab.id }));
     }
   };
@@ -116,37 +119,46 @@ export default function ReusableSwiperTabs({ tabs }: Props) {
           </div>
         </div>
       </div>
-<Swiper
-    direction='vertical'
-    onSwiper={(swiper) => (swiperRef.current = 0)}
-    modules={[Navigation]}
-    allowTouchMove={true}
-    initialSlide={0}
-    loop={false}
-    autoHeight
-    style={{ width: '100%' }}
-  >
-  <SwiperSlide>
-        <Swiper
-        onSwiper={(swiper) => (swiperRef.current = swiper)}
-        onSlideChange={(swiper) => dispatch(setTabValue({ tab: 'TabA', value: swiper.activeIndex }))}
+
+      {/* Parent vertical swiper */}
+      <Swiper
+        direction="vertical"
+        onSwiper={(swiper) => (parentSwiperRef.current = swiper)}
         modules={[Navigation]}
-        allowTouchMove={false}
-        initialSlide={tabAValue}
+        allowTouchMove={true}
+        initialSlide={0}
         loop={false}
         autoHeight
-        style={{ width: '100%' }}
+        style={{ width: '100%'}}
       >
-        {tabs.map((tab, index) => (
-          <SwiperSlide key={index}>{tab.content}</SwiperSlide>
-        ))}
-      </Swiper>
-  </SwiperSlide>
-  <SwiperSlide></SwiperSlide>
-</Swiper>
+        {/* Slide 0: contains horizontal swiper */}
+        <SwiperSlide>
+          <Swiper
+            onSwiper={(swiper) => (childSwiperRef.current = swiper)}
+            onSlideChange={(swiper) => dispatch(setTabValue({ tab: 'TabA', value: swiper.activeIndex }))}
+            modules={[Navigation]}
+            allowTouchMove={false}
+            initialSlide={tabAValue}
+            loop={false}
+            autoHeight
+            style={{ width: '100%' }}
+          >
+            {tabs.map((tab, index) => (
+              <SwiperSlide key={index}>{tab.content}</SwiperSlide>
+            ))}
+          </Swiper>
+        </SwiperSlide>
 
+        {/* Slide 1: anything else */}
+        <SwiperSlide>
+          <div style={{ padding: '2rem', background: '#fafafa', minHeight: '100vh' }}>
+            <h2>This is Slide 1 (TabC = 1)</h2>
+            <p>Other vertical content here...</p>
+          </div>
+        </SwiperSlide>
+      </Swiper>
 
       <PageFooter />
     </div>
   );
-}
+      }
