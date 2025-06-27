@@ -126,14 +126,14 @@ export default function ReusableSwiperTabs({ tabs,tabsB }: Props) {
         direction="vertical"
         onSwiper={(swiper) => (parentSwiperRef.current = swiper)}
         modules={[Navigation]}
-        allowTouchMove={true}
+        allowTouchMove={false}
         initialSlide={0}
         loop={false}
         autoHeight
         style={{ width: '100%'}}
       >
         {/* Slide 0: contains horizontal swiper */}
-        <SwiperSlide>
+        <SwiperSlide style={{height:'auto'}}>
           <Swiper
             onSwiper={(swiper) => (childSwiperRef.current = swiper)}
             onSlideChange={(swiper) => dispatch(setTabValue({ tab: 'TabA', value: swiper.activeIndex }))}
