@@ -21,7 +21,7 @@ export default function ReusableSwiperTabs({ tabs }) {
   const searchParams = useSearchParams();
   const router = useRouter();
   const tabAValue = useSelector((state:any) => state.tabs.TabA);
-  const [activeTab, setActiveTab] = useState<number | null>(null);
+  //const [activeTab, setActiveTab] = useState<number | null>(null);
   const swiperRef = useRef<any>(null);
 
   const { data: cat } = useQuery(GET_CATEGORY);
@@ -36,7 +36,7 @@ export default function ReusableSwiperTabs({ tabs }) {
   // Set initial active tab from URL
   useEffect(() => {
     const tabId = parseInt(searchParams.get("TabA") || "0", 10);
-    setActiveTab(tabId);
+    //setActiveTab(tabId);
     dispatch(setTabValue({ tab: 'TabA', value: tabId }));
     swiperRef.current?.slideTo(tabId);
   }, [searchParams, tabs]);
@@ -47,7 +47,7 @@ export default function ReusableSwiperTabs({ tabs }) {
       swiperRef.current?.updateAutoHeight();
     }, 50);
     return () => clearTimeout(timer);
-  }, [activeTab]);
+  }, [tabAValue]);
 
   const handleTabClick = (index: number) => {
     const selectedTab = tabs[index];
@@ -57,7 +57,7 @@ export default function ReusableSwiperTabs({ tabs }) {
       router.replace(url.toString(), { scroll: false });
     }
     swiperRef.current?.slideTo(selectedTab.id);
-    setActiveTab(index);
+    //setActiveTab(index);
     dispatch(setTabValue({ tab: 'TabA', value: selectedTab.id }));
   };
 
@@ -102,7 +102,7 @@ export default function ReusableSwiperTabs({ tabs }) {
                     flexDirection: 'column',
                     width: '100%',
                     minHeight: '40px',
-                    backgroundColor: activeTab === index ? '#572700' : 'transparent'
+                    backgroundColor: tabAValue === index ? '#572700' : 'transparent'
                   }}
                 >
                   <Icon icon={tab.icon} style={{
