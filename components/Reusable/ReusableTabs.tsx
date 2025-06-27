@@ -14,9 +14,9 @@ export default function ReusableTabs({ tabs }) {
 
   const handleTabClick = (index) => {
     const selectedTab = tabs[index];
-    if (selectedTab?.id) {
+    if (selectedTab?.TabB) {
       const url = new URL(window.location.href);
-      url.searchParams.set('id', selectedTab.id);
+      url.searchParams.set('TabB', selectedTab.id);
       router.replace(url.toString(), { scroll: false });
     }
     swiperRef.current?.slideTo(index);
@@ -24,7 +24,7 @@ export default function ReusableTabs({ tabs }) {
   };
 
   useEffect(() => {
-    const tabIdFromParam = parseInt(searchParams.get("id") || "0", 10);
+    const tabIdFromParam = parseInt(searchParams.get("TabB") || "0", 10);
     if (!isNaN(tabIdFromParam) && tabIdFromParam >= 0 && tabIdFromParam < tabs.length) {
       setActiveTab(tabIdFromParam);
       swiperRef.current?.slideTo(tabIdFromParam);
