@@ -115,8 +115,18 @@ export default function ReusableSwiperTabs({ tabs }: Props) {
           </div>
         </div>
       </div>
-
-      <Swiper
+<Swiper
+    direction='vertical'
+    onSwiper={(swiper) => (swiperRef.current = swiper)}
+    modules={[Navigation]}
+    allowTouchMove={true}
+    initialSlide={tabAValue}
+    loop={false}
+    autoHeight
+    style={{ width: '100%' }}
+  >
+  <SwiperSlide>
+        <Swiper
         onSwiper={(swiper) => (swiperRef.current = swiper)}
         onSlideChange={(swiper) => dispatch(setTabValue({ tab: 'TabA', value: swiper.activeIndex }))}
         modules={[Navigation]}
@@ -130,6 +140,10 @@ export default function ReusableSwiperTabs({ tabs }: Props) {
           <SwiperSlide key={index}>{tab.content}</SwiperSlide>
         ))}
       </Swiper>
+  </SwiperSlide>
+  <SwiperSlide></SwiperSlide>
+</Swiper>
+
 
       <PageFooter />
     </div>
