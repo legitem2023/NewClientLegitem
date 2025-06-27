@@ -112,20 +112,6 @@ export default function ReusableSwiperTabs({ tabs, tabsB }: Props) {
                   />
                 </nav>
               ))}
-              {/* Optional button to go to tabsB */}
-              <nav
-                onClick={handleGoToTabsB}
-                style={{
-                  cursor: 'pointer',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  width: '100%',
-                  minHeight: '40px',
-                  backgroundColor: tabAValue === tabs.length ? '#572700' : 'transparent',
-                }}
-              >
-                <Icon icon="tabler:switch-vertical" style={{ color: '#572700' }} />
-              </nav>
             </div>
           </div>
         </div>
