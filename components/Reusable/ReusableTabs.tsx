@@ -14,7 +14,7 @@ export default function ReusableTabs({ tabs }) {
   };
 
   return (
-    <div style={{ width: '100%', height: '100%' }}>
+    <div style={{ width: '100%',minHeight:'100vh', height: auto' }}>
       {/* Tab Buttons */}
       <div style={{
         display: 'flex',
