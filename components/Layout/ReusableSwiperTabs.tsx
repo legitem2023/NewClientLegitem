@@ -126,7 +126,7 @@ export default function ReusableSwiperTabs({ tabs,tabsB }: Props) {
         direction="vertical"
         onSwiper={(swiper) => (parentSwiperRef.current = swiper)}
         modules={[Navigation]}
-        allowTouchMove={true}
+        allowTouchMove={false}
         initialSlide={0}
         loop={false}
         autoHeight
