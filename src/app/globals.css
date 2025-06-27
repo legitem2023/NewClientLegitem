@@ -2926,7 +2926,7 @@ flex:1;
   box-shadow: 0.5px 0.5px 3px #c0c0c0;
   flex-direction: column;
   grid-template-rows: 51px auto auto auto auto auto;
-  position:absolute;
+  position:relative;
   align-items: center;
   background-color: #ffd2b4;
   border:solid 4px #cccccc;
