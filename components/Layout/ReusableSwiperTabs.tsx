@@ -7,6 +7,7 @@ import { Icon } from '@iconify/react';
 import { useDispatch } from 'react-redux';
 import { setCategoryData } from 'Redux/categoryDataSlice';
 import { setProductTypeData } from 'Redux/productTypeDataSlice';
+import { setTabValue } from 'Redux/tabSlice';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
 import 'swiper/css';
@@ -19,7 +20,7 @@ export default function ReusableSwiperTabs({ tabs }) {
   const dispatch = useDispatch();
   const searchParams = useSearchParams();
   const router = useRouter();
-
+  const tabAValue = useSelector((state: RootState) => state.tabs.TabA);
   const [activeTab, setActiveTab] = useState<number | null>(null);
   const swiperRef = useRef<any>(null);
 
@@ -36,6 +37,7 @@ export default function ReusableSwiperTabs({ tabs }) {
   useEffect(() => {
     const tabId = parseInt(searchParams.get("TabA") || "0", 10);
     setActiveTab(tabId);
+    dispatch(setTabValue({ tab: 'TabA', value: tabId }));
     swiperRef.current?.slideTo(tabId);
   }, [searchParams, tabs]);
 
@@ -56,9 +58,10 @@ export default function ReusableSwiperTabs({ tabs }) {
     }
     swiperRef.current?.slideTo(index);
     setActiveTab(index);
+    dispatch(setTabValue({ tab: 'TabA', value: index }));
   };
 
-  if (activeTab === null) return null;
+  if (tabAValue === null) return null;
 
   return (
     <>
@@ -103,7 +106,7 @@ export default function ReusableSwiperTabs({ tabs }) {
                   }}
                 >
                   <Icon icon={tab.icon} style={{
-                    color: activeTab === index ? '#ffffff' : '#572700',
+                    color: tabAValue === index ? '#ffffff' : '#572700',
                   }} />
                 </nav>
               ))}
@@ -118,7 +121,7 @@ export default function ReusableSwiperTabs({ tabs }) {
         onSlideChange={(swiper) => setActiveTab(swiper.activeIndex)}
         modules={[Navigation]}
         allowTouchMove={false}
-        initialSlide={activeTab}
+        initialSlide={tabAValue}
         loop={false}
         autoHeight
         style={{ width: '100%' }}
