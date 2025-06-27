@@ -32,8 +32,7 @@ export default function ReusableSwiperTabs({ tabs, tabsB }: Props) {
   const searchParams = useSearchParams();
   const router = useRouter();
 
-  const parentSwiperRef = useRef<any>(null);
-  const childSwiperRef = useRef<any>(null);
+  const mainSwiperRef = useRef<any>(null);
   const tabsBSwiperRef = useRef<any>(null);
 
   const tabAValue = useSelector((state: any) => state.tabs.TabA);
@@ -50,14 +49,8 @@ export default function ReusableSwiperTabs({ tabs, tabsB }: Props) {
   useEffect(() => {
     const tabId = parseInt(searchParams.get('TabA') || '0', 10);
     dispatch(setTabValue({ tab: 'TabA', value: tabId }));
-    childSwiperRef.current?.slideTo(tabId);
+    mainSwiperRef.current?.slideTo(tabId);
   }, [searchParams, dispatch]);
-
-  useEffect(() => {
-    if (parentSwiperRef.current) {
-      parentSwiperRef.current.slideTo(tabCValue);
-    }
-  }, [tabCValue]);
 
   const handleTabClick = (index: number) => {
     const selectedTab = tabs[index];
@@ -65,15 +58,19 @@ export default function ReusableSwiperTabs({ tabs, tabsB }: Props) {
       const url = new URL(window.location.href);
       url.searchParams.set('TabA', selectedTab.id.toString());
       router.replace(url.toString(), { scroll: false });
-      childSwiperRef.current?.slideTo(selectedTab.id);
-      dispatch(setTabValue({ tab: 'TabA', value: selectedTab.id }));
+      dispatch(setTabValue({ tab: 'TabA', value: index }));
+      mainSwiperRef.current?.slideTo(index);
     }
+  };
+
+  const handleGoToTabsB = () => {
+    dispatch(setTabValue({ tab: 'TabA', value: tabs.length })); // switch to extra slide
   };
 
   if (tabAValue === null) return null;
 
   return (
-    <div style={{ position: 'absolute', left: 0, right: 0, top: 0, margin: 0, width: '100%' }}>
+    <div style={{ position: 'absolute', left: 0, right: 0, top: 0, width: '100%' }}>
       <InstallPWAButton />
       <EnsureTabsInUrl />
 
@@ -115,34 +112,49 @@ export default function ReusableSwiperTabs({ tabs, tabsB }: Props) {
                   />
                 </nav>
               ))}
+              {/* Optional button to go to tabsB */}
+              <nav
+                onClick={handleGoToTabsB}
+                style={{
+                  cursor: 'pointer',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  width: '100%',
+                  minHeight: '40px',
+                  backgroundColor: tabAValue === tabs.length ? '#572700' : 'transparent',
+                }}
+              >
+                <Icon icon="tabler:switch-vertical" style={{ color: '#572700' }} />
+              </nav>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Parent vertical swiper */}
+      {/* Main Swiper with all slides (tabs + tabsB slide at the end) */}
+      <Swiper
+        onSwiper={(swiper) => (mainSwiperRef.current = swiper)}
+        onSlideChange={(swiper) => {
+          dispatch(setTabValue({ tab: 'TabA', value: swiper.activeIndex }));
+          setTimeout(() => swiper.updateAutoHeight(), 100);
+        }}
+        modules={[Navigation]}
+        allowTouchMove={true}
+        initialSlide={tabAValue}
+        loop={false}
+        autoHeight
+        style={{ width: '100%' }}
+      >
+        {/* Main tabs slides */}
+        {tabs.map((tab, index) => (
+          <SwiperSlide key={`main-tab-${index}`}>
+            <div style={{ padding: '0px' }}>{tab.content}</div>
+          </SwiperSlide>
+        ))}
+
+        {/* Extra Slide with tabsB Swiper inside */}
+        <SwiperSlide key="tabsB-wrapper">
           <Swiper
-            onSwiper={(swiper) => (childSwiperRef.current = swiper)}
-            onSlideChange={(swiper) => {
-              dispatch(setTabValue({ tab: 'TabA', value: swiper.activeIndex }));
-              setTimeout(() => swiper.updateAutoHeight(), 100);
-            }}
-            modules={[Navigation]}
-            allowTouchMove={true}
-            initialSlide={tabAValue}
-            loop={false}
-            autoHeight
-            style={{ width: '100%' }}
-          >
-            {tabs.map((tab, index) => (
-              <SwiperSlide key={index}>
-                <div style={{ display: tabAValue === index ? 'block' : 'none' }}>
-                  {tab.content}
-                </div>
-              </SwiperSlide>
-            ))}
-            <SwiperSlide>
-            <Swiper
             onSwiper={(swiper) => (tabsBSwiperRef.current = swiper)}
             onSlideChange={(swiper) => {
               setTimeout(() => swiper.updateAutoHeight(), 100);
@@ -154,17 +166,14 @@ export default function ReusableSwiperTabs({ tabs, tabsB }: Props) {
             style={{ width: '100%' }}
           >
             {tabsB.map((tab, index) => (
-              <SwiperSlide key={index}>
-                <div>
-                  {tab.content}
-                </div>
+              <SwiperSlide key={`tabsB-${index}`}>
+                <div style={{ padding: '1rem' }}>{tab.content}</div>
               </SwiperSlide>
             ))}
           </Swiper>
-          </SwiperSlide>
-          </Swiper>
-          
-      
+        </SwiperSlide>
+      </Swiper>
+
       <PageFooter />
     </div>
   );
