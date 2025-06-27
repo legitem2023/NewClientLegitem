@@ -4,7 +4,7 @@ import InstallPWAButton from '../Partial/InstallationApp/InstallPWAButton';
 import EnsureTabsInUrl from './EnsureTabsInUrl';
 import PageFooter from '../Partial/Footer/PageFooter';
 import { Icon } from '@iconify/react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { setCategoryData } from 'Redux/categoryDataSlice';
 import { setProductTypeData } from 'Redux/productTypeDataSlice';
 import { setTabValue } from 'Redux/tabSlice';
