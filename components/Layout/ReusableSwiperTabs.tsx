@@ -79,7 +79,7 @@ export default function ReusableSwiperTabs({ tabs }) {
               width={874}
               height={373}
               className='Logo'
-              style={{height:'60%',width:'auto'}}
+              style={{height:'50px',width:'auto'}}
               onError={(e) => console.error('Image failed to load', e)}
             />
           </div>
