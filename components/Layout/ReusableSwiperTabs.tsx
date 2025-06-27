@@ -118,10 +118,10 @@ export default function ReusableSwiperTabs({ tabs }: Props) {
       </div>
 <Swiper
     direction='vertical'
-    onSwiper={(swiper) => (swiperRef.current = tabCValue)}
+    onSwiper={(swiper) => (swiperRef.current = 0)}
     modules={[Navigation]}
     allowTouchMove={true}
-    initialSlide={tabCValue}
+    initialSlide={0}
     loop={false}
     autoHeight
     style={{ width: '100%' }}
