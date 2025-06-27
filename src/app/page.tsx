@@ -10,7 +10,7 @@ import Contact from 'components/About/Contact';
 import FaQ from 'components/About/FaQ';
 import Privacy from 'components/About/Privacy';
 
-
+import ReusableFlexLayout from 'components/Layout/ReusableFlexLayout'
 
 import Account from 'components/Account/Account';
 import Order from 'components/Order/Order';
@@ -33,13 +33,67 @@ export default function Index() {
   const router = useRouter();
 
 const Details = [
-    {id: 0, name: 'About', icon: 'ic:sharp-home', content: <About/> },
-    {id: 1, name: 'Faq', icon: 'bi:tags-fill', content: <FaQ/> },
-    {id: 2, name: 'Disclaimer', icon: 'fa6-solid:newspaper', content: <Disclaimer/> },
-    {id: 3, name: 'Contact', icon: 'simple-icons:crowdsource', content: <Contact/> },
-    {id: 4, name: 'Privacy', icon: 'mdi:badge-account-horizontal', content: <Privacy/> }
-  ];
-
+  {
+    id: 0,
+    name: 'About',
+    icon: 'ic:sharp-home',
+    content: (
+      <ReusableFlexLayout
+        childA={() => <></>}
+        childB={() => <About />}
+        childC={() => <></>}
+      />
+    ),
+  },
+  {
+    id: 1,
+    name: 'Faq',
+    icon: 'bi:tags-fill',
+    content: (
+      <ReusableFlexLayout
+        childA={() => <></>}
+        childB={() => <FaQ />}
+        childC={() => <></>}
+      />
+    ),
+  },
+  {
+    id: 2,
+    name: 'Disclaimer',
+    icon: 'fa6-solid:newspaper',
+    content: (
+      <ReusableFlexLayout
+        childA={() => <></>}
+        childB={() => <Disclaimer />}
+        childC={() => <></>}
+      />
+    ),
+  },
+  {
+    id: 3,
+    name: 'Contact',
+    icon: 'simple-icons:crowdsource',
+    content: (
+      <ReusableFlexLayout
+        childA={() => <></>}
+        childB={() => <Contact />}
+        childC={() => <></>}
+      />
+    ),
+  },
+  {
+    id: 4,
+    name: 'Privacy',
+    icon: 'mdi:badge-account-horizontal',
+    content: (
+      <ReusableFlexLayout
+        childA={() => <></>}
+        childB={() => <Privacy />}
+        childC={() => <></>}
+      />
+    ),
+  },
+];
   
   const menu = [
     { label: "Dashboard", href: "/" },
