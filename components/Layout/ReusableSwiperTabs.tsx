@@ -127,8 +127,8 @@ export default function ReusableSwiperTabs({ tabs, tabsB }: Props) {
         modules={[Navigation]}
         allowTouchMove={false}
         initialSlide={0}
-        loop={false} 
-        style={{ width: '100%',height:'100vh',overflow:'auto' }}
+        loop={false}
+        style={{ width: '100%', height: '100vh', overflow: 'auto' }}
       >
         {/* Slide 0: horizontal tabs */}
         <SwiperSlide style={{ height: 'auto' }}>
@@ -155,8 +155,7 @@ export default function ReusableSwiperTabs({ tabs, tabsB }: Props) {
           </Swiper>
         </SwiperSlide>
 
-        {/* Slide 1: secondary swiper */}
-        {tabCValue===1?(
+        {/* Slide 1: secondary swiper with fixed condition */}
         <SwiperSlide style={{ height: 'auto' }}>
           <Swiper
             onSwiper={(swiper) => (tabsBSwiperRef.current = swiper)}
@@ -177,7 +176,7 @@ export default function ReusableSwiperTabs({ tabs, tabsB }: Props) {
               </SwiperSlide>
             ))}
           </Swiper>
-        </SwiperSlide>):null
+        </SwiperSlide>
       </Swiper>
 
       <PageFooter />
