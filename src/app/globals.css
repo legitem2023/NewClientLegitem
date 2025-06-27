@@ -2931,6 +2931,7 @@ flex:1;
   grid-template-rows: 51px auto auto auto auto auto;
   align-items: center;
   background-color: #ffd2b4;
+  border:solid 4px #cccccc;
 }
 .forgot{
   justify-content: flex-start!important;
