@@ -61,14 +61,15 @@ export default function ReusableSwiperTabs({ tabs }) {
 
   return (
     <>
-    <InstallPWAButton/>
-    <div style={{ position: 'relative', 
+    
+    <div style={{ position: 'absolute', 
                   left: '0px',
                   right: '0px',
                   top:'0px',
                   margin:'0px',
                   width: '100%'}}>
       {/* Header */}
+      <InstallPWAButton/>
       <div className="Header">
         <div className="HeaderRight">
           <div style={{ padding: '5px' }}>
