@@ -121,17 +121,6 @@ export default function ReusableSwiperTabs({ tabs, tabsB }: Props) {
       </div>
 
       {/* Parent vertical swiper */}
-      <Swiper
-        direction="vertical"
-        onSwiper={(swiper) => (parentSwiperRef.current = swiper)}
-        modules={[Navigation]}
-        allowTouchMove={false}
-        initialSlide={0}
-        loop={false}
-        style={{ width: '100%', height: '100vh', overflow: 'auto' }}
-      >
-        {/* Slide 0: horizontal tabs */}
-        <SwiperSlide style={{ height: 'auto' }}>
           <Swiper
             onSwiper={(swiper) => (childSwiperRef.current = swiper)}
             onSlideChange={(swiper) => {
@@ -152,12 +141,8 @@ export default function ReusableSwiperTabs({ tabs, tabsB }: Props) {
                 </div>
               </SwiperSlide>
             ))}
-          </Swiper>
-        </SwiperSlide>
-
-        {/* Slide 1: secondary swiper with fixed condition */}
-        <SwiperSlide style={{ height: 'auto' }}>
-          <Swiper
+            <SwiperSlide>
+            <Swiper
             onSwiper={(swiper) => (tabsBSwiperRef.current = swiper)}
             onSlideChange={(swiper) => {
               setTimeout(() => swiper.updateAutoHeight(), 100);
@@ -176,9 +161,10 @@ export default function ReusableSwiperTabs({ tabs, tabsB }: Props) {
               </SwiperSlide>
             ))}
           </Swiper>
-        </SwiperSlide>
-      </Swiper>
-
+          </SwiperSlide>
+          </Swiper>
+          
+      
       <PageFooter />
     </div>
   );
