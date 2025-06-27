@@ -15,7 +15,7 @@ const ReusableSlick = ({ data }) => {
   const dispatch = useDispatch();
    const sortEngine = (value:any) => {
     const url = new URL(window.location.href);
-    url.searchParams.set('TabA', 1);
+    url.searchParams.set('TabA', '1');
     router.replace(url.toString(), { scroll: false }); 
     dispatch(setCategory(value));
   };
