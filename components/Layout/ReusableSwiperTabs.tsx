@@ -31,29 +31,23 @@ export default function ReusableSwiperTabs({ tabs, tabsB }: Props) {
   const dispatch = useDispatch();
   const searchParams = useSearchParams();
   const router = useRouter();
-
   const mainSwiperRef = useRef<any>(null);
   const tabsBSwiperRef = useRef<any>(null);
-
   const tabAValue = useSelector((state: any) => state.tabs.TabA);
   const tabCValue = useSelector((state: any) => state.tabs.TabC);
-
   const { data: cat } = useQuery(GET_CATEGORY);
   const { data: prodType } = useQuery(READ_PRODUCT_TYPES);
-
   useEffect(() => {
     if (cat) dispatch(setCategoryData(cat.getCategory));
     if (prodType) dispatch(setProductTypeData(prodType.getProductTypes));
   }, [cat, prodType, dispatch]);
-
   useEffect(() => {
     const tabId = parseInt(searchParams.get('TabA') || '0', 10);
     dispatch(setTabValue({ tab: 'TabA', value: tabId }));
     mainSwiperRef.current?.slideTo(tabId);
   }, [searchParams, dispatch]);
-
   const handleTabClick = (index: number) => {
-    const selectedTab = tabs[index];
+  const selectedTab = tabs[index];
     if (selectedTab?.id !== undefined) {
       const url = new URL(window.location.href);
       url.searchParams.set('TabA', selectedTab.id.toString());
@@ -68,7 +62,6 @@ export default function ReusableSwiperTabs({ tabs, tabsB }: Props) {
   };
 
   if (tabAValue === null) return null;
-
   return (
     <div style={{ position: 'absolute', left: 0, right: 0, top: 0, width: '100%' }}>
       <InstallPWAButton />
