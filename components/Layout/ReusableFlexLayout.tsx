@@ -10,10 +10,7 @@ const ReusableFlexLayout:FC<ReusableMainLayoutProps> = ({childA,childB,childC}) 
       <div className="LeftContainer">
         {childA()}
       </div>
-      <div className='CentralContainer' style={{ position:'relative',
-                                                 display:'flex',
-                                                 justifyContent:'center',
-                                                 alignItems:'center'}}>
+      <div className='CentralContainer' style={{ position:'relative' }}>
         {childB()}
       </div>
       <div className='RightContainer'>
