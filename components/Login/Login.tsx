@@ -56,6 +56,12 @@ const Login = () => {
   };
 
   return (
+    <div style={{width:'100%', 
+                 height:'auto', 
+                 position:'relative', 
+                 display:'flex', 
+                 justifyContent:'center',
+                 alignItems:'center'}}>
       <div className='LoginDiv'>
       <div className='LabelHead'>Login</div>
       <div className='div'>
@@ -89,7 +95,7 @@ const Login = () => {
         {/* <button type='button' value='Cancel' onClick={triggerCancel}>Cancel</button> */}
       </div>
     </div>
-    
+    </div>
   )
 }
 
