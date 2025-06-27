@@ -128,7 +128,7 @@ export default function ReusableSwiperTabs({ tabs, tabsB }: Props) {
               setTimeout(() => swiper.updateAutoHeight(), 100);
             }}
             modules={[Navigation]}
-            allowTouchMove={false}
+            allowTouchMove={true}
             initialSlide={tabAValue}
             loop={false}
             autoHeight
