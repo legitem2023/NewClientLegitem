@@ -24,9 +24,10 @@ interface Tab {
 
 interface Props {
   tabs: Tab[];
+  tabsB :Tab[];
 }
 
-export default function ReusableSwiperTabs({ tabs }: Props) {
+export default function ReusableSwiperTabs({ tabs,tabsB }: Props) {
   const dispatch = useDispatch();
   const searchParams = useSearchParams();
   const router = useRouter();
@@ -151,10 +152,11 @@ export default function ReusableSwiperTabs({ tabs }: Props) {
 
         {/* Slide 1: anything else */}
         <SwiperSlide>
-          <div style={{ padding: '2rem', background: '#fafafa', minHeight: '100vh' }}>
-            <h2>This is Slide 1 (TabC = 1)</h2>
-            <p>Other vertical content here...</p>
-          </div>
+          <Swiper>
+            {tabsB.map((tab,index)=>(
+              <SwiperSlide key={index}>{tab.content}</SwiperSlide>
+            ))}
+          </Swiper>
         </SwiperSlide>
       </Swiper>
 
