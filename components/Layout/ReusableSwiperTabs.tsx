@@ -1,6 +1,7 @@
 'use client';
 import Image from 'next/image';
 import InstallPWAButton from '../Partial/InstallationApp/InstallPWAButton';
+import EnsureTabsInUrl from './EnsureTabsInUrl';
 import PageFooter from '../Partial/Footer/PageFooter';
 import { Icon } from '@iconify/react';
 import { useDispatch } from 'react-redux';
@@ -70,6 +71,7 @@ export default function ReusableSwiperTabs({ tabs }) {
                   width: '100%'}}>
       {/* Header */}
       <InstallPWAButton/>
+      <EnsureTabsInUrl/>
       <div className="Header">
         <div className="HeaderRight">
           <div style={{ padding: '5px' }}>
