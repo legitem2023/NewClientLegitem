@@ -32,11 +32,11 @@ export default function Index() {
   ];
   
   const tabItms = [
-    { name: 'Address Book', icon: 'icomoon-free:address-book', content: <Account /> },
-    { name: 'My Orders', icon: 'wpf:shopping-basket', content: <Order /> },
-    { name: 'Likes', icon: 'mdi:like', content: <LikesTab/> },
-    { name: 'Messages', icon: 'typcn:messages', content: <PrivateMessages /> },
-    { name: 'Logout', icon: 'ic:sharp-logout', content: <CartBody /> },
+    { id: 0, name: 'Address Book', icon: 'icomoon-free:address-book', content: <Account /> },
+    { id: 1, name: 'My Orders', icon: 'wpf:shopping-basket', content: <Order /> },
+    { id: 2, name: 'Likes', icon: 'mdi:like', content: <LikesTab/> },
+    { id: 3, name: 'Messages', icon: 'typcn:messages', content: <PrivateMessages /> },
+    { id: 4, name: 'Logout', icon: 'ic:sharp-logout', content: <CartBody /> },
   ];
 
   
