@@ -20,7 +20,7 @@ export default function ReusableSwiperTabs({ tabs }) {
   const dispatch = useDispatch();
   const searchParams = useSearchParams();
   const router = useRouter();
-  const tabAValue = useSelector((state: RootState) => state.tabs.TabA);
+  const tabAValue = useSelector((state:any) => state.tabs.TabA);
   const [activeTab, setActiveTab] = useState<number | null>(null);
   const swiperRef = useRef<any>(null);
 
