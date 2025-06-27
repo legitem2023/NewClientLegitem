@@ -12,36 +12,42 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
 import 'swiper/css';
 import { GET_CATEGORY, READ_PRODUCT_TYPES } from 'graphql/queries';
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { useQuery } from '@apollo/client';
 import { useSearchParams, useRouter } from 'next/navigation';
 
-export default function ReusableSwiperTabs({ tabs }) {
+interface Tab {
+  id: number;
+  icon: string;
+  content: React.ReactNode;
+}
+
+interface Props {
+  tabs: Tab[];
+}
+
+export default function ReusableSwiperTabs({ tabs }: Props) {
   const dispatch = useDispatch();
   const searchParams = useSearchParams();
   const router = useRouter();
-  const tabAValue = useSelector((state:any) => state.tabs.TabA);
-  //const [activeTab, setActiveTab] = useState<number | null>(null);
   const swiperRef = useRef<any>(null);
+
+  const tabAValue = useSelector((state: any) => state.tabs.TabA);
 
   const { data: cat } = useQuery(GET_CATEGORY);
   const { data: prodType } = useQuery(READ_PRODUCT_TYPES);
 
-  // Dispatch GraphQL data to store
   useEffect(() => {
     if (cat) dispatch(setCategoryData(cat.getCategory));
     if (prodType) dispatch(setProductTypeData(prodType.getProductTypes));
   }, [cat, prodType, dispatch]);
 
-  // Set initial active tab from URL
   useEffect(() => {
-    const tabId = parseInt(searchParams.get("TabA") || "0", 10);
-    //setActiveTab(tabId);
+    const tabId = parseInt(searchParams.get('TabA') || '0', 10);
     dispatch(setTabValue({ tab: 'TabA', value: tabId }));
-    swiperRef.current?.slideTo(tabId);
-  }, [searchParams, tabs]);
+    swiperRef.current?.slideTo(tabAValue);
+  }, [searchParams, tabs, tabAValue]);
 
-  // Update swiper height when tab changes
   useEffect(() => {
     const timer = setTimeout(() => {
       swiperRef.current?.updateAutoHeight();
@@ -51,30 +57,22 @@ export default function ReusableSwiperTabs({ tabs }) {
 
   const handleTabClick = (index: number) => {
     const selectedTab = tabs[index];
-    if (selectedTab?.id) {
+    if (selectedTab?.id !== undefined) {
       const url = new URL(window.location.href);
-      url.searchParams.set('TabA', selectedTab.id);
+      url.searchParams.set('TabA', selectedTab.id.toString());
       router.replace(url.toString(), { scroll: false });
+      swiperRef.current?.slideTo(selectedTab.id);
+      dispatch(setTabValue({ tab: 'TabA', value: selectedTab.id }));
     }
-    swiperRef.current?.slideTo(selectedTab.id);
-    //setActiveTab(index);
-    dispatch(setTabValue({ tab: 'TabA', value: selectedTab.id }));
   };
 
   if (tabAValue === null) return null;
 
   return (
-    <>
-    
-    <div style={{ position: 'absolute', 
-                  left: '0px',
-                  right: '0px',
-                  top:'0px',
-                  margin:'0px',
-                  width: '100%'}}>
-      {/* Header */}
-      <InstallPWAButton/>
-      <EnsureTabsInUrl/>
+    <div style={{ position: 'absolute', left: 0, right: 0, top: 0, margin: 0, width: '100%' }}>
+      <InstallPWAButton />
+      <EnsureTabsInUrl />
+
       <div className="Header">
         <div className="HeaderRight">
           <div style={{ padding: '5px' }}>
@@ -83,8 +81,8 @@ export default function ReusableSwiperTabs({ tabs }) {
               alt="Logo"
               width={874}
               height={373}
-              className='Logo'
-              style={{height:'50px',width:'auto'}}
+              className="Logo"
+              style={{ height: '50px', width: 'auto' }}
               onError={(e) => console.error('Image failed to load', e)}
             />
           </div>
@@ -102,12 +100,15 @@ export default function ReusableSwiperTabs({ tabs }) {
                     flexDirection: 'column',
                     width: '100%',
                     minHeight: '40px',
-                    backgroundColor: tabAValue === index ? '#572700' : 'transparent'
+                    backgroundColor: tabAValue === index ? '#572700' : 'transparent',
                   }}
                 >
-                  <Icon icon={tab.icon} style={{
-                    color: tabAValue === index ? '#ffffff' : '#572700',
-                  }} />
+                  <Icon
+                    icon={tab.icon}
+                    style={{
+                      color: tabAValue === index ? '#ffffff' : '#572700',
+                    }}
+                  />
                 </nav>
               ))}
             </div>
@@ -115,7 +116,6 @@ export default function ReusableSwiperTabs({ tabs }) {
         </div>
       </div>
 
-      {/* Swiper Content */}
       <Swiper
         onSwiper={(swiper) => (swiperRef.current = swiper)}
         onSlideChange={(swiper) => dispatch(setTabValue({ tab: 'TabA', value: swiper.activeIndex }))}
@@ -133,6 +133,5 @@ export default function ReusableSwiperTabs({ tabs }) {
 
       <PageFooter />
     </div>
-    </>
   );
 }
