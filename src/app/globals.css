@@ -2922,8 +2922,7 @@ flex:1;
 }
 
 .LoginDiv {
-  min-width:400px;
-  width: auto;
+  width:300px;
   aspect-ratio: 4 / 3;
   display: grid;
   box-shadow: 0.5px 0.5px 3px #c0c0c0;
