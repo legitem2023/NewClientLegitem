@@ -4,6 +4,14 @@ import { useSelector } from 'react-redux';
 import { useRouter } from 'next/navigation';
 import { cookies } from 'components/cookies/cookie';
 
+import About from 'components/About/About';
+import Disclaimer from 'components/About/Disclaimer';
+import Contact from 'components/About/Contact';
+import FaQ from 'components/About/FaQ';
+import Privacy from 'components/About/Privacy';
+
+
+
 import Account from 'components/Account/Account';
 import Order from 'components/Order/Order';
 import ProductsTab from 'components/Products/ProductsTab';
@@ -24,6 +32,15 @@ export default function Index() {
   const [isLoading, setIsLoading] = useState(true);
   const router = useRouter();
 
+const Details = [
+    {id: 0, name: 'About', icon: 'ic:sharp-home', content: <About/> },
+    {id: 1, name: 'Faq', icon: 'bi:tags-fill', content: <FaQ/> },
+    {id: 2, name: 'Disclaimer', icon: 'fa6-solid:newspaper', content: <Disclaimer/> },
+    {id: 3, name: 'Contact', icon: 'simple-icons:crowdsource', content: <Contact/> },
+    {id: 4, name: 'Privacy', icon: 'mdi:badge-account-horizontal', content: <Privacy/> }
+  ];
+
+  
   const menu = [
     { label: "Dashboard", href: "/" },
     { label: "Profile", href: "/profile" },
@@ -75,7 +92,7 @@ export default function Index() {
  
   return (
     <Suspense fallback={<Loading />}>
-      <ReusableSwiperTabs tabs={usetab} tabsB={usetab}/>
+      <ReusableSwiperTabs tabs={usetab} tabsB={Details}/>
     </Suspense>
   );
 }
