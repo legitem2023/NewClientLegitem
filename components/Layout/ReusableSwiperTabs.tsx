@@ -56,9 +56,9 @@ export default function ReusableSwiperTabs({ tabs }) {
       url.searchParams.set('TabA', selectedTab.id);
       router.replace(url.toString(), { scroll: false });
     }
-    swiperRef.current?.slideTo(index);
+    swiperRef.current?.slideTo(selectedTab.id);
     setActiveTab(index);
-    dispatch(setTabValue({ tab: 'TabA', value: index }));
+    dispatch(setTabValue({ tab: 'TabA', value: selectedTab.id }));
   };
 
   if (tabAValue === null) return null;
