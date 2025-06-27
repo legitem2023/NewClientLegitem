@@ -30,6 +30,7 @@ import orderStageReducer from './orderStageSlice'
 import streamingReducer from './streamingSlice'
 import ipReducer from './IpSlice'
 import suggestedItemReducer from './suggestedItemSlice';
+import tabReducer from './tabSlice';
 const store = configureStore({
   reducer: {
     category: categoryReducer, // Add category slice to the store
@@ -57,7 +58,8 @@ const store = configureStore({
     ipAddress:ipReducer,
     suggestedItems:suggestedItemReducer,
     activeIndex:activeIndexReducer,
-    sort:nameSortReducer
+    sort:nameSortReducer,
+    tabs:tabReducer
   },
 });
 
