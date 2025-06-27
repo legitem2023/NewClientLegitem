@@ -93,7 +93,7 @@ export default function ReusableSwipeMenu({ menuItems = [],menu ,main }: Props) 
           boxShadow: "2px 0 8px rgba(0,0,0,0.2)",
           boxSizing: "border-box",
           padding:"0px",
-          paddingTop: "20px",
+          paddingTop: "50px",
         }}
         aria-hidden={!isOpen}> 
         {menu()}
