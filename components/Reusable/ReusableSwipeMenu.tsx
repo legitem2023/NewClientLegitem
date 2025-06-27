@@ -40,7 +40,7 @@ export default function ReusableSwipeMenu({ menuItems = [],menu ,main }: Props) 
   }, []);
 
   return (
-    <div style={{ display: "flex", position: "relative", minHeight: "100vh", width: "100%" }}>
+    <div style={{ display: "flex", position: "relative", minHeight: "100vh", width: "100%",textAlign:'left' }}>
       {/* Toggle Button */}
       <button
         onClick={toggleMenu}
