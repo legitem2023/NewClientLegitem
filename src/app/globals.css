@@ -2946,7 +2946,7 @@ flex:1;
 }
 
 .LoginDiv .passwordinput {
-  width: 18vw;
+  width: 100%;
   padding: 10px;
   margin: 10px;
   background-image: url('https://api.iconify.design/streamline/padlock-square-1-solid.svg');
@@ -2956,10 +2956,11 @@ flex:1;
   padding-left: 8%;
   border: none;
   outline: 0;
+  box-sizing:border-box;
 }
 
 .LoginDiv .emailAddressinput {
-  width: 18vw;
+  width: 100%;
   padding: 10px;
   margin: 10px;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23000' d='M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2m0 4l-8 5l-8-5V6l8 5l8-5z'/%3E%3C/svg%3E");
@@ -2969,13 +2970,14 @@ flex:1;
   padding-left: 8%;
   border: none;
   outline: 0;
+  box-sizing:border-box;
 }
 
 
 
 
 .LoginDiv .usernameinput {
-  width: 18vw;
+  width: 100%;
   padding: 10px;
   margin: 10px;
   background-image: url('https://api.iconify.design/mdi/account.svg');
@@ -2985,6 +2987,7 @@ flex:1;
   padding-left: 8%;
   border: none;
   outline: 0;
+  box-sizing:border-box;
 }
 
 .LoginDiv button {
