@@ -72,7 +72,7 @@ export default function ReusableTabs({ tabs }) {
               width: '100%'
             }}
           >
-            <Icon icon={tab.icon} />
+            <Icon icon={tab.icon} style={{ color:'gray'}}/>
           </button>
         ))}
       </div>
