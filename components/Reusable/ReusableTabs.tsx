@@ -5,13 +5,15 @@ import { Navigation } from 'swiper/modules';
 import 'swiper/css';
 import React, { useState, useRef, useEffect } from 'react';
 import { useSearchParams, useRouter } from 'next/navigation';
+
 export default function ReusableTabs({ tabs }) {
   const [activeTab, setActiveTab] = useState(0);
   const swiperRef = useRef(null);
   const searchParams = useSearchParams();
+  const router = useRouter();
+
   const handleTabClick = (index) => {
-    
-const selectedTab = tabs[index];
+    const selectedTab = tabs[index];
     if (selectedTab?.id) {
       const url = new URL(window.location.href);
       url.searchParams.set('id', selectedTab.id);
@@ -19,39 +21,37 @@ const selectedTab = tabs[index];
     }
     swiperRef.current?.slideTo(index);
     setActiveTab(index);
-    
-    //swiperRef.current?.slideToLoop(index);
   };
+
   useEffect(() => {
-    const tabId = parseInt(searchParams.get("TabB") || "0", 10);
-    setActiveTab(tabId);
-    swiperRef.current?.slideTo(tabId);
-  }, [searchParams, tabs]);
- useEffect(() => {
-    const tabId = parseInt(searchParams.get("id") || "0", 10);
-    setActiveTab(tabId);
-    swiperRef.current?.slideTo(tabId);
+    const tabIdFromParam = parseInt(searchParams.get("id") || "0", 10);
+    if (!isNaN(tabIdFromParam) && tabIdFromParam >= 0 && tabIdFromParam < tabs.length) {
+      setActiveTab(tabIdFromParam);
+      swiperRef.current?.slideTo(tabIdFromParam);
+    }
   }, [searchParams, tabs]);
 
-  // Update swiper height when tab changes
   useEffect(() => {
     const timer = setTimeout(() => {
       swiperRef.current?.updateAutoHeight();
     }, 50);
     return () => clearTimeout(timer);
   }, [activeTab]);
-  
-  if (activeTab === null) return null;
+
+  if (!tabs || tabs.length === 0) return null;
+
   return (
-    <div style={{ width: '100%',minHeight:'100vh', height: auto' }}>
+    <div style={{ width: '100%', minHeight: '100vh', height: 'auto' }}>
       {/* Tab Buttons */}
-      <div style={{
-        display: 'flex',
-        position:'sticky',
-        borderBottom: '1px solid #ccc',
-        padding: '10px',
-        justifyContent: 'space-around'
-      }}>
+      <div
+        style={{
+          display: 'flex',
+          position: 'sticky',
+          borderBottom: '1px solid #ccc',
+          padding: '10px',
+          justifyContent: 'space-around'
+        }}
+      >
         {tabs.map((tab, index) => (
           <button
             key={index}
@@ -63,7 +63,7 @@ const selectedTab = tabs[index];
               borderRadius: '5px 5px 0px 0px',
               cursor: 'pointer',
               padding: '10px',
-              margin:'2px',
+              margin: '2px',
               display: 'flex',
               flexDirection: 'column',
               alignItems: 'center',
