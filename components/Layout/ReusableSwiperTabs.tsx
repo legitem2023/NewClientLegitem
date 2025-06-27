@@ -62,7 +62,7 @@ export default function ReusableSwiperTabs({ tabs }) {
   return (
     <>
     <InstallPWAButton/>
-    <div style={{ position: 'absolute', 
+    <div style={{ position: 'relative', 
                   left: '0px',
                   right: '0px',
                   top:'0px',
