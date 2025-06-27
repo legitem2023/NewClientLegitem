@@ -145,7 +145,7 @@ export default function ReusableSwiperTabs({ tabs,tabsB }: Props) {
             style={{ width: '100%' }}
           >
             {tabs.map((tab, index) => (
-              <SwiperSlide key={index}>{tab.content}</SwiperSlide>
+              <SwiperSlide key={index}>{tabAValue===index?tab.content:null}</SwiperSlide>
             ))}
           </Swiper>
         </SwiperSlide>
