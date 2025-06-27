@@ -126,7 +126,7 @@ export default function ReusableSwiperTabs({ tabs,tabsB }: Props) {
         direction="vertical"
         onSwiper={(swiper) => (parentSwiperRef.current = swiper)}
         modules={[Navigation]}
-        allowTouchMove={false}
+        allowTouchMove={true}
         initialSlide={0}
         loop={false}
         autoHeight
@@ -154,7 +154,7 @@ export default function ReusableSwiperTabs({ tabs,tabsB }: Props) {
         <SwiperSlide>
           <Swiper>
             {tabsB.map((tab,index)=>(
-              <SwiperSlide key={index}>{tab.content}</SwiperSlide>
+              <SwiperSlide key={index}>{tabCValue===index?tab.content:null}</SwiperSlide>
             ))}
           </Swiper>
         </SwiperSlide>
