@@ -8,11 +8,15 @@ import Element_Title from '../UI/Element_Title';
 import ModelViewer from "../Partial/ThreeJS/ModelViewer";
 import { useDispatch,useSelector } from 'react-redux';
 import { setCategory } from 'Redux/categorySlice';
-
+import { useSearchParams, useRouter } from 'next/navigation';
 const ReusableSlick = ({ data }) => {
-   
+   const searchParams = useSearchParams();
+  const router = useRouter();
   const dispatch = useDispatch();
    const sortEngine = (value:any) => {
+    const url = new URL(window.location.href);
+    url.searchParams.set('TabA', 1);
+    router.replace(url.toString(), { scroll: false }); 
     dispatch(setCategory(value));
   };
   
