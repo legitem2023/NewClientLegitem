@@ -11,7 +11,7 @@ const ProductLoading = () => {
                 </div>
                 )}
                 child2={()=>(
-                <div className="card" style={{width:"100%",aspectRatio:"4 / 3",gap:"2px",marginTop:'5px',marginBottom:'5px',boxShadow:'0.5px 0.5px 3px #c0c0c0'}}>
+                <div className="card" style={{width:"100%",aspectRatio:"4 / 1",gap:"2px",marginTop:'5px',marginBottom:'5px',boxShadow:'0.5px 0.5px 3px #c0c0c0'}}>
                     <div className='loading-screen' style={{boxSizing:"border-box"}}></div>
                 </div>
                 )}
