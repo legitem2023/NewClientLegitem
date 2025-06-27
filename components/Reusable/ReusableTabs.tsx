@@ -14,7 +14,7 @@ export default function ReusableTabs({ tabs }) {
 
   const handleTabClick = (index) => {
     const selectedTab = tabs[index];
-    if (selectedTab?.TabB) {
+    if (selectedTab?.id) {
       const url = new URL(window.location.href);
       url.searchParams.set('TabB', selectedTab.id);
       router.replace(url.toString(), { scroll: false });
