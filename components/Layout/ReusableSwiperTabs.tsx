@@ -51,7 +51,7 @@ export default function ReusableSwiperTabs({ tabs }) {
     if (selectedTab?.id) {
       const url = new URL(window.location.href);
       url.searchParams.set('id', selectedTab.id);
-      router.push(url.toString(), { scroll: false });
+      router.replace(url.toString(), { scroll: false });
     }
     swiperRef.current?.slideTo(index);
     setActiveTab(index);
