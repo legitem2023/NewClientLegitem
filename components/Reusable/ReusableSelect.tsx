@@ -72,7 +72,7 @@ const ReusableSelect: React.FC<ReusableSelectProps> = ({ data, event }) => {
           cursor: 'pointer',
         }}
       >
-        {selected ? selected.label : 'Select an option'}
+        {selected ? selected.label : 'Sort'}
       </div>
 
       {/* Dropdown List */}
