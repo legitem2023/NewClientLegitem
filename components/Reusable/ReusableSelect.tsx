@@ -37,12 +37,6 @@ const ReusableSelect: React.FC<ReusableSelectProps> = ({ data, event }) => {
     event(syntheticEvent);
   };
 
-  const stopEventPropagation = (
-    e: TouchEvent<HTMLDivElement> | PointerEvent<HTMLDivElement>
-  ) => {
-    e.stopPropagation();
-  };
-
   // Close dropdown if clicked outside
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -60,12 +54,6 @@ const ReusableSelect: React.FC<ReusableSelectProps> = ({ data, event }) => {
   return (
     <div
       ref={dropdownRef}
-      onTouchStart={stopEventPropagation}
-      onTouchMove={stopEventPropagation}
-      onTouchEnd={stopEventPropagation}
-      onPointerDown={stopEventPropagation}
-      onPointerMove={stopEventPropagation}
-      onPointerUp={stopEventPropagation}
       style={{
         position: 'relative',
         width: '100%',
@@ -97,7 +85,7 @@ const ReusableSelect: React.FC<ReusableSelectProps> = ({ data, event }) => {
           backgroundColor: 'white',
           border: '1px solid #ccc',
           borderRadius: '4px',
-          marginTop: '4px',
+          marginTop: '2px',
           maxHeight: isOpen ? '150px' : '0px',
           overflow: 'hidden',
           transition: 'max-height 0.25s ease, opacity 0.25s ease',
