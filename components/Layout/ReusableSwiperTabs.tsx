@@ -121,7 +121,7 @@ const ReusableSwiperTabs = ({ tabs, tabsB }: Props) => {
           setTimeout(() => swiper.updateAutoHeight(), 100);
         }}
         modules={[Navigation]}
-        allowTouchMove={true}
+        allowTouchMove={false}
         initialSlide={tabAValue}
         loop={false}
         autoHeight
@@ -140,7 +140,7 @@ const ReusableSwiperTabs = ({ tabs, tabsB }: Props) => {
               setTimeout(() => swiper.updateAutoHeight(), 100);
             }}
             modules={[Navigation]}
-            allowTouchMove={true}
+            allowTouchMove={false}
             loop={false}
             autoHeight
             style={{ width: '100%', minHeight: '100vh', height: 'auto' }}
