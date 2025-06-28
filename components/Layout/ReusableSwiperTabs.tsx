@@ -127,7 +127,7 @@ export default function ReusableSwiperTabs({ tabs, tabsB }: Props) {
         {/* Main tabs slides */}
         {tabs.map((tab, index) => (
           <SwiperSlide key={`main-tab-${index}`}>
-            <div style={{ padding: '0px' }}>{tab.content}</div>
+            <div style={{ padding: '0px' }}>{tabAValue===index?tab.content:null}</div>
           </SwiperSlide>
         ))}
 
@@ -146,7 +146,7 @@ export default function ReusableSwiperTabs({ tabs, tabsB }: Props) {
           >
             {tabsB.map((tab, index) => (
               <SwiperSlide key={`tabsB-${index}`}>
-                <div style={{textAlign:'left'}}>{tab.content}</div>
+                <div style={{textAlign:'left'}}>{tabCValue===index?tab.content:null}</div>
               </SwiperSlide>
             ))}
           </Swiper>
