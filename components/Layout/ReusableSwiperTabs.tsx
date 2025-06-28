@@ -129,7 +129,7 @@ const ReusableSwiperTabs = ({ tabs, tabsB }: Props) => {
       >
         {tabs.map((tab, index) => (
           <SwiperSlide key={`main-tab-${index}`}>
-            <div style={{ padding: '0px' }}>{tabAValue === index && tab.content}</div>
+            <div style={{ padding: '0px',textAlign:'left' }}>{tab.content}</div>
           </SwiperSlide>
         ))}
 
