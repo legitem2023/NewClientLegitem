@@ -58,5 +58,5 @@ const LikesTab = () => {
           )):null}</div>
       </div>
     )
-
+}
 export default LikesTab;
