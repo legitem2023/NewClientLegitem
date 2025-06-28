@@ -1,4 +1,5 @@
 'use client';
+import React, { useEffect, useRef, memo, useCallback } from 'react';
 import Image from 'next/image';
 import InstallPWAButton from '../Partial/InstallationApp/InstallPWAButton';
 import EnsureTabsInUrl from './EnsureTabsInUrl';
@@ -12,7 +13,6 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
 import 'swiper/css';
 import { GET_CATEGORY, READ_PRODUCT_TYPES } from 'graphql/queries';
-import React, { useEffect, useRef } from 'react';
 import { useQuery } from '@apollo/client';
 import { useSearchParams, useRouter } from 'next/navigation';
 
@@ -27,27 +27,34 @@ interface Props {
   tabsB: Tab[];
 }
 
-export default function ReusableSwiperTabs({ tabs, tabsB }: Props) {
+const ReusableSwiperTabs = ({ tabs, tabsB }: Props) => {
   const dispatch = useDispatch();
   const searchParams = useSearchParams();
   const router = useRouter();
   const mainSwiperRef = useRef<any>(null);
   const tabsBSwiperRef = useRef<any>(null);
+
   const tabAValue = useSelector((state: any) => state.tabs.TabA);
-  const tabCValue = useSelector((state: any) => state.tabs.TabC);
+  const tabCValue = useSelector((state: any) => state.tabs.TabC); // Used?
+
   const { data: cat } = useQuery(GET_CATEGORY);
   const { data: prodType } = useQuery(READ_PRODUCT_TYPES);
+
+  // Fetch GraphQL data
   useEffect(() => {
     if (cat) dispatch(setCategoryData(cat.getCategory));
     if (prodType) dispatch(setProductTypeData(prodType.getProductTypes));
   }, [cat, prodType, dispatch]);
+
+  // Sync tab with URL param
   useEffect(() => {
     const tabId = parseInt(searchParams.get('TabA') || '0', 10);
     dispatch(setTabValue({ tab: 'TabA', value: tabId }));
     mainSwiperRef.current?.slideTo(tabId);
   }, [searchParams, dispatch]);
-  const handleTabClick = (index: number) => {
-  const selectedTab = tabs[index];
+
+  const handleTabClick = useCallback((index: number) => {
+    const selectedTab = tabs[index];
     if (selectedTab?.id !== undefined) {
       const url = new URL(window.location.href);
       url.searchParams.set('TabA', selectedTab.id.toString());
@@ -55,13 +62,10 @@ export default function ReusableSwiperTabs({ tabs, tabsB }: Props) {
       dispatch(setTabValue({ tab: 'TabA', value: index }));
       mainSwiperRef.current?.slideTo(index);
     }
-  };
-
-  const handleGoToTabsB = () => {
-    dispatch(setTabValue({ tab: 'TabA', value: tabs.length })); // switch to extra slide
-  };
+  }, [tabs, dispatch, router]);
 
   if (tabAValue === null) return null;
+
   return (
     <div style={{ position: 'absolute', left: 0, right: 0, top: 0, width: '100%' }}>
       <InstallPWAButton />
@@ -86,7 +90,7 @@ export default function ReusableSwiperTabs({ tabs, tabsB }: Props) {
             <div className="HeaderNav" style={{ display: 'flex', justifyContent: 'space-around' }}>
               {tabs.map((tab, index) => (
                 <nav
-                  key={index}
+                  key={tab.id}
                   onClick={() => handleTabClick(index)}
                   style={{
                     cursor: 'pointer',
@@ -110,7 +114,6 @@ export default function ReusableSwiperTabs({ tabs, tabsB }: Props) {
         </div>
       </div>
 
-      {/* Main Swiper with all slides (tabs + tabsB slide at the end) */}
       <Swiper
         onSwiper={(swiper) => (mainSwiperRef.current = swiper)}
         onSlideChange={(swiper) => {
@@ -124,14 +127,12 @@ export default function ReusableSwiperTabs({ tabs, tabsB }: Props) {
         autoHeight
         style={{ width: '100%' }}
       >
-        {/* Main tabs slides */}
         {tabs.map((tab, index) => (
           <SwiperSlide key={`main-tab-${index}`}>
-            <div style={{ padding: '0px' }}>{tabAValue===index && tab.content}</div>
+            <div style={{ padding: '0px' }}>{tabAValue === index && tab.content}</div>
           </SwiperSlide>
         ))}
 
-        {/* Extra Slide with tabsB Swiper inside */}
         <SwiperSlide key="tabsB-wrapper">
           <Swiper
             onSwiper={(swiper) => (tabsBSwiperRef.current = swiper)}
@@ -142,11 +143,11 @@ export default function ReusableSwiperTabs({ tabs, tabsB }: Props) {
             allowTouchMove={true}
             loop={false}
             autoHeight
-            style={{ width: '100%',minHeight:'100vh',height:'auto'}}
+            style={{ width: '100%', minHeight: '100vh', height: 'auto' }}
           >
             {tabsB.map((tab, index) => (
               <SwiperSlide key={`tabsB-${index}`}>
-                <div style={{textAlign:'left'}}>{tab.content}</div>
+                <div style={{ textAlign: 'left' }}>{tab.content}</div>
               </SwiperSlide>
             ))}
           </Swiper>
@@ -156,4 +157,7 @@ export default function ReusableSwiperTabs({ tabs, tabsB }: Props) {
       <PageFooter />
     </div>
   );
-}
+};
+
+// ✅ Wrap with React.memo
+export default memo(ReusableSwiperTabs);
