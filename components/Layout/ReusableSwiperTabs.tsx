@@ -142,7 +142,7 @@ export default function ReusableSwiperTabs({ tabs, tabsB }: Props) {
             allowTouchMove={true}
             loop={false}
             autoHeight
-            style={{ width: '100%',height:'auto'}}
+            style={{ width: '100%',minHeight:'100vh',height:'auto'}}
           >
             {tabsB.map((tab, index) => (
               <SwiperSlide key={`tabsB-${index}`}>
