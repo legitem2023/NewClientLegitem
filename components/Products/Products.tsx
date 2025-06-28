@@ -218,7 +218,10 @@ const sort_name_price = [{
   return (
     <ReusableCenterLayout
       child1={() => (
+        <>
         <ReusableSlider items={items}/>
+        <ReusableSelect data={sort_name_price} event={sort} />
+        </>
       )}
       child2={() => (
         <ReusableSlick data={storedcategory} />
