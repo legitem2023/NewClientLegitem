@@ -364,6 +364,9 @@
    #textarea{
        height:40px;
    }
+   .cartTable{
+      padding:2px;
+   }
     .searchEngine{
         padding:5px;
     }
