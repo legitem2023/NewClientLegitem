@@ -89,7 +89,8 @@ export default function ReusableTabs({ tabs }) {
         style={{ width: '100%' }}
       >
         {tabs.map((tab, index) => (
-          <SwiperSlide key={index} style={{ padding: '0px' }}>
+          <SwiperSlide key={index} style={{ padding: '0px', 
+                                            textAlign: 'left' }}>
             {tab.content}
           </SwiperSlide>
         ))}
