@@ -47,7 +47,7 @@ const ReusableThumbnail: React.FC<ReusableThumbnailProps> = React.memo(
             loading="lazy"
             onClick={view}
             onLoad={handleLoading}
-            onError={handleError}
+            
             className="thumbnailImage"
             style={{ filter: item.stock < 1 ? 'grayscale(100%)' : 'none' }}
           />
