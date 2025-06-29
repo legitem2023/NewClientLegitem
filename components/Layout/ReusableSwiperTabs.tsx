@@ -64,7 +64,7 @@ const ReusableSwiperTabs = ({ tabs, tabsB }: Props) => {
 
         if (currentParam !== selectedTab.id.toString()) {
           url.searchParams.set('TabA', selectedTab.id.toString());
-          router.replace(url.toString(), { scroll: false, shallow: true });
+          router.replace(url.toString(), { scroll: false });
         }
 
         dispatch(setTabValue({ tab: 'TabA', value: index }));
