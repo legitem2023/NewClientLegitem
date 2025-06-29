@@ -18,7 +18,6 @@ import 'react-toastify/dist/ReactToastify.css';
 import Cookie from 'components/cookies/Cookie'
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
-
   return (
     <html lang="en">
       <body className={inter.className}>
