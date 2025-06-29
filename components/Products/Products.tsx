@@ -284,9 +284,7 @@ const sort_name_price = [{
         </div>
       )}
       child4={() => (
-        <Modal isOpen={isModalOpen}>
-          <ProductView />
-        </Modal>
+        <></>
       )}
     >
     </ReusableCenterLayout>
