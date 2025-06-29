@@ -385,5 +385,6 @@
     .LikeContainer{
         grid-template-columns: 50% 50%;
         box-sizing:border-box;
+        padding:1px;
     }
 }
