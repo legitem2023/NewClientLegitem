@@ -106,8 +106,9 @@ const ReusableSwiperTabs = ({ tabs, tabsB }: Props) => {
               }}  
             />  
           </div>  
-          <SearchEngine/>
-        </div>  
+          
+        </div> 
+        <SearchEngine/>
         <div className="HeaderLeft">  
           <div className="Navigation">  
             <div className="HeaderNav" style={{ 
