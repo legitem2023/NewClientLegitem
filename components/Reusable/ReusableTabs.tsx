@@ -48,7 +48,7 @@ export default function ReusableTabs({ tabs }) {
           display: 'flex',
           position: 'sticky',
           borderBottom: '1px solid #ccc',
-          padding: '10px',
+          padding: '5px',
           justifyContent: 'space-around'
         }}
       >
