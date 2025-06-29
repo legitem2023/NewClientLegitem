@@ -18,8 +18,8 @@ const ReusableSlick = ({ data }) => {
    const sortEngine = (value:any) => {
     const url = new URL(window.location.href);
     url.searchParams.set('TabA', '1');
-    
     router.replace(url.toString(), { scroll: false }); 
+    window.history.replaceState({}, '',url.toString());
     dispatch(setCategory(value));
     dispatch(setTabValue({ tab: 'TabA', value: 1 }));    
   };
