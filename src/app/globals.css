@@ -1,6 +1,43 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+.search-engine-container {
+  transition: background-color 0.3s ease;
+}
+
+.search-focused {
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+}
+
+.search-input {
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.suggestions-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 10px;
+  border: 1px solid #eee;
+  border-radius: 4px;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.suggestion-item {
+  padding: 10px;
+  cursor: pointer;
+  border-bottom: 1px solid #eee;
+}
+
+.suggestion-item:hover {
+  background-color: #f5f5f5;
+}
 /* Add to your global CSS */
 * {
   -webkit-tap-highlight-color: transparent;
