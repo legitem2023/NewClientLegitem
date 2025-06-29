@@ -17,7 +17,7 @@ const displayText = isExpanded || !shouldTruncate
 
 return (
 <div>
-<p>{displayText}</p>
+<p style={{fontSize:'14px'}}>{displayText}</p>
 {shouldTruncate && (
 <button onClick={toggleExpansion} className="text-blue-500 underline">
 {isExpanded ? 'See Less' : 'See More'}
