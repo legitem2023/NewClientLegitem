@@ -2117,6 +2117,14 @@ input[type='date']{
   box-sizing: border-box;
   text-overflow: ellipsis;
 }
+.dangerousHTML {
+  font-size:14px;
+  white-space:nowrap;
+  overflow: hidden;
+  text-overflow:ellipsis;
+}
+
+
 .UniversalThumbnail > img{
   width:100%;
   height: auto;
