@@ -215,8 +215,9 @@ const sort_name_price = [{
           border: '1px solid #ccc',
           backgroundColor: '#e1e1e1',
           cursor: 'pointer',
+          width:'100px'
         }}>
-          <Icon icon="bx:sort" />
+          <Icon icon="famicons:chevron-expand"/>
         </button>
       </div>
     )
