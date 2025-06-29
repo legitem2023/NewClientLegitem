@@ -70,6 +70,7 @@ const ReusableSelect: React.FC<ReusableSelectProps> = ({ data, event }) => {
           border: '1px solid #ccc',
           backgroundColor: 'white',
           cursor: 'pointer',
+          minWidth:'250px'
         }}
       >
         {selected ? selected.label : 'Sort'}
@@ -82,6 +83,7 @@ const ReusableSelect: React.FC<ReusableSelectProps> = ({ data, event }) => {
           top: '100%',
           left: 0,
           right: 0,
+          minWidth:'250px',
           backgroundColor: 'white',
           border: '1px solid #ccc',
           borderRadius: '4px',
