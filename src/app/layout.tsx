@@ -11,7 +11,7 @@ import ReduxWrapper from 'components/ApolloProvider/ReduxWrapper'
 import { ShoppingCartProvider } from 'components/context/ShoppingCartProvider'
 import * as React from "react";
 import SEO from 'components/Partial/Header/Seo';
-import SmoothScrollPolyfill from 'components/Partial/Header/SmoothScrollPolyfill';
+//import SmoothScrollPolyfill from 'components/Partial/Header/SmoothScrollPolyfill';
 import { NotificationProvider } from 'components/context/NotificationContext'
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
@@ -22,7 +22,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en">
       <body className={inter.className}>
       <ToastContainer/>
-      <SmoothScrollPolyfill/>
+    
         <LoadEruda/>
         <NotificationProvider>
           <ShoppingCartProvider>
