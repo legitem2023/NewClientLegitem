@@ -7,6 +7,7 @@ import { READ_NEWS } from 'graphql/queries';
 import React, { useCallback, useMemo, useState } from 'react';
 import { imageSource } from 'utils/scripts';
 import ReusableLabel from 'components/Reusable/ReusableLabel';
+import ReusableCenterLayout from 'components/Layout/ReusableCenterLayout';
 const News:React.FC = () => {
   const { data: News, loading: NewsLoading, error: NewsError } = useQuery(READ_NEWS);
   const [currentPage, setCurrentPage] = useState(1);
