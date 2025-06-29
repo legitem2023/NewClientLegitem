@@ -32,7 +32,6 @@ const UniversalContainerItem: React.FC<UniversalContainerItemProps> = ({
           style={{ aspectRatio:'1/1',width:'100%',height:'auto' }} alt={`image${index}`}
         />
       </div>
-
       <div className='ReusableCardContainer_1'>
         <Element_Title Label="" value={title} />
         {/* <HtmlRenderer htmlContent={summary} /> */}
