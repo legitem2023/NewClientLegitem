@@ -9,8 +9,8 @@
 }
 
 .search-input {
-  width: 100%;
-  padding:4;
+  width: 95%;
+  padding:4px;
   border: 1px solid #ddd;
   border-radius: 4px;
   font-size: 14px;
@@ -31,8 +31,7 @@
   list-style: none;
   padding: 0;
   margin: 0;
-  max-height: 300px;
-  overflow-y: auto;
+  height:'auto';
 }
 
 .suggestion-item {
