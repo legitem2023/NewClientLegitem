@@ -6,6 +6,7 @@ import React, { FC, useEffect, useState } from 'react';
 import ReusableFirstLetterImage from './ReusableFirstLetterImage';
 import ReusableDropdown from './ReusableDropdown';
 import ReusableCollapse from './ReusableCollapse';
+import ReusableText from './ReusableText';
 import LiveStreamPlayer from '../UI/LiveStreamPlayer';
 import { useSelector,useDispatch } from 'react-redux';
 import { setreciever } from 'Redux/recieverSlice';
@@ -91,7 +92,7 @@ const reactions = [
             <ReusableFirstLetterImage text={data.Sender} size={40} bgColor="rgb(87, 39, 0)" textColor="#ffffff" />
           </div>
           <div className="messageSenderName">
-            {cookie.emailAddress===data.Sender?data.Sender:(
+            {cookie.emailAddress===data.Sender?(<ReusableText label={data.Sender}/>):(
       <ReusableDropdown Name={data.Sender} 
                               child1={()=>(<button style={{padding:'3px',display:'flex',alignItems:'center'}}onClick={()=>Message(data.Sender)}><Icon icon="ic:baseline-message" /> Message</button>)} 
                               child2={()=>(<></>)}/>
