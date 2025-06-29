@@ -10,6 +10,7 @@ import ReusableText from './ReusableText';
 import LiveStreamPlayer from '../UI/LiveStreamPlayer';
 import { useSelector,useDispatch } from 'react-redux';
 import { setreciever } from 'Redux/recieverSlice';
+import { noOfDays } from 'utils/script';
 import TypingIndicator from '../UI/TypingIndicator';
 interface Message {
   Sender: string;
@@ -41,7 +42,7 @@ const router = useRouter();
   useEffect(() => {
     if (onChange) onChange();
   }, [expanded, onChange]);
-
+/*
   const noOfDays = (timestampMs: string | number) => {
     const currentTime = new Date().getTime();
     const differenceMs = currentTime - Number(timestampMs);
@@ -60,7 +61,7 @@ const router = useRouter();
     if (minutes > 0) return `${minutes} minute${minutes > 1 ? 's' : ''} ago`;
     return `${seconds} second${seconds > 1 ? 's' : ''} ago`;
   };
-
+*/
   const border = (data:any) =>{
     if(data.Live==='true'){
       return 'redBorder'
