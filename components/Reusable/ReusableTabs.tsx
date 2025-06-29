@@ -18,6 +18,7 @@ export default function ReusableTabs({ tabs }) {
       const url = new URL(window.location.href);
       url.searchParams.set('TabB', selectedTab.id);
       router.replace(url.toString(), { scroll: false });
+      window.history.replaceState({}, '',url.toString());
     }
     swiperRef.current?.slideTo(index);
     setActiveTab(index);
