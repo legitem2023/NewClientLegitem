@@ -4,6 +4,8 @@ import Image from 'next/image';
 import InstallPWAButton from '../Partial/InstallationApp/InstallPWAButton';
 import EnsureTabsInUrl from './EnsureTabsInUrl';
 import PageFooter from '../Partial/Footer/PageFooter';
+import Modal from '../Products/Modal';
+import ProductView from '../Products/ProductView/ProductView';
 import { Icon } from '@iconify/react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setCategoryData } from 'Redux/categoryDataSlice';
@@ -33,7 +35,7 @@ const ReusableSwiperTabs = ({ tabs, tabsB }: Props) => {
   const router = useRouter();
   const mainSwiperRef = useRef<any>(null);
   const tabsBSwiperRef = useRef<any>(null);
-
+  const isModalOpen = useSelector((state: any) => state.modal.modal);
   const tabAValue = useSelector((state: any) => state.tabs.TabA);
 
   const { data: cat } = useQuery(GET_CATEGORY);
@@ -82,6 +84,9 @@ const ReusableSwiperTabs = ({ tabs, tabsB }: Props) => {
       width: '100%',
       WebkitOverflowScrolling: 'touch' // Safari momentum scrolling
     }}>
+      <Modal isOpen={isModalOpen}>
+          <ProductView />
+      </Modal>
       <InstallPWAButton />
       <EnsureTabsInUrl />
 
