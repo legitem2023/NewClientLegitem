@@ -7,11 +7,24 @@ export const metadata: Metadata = {
   manifest: '/manifest.json',
   keywords: 'E-Crowd, online shopping, best deals, marketplace, e-commerce, crowd, legitem, ecrowd',
   authors: [{ name: 'E-Crowd Team' }],
-  viewport: 'width=device-width, initial-scale=1',
+  viewport: {
+    width: 'device-width',
+    initialScale: 1,
+    minimumScale: 1,
+    maximumScale: 1,
+    userScalable: false,
+    // Note: 'shrink-to-fit' is not available in the viewport object
+    // We'll add it separately in the 'other' field
+  },
   icons: {
     icon: '/favicon.ico',
   },
   metadataBase: new URL('https://new-client-legitem.vercel.app'),
+  other: {
+    'format-detection': 'telephone=no',
+    // Adding shrink-to-fit for Safari
+    'viewport': 'width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no'
+  },
   openGraph: {
     type: 'website',
     title: 'E-Crowd - Your Ultimate Marketplace',
