@@ -13,7 +13,7 @@ interface ReusableSliderProps {
 const ReusableSlider: React.FC<ReusableSliderProps> = ({ items }) => {
   return (
     <div className="searchContainer" style={{ width: '100%', backgroundColor: '#f1f1f1',padding:'5px' }}>
-      <div style={{ padding: 0, width: '100%', height: '100%',boxSizing:'border-box', display:'grid', gap:'2px',gridTemplateColumns:'25% 25% 25% 25%' }}>
+      <div style={{ padding: 0, width: '100%', height: '100%',boxSizing:'border-box', display:'flex',flexDirection:'row', gap:'2px'}}>
         {items.map((item, index) => (
           <div key={index} style={{boxSizing:'border-box'}}>
             <div style={{ width: '100%', height: '100%' }}>
