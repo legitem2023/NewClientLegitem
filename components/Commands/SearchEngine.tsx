@@ -88,7 +88,7 @@ const SearchEngine: React.FC = () => {
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'flex-start',
-        zIndex: 999,
+        zIndex: 99999,
         backgroundColor: isFocused ? '#ffffff' : 'transparent',
       }}
     >
