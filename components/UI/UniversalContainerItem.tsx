@@ -1,9 +1,10 @@
 import React from 'react';
 import { Icon } from '@iconify/react';
 import HtmlRenderer from 'components/Html/HtmlRenderer';
+import ReusableText from 'components/Reusable/ReusableText';
 import TimestampConverter from 'components/Partial/timestamp/TimestampConverter';
 import Image from 'next/image';
-import { imageSource } from 'utils/scripts';
+import { imageSource,noOfDays } from 'utils/scripts';
 import Element_Title from './Element_Title';
 interface UniversalContainerItemProps {
   title: string;
@@ -23,7 +24,8 @@ const UniversalContainerItem: React.FC<UniversalContainerItemProps> = ({ title, 
       <div className="ReusableCardContainer_1">
         <Element_Title Label="" value={title}/>
         <HtmlRenderer htmlContent={summary} />
-        <TimestampConverter timestamp={dateCreated} />
+        <ReusableText label={noOfDays(dateCreated)}/>
+        
       </div>
     </div>
   );
