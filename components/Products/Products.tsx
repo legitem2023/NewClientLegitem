@@ -209,7 +209,13 @@ const sort_name_price = [{
     ),
     (
       <div key={3}>
-        <button onClick={sortTrigger} aria-label="sort" style={{padding:'5px',width:'100%'}}>
+        <button onClick={sortTrigger} aria-label="sort" style={{
+          padding: '8px',
+          borderRadius: '4px',
+          border: '1px solid #ccc',
+          backgroundColor: '#e1e1e1',
+          cursor: 'pointer',
+        }}>
           <Icon icon="bx:sort" />
         </button>
       </div>
