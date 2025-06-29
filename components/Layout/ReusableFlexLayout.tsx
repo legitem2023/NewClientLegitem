@@ -8,12 +8,14 @@ const ReusableFlexLayout:FC<ReusableMainLayoutProps> = ({childA,childB,childC}) 
     return (
     <div className='FlexContainer'>
       <div className="LeftContainer">
+        <span style={{fontSize:'10px',margin:'5px'}}>Advertisement</span>
         {childA()}
       </div>
       <div className='CentralContainer' style={{ position:'relative' }}>
         {childB()}
       </div>
       <div className='RightContainer'>
+        <span style={{fontSize:'10px',margin:'5px'}}>Advertisement</span>
         {childC()}
       </div>
     </div>
