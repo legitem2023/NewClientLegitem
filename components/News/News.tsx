@@ -39,8 +39,7 @@ const News:React.FC = () => {
       child1={() => <></>}
       child2={() => (
         <div style={{ overflowY: 'auto', height: 'auto', scrollbarWidth: 'none' }}>
-           
-              <div className='LikeContainer'>  
+            <div className='LikeContainer'>  
       {paginatedNews.length > 0?paginatedNews?.map((item: any, idx: number) => (
         <UniversalContainerItem key={idx} 
                                 title={item.title} 
@@ -50,7 +49,6 @@ const News:React.FC = () => {
                                 index={idx}/>
       )):(<h1>No Data</h1>)}
              </div> 
-        
        </div>
       )}
       child3={() => (
