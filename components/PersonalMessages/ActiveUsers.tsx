@@ -81,7 +81,7 @@ const uniqueSenders = Array.from(
   <div style={{display:'flex', 
                fontWeight: 'bold',
                alignItems:'center',
-               whiteSpace: nowrap,       /* Prevents text from wrapping */
+               whiteSpace:'nowrap',       /* Prevents text from wrapping */
                overflow: hidden,          /* Hides the overflowing text */
                textOverflow: ellipsis,   /* Adds the "..." */
                padding:'3px'}}>{sender.Sender}</div>
