@@ -5,7 +5,7 @@ const Ads:React.FC = () => {
   const Ads = [{
     Name:'Showcase your business in this space! Message: 09153392813'}]
   return (
-     <ReusableSlideNames data={Ads} />)}/>
+     <ReusableSlideNames data={Ads}/>
   )
 }
 
