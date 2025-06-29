@@ -31,11 +31,10 @@ const ReusableDropdown:FC<ReusableDropdownProps> = ({child1,child2,Name}) => {
                 borderRadius: "9999px", // rounded-full
                 backgroundColor: "#F3F4F6", // bg-gray-100
                 outline: "none", // focus:outline-none
-                transition: "background-color 0.2s ease-in-out", // Smooth hover effect
-}}
-        >
-        {Name}
-      </button>
+                transition: "background-color 0.2s ease-in-out",
+                whiteSpace:'nowrap',
+                overflow: 'hidden',
+                textOverflow: 'ellipsis' }}>{Name}</button>
 
       {/* Dropdown Menu */}
       {isOpen && (
