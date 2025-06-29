@@ -5,7 +5,7 @@
 .search-engine-wrapper {
   position: relative;
   width: 100%;
-  z-index: 99999; /* High enough to appear above other elements */
+  z-index: 99999999999; /* High enough to appear above other elements */
 }
 
 .search-input {
