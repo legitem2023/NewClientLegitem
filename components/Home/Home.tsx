@@ -53,12 +53,7 @@ const Home = () => {
         </div>
         
       )}
-      child4={()=>(
-        <div className='homeContainer'>
-        <ReusableLabel icn='carbon:recently-viewed' label='Recommended for You'/>
-        <ReusableCustomCarousel data={storedcategory} showthumbs={true} thumbpos="bottom"/>
-      </div>
-      )}
+      child4={()=>(<></>)}
       
     />
   )
