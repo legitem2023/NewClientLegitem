@@ -95,7 +95,7 @@ const SearchEngine: React.FC = () => {
       <input
         type="text"
         style={{
-          display: result === 'Products' ? 'flex' : 'none',
+          display: 'flex',
           position: 'relative',
           width: '95%',
           top: '0px',
