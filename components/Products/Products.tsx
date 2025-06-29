@@ -198,17 +198,9 @@ const sort_name_price = [{
       <div key={0}>
             <ReusableSelect data={sort_name_price} event={sort} />
       </div>
-    ),(
-      <div key={1}>
-            <ReusableSelect data={sort_name_price} event={sort} />
-      </div>
-    ),(
-      <div key={2}>
-            <ReusableSelect data={sort_name_price} event={sort} />
-      </div>
     ),
     (
-      <div key={3}>
+      <div key={1}>
         <button onClick={sortTrigger} aria-label="sort" style={{
           padding: '8px',
           borderRadius: '4px',
