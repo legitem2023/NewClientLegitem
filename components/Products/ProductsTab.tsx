@@ -7,6 +7,7 @@ import ReusableFlexLayout from 'components/Layout/ReusableFlexLayout';
 //import ReusableMainLayout from 'components/Layout/ReusableMainLayout'
 import ReusableSlideNames from 'components/Reusable/ReusableSlideNames';
 import ReusableSwipeMenu from 'components/Reusable/ReusableSwipeMenu';
+import Ads from 'components/Ads/Ads';
 const ProductsTab = () => {
   const storeproductType = useSelector((state: any) => state.productTypeData.productTypeData);
   const menu = [{ label: "Dashboard", href: "/" },
@@ -16,11 +17,11 @@ const ProductsTab = () => {
 ];
   return (
     <ReusableFlexLayout 
-       childA={()=>(<ReusableSlideNames data={storeproductType} />)}
+       childA={()=>(<Ads/>)}
        childB={()=>(<ReusableSwipeMenu menuItems={menu} 
                            menu={()=>(<Menu/>)} 
                            main={()=>(<Products/>)}/> )}
-       childC={()=>(<ReusableSlideNames data={storeproductType} />)}
+       childC={()=>(<Ads/>)}
       />
     
   )
