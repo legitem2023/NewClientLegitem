@@ -10,7 +10,7 @@ import ReusableText from './ReusableText';
 import LiveStreamPlayer from '../UI/LiveStreamPlayer';
 import { useSelector,useDispatch } from 'react-redux';
 import { setreciever } from 'Redux/recieverSlice';
-import { noOfDays } from 'utils/script';
+import { noOfDays } from 'utils/scripts';
 import TypingIndicator from '../UI/TypingIndicator';
 interface Message {
   Sender: string;
