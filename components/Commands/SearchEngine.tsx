@@ -23,9 +23,9 @@ const SearchEngine: React.FC = () => {
   const [query, setQuery] = useState('');
   const [suggestions, setSuggestions] = useState<any[]>([]);
 
-  const { data: catData } = useQuery(GET_CATEGORY);
-  const { data: prodTypeData } = useQuery(READ_PRODUCT_TYPES);
-
+//  const { data: catData } = useQuery(GET_CATEGORY);
+//  const { data: prodTypeData } = useQuery(READ_PRODUCT_TYPES);
+/*
   useEffect(() => {
     if (catData) {
       dispatch(setCategoryData(catData.getCategory));
@@ -37,7 +37,7 @@ const SearchEngine: React.FC = () => {
       dispatch(setProductTypeData(prodTypeData.getProductTypes));
     }
   }, [prodTypeData, dispatch]);
-
+*/
   const handleFocus = () => {
     if (window.innerWidth < 1024) {
       setIsFocused(true);
