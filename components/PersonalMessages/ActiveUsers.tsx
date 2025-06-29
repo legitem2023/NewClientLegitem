@@ -78,7 +78,13 @@ const uniqueSenders = Array.from(
   </div>
 
   {/* Sender Name */}
-  <div style={{display:'flex', fontWeight: 'bold',alignItems:'center',padding:'3px'}}>{sender.Sender}</div>
+  <div style={{display:'flex', 
+               fontWeight: 'bold',
+               alignItems:'center',
+               whiteSpace: nowrap,       /* Prevents text from wrapping */
+               overflow: hidden,          /* Hides the overflowing text */
+               textOverflow: ellipsis,   /* Adds the "..." */
+               padding:'3px'}}>{sender.Sender}</div>
   {/* Message Preview */}
   <div style={{ display:'flex',
                 color: comparison(sender.Sender) > 0?'black':'gray',
