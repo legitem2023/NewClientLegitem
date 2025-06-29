@@ -27,10 +27,9 @@ const UniversalContainerItem: React.FC<UniversalContainerItemProps> = ({
       <div className='ReusableCardContainer_1'>
         <Image
           src={imageSource(thumbnail)}
-          height={150}
-          width={150}
-        
-          style={{aspectRatio:'1/1'}} alt={`image${index}`}
+          height={100}
+          width={100}
+          style={{ aspectRatio:'1/1' }} alt={`image${index}`}
         />
       </div>
 
