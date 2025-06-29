@@ -5,15 +5,15 @@
 .search-engine-wrapper {
   position: relative;
   width: 100%;
-  z-index: 1000; /* High enough to appear above other elements */
+  z-index: 99999; /* High enough to appear above other elements */
 }
 
 .search-input {
   width: 100%;
-  padding: 8px 12px;
+  padding:4;
   border: 1px solid #ddd;
   border-radius: 4px;
-  font-size: 16px;
+  font-size: 14px;
   box-sizing: border-box;
 }
 
@@ -36,7 +36,7 @@
 }
 
 .suggestion-item {
-  padding: 10px;
+  padding:4px;
   cursor: pointer;
   border-bottom: 1px solid #eee;
 }
