@@ -13,15 +13,15 @@ import { GET_CATEGORY } from 'graphql/queries'
 import { useSelector } from 'react-redux'
 import ReusableFlexLayout from 'components/Layout/ReusableFlexLayout'
 import Home from './Home'
-import ReusableSlideNames from 'components/Reusable/ReusableSlideNames';
+import Ads from 'components/Ads/Ads';
 
 const HomeTab:React.FC = () => {
 const storeproductType = useSelector((state: any) => state.productTypeData.productTypeData);
   return (
      <ReusableFlexLayout 
-     childA={()=>(<ReusableSlideNames data={storeproductType} />)} 
+     childA={()=>(<Ads/>)} 
      childB={()=>(<Home/>)}
-     childC={()=>(<ReusableSlideNames data={storeproductType} />)}/>
+     childC={()=>(<Ads/>)}/>
   )
 }
 
