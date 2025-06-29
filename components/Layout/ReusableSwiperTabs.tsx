@@ -15,7 +15,7 @@ import 'swiper/css';
 import { GET_CATEGORY, READ_PRODUCT_TYPES } from 'graphql/queries';
 import { useQuery } from '@apollo/client';
 import { useSearchParams, useRouter } from 'next/navigation';
-
+import SearchEngine from '../Commands/SearchEngine';
 interface Tab {
   id: number;
   icon: string;
@@ -106,6 +106,7 @@ const ReusableSwiperTabs = ({ tabs, tabsB }: Props) => {
               }}  
             />  
           </div>  
+          <SearchEngine/>
         </div>  
         <div className="HeaderLeft">  
           <div className="Navigation">  
