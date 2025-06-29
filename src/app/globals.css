@@ -331,9 +331,9 @@
 
 .LikeContainer {
   display: grid;
-  grid-template-columns: 33.33% 33.33% 33.33%;
+  grid-template-columns: 33.32% 33.32% 33.32%;
   height: auto;
-  grid-gap: 0.2vw;
+  grid-gap: 1px;
   transition: ease 0.5s;
   justify-content: 'flex-start';
   position: relative;
