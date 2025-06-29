@@ -35,7 +35,7 @@ const ReusableSwiperTabs = ({ tabs, tabsB }: Props) => {
   const tabsBSwiperRef = useRef<any>(null);
 
   const tabAValue = useSelector((state: any) => state.tabs.TabA);
-  const tabCValue = useSelector((state: any) => state.tabs.TabC); // Used?
+  const tabCValue = useSelector((state: any) => state.tabs.TabC); // May be unused
 
   const { data: cat } = useQuery(GET_CATEGORY);
   const { data: prodType } = useQuery(READ_PRODUCT_TYPES);
@@ -46,23 +46,33 @@ const ReusableSwiperTabs = ({ tabs, tabsB }: Props) => {
     if (prodType) dispatch(setProductTypeData(prodType.getProductTypes));
   }, [cat, prodType, dispatch]);
 
-  // Sync tab with URL param
+  // Sync tab with URL param (only if different)
   useEffect(() => {
     const tabId = parseInt(searchParams.get('TabA') || '0', 10);
-    dispatch(setTabValue({ tab: 'TabA', value: tabId }));
-    mainSwiperRef.current?.slideTo(tabId);
-  }, [searchParams, dispatch]);
-
-  const handleTabClick = useCallback((index: number) => {
-    const selectedTab = tabs[index];
-    if (selectedTab?.id !== undefined) {
-      const url = new URL(window.location.href);
-      url.searchParams.set('TabA', selectedTab.id.toString());
-      router.replace(url.toString(), { scroll: false });
-      dispatch(setTabValue({ tab: 'TabA', value: index }));
-      mainSwiperRef.current?.slideTo(index);
+    if (!isNaN(tabId) && tabAValue !== tabId) {
+      dispatch(setTabValue({ tab: 'TabA', value: tabId }));
+      mainSwiperRef.current?.slideTo(tabId);
     }
-  }, [tabs, dispatch, router]);
+  }, [searchParams, dispatch, tabAValue]);
+
+  const handleTabClick = useCallback(
+    (index: number) => {
+      const selectedTab = tabs[index];
+      if (selectedTab?.id !== undefined && tabAValue !== index) {
+        const url = new URL(window.location.href);
+        const currentParam = url.searchParams.get('TabA');
+
+        if (currentParam !== selectedTab.id.toString()) {
+          url.searchParams.set('TabA', selectedTab.id.toString());
+          router.replace(url.toString(), { scroll: false, shallow: true });
+        }
+
+        dispatch(setTabValue({ tab: 'TabA', value: index }));
+        mainSwiperRef.current?.slideTo(index);
+      }
+    },
+    [tabs, tabAValue, dispatch, router]
+  );
 
   if (tabAValue === null) return null;
 
@@ -117,7 +127,9 @@ const ReusableSwiperTabs = ({ tabs, tabsB }: Props) => {
       <Swiper
         onSwiper={(swiper) => (mainSwiperRef.current = swiper)}
         onSlideChange={(swiper) => {
-          dispatch(setTabValue({ tab: 'TabA', value: swiper.activeIndex }));
+          if (swiper.activeIndex !== tabAValue) {
+            dispatch(setTabValue({ tab: 'TabA', value: swiper.activeIndex }));
+          }
           setTimeout(() => swiper.updateAutoHeight(), 100);
         }}
         modules={[Navigation]}
@@ -129,7 +141,7 @@ const ReusableSwiperTabs = ({ tabs, tabsB }: Props) => {
       >
         {tabs.map((tab, index) => (
           <SwiperSlide key={`main-tab-${index}`}>
-            <div style={{ padding: '0px',textAlign:'left' }}>{tab.content}</div>
+            <div style={{ padding: '0px', textAlign: 'left' }}>{tab.content}</div>
           </SwiperSlide>
         ))}
 
@@ -159,5 +171,4 @@ const ReusableSwiperTabs = ({ tabs, tabsB }: Props) => {
   );
 };
 
-// ✅ Wrap with React.memo
 export default memo(ReusableSwiperTabs);
