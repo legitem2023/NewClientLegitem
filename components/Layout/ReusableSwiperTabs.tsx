@@ -17,158 +17,148 @@ import { useQuery } from '@apollo/client';
 import { useSearchParams, useRouter } from 'next/navigation';
 
 interface Tab {
-  id: number;
-  icon: string;
-  content: React.ReactNode;
+id: number;
+icon: string;
+content: React.ReactNode;
 }
 
 interface Props {
-  tabs: Tab[];
-  tabsB: Tab[];
+tabs: Tab[];
+tabsB: Tab[];
 }
 
 const ReusableSwiperTabs = ({ tabs, tabsB }: Props) => {
-  const dispatch = useDispatch();
-  const searchParams = useSearchParams();
-  const router = useRouter();
-  const mainSwiperRef = useRef<any>(null);
-  const tabsBSwiperRef = useRef<any>(null);
+const dispatch = useDispatch();
+const searchParams = useSearchParams();
+const router = useRouter();
+const mainSwiperRef = useRef<any>(null);
+const tabsBSwiperRef = useRef<any>(null);
 
-  const tabAValue = useSelector((state: any) => state.tabs.TabA);
-  const tabCValue = useSelector((state: any) => state.tabs.TabC); // May be unused
+const tabAValue = useSelector((state: any) => state.tabs.TabA);
+const tabCValue = useSelector((state: any) => state.tabs.TabC); // Used?
 
-  const { data: cat } = useQuery(GET_CATEGORY);
-  const { data: prodType } = useQuery(READ_PRODUCT_TYPES);
+const { data: cat } = useQuery(GET_CATEGORY);
+const { data: prodType } = useQuery(READ_PRODUCT_TYPES);
 
-  // Fetch GraphQL data
-  useEffect(() => {
-    if (cat) dispatch(setCategoryData(cat.getCategory));
-    if (prodType) dispatch(setProductTypeData(prodType.getProductTypes));
-  }, [cat, prodType, dispatch]);
+// Fetch GraphQL data
+useEffect(() => {
+if (cat) dispatch(setCategoryData(cat.getCategory));
+if (prodType) dispatch(setProductTypeData(prodType.getProductTypes));
+}, [cat, prodType, dispatch]);
 
-  // Sync tab with URL param (only if different)
-  useEffect(() => {
-    const tabId = parseInt(searchParams.get('TabA') || '0', 10);
-    if (!isNaN(tabId) && tabAValue !== tabId) {
-      dispatch(setTabValue({ tab: 'TabA', value: tabId }));
-      mainSwiperRef.current?.slideTo(tabId);
-    }
-  }, [searchParams, dispatch, tabAValue]);
+// Sync tab with URL param
+useEffect(() => {
+const tabId = parseInt(searchParams.get('TabA') || '0', 10);
+dispatch(setTabValue({ tab: 'TabA', value: tabId }));
+mainSwiperRef.current?.slideTo(tabId);
+}, [searchParams, dispatch]);
 
-  const handleTabClick = useCallback(
-    (index: number) => {
-      const selectedTab = tabs[index];
-      if (selectedTab?.id !== undefined && tabAValue !== index) {
-        const url = new URL(window.location.href);
-        const currentParam = url.searchParams.get('TabA');
+const handleTabClick = useCallback((index: number) => {
+const selectedTab = tabs[index];
+if (selectedTab?.id !== undefined) {
+const url = new URL(window.location.href);
+url.searchParams.set('TabA', selectedTab.id.toString());
+router.replace(url.toString(), { scroll: false });
+dispatch(setTabValue({ tab: 'TabA', value: index }));
+mainSwiperRef.current?.slideTo(index);
+}
+}, [tabs, dispatch, router]);
 
-        if (currentParam !== selectedTab.id.toString()) {
-          url.searchParams.set('TabA', selectedTab.id.toString());
-          router.replace(url.toString(), { scroll: false });
-        }
+if (tabAValue === null) return null;
 
-        dispatch(setTabValue({ tab: 'TabA', value: index }));
-        mainSwiperRef.current?.slideTo(index);
-      }
-    },
-    [tabs, tabAValue, dispatch, router]
-  );
+return (
+<div style={{ position: 'absolute', left: 0, right: 0, top: 0, width: '100%' }}>
+<InstallPWAButton />
+<EnsureTabsInUrl />
 
-  if (tabAValue === null) return null;
+<div className="Header">  
+    <div className="HeaderRight">  
+      <div style={{ padding: '5px' }}>  
+        <Image  
+          src="/image/Crowd.svg"  
+          alt="Logo"  
+          width={874}  
+          height={373}  
+          className="Logo"  
+          style={{ height: '50px', width: 'auto' }}  
+          onError={(e) => console.error('Image failed to load', e)}  
+        />  
+      </div>  
+    </div>  
+    <div className="HeaderLeft">  
+      <div className="Navigation">  
+        <div className="HeaderNav" style={{ display: 'flex', justifyContent: 'space-around' }}>  
+          {tabs.map((tab, index) => (  
+            <nav  
+              key={tab.id}  
+              onClick={() => handleTabClick(index)}  
+              style={{  
+                cursor: 'pointer',  
+                display: 'flex',  
+                flexDirection: 'column',  
+                width: '100%',  
+                minHeight: '40px',  
+                backgroundColor: tabAValue === index ? '#572700' : 'transparent',  
+              }}  
+            >  
+              <Icon  
+                icon={tab.icon}  
+                style={{  
+                  color: tabAValue === index ? '#ffffff' : '#572700',  
+                }}  
+              />  
+            </nav>  
+          ))}  
+        </div>  
+      </div>  
+    </div>  
+  </div>  
 
-  return (
-    <div style={{ position: 'absolute', left: 0, right: 0, top: 0, width: '100%' }}>
-      <InstallPWAButton />
-      <EnsureTabsInUrl />
+  <Swiper  
+    onSwiper={(swiper) => (mainSwiperRef.current = swiper)}  
+    onSlideChange={(swiper) => {  
+      dispatch(setTabValue({ tab: 'TabA', value: swiper.activeIndex }));  
+      setTimeout(() => swiper.updateAutoHeight(), 100);  
+    }}  
+    modules={[Navigation]}  
+    allowTouchMove={false}  
+    initialSlide={tabAValue}  
+    loop={false}  
+    autoHeight  
+    style={{ width: '100%' }}  
+  >  
+    {tabs.map((tab, index) => (  
+      <SwiperSlide key={`main-tab-${index}`}>  
+        <div style={{ padding: '0px',textAlign:'left' }}>{tab.content}</div>  
+      </SwiperSlide>  
+    ))}  
 
-      <div className="Header">
-        <div className="HeaderRight">
-          <div style={{ padding: '5px' }}>
-            <Image
-              src="/image/Crowd.svg"
-              alt="Logo"
-              width={874}
-              height={373}
-              className="Logo"
-              style={{ height: '50px', width: 'auto' }}
-              onError={(e) => console.error('Image failed to load', e)}
-            />
-          </div>
-        </div>
-        <div className="HeaderLeft">
-          <div className="Navigation">
-            <div className="HeaderNav" style={{ display: 'flex', justifyContent: 'space-around' }}>
-              {tabs.map((tab, index) => (
-                <nav
-                  key={tab.id}
-                  onClick={() => handleTabClick(index)}
-                  style={{
-                    cursor: 'pointer',
-                    display: 'flex',
-                    flexDirection: 'column',
-                    width: '100%',
-                    minHeight: '40px',
-                    backgroundColor: tabAValue === index ? '#572700' : 'transparent',
-                  }}
-                >
-                  <Icon
-                    icon={tab.icon}
-                    style={{
-                      color: tabAValue === index ? '#ffffff' : '#572700',
-                    }}
-                  />
-                </nav>
-              ))}
-            </div>
-          </div>
-        </div>
-      </div>
+    <SwiperSlide key="tabsB-wrapper">  
+      <Swiper  
+        onSwiper={(swiper) => (tabsBSwiperRef.current = swiper)}  
+        onSlideChange={(swiper) => {  
+          setTimeout(() => swiper.updateAutoHeight(), 100);  
+        }}  
+        modules={[Navigation]}  
+        allowTouchMove={false}  
+        loop={false}  
+        autoHeight  
+        style={{ width: '100%', minHeight: '100vh', height: 'auto' }}  
+      >  
+        {tabsB.map((tab, index) => (  
+          <SwiperSlide key={`tabsB-${index}`}>  
+            <div style={{ textAlign: 'left' }}>{tab.content}</div>  
+          </SwiperSlide>  
+        ))}  
+      </Swiper>  
+    </SwiperSlide>  
+  </Swiper>  
 
-      <Swiper
-        onSwiper={(swiper) => (mainSwiperRef.current = swiper)}
-        onSlideChange={(swiper) => {
-          if (swiper.activeIndex !== tabAValue) {
-            dispatch(setTabValue({ tab: 'TabA', value: swiper.activeIndex }));
-          }
-          setTimeout(() => swiper.updateAutoHeight(), 100);
-        }}
-        modules={[Navigation]}
-        allowTouchMove={false}
-        initialSlide={tabAValue}
-        loop={false}
-        autoHeight
-        style={{ width: '100%' }}
-      >
-        {tabs.map((tab, index) => (
-          <SwiperSlide key={`main-tab-${index}`}>
-            <div style={{ padding: '0px', textAlign: 'left' }}>{tab.content}</div>
-          </SwiperSlide>
-        ))}
+  <PageFooter />  
+</div>
 
-        <SwiperSlide key="tabsB-wrapper">
-          <Swiper
-            onSwiper={(swiper) => (tabsBSwiperRef.current = swiper)}
-            onSlideChange={(swiper) => {
-              setTimeout(() => swiper.updateAutoHeight(), 100);
-            }}
-            modules={[Navigation]}
-            allowTouchMove={false}
-            loop={false}
-            autoHeight
-            style={{ width: '100%', minHeight: '100vh', height: 'auto' }}
-          >
-            {tabsB.map((tab, index) => (
-              <SwiperSlide key={`tabsB-${index}`}>
-                <div style={{ textAlign: 'left' }}>{tab.content}</div>
-              </SwiperSlide>
-            ))}
-          </Swiper>
-        </SwiperSlide>
-      </Swiper>
-
-      <PageFooter />
-    </div>
-  );
+);
 };
 
+// ✅ Wrap with React.memo
 export default memo(ReusableSwiperTabs);
