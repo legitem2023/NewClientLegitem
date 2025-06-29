@@ -337,6 +337,7 @@
   transition: ease 0.5s;
   justify-content: 'flex-start';
   position: relative;
+  padding:2px;
 }
 
 .ReusableCardContainer {
