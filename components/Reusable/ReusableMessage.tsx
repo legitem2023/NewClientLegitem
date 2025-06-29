@@ -101,7 +101,7 @@ const reactions = [
           </div>
           <div className="messageSenderTime">
             <Icon icon="svg-spinners:clock" width="15" height="15" style={{ marginLeft: '5px' }} />
-            {noOfDays(data.dateSent)}
+            <ReusableText label={noOfDays(data.dateSent)}/>
           </div>
         </div>
 
