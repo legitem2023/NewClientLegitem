@@ -133,7 +133,7 @@ const Details = [
   const tabItems = [
     {id: 0, name: 'Home', icon: 'ic:sharp-home', content: <HomeTab/> },
     {id: 1, name: 'Products', icon: 'bi:tags-fill', content: <ProductsTab /> },
-    {id: 2, name: 'News', icon: 'fa6-solid:newspaper', content: <ReusableTabs tabs={newTabItem} /> },
+    {id: 2, name: 'News', icon: 'fa6-solid:newspaper', content: <NewsTab /> },
     {id: 3, name: 'Crowd', icon: 'simple-icons:crowdsource', content: <PublicMessages /> },
     {id: 4, name: 'Account', icon: 'mdi:badge-account-horizontal', content: <ReusableTabs tabs={tabItms} /> },
     {id: 5, name: 'Cart', icon: 'mdi:cart', content: <CartBody /> },
