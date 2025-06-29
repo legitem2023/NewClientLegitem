@@ -34,21 +34,34 @@ const News:React.FC = () => {
   if (NewsError) return <div>Connection Error</div>;
 
   return (
-    <div style={{ height: 'auto', scrollbarWidth: 'none' }}>
-     <ReusableLabel icn='bi:tags-fill' label='News'/>
-      <div className='LikeContainer'>  
+    <ReusableCenterLayout
+      child1={() => <></>}
+      child2={() => (
+        <div style={{ overflowY: 'auto', height: 'auto', scrollbarWidth: 'none' }}>
+           <div className="LikeContainer">
+              <div className='LikeContainer'>  
       {paginatedNews.length > 0?paginatedNews?.map((item: any, idx: number) => (
-        <UniversalContainerItem key={idx} title={item.title} thumbnail={imageSource(item.thumbnail)} summary={item.summary} dateCreated={item.dateCreated} index={idx}/>
+        <UniversalContainerItem key={idx} 
+                                title={item.title} 
+                                thumbnail={imageSource(item.thumbnail)} 
+                                summary={item.summary} 
+                                dateCreated={item.dateCreated} 
+                                index={idx}/>
       )):(<h1>No Data</h1>)}
-      
-    </div>
+             </div> 
+          </div>
+       </div>
+      )}
+      child3={() => (
       <UniversalPagination
         currentPage={currentPage}
         totalPages={totalPages}
         onPageChange={handlePageChange}
       />
-      </div>
-  );
+      )}
+      child4={() => <></>}
+    />
+  )
 };
 
 export default News;
