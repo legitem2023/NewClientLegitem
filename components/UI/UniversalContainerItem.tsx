@@ -17,7 +17,7 @@ interface UniversalContainerItemProps {
 const UniversalContainerItem: React.FC<UniversalContainerItemProps> = ({ title, thumbnail, summary, dateCreated, index }) => {
  
   return (
-    <div className="ReusableCardContainer" style={{width:'100%',aspectRatio:'3 / 1',boxSizing:'border-box'}}>
+    <div className="ReusableCardContainer" style={{width:'100%',boxSizing:'border-box'}}>
       <div className="ReusableCardContainer_1">
         <Image src={imageSource(thumbnail)} height={100} width={200} alt={`image${index}`} />
       </div>
