@@ -19,7 +19,7 @@ const UniversalContainerItem: React.FC<UniversalContainerItemProps> = ({ title, 
   return (
     <div className="ReusableCardContainer" style={{aspectRatio:'1/2',width:'100%',boxSizing:'border-box'}}>
       <div className="ReusableCardContainer_1">
-        <Image src={imageSource(thumbnail)} height={100} width={200} alt={`image${index}`} />
+        <Image src={imageSource(thumbnail)} height={150} width={150} style={{ aspectRatio:'1/1' }} alt={`image${index}`} />
       </div>
       <div className="ReusableCardContainer_1">
         <Element_Title Label="" value={title}/>
