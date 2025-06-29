@@ -35,9 +35,7 @@ const UniversalContainerItem: React.FC<UniversalContainerItemProps> = ({
 
       <div className='ReusableCardContainer_1'>
         <Element_Title Label="" value={title} />
-        <div style={{ flex: 1, overflow: 'hidden' }}>
-          <HtmlRenderer htmlContent={summary} />
-        </div>
+        <HtmlRenderer htmlContent={summary} />
         <ReusableText label={noOfDays(dateCreated)} />   
       </div>
     </div>
