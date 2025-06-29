@@ -1,30 +1,36 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-.search-engine-container {
-  transition: background-color 0.3s ease;
-}
-
-.search-focused {
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 100%;
+/* Search Engine Styles */
+.search-engine-wrapper {
+  position: relative;
+  width: 100%;
+  z-index: 1000; /* High enough to appear above other elements */
 }
 
 .search-input {
+  width: 100%;
   padding: 8px 12px;
   border: 1px solid #ddd;
   border-radius: 4px;
   font-size: 16px;
+  box-sizing: border-box;
+}
+
+.suggestions-container {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 1001; /* Above the input */
 }
 
 .suggestions-list {
   list-style: none;
   padding: 0;
-  margin: 0 10px;
-  border: 1px solid #eee;
-  border-radius: 4px;
+  margin: 0;
   max-height: 300px;
   overflow-y: auto;
 }
