@@ -100,7 +100,7 @@ const ReusableSwiperTabs = ({ tabs, tabsB }: Props) => {
               height={373}  
               className="Logo"  
               style={{ 
-                height: '50px', 
+                height: '40px', 
                 width: 'auto',
                 maxWidth: '100%' // Safari image sizing fix
               }}  
