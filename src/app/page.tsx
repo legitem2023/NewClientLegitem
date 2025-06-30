@@ -93,7 +93,7 @@ const Details = [
     { id: 1, name: 'My Orders', icon: 'wpf:shopping-basket', content: <Order /> },
     { id: 2, name: 'Likes', icon: 'mdi:like', content: <LikesTab/> },
     { id: 3, name: 'Messages', icon: 'typcn:messages', content: <PrivateMessages /> },
-    { id: 4, name: 'Logout', icon: 'ic:sharp-logout', content: <CartBody /> },
+    { id: 4, name: 'Logout', icon: 'ic:sharp-logout', content: <></> },
   ];
 
   useEffect(() => {
