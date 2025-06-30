@@ -18,19 +18,19 @@ const FooterTab:React.FC = () => {
         <Icon icon="entypo-social:youtube" style={{color:'#ff0000'}}/>
       </div>
       <div className='FootCenter'>
-      <span className='foot_label' onClick={()=>{dispatch(setTabValue({ tab: 'TabA', value:'6'}));   }}>
+      <span className='foot_label' onClick={()=>{dispatch(setTabValue({ tab: 'TabA', value:6}));   }}>
         About Legitem
       </span>
-      <span className='foot_label' onClick={()=>{dispatch(setTabValue({ tab: 'TabA', value:'6'}));   }}>
+      <span className='foot_label' onClick={()=>{dispatch(setTabValue({ tab: 'TabA', value:6}));   }}>
         FAQ
       </span>
-      <span className='foot_label' onClick={()=>{dispatch(setTabValue({ tab: 'TabA', value:'6'}));   }}>
+      <span className='foot_label' onClick={()=>{dispatch(setTabValue({ tab: 'TabA', value:6}));   }}>
         Disclaimer
       </span>
-      <span className='foot_label' onClick={()=>{dispatch(setTabValue({ tab: 'TabA', value:'6'}));   }}>
+      <span className='foot_label' onClick={()=>{dispatch(setTabValue({ tab: 'TabA', value:6}));   }}>
         Privacy
       </span>
-      <span className='foot_label' onClick={()=>{dispatch(setTabValue({ tab: 'TabA', value:'6'}));   }}>
+      <span className='foot_label' onClick={()=>{dispatch(setTabValue({ tab: 'TabA', value:6}));   }}>
         Contact Us
       </span>
       </div>
