@@ -18,7 +18,7 @@ export default function ReusableSwipeMenu({ menuItems = [],menu ,main }: Props) 
 
   const toggleMenu = () => setIsOpen((prev) => !prev);
   const closeMenu = () => setIsOpen(false);
-
+console.log(isOpen);
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
       if (menuRef.current && !menuRef.current.contains(e.target as Node)) {
