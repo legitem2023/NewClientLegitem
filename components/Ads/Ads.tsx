@@ -1,6 +1,6 @@
 'use client'
 import ReusableSlideNames from 'components/Reusable/ReusableSlideNames';
-import marquee from from 'components/UI/Marquee';
+import marquee from 'components/UI/Marquee';
 import AdDropdown from './AdDropdown';
 const Ads:React.FC = () => {
 
