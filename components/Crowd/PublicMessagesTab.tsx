@@ -6,6 +6,8 @@ import Messages from './Messages'
 import ReusableMainLayout from 'components/Layout/ReusableMainLayout'
 import { useSelector } from 'react-redux'
 import ReusableSwipeMenu from 'components/Reusable/ReusableSwipeMenu';
+import ReusableFlexLayout from 'components/Layout/ReusableFlexLayout'
+import Ads from 'components/Ads/Ads'
 const PublicMessagesTab = () => {
     const cookie = useSelector((state:any)=> state.cookie.cookie);
     const menu = [{ label: "Dashboard", href: "/" },
@@ -15,9 +17,12 @@ const PublicMessagesTab = () => {
 ];
     const SelectedReciever = useSelector((state:any)=> state.reciever.reciever);
     return (
-        <ReusableSwipeMenu menuItems={menu} 
-                           menu={()=>(<></>)} 
-                           main={()=>(<Messages/>)}/>
+                           <ReusableFlexLayout 
+                           childA={()=>(<Ads/>)}
+                           childB={()=>(<ReusableSwipeMenu menuItems={menu} 
+                            menu={()=>(<></>)} 
+                            main={()=>(<Messages/>)}/>)} 
+                           childC={()=>(<Ads/>)}/>
     )
 }
 

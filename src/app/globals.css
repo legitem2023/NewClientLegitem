@@ -1700,8 +1700,8 @@ input[type='date']{
 }
 
 .Header {
-  height: 8vh;
-  width: 100vw;
+  height: 80px;
+  width: 100%;
   display: flex;
   background-color: rgb(249 220 206);
 }
@@ -1787,7 +1787,7 @@ input[type='date']{
   grid-column: 1 / span 4;
   width: 100%;
   padding:20px;
-  border-bottom: solid 1px #749e95;
+  border-bottom: solid 1px rgb(87, 39, 0);
   box-sizing: border-box!important;
 }
 .FootHeader{
@@ -1818,7 +1818,7 @@ input[type='date']{
   display: grid;
   grid-template-columns: 25% 25% 25% 25%;
   width: 100%;
-  border-bottom: solid 1px #749e95;
+  border-bottom: solid 1px rgb(87, 39, 0);
   box-sizing: border-box;
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;

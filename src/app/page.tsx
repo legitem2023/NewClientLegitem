@@ -1,6 +1,6 @@
 'use client';
 import React, { useEffect, useState, Suspense } from 'react';
-import { useSelector } from 'react-redux';
+
 import { useRouter } from 'next/navigation';
 import { cookies } from 'components/cookies/cookie';
 
@@ -26,6 +26,7 @@ import ReusableSwiperTabs from 'components/Layout/ReusableSwiperTabs';
 import LikesTab from 'components/Likes/LikesTab';
 
 import LoginTab from 'components/Login/LoginTab';
+import Ads from 'components/Ads/Ads';
 export default function Index() { 
   const [isAuthorized, setIsAuthorized] = useState(false);
   const [usetab,setTab]= useState([]);
@@ -95,13 +96,7 @@ const Details = [
   },
 ];
   
-  const menu = [
-    { label: "Dashboard", href: "/" },
-    { label: "Profile", href: "/profile" },
-    { label: "Settings", href: "/settings" },
-    { label: "Logout", href: "/logout" },
-  ];
-  
+
   const tabItms = [
     { id: 0, name: 'Address Book', icon: 'icomoon-free:address-book', content: <Account /> },
     { id: 1, name: 'My Orders', icon: 'wpf:shopping-basket', content: <Order /> },
@@ -110,16 +105,11 @@ const Details = [
     { id: 4, name: 'Logout', icon: 'ic:sharp-logout', content: <CartBody /> },
   ];
 
- const newTabItem = [
-    {id: 0, name: 'News', icon: 'ic:sharp-home', content: <NewsTab/> }]; 
-  
-  const cookieState = useSelector((state: any) => state.cookie.cookie);
-  console.log(cookieState);
 
   useEffect(() => {
     const cookie = cookies();
     if (!cookie) {
-      //router.push('/Login');
+
   const tabItems = [
     {id: 0, name: 'Home', icon: 'ic:sharp-home', content: <HomeTab/> },
     {id: 1, name: 'Products', icon: 'bi:tags-fill', content: <ProductsTab /> },
@@ -135,7 +125,11 @@ const Details = [
     {id: 1, name: 'Products', icon: 'bi:tags-fill', content: <ProductsTab /> },
     {id: 2, name: 'News', icon: 'fa6-solid:newspaper', content: <NewsTab /> },
     {id: 3, name: 'Crowd', icon: 'simple-icons:crowdsource', content: <PublicMessages /> },
-    {id: 4, name: 'Account', icon: 'mdi:badge-account-horizontal', content: <ReusableTabs tabs={tabItms} /> },
+    {id: 4, name: 'Account', icon: 'mdi:badge-account-horizontal', content: <ReusableFlexLayout
+      childA={() => <Ads/>}
+      childB={() => <ReusableTabs tabs={tabItms} />}
+      childC={() => <Ads/>}
+    /> },
     {id: 5, name: 'Cart', icon: 'mdi:cart', content: <CartBody /> },
   ];
       setTab(tabItems);
@@ -146,6 +140,9 @@ const Details = [
   
   if (isLoading) return <Loading />;
  
+  ReusableFlexLayout
+
+
   return (
     <Suspense fallback={<Loading />}>
       <ReusableSwiperTabs tabs={usetab} tabsB={Details}/>

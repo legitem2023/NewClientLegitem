@@ -23,7 +23,7 @@ const UniversalContainerItem: React.FC<UniversalContainerItemProps> = ({
   index,
 }) => {
   return (
-    <div key={index} style={{ aspectRatio:'1/2', width:'100%',boxSizing:'border-box' }} className='ReusableCardContainer'>
+    <div key={index} className='ReusableCardContainer'>
       <div className='ReusableCardContainer_1'>
         <Image
           src={imageSource(thumbnail)}
@@ -34,8 +34,8 @@ const UniversalContainerItem: React.FC<UniversalContainerItemProps> = ({
       </div>
       <div className='ReusableCardContainer_1'>
         <Element_Title Label="" value={title} />
-        {/* <HtmlRenderer htmlContent={summary} /> */}
-        {/* <ReusableText label={noOfDays(dateCreated)} />   */}
+        <HtmlRenderer htmlContent={summary} />
+        <ReusableText label={noOfDays(dateCreated)} />  
       </div>
     </div>
   );

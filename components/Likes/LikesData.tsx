@@ -10,6 +10,7 @@ import { READ_LIKES } from 'graphql/queries';
 import { setViewedProd } from 'Redux/viewedProdSlice';
 import { imageSource } from 'utils/scripts';
 import AddCartCmd from 'components/Commands/AddCartCmd';
+import ReusableLabel from 'components/Reusable/ReusableLabel';
 const LikesData = () => {
   const dispatch = useDispatch();
   const cookie = useSelector((state: any) => state.cookie.cookie);
@@ -43,7 +44,7 @@ const LikesData = () => {
   if (LikeError) return <ReusableServerDown />;
   return (
     <ReusableCenterLayout
-      child1={() => <></>}
+      child1={() => (<ReusableLabel icn="bi:tags-fill" label="Likes" />)}
       child2={() => (
         <div
           style={{ overflowY: 'auto', height: 'auto', scrollbarWidth: 'none' }} // Set height to auto

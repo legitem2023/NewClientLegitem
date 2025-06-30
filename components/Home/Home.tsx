@@ -24,7 +24,6 @@ const Home = () => {
 
  //   const gallery = Category?.getCategory;
 
-  console.log(storedcategory);
   return (
     <ReusableCenterLayout
       child1={()=>(

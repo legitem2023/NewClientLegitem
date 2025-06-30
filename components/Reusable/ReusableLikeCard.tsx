@@ -1,10 +1,8 @@
 import Image from 'next/image';
 import { ReactNode } from 'react';
 import Element from '../UI/Element';
-import AddCartCmd from '../Commands/AddCartCmd';
 import Element_Title from '../UI/Element_Title';
 import Ratings from '../Partial/Ratings/Ratings';
-import Discounted from '../UI/Discounted';
 import Price from '../UI/Price';
 import Price_strike from '../UI/Price_strike';
 interface ReusableCardProps {
@@ -22,7 +20,7 @@ const ReusableLikeCard: React.FC<ReusableCardProps> = ({ item, view, imageSource
       <div className='ReusableCardContainer_1'>
         <Image
         src={imageSource(item)}
-        style={{filter:item.stock < 1?'grayscale(100%)':''}}
+        style={{filter:item.stock < 1?'grayscale(100%)':'',aspectRatio:'1/1'}}
         height={150}
         width={150}
         quality={1}

@@ -3,27 +3,21 @@ import React, { useCallback, useState,useEffect } from 'react';
 import { useQuery } from '@apollo/client';
 import { GET_CHILD_INVENTORY } from 'graphql/queries';
 import { handleError, handleLoading } from 'utils/scripts';
-import Thumbnail from 'components/UI/Thumbnail';
 import ReusableThumbnail from 'components/Reusable/ReusableThumbnail';
-import ReusableCustomCarousel from 'components/Reusable/ReusableCustomCarousel';
 
 import AddCartCmd from 'components/Commands/AddCartCmd';
 import { ViewedProduct } from 'types/types';
 import { useDispatch, useSelector } from 'react-redux';
-//import ReusableSearch from 'components/Reusable/ReusableSearch';
 import { setSearch } from 'Redux/searchSlice';
 import { setsortBy } from 'Redux/sortBySlice';
 import { setsortDirection } from 'Redux/sortDirectionSlice';
 import { addSuggestedItems } from 'Redux/suggestedItemSlice';
-import Modal from './Modal';
-//import RecentlyVisited from './RecentlyVisited';
-import ProductView from 'components/Products/ProductView/ProductView';
 import { setmodal } from 'Redux/modalSlice';
 import ReusableCenterLayout from 'components/Layout/ReusableCenterLayout';
 import { setviewed } from 'Redux/viewedSlice';
 import { setViewedProd } from 'Redux/viewedProdSlice';
 import ProductLoading from './ProductLoading';
-import { useRouter, usePathname } from 'next/navigation';
+// import { useRouter, usePathname } from 'next/navigation';
 import ReusableServerDown from 'components/Reusable/ReusableServerDown';
 import { Icon } from '@iconify/react';
 import ReusableLabel from 'components/Reusable/ReusableLabel';
@@ -34,10 +28,9 @@ const itemsPerPage = 50; // Number of items to load per "page"
 
 const Products: React.FC = () => {
   const dispatch = useDispatch();
-  const router = useRouter();
-  const pathname = usePathname();
-  const [useSaved,setSaved] = useState("");
-  const isModalOpen = useSelector((state: any) => state.modal.modal);
+  // const router = useRouter();
+  // const pathname = usePathname();
+  // const [useSaved,setSaved] = useState("");
   const storedcategory = useSelector((state: any) => state.categoryData.getCategoryData);
 
   
@@ -166,15 +159,15 @@ useEffect(() => {
     //const multipliedProducts = multiplyArray(ProductsData.getChildInventory, 1);
     dispatch(addSuggestedItems(ProductsData?.getChildInventory));
 
-const localData = JSON.parse(localStorage.getItem("recentlyVisited") || "[]"); 
+// const localData = JSON.parse(localStorage.getItem("recentlyVisited") || "[]"); 
 
-const formattedData = localData.map((item: any) => ({
-  ...item, // Keeps all existing properties
-  image: item.thumbnail, // Renaming 'thumbnail' to 'image'
-  Name: item.name, // Adjusting key format if needed
-}));
+// const formattedData = localData.map((item: any) => ({
+//   ...item, // Keeps all existing properties
+//   image: item.thumbnail, // Renaming 'thumbnail' to 'image'
+//   Name: item.name, // Adjusting key format if needed
+// }));
 
-setSaved(formattedData);
+// setSaved(formattedData);
 
   }
 }, [dispatch, ProductsData]);
