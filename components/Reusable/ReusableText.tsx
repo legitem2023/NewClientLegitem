@@ -11,8 +11,6 @@ const ReusableText:FC<ReusableTextProps> = ({label}) => {
         style={{padding: 0,
                 border:'none',
                 fontSize:'14px',
-                borderRadius: "9999px", // rounded-full
-                backgroundColor: "#F3F4F6", // bg-gray-100
                 outline: "none", // focus:outline-none
                 transition: "background-color 0.2s ease-in-out",
                 whiteSpace:'nowrap',
