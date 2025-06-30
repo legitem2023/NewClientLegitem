@@ -150,11 +150,11 @@ const reactions = [
           <div className="messageReactionsIcons">
             <Icon icon="mdi:comment-outline" width="24" height="24" />
             
-            <ReusableText label={Comment}/>
+            <ReusableText label={'Comment'}/>
           </div>
           <div className="messageReactionsIcons">
             <Icon icon="mdi-light:share" width="24" height="24" />
-            <ReusableText label={Share}/>
+            <ReusableText label={'Share'}/>
           </div>
         </div>
       </div>
