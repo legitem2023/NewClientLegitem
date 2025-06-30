@@ -13,7 +13,7 @@ export default function AdDropdown({ content }: AdDropdownProps) {
   };
 
   const buttonStyle: React.CSSProperties = {
-    width: '100%',
+    width: 'auto',
     padding: '2px',
     fontSize: '14px',
     fontWeight: 500,
@@ -35,12 +35,7 @@ export default function AdDropdown({ content }: AdDropdownProps) {
   };
 
   const contentStyle: React.CSSProperties = {
-    borderLeft: '2px solid gray',
-    borderRight: '2px solid gray',
-    borderBottom: '2px solid gray',
-    borderBottomLeftRadius: 5,
-    borderBottomRightRadius: 5,
-    backgroundColor: '#f9f9f9',
+    backgroundColor: 'transparent',
     padding: '12px',
     fontSize: '14px',
     width: '100%',
