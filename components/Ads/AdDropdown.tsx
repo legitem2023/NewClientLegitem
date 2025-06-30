@@ -8,17 +8,17 @@ export default function AdDropdown({ content }: AdDropdownProps) {
   const [isOpen, setIsOpen] = useState(false);
 
   const containerStyle: React.CSSProperties = {
-    width: '14rem',
+    width: '100%',
     fontFamily: 'sans-serif',
   };
 
   const buttonStyle: React.CSSProperties = {
     width: '100%',
-    padding: '8px 12px',
+    padding: '2px',
     fontSize: '14px',
     fontWeight: 500,
     textAlign: 'left',
-    border: '2px solid gray',
+    border: '1px solid gray',
     borderTopLeftRadius: 5,
     borderTopRightRadius: 5,
     borderBottom: isOpen ? 'none' : '2px solid gray',
