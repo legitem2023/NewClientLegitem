@@ -3,7 +3,7 @@ import React, { useEffect, useRef, memo, useCallback } from 'react';
 import Image from 'next/image';
 import InstallPWAButton from '../Partial/InstallationApp/InstallPWAButton';
 import EnsureTabsInUrl from './EnsureTabsInUrl';
-import PageFooter from '../Partial/Footer/PageFooter';
+import FooterTab from '../Partial/Footer/FooterTab';
 import Modal from '../Products/Modal';
 import ProductView from '../Products/ProductView/ProductView';
 import { Icon } from '@iconify/react';
@@ -211,7 +211,7 @@ const ReusableSwiperTabs = ({ tabs, tabsB }: Props) => {
         </SwiperSlide>  
       </Swiper>  
 
-      <PageFooter />  
+      <FooterTab/>  
     </div>
   );
 };
