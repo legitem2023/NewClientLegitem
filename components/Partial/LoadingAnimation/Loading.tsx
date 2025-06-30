@@ -38,7 +38,9 @@ const Loading: React.FC = () => {
                 <nav                    
                   style={{  
                     cursor: 'pointer',  
-                    display: 'flex',  
+                    display: 'flex', 
+                    alignItems:'center',
+                    justifyContent:'center',
                     flexDirection: 'column',  
                     width: '100%',  
                     minHeight: '40px',  
@@ -52,56 +54,15 @@ const Loading: React.FC = () => {
                 <nav                    
                   style={{  
                     cursor: 'pointer',  
-                    display: 'flex',  
+                    display: 'flex', 
+                    alignItems:'center',
+                    justifyContent:'center',
                     flexDirection: 'column',  
                     width: '100%',  
                     minHeight: '40px',  
-                    
                     WebkitTapHighlightColor: 'transparent' // Remove Safari tap highlight
                   }}  
-                >  
-                  <div style={{borderRadius:'100%',height:"25px",width:"25px",gap:"2px",marginBottom:'5px',display:'flex',justifyContent:'center',alignItems:'center'}}>
-                    <div className='loading-screen' style={{borderRadius:'100%',height:"25px",width:"25px",boxSizing:"border-box"}}></div>
-                  </div>  
-                </nav>  <nav                    
-                  style={{  
-                    cursor: 'pointer',  
-                    display: 'flex',  
-                    flexDirection: 'column',  
-                    width: '100%',  
-                    minHeight: '40px',  
-                    
-                    WebkitTapHighlightColor: 'transparent' // Remove Safari tap highlight
-                  }}  
-                >  
-                  <div style={{borderRadius:'100%',height:"25px",width:"25px",gap:"2px",marginBottom:'5px',display:'flex',justifyContent:'center',alignItems:'center'}}>
-                    <div className='loading-screen' style={{borderRadius:'100%',height:"25px",width:"25px",boxSizing:"border-box"}}></div>
-                  </div>  
-                </nav>  <nav                    
-                  style={{  
-                    cursor: 'pointer',  
-                    display: 'flex',  
-                    flexDirection: 'column',  
-                    width: '100%',  
-                    minHeight: '40px',  
-                    
-                    WebkitTapHighlightColor: 'transparent' // Remove Safari tap highlight
-                  }}  
-                >  
-                  <div style={{borderRadius:'100%',height:"25px",width:"25px",gap:"2px",marginBottom:'5px',display:'flex',justifyContent:'center',alignItems:'center'}}>
-                    <div className='loading-screen' style={{borderRadius:'100%',height:"25px",width:"25px",boxSizing:"border-box"}}></div>
-                  </div>  
-                </nav>  <nav                    
-                  style={{  
-                    cursor: 'pointer',  
-                    display: 'flex',  
-                    flexDirection: 'column',  
-                    width: '100%',  
-                    minHeight: '40px',  
-                    
-                    WebkitTapHighlightColor: 'transparent' // Remove Safari tap highlight
-                  }}  
-                >  
+                >
                   <div style={{borderRadius:'100%',height:"25px",width:"25px",gap:"2px",marginBottom:'5px',display:'flex',justifyContent:'center',alignItems:'center'}}>
                     <div className='loading-screen' style={{borderRadius:'100%',height:"25px",width:"25px",boxSizing:"border-box"}}></div>
                   </div>  
@@ -109,14 +70,64 @@ const Loading: React.FC = () => {
                 <nav                    
                   style={{  
                     cursor: 'pointer',  
-                    display: 'flex',  
+                    display: 'flex', 
+                    alignItems:'center',
+                    justifyContent:'center',
                     flexDirection: 'column',  
                     width: '100%',  
                     minHeight: '40px',  
-                    
                     WebkitTapHighlightColor: 'transparent' // Remove Safari tap highlight
                   }}  
-                >  
+                >
+
+                  <div style={{borderRadius:'100%',height:"25px",width:"25px",gap:"2px",marginBottom:'5px',display:'flex',justifyContent:'center',alignItems:'center'}}>
+                    <div className='loading-screen' style={{borderRadius:'100%',height:"25px",width:"25px",boxSizing:"border-box"}}></div>
+                  </div>  
+                </nav>  
+                <nav                    
+                  style={{  
+                    cursor: 'pointer',  
+                    display: 'flex', 
+                    alignItems:'center',
+                    justifyContent:'center',
+                    flexDirection: 'column',  
+                    width: '100%',  
+                    minHeight: '40px',  
+                    WebkitTapHighlightColor: 'transparent' // Remove Safari tap highlight
+                  }}  
+                >
+                  <div style={{borderRadius:'100%',height:"25px",width:"25px",gap:"2px",marginBottom:'5px',display:'flex',justifyContent:'center',alignItems:'center'}}>
+                    <div className='loading-screen' style={{borderRadius:'100%',height:"25px",width:"25px",boxSizing:"border-box"}}></div>
+                  </div>  
+                </nav>  
+                <nav                    
+                  style={{  
+                    cursor: 'pointer',  
+                    display: 'flex', 
+                    alignItems:'center',
+                    justifyContent:'center',
+                    flexDirection: 'column',  
+                    width: '100%',  
+                    minHeight: '40px',  
+                    WebkitTapHighlightColor: 'transparent' // Remove Safari tap highlight
+                  }}  
+                >
+                  <div style={{borderRadius:'100%',height:"25px",width:"25px",gap:"2px",marginBottom:'5px',display:'flex',justifyContent:'center',alignItems:'center'}}>
+                    <div className='loading-screen' style={{borderRadius:'100%',height:"25px",width:"25px",boxSizing:"border-box"}}></div>
+                  </div>  
+                </nav>  
+                 <nav                    
+                  style={{  
+                    cursor: 'pointer',  
+                    display: 'flex', 
+                    alignItems:'center',
+                    justifyContent:'center',
+                    flexDirection: 'column',  
+                    width: '100%',  
+                    minHeight: '40px',  
+                    WebkitTapHighlightColor: 'transparent' // Remove Safari tap highlight
+                  }}  
+                >
                   <div style={{borderRadius:'100%',height:"25px",width:"25px",gap:"2px",marginBottom:'5px',display:'flex',justifyContent:'center',alignItems:'center'}}>
                     <div className='loading-screen' style={{borderRadius:'100%',height:"25px",width:"25px",boxSizing:"border-box"}}></div>
                   </div>  
