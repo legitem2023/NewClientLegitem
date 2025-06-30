@@ -2,13 +2,16 @@ import { useState } from 'react';
 
 export default function AdDropdown({ content }) {
   const [isOpen, setIsOpen] = useState(false);
+ 
 
-  const containerStyle = {
+  
+
+  return (
+    <div style={{
     width: '14rem',
     fontFamily: 'sans-serif',
-  };
-
-  const buttonStyle = {
+  }}>
+      <button style={{
     width: '100%',
     padding: '8px 12px',
     fontSize: '14px',
@@ -23,9 +26,11 @@ export default function AdDropdown({ content }) {
     justifyContent: 'space-between',
     alignItems: 'center',
     cursor: 'pointer',
-  };
-
-  const contentStyle = {
+  }} onClick={() => setIsOpen(!isOpen)}>
+        Advertisement
+        <span style={{transition: 'transform 0.3s ease' transform: isOpen ? 'rotate(180deg)' : 'rotate(0deg)'}}>▼</span>
+      </button>
+      {isOpen && <div style={{
     borderLeft: '2px solid gray',
     borderRight: '2px solid gray',
     borderBottom: '2px solid gray',
@@ -38,20 +43,7 @@ export default function AdDropdown({ content }) {
     boxSizing: 'border-box',
     overflowWrap: 'break-word',
     wordBreak: 'break-word',
-  };
-
-  const iconStyle = {
-    transition: 'transform 0.3s ease',
-    transform: isOpen ? 'rotate(180deg)' : 'rotate(0deg)',
-  };
-
-  return (
-    <div style={containerStyle}>
-      <button style={buttonStyle} onClick={() => setIsOpen(!isOpen)}>
-        Advertisement
-        <span style={iconStyle}>▼</span>
-      </button>
-      {isOpen && <div style={contentStyle}>{content}</div>}
+  }}>{content}</div>}
     </div>
   );
 }
