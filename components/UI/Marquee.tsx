@@ -1,10 +1,8 @@
 // components/Marquee.js
-export default function Marquee() {
+export default function Marquee({ text = "This is a custom marquee using CSS animation.", fontSize = "1rem", speed = 10 }) {
   return (
     <div className="marquee-container">
-      <div className="marquee">
-        This is a custom marquee using CSS animation.
-      </div>
+      <div className="marquee">{text}</div>
       <style jsx>{`
         .marquee-container {
           width: 100%;
@@ -15,7 +13,8 @@ export default function Marquee() {
         .marquee {
           display: inline-block;
           padding-left: 100%;
-          animation: marquee 10s linear infinite;
+          font-size: ${fontSize};
+          animation: marquee ${speed}s linear infinite;
         }
 
         @keyframes marquee {
