@@ -178,7 +178,7 @@ const ReusableSwiperTabs = ({ tabs, tabsB }: Props) => {
             }}>{tab.content}</div>  
           </SwiperSlide>  
         ))}  
-
+        {/*
         <SwiperSlide key="tabsB-wrapper">  
           <Swiper  
             onSwiper={(swiper) => (tabsBSwiperRef.current = swiper)}  
@@ -203,12 +203,21 @@ const ReusableSwiperTabs = ({ tabs, tabsB }: Props) => {
               <SwiperSlide key={`tabsB-${index}`}>  
                 <div style={{ 
                   textAlign: 'left',
-                  minHeight: '1px' // Safari height calculation fix
+                  minHeight: '1px'
                 }}>{tab.content}</div>  
               </SwiperSlide>  
             ))}  
           </Swiper>  
-        </SwiperSlide>  
+        </SwiperSlide> */ }
+        {tabsB.map((tab, index) => (  
+              <SwiperSlide key={`tabsB-${index}`}>  
+                <div style={{ 
+                  textAlign: 'left',
+                  minHeight: '1px' // Safari height calculation fix
+                }}>{tab.content}</div>  
+              </SwiperSlide>  
+          ))}  
+        
       </Swiper>  
 
       <FooterTab/>  
