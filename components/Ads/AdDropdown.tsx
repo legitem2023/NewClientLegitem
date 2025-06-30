@@ -5,7 +5,7 @@ interface AdDropdownProps {
 }
 
 export default function AdDropdown({ content }: AdDropdownProps) {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(true);
 
   const containerStyle: React.CSSProperties = {
     width: '100%',
@@ -36,7 +36,7 @@ export default function AdDropdown({ content }: AdDropdownProps) {
 
   const contentStyle: React.CSSProperties = {
     backgroundColor: 'transparent',
-    padding: '12px',
+    padding: '5px',
     fontSize: '14px',
     width: '100%',
     boxSizing: 'border-box',
