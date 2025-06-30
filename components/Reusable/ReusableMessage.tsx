@@ -127,7 +127,7 @@ const reactions = [
             <ReusableCollapse 
   NameIcon={() => (
     <>
-          <Icon icon="material-symbols:add-reaction" width="24" height="24" /> React()
+          <Icon icon="material-symbols:add-reaction" width="24" height="24" /> <ReusableText label={'React()'}/>
     </>
   )} 
   child1={() => (
@@ -149,11 +149,12 @@ const reactions = [
           </div>
           <div className="messageReactionsIcons">
             <Icon icon="mdi:comment-outline" width="24" height="24" />
-            Comment
+            
+            <ReusableText label={Comment}/>
           </div>
           <div className="messageReactionsIcons">
             <Icon icon="mdi-light:share" width="24" height="24" />
-            Share
+            <ReusableText label={Share}/>
           </div>
         </div>
       </div>
