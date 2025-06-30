@@ -16,7 +16,6 @@ export default function AdDropdown({ content }: AdDropdownProps) {
     width: 'auto',
     padding: '2px',
     fontSize: '14px',
-    fontWeight: 500,
     textAlign: 'left',
     border: '1px solid gray',
     borderTopLeftRadius: 5,
