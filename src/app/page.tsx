@@ -16,7 +16,7 @@ import Account from 'components/Account/Account';
 import Order from 'components/Order/Order';
 import ProductsTab from 'components/Products/ProductsTab';
 import NewsTab from 'components/News/NewsTab';
-import CartBody from 'components/Cart/CartBody';
+import CartTab from 'components/Cart/CartTab';
 import PrivateMessages from 'components/PersonalMessages/PrivateMessages';
 import PublicMessages from 'components/Crowd/PublicMessagesTab';
 import HomeTab from 'components/Home/HomeTab';
@@ -130,7 +130,7 @@ const Details = [
       childB={() => <ReusableTabs tabs={tabItms} />}
       childC={() => <Ads/>}
     /> },
-    {id: 5, name: 'Cart', icon: 'mdi:cart', content: <CartBody /> },
+    {id: 5, name: 'Cart', icon: 'mdi:cart', content: <CartTab/> },
   ];
       setTab(tabItems);
       setIsAuthorized(true);
