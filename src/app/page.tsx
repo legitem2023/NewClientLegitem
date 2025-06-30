@@ -35,7 +35,7 @@ export default function Index() {
 
 const Details = [
   {
-    id: 0,
+    id: 6,
     name: 'About',
     icon: 'ic:sharp-home',
     content: (
@@ -47,7 +47,7 @@ const Details = [
     ),
   },
   {
-    id: 1,
+    id: 7,
     name: 'Faq',
     icon: 'bi:tags-fill',
     content: (
@@ -59,7 +59,7 @@ const Details = [
     ),
   },
   {
-    id: 2,
+    id: 8,
     name: 'Disclaimer',
     icon: 'fa6-solid:newspaper',
     content: (
@@ -71,7 +71,7 @@ const Details = [
     ),
   },
   {
-    id: 3,
+    id: 9,
     name: 'Contact',
     icon: 'simple-icons:crowdsource',
     content: (
@@ -83,7 +83,7 @@ const Details = [
     ),
   },
   {
-    id: 4,
+    id: 10,
     name: 'Privacy',
     icon: 'mdi:badge-account-horizontal',
     content: (
