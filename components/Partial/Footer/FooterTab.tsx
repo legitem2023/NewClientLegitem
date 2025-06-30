@@ -3,7 +3,7 @@ import { Icon } from '@iconify/react'
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import Link from 'next/link'
-import {useSelector} from 'react-redux';
+//import {useSelector} from 'react-redux';
 import { setTabValue } from 'Redux/tabSlice';
 
 const FooterTab:React.FC = () => {
