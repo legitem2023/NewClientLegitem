@@ -18,8 +18,8 @@ export default function AdDropdown({ content }: AdDropdownProps) {
     fontSize: '14px',
     textAlign: 'left',
     border: '1px solid gray',
-    borderTopLeftRadius: 5,
-    borderTopRightRadius: 5,
+    borderTopLeftRadius: 2,
+    borderTopRightRadius: 2,
     borderBottom: isOpen ? 'none' : '2px solid gray',
     backgroundColor: 'white',
     display: 'flex',
@@ -34,13 +34,14 @@ export default function AdDropdown({ content }: AdDropdownProps) {
   };
 
   const contentStyle: React.CSSProperties = {
-    backgroundColor: 'transparent',
+    backgroundColor: '#f1f1f1',
     padding: '5px',
     fontSize: '14px',
     width: '100%',
     boxSizing: 'border-box',
     overflowWrap: 'break-word',
     wordBreak: 'break-word',
+    boxShadow:'0.5px 0.5px 3px #000000'
   };
 
   return (
