@@ -52,16 +52,16 @@ const FooterTab: React.FC = () => {
         <span className="foot_label" onClick={() => handleTabClick(6)}>
           About Legitem
         </span>
-        <span className="foot_label" onClick={() => handleTabClick(6)}>
+        <span className="foot_label" onClick={() => handleTabClick(7)}>
           FAQ
         </span>
-        <span className="foot_label" onClick={() => handleTabClick(6)}>
+        <span className="foot_label" onClick={() => handleTabClick(8)}>
           Disclaimer
         </span>
-        <span className="foot_label" onClick={() => handleTabClick(6)}>
+        <span className="foot_label" onClick={() => handleTabClick(9)}>
           Privacy
         </span>
-        <span className="foot_label" onClick={() => handleTabClick(6)}>
+        <span className="foot_label" onClick={() => handleTabClick(10)}>
           Contact Us
         </span>
       </div>
