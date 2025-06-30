@@ -49,7 +49,7 @@ const ReusableFirstLetterImage: React.FC<FirstLetterImageProps> = ({
     }
   }, [text, size, bgColor, textColor]);
 
-  return imageUrl ? <Image src={imageUrl} alt={useFletter.charAt(0)} width={35} height={35} style={{borderRadius:'100%'}} />: null;
+  return imageUrl ? <Image src={imageUrl} alt={useFletter.charAt(0)} width={35} height={35} style={{borderRadius:'100%',aspectRatio:'1/1'}} />: null;
 };
 
 export default ReusableFirstLetterImage;
