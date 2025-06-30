@@ -58,11 +58,12 @@ const News: React.FC = () => {
         </div>
       )}
       child4={() => (
-        <UniversalPagination
+        <></>
+        {/* <UniversalPagination
           currentPage={currentPage}
           totalPages={totalPages}
           onPageChange={handlePageChange}
-        />
+        />*/}
       )}
     />
   );
