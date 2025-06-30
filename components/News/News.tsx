@@ -38,7 +38,10 @@ const News:React.FC = () => {
     <ReusableCenterLayout
       child1={() => (<ReusableLabel icn='bi:tags-fill' label='News'/>)}
       child2={() => (
-        <div style={{ overflowY: 'auto',height:'auto', scrollbarWidth: 'none' }}>
+        
+      )}
+      child3={() => (
+      <div style={{ overflowY: 'auto',height:'auto', scrollbarWidth: 'none' }}>
             <div className='LikeContainer'>  
       {paginatedNews.length > 0?paginatedNews?.map((item: any, idx: number) => (
         <UniversalContainerItem key={idx} 
@@ -51,14 +54,11 @@ const News:React.FC = () => {
              </div> 
        </div>
       )}
-      child3={() => (
-      <UniversalPagination
+      child4={() => <UniversalPagination
         currentPage={currentPage}
         totalPages={totalPages}
         onPageChange={handlePageChange}
-      />
-      )}
-      child4={() => <></>}
+      />}
     />
   )
 };
