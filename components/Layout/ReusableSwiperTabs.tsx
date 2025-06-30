@@ -178,48 +178,17 @@ const ReusableSwiperTabs = ({ tabs, tabsB }: Props) => {
             }}>{tab.content}</div>  
           </SwiperSlide>  
         ))}  
-        {/*
-        <SwiperSlide key="tabsB-wrapper">  
-          <Swiper  
-            onSwiper={(swiper) => (tabsBSwiperRef.current = swiper)}  
-            onSlideChange={(swiper) => {  
-              setTimeout(() => {
-                swiper.updateAutoHeight();
-                if (mainSwiperRef.current) mainSwiperRef.current.updateAutoHeight();
-              }, 300);  
-            }}  
-            modules={[Navigation]}  
-            allowTouchMove={false}  
-            loop={false}  
-            autoHeight  
-            style={{ 
-              width: '100%', 
-              minHeight: '100vh', 
-              height: 'auto',
-              WebkitTransform: 'translate3d(0,0,0)'
-            }}  
-          >  
-            {tabsB.map((tab, index) => (  
-              <SwiperSlide key={`tabsB-${index}`}>  
-                <div style={{ 
-                  textAlign: 'left',
-                  minHeight: '1px'
-                }}>{tab.content}</div>  
-              </SwiperSlide>  
-            ))}  
-          </Swiper>  
-        </SwiperSlide> */ }
         {tabsB.map((tab, index) => (  
-              <SwiperSlide key={`tabsB-${index}`}>  
-                <div style={{ 
-                  textAlign: 'left',
-                  minHeight: '1px' // Safari height calculation fix
-                }}>{tab.content}</div>  
-              </SwiperSlide>  
+          <SwiperSlide key={`tabsB-${index}`}>  
+            <div style={{ 
+              padding: '0px',
+              textAlign: 'left',
+              minHeight: '1px' // Safari height calculation fix
+            }}>{tab.content}</div>  
+          </SwiperSlide>  
           ))}  
         
-      </Swiper>  
-
+        </Swiper>  
       <FooterTab/>  
     </div>
   );
