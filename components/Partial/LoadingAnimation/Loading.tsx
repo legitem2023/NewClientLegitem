@@ -45,9 +45,9 @@ const Loading: React.FC = () => {
                     WebkitTapHighlightColor: 'transparent' // Remove Safari tap highlight
                   }}  
                 >  
-                <div style={{borderRadius:'100%',height:"45px",width:"45px",gap:"2px",marginBottom:'5px'}}>
-                    <div className='loading-screen' style={{borderRadius:'100%',height:"45px",width:"45px",boxSizing:"border-box"}}></div>
-                </div>  
+                  <div style={{borderRadius:'100%',height:"25px",width:"25px",gap:"2px",marginBottom:'5p0'}}>
+                    <div className='loading-screen' style={{borderRadius:'100%',height:"25px",width:"25px",boxSizing:"border-box"}}></div>
+                  </div>  
                 </nav>  
                 <nav                    
                   style={{  
@@ -60,9 +60,9 @@ const Loading: React.FC = () => {
                     WebkitTapHighlightColor: 'transparent' // Remove Safari tap highlight
                   }}  
                 >  
-                  <div style={{borderRadius:'100%',height:"45px",width:"45px",gap:"2px",marginBottom:'5p0'}}>
-                    <div className='loading-screen' style={{borderRadius:'100%',height:"45px",width:"45px",boxSizing:"border-box"}}></div>
-                </div>  
+                  <div style={{borderRadius:'100%',height:"25px",width:"25px",gap:"2px",marginBottom:'5p0'}}>
+                    <div className='loading-screen' style={{borderRadius:'100%',height:"25px",width:"25px",boxSizing:"border-box"}}></div>
+                  </div>  
                 </nav>  <nav                    
                   style={{  
                     cursor: 'pointer',  
@@ -74,9 +74,9 @@ const Loading: React.FC = () => {
                     WebkitTapHighlightColor: 'transparent' // Remove Safari tap highlight
                   }}  
                 >  
-                  <div style={{borderRadius:'100%',height:"45px",width:"45px",gap:"2px",marginBottom:'5p0'}}>
-                    <div className='loading-screen' style={{borderRadius:'100%',height:"45px",width:"45px",boxSizing:"border-box"}}></div>
-                </div>  
+                  <div style={{borderRadius:'100%',height:"25px",width:"25px",gap:"2px",marginBottom:'5p0'}}>
+                    <div className='loading-screen' style={{borderRadius:'100%',height:"25px",width:"25px",boxSizing:"border-box"}}></div>
+                  </div>  
                 </nav>  <nav                    
                   style={{  
                     cursor: 'pointer',  
@@ -88,9 +88,9 @@ const Loading: React.FC = () => {
                     WebkitTapHighlightColor: 'transparent' // Remove Safari tap highlight
                   }}  
                 >  
-                  <div style={{borderRadius:'100%',height:"45px",width:"45px",gap:"2px",marginBottom:'5p0'}}>
-                    <div className='loading-screen' style={{borderRadius:'100%',height:"45px",width:"45px",boxSizing:"border-box"}}></div>
-                </div>  
+                  <div style={{borderRadius:'100%',height:"25px",width:"25px",gap:"2px",marginBottom:'5p0'}}>
+                    <div className='loading-screen' style={{borderRadius:'100%',height:"25px",width:"25px",boxSizing:"border-box"}}></div>
+                  </div>  
                 </nav>  <nav                    
                   style={{  
                     cursor: 'pointer',  
@@ -102,10 +102,11 @@ const Loading: React.FC = () => {
                     WebkitTapHighlightColor: 'transparent' // Remove Safari tap highlight
                   }}  
                 >  
-                  <div style={{borderRadius:'100%',height:"45px",width:"45px",gap:"2px",marginBottom:'5p0'}}>
-                    <div className='loading-screen' style={{borderRadius:'100%',height:"45px",width:"45px",boxSizing:"border-box"}}></div>
-                </div>  
-                </nav>  <nav                    
+                  <div style={{borderRadius:'100%',height:"25px",width:"25px",gap:"2px",marginBottom:'5p0'}}>
+                    <div className='loading-screen' style={{borderRadius:'100%',height:"25px",width:"25px",boxSizing:"border-box"}}></div>
+                  </div>  
+                </nav>  
+                <nav                    
                   style={{  
                     cursor: 'pointer',  
                     display: 'flex',  
@@ -116,8 +117,8 @@ const Loading: React.FC = () => {
                     WebkitTapHighlightColor: 'transparent' // Remove Safari tap highlight
                   }}  
                 >  
-                  <div style={{borderRadius:'100%',height:"45px",width:"45px",gap:"2px",marginBottom:'5p0'}}>
-                    <div className='loading-screen' style={{borderRadius:'100%',height:"45px",width:"45px",boxSizing:"border-box"}}></div>
+                  <div style={{borderRadius:'100%',height:"25px",width:"25px",gap:"2px",marginBottom:'5p0'}}>
+                    <div className='loading-screen' style={{borderRadius:'100%',height:"25px",width:"25px",boxSizing:"border-box"}}></div>
                 </div>  
                 </nav>  
             </div>  
