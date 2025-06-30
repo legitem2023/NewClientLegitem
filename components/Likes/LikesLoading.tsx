@@ -15,7 +15,7 @@ const LikesLoading = () => {
         >
          <div className="LikeContainer">
            {[...Array(10)].map((_, index) => (
-             <div key={index} className='loading-screen' style={{ aspectRatio:'1/1',
+             <div key={index} className='loading-screen' style={{ aspectRatio:'2/1',
                                                                   width:'100%',
                                                                   marginTop:"3px", 
                                                                   marginBottom:"3px"}}></div>
