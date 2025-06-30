@@ -1,17 +1,13 @@
 'use client';
 import React, { useEffect, useState, Suspense } from 'react';
-
 import { useRouter } from 'next/navigation';
 import { cookies } from 'components/cookies/cookie';
-
 import About from 'components/About/About';
 import Disclaimer from 'components/About/Disclaimer';
 import Contact from 'components/About/Contact';
 import FaQ from 'components/About/FaQ';
 import Privacy from 'components/About/Privacy';
-
 import ReusableFlexLayout from 'components/Layout/ReusableFlexLayout'
-
 import Account from 'components/Account/Account';
 import Order from 'components/Order/Order';
 import ProductsTab from 'components/Products/ProductsTab';
@@ -45,57 +41,52 @@ const Details = [
         childC={() => <></>}
       />
     ),
-  },
-  {
+  },{
     id: 7,
     name: 'Faq',
     icon: 'bi:tags-fill',
     content: (
       <ReusableFlexLayout
         childA={() => <></>}
-        childB={() => <FaQ />}
+        childB={() => <FaQ/>}
         childC={() => <></>}
       />
     ),
-  },
-  {
+  },{
     id: 8,
     name: 'Disclaimer',
     icon: 'fa6-solid:newspaper',
     content: (
       <ReusableFlexLayout
         childA={() => <></>}
-        childB={() => <Disclaimer />}
+        childB={() => <Disclaimer/>}
         childC={() => <></>}
       />
     ),
-  },
-  {
+  },{
     id: 9,
-    name: 'Contact',
-    icon: 'simple-icons:crowdsource',
-    content: (
-      <ReusableFlexLayout
-        childA={() => <></>}
-        childB={() => <Contact />}
-        childC={() => <></>}
-      />
-    ),
-  },
-  {
-    id: 10,
     name: 'Privacy',
     icon: 'mdi:badge-account-horizontal',
     content: (
       <ReusableFlexLayout
         childA={() => <></>}
-        childB={() => <Privacy />}
+        childB={() => <Privacy/>}
         childC={() => <></>}
       />
     ),
-  },
+  },{
+    id: 10,
+    name: 'Contact',
+    icon: 'simple-icons:crowdsource',
+    content: (
+      <ReusableFlexLayout
+        childA={() => <></>}
+        childB={() => <Contact/>}
+        childC={() => <></>}
+      />
+    ),
+  }
 ];
-  
 
   const tabItms = [
     { id: 0, name: 'Address Book', icon: 'icomoon-free:address-book', content: <Account /> },
@@ -105,11 +96,9 @@ const Details = [
     { id: 4, name: 'Logout', icon: 'ic:sharp-logout', content: <CartBody /> },
   ];
 
-
   useEffect(() => {
     const cookie = cookies();
     if (!cookie) {
-
   const tabItems = [
     {id: 0, name: 'Home', icon: 'ic:sharp-home', content: <HomeTab/> },
     {id: 1, name: 'Products', icon: 'bi:tags-fill', content: <ProductsTab /> },
