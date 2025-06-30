@@ -45,7 +45,7 @@ const Loading: React.FC = () => {
                     WebkitTapHighlightColor: 'transparent' // Remove Safari tap highlight
                   }}  
                 >  
-                  <div style={{borderRadius:'100%',height:"25px",width:"25px",gap:"2px",marginBottom:'5p0'}}>
+                  <div style={{borderRadius:'100%',height:"25px",width:"25px",gap:"2px",marginBottom:'5px',display:'flex',justifyContent:'center',alignItems:'center'}}>
                     <div className='loading-screen' style={{borderRadius:'100%',height:"25px",width:"25px",boxSizing:"border-box"}}></div>
                   </div>  
                 </nav>  
@@ -60,7 +60,7 @@ const Loading: React.FC = () => {
                     WebkitTapHighlightColor: 'transparent' // Remove Safari tap highlight
                   }}  
                 >  
-                  <div style={{borderRadius:'100%',height:"25px",width:"25px",gap:"2px",marginBottom:'5p0'}}>
+                  <div style={{borderRadius:'100%',height:"25px",width:"25px",gap:"2px",marginBottom:'5px',display:'flex',justifyContent:'center',alignItems:'center'}}>
                     <div className='loading-screen' style={{borderRadius:'100%',height:"25px",width:"25px",boxSizing:"border-box"}}></div>
                   </div>  
                 </nav>  <nav                    
@@ -74,7 +74,7 @@ const Loading: React.FC = () => {
                     WebkitTapHighlightColor: 'transparent' // Remove Safari tap highlight
                   }}  
                 >  
-                  <div style={{borderRadius:'100%',height:"25px",width:"25px",gap:"2px",marginBottom:'5p0'}}>
+                  <div style={{borderRadius:'100%',height:"25px",width:"25px",gap:"2px",marginBottom:'5px',display:'flex',justifyContent:'center',alignItems:'center'}}>
                     <div className='loading-screen' style={{borderRadius:'100%',height:"25px",width:"25px",boxSizing:"border-box"}}></div>
                   </div>  
                 </nav>  <nav                    
@@ -88,7 +88,7 @@ const Loading: React.FC = () => {
                     WebkitTapHighlightColor: 'transparent' // Remove Safari tap highlight
                   }}  
                 >  
-                  <div style={{borderRadius:'100%',height:"25px",width:"25px",gap:"2px",marginBottom:'5p0'}}>
+                  <div style={{borderRadius:'100%',height:"25px",width:"25px",gap:"2px",marginBottom:'5px',display:'flex',justifyContent:'center',alignItems:'center'}}>
                     <div className='loading-screen' style={{borderRadius:'100%',height:"25px",width:"25px",boxSizing:"border-box"}}></div>
                   </div>  
                 </nav>  <nav                    
@@ -102,7 +102,7 @@ const Loading: React.FC = () => {
                     WebkitTapHighlightColor: 'transparent' // Remove Safari tap highlight
                   }}  
                 >  
-                  <div style={{borderRadius:'100%',height:"25px",width:"25px",gap:"2px",marginBottom:'5p0'}}>
+                  <div style={{borderRadius:'100%',height:"25px",width:"25px",gap:"2px",marginBottom:'5px',display:'flex',justifyContent:'center',alignItems:'center'}}>
                     <div className='loading-screen' style={{borderRadius:'100%',height:"25px",width:"25px",boxSizing:"border-box"}}></div>
                   </div>  
                 </nav>  
@@ -117,9 +117,9 @@ const Loading: React.FC = () => {
                     WebkitTapHighlightColor: 'transparent' // Remove Safari tap highlight
                   }}  
                 >  
-                  <div style={{borderRadius:'100%',height:"25px",width:"25px",gap:"2px",marginBottom:'5p0'}}>
+                  <div style={{borderRadius:'100%',height:"25px",width:"25px",gap:"2px",marginBottom:'5px',display:'flex',justifyContent:'center',alignItems:'center'}}>
                     <div className='loading-screen' style={{borderRadius:'100%',height:"25px",width:"25px",boxSizing:"border-box"}}></div>
-                </div>  
+                  </div>  
                 </nav>  
             </div>  
           </div>  
