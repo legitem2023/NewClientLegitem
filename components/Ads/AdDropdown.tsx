@@ -17,7 +17,7 @@ export default function AdDropdown({ content }: AdDropdownProps) {
     padding: '2px',
     fontSize: '14px',
     textAlign: 'left',
-    border: '1px solid gray',
+    border: '1px solid #f1f1f1',
     borderTopLeftRadius: 4,
     borderTopRightRadius: 4,
     backgroundColor: '#f1f1f1',
@@ -25,7 +25,8 @@ export default function AdDropdown({ content }: AdDropdownProps) {
     justifyContent: 'space-between',
     alignItems: 'center',
     cursor: 'pointer',
-    zIndex:'9'
+    zIndex:'9',
+    color:'#707070'
   };
 
   const iconStyle: React.CSSProperties = {
@@ -41,7 +42,6 @@ export default function AdDropdown({ content }: AdDropdownProps) {
     boxSizing: 'border-box',
     overflowWrap: 'break-word',
     wordBreak: 'break-word',
-    boxShadow:'0.5px 0.5px 3px #000000',
     zIndex:'0'
   };
 
