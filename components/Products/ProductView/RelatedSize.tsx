@@ -43,7 +43,7 @@ const RelatedSize: React.FC<RelatedSizeProps> = ({ styleCode, currentsize }) => 
       modules={[Navigation, Thumbs, Autoplay]}
       slidesPerView={4}
       spaceBetween={10}
-      style={{boxSizing:'border-box',width:'100%',
+      style={{boxSizing:'border-box',width:'100%'}}
       watchSlidesProgress
       thumbs={{ swiper: thumbsSwiper }}
     >
