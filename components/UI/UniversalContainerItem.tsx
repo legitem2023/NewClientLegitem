@@ -23,13 +23,13 @@ const UniversalContainerItem: React.FC<UniversalContainerItemProps> = ({
   index,
 }) => {
   return (
-    <div key={index} className='ReusableCardContainer'>
+    <div key={index} className='ReusableCardContainer' style={{padding:'5px'}}>
       <div className='ReusableCardContainer_1'>
         <Image
           src={imageSource(thumbnail)}
           height={100}
           width={100}
-          style={{ aspectRatio:'1/1',border:'solid 1px #cccccc' }} alt={`image${index}`}
+          style={{ aspectRatio:'1/1',border:'solid 1px #cccccc',boxSizing:'border-box' }} alt={`image${index}`}
         />
       </div>
       <div className='ReusableCardContainer_1'>
