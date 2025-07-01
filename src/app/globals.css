@@ -708,7 +708,7 @@ input[type='date']{
   align-items: center;
 }
 .game-icons--shopping-cart p{
-  color:gray;
+  color:#000000;
 }
 .CheckOutButton_container{
   display: flex;
