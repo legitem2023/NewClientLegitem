@@ -1,7 +1,13 @@
 @media only screen and (max-width: 600px){
-      .FlexContainer {
+.Header {
+   display: flex;
+   flex-direction: column;
+   height: 100%;
+   border-bottom: solid 3px rgb(87, 39, 0);
+}
+.FlexContainer {
      flex-direction: column; /* default: horizontal */
-   }
+}
 
   .LeftContainer{
      width:100%;
