@@ -71,7 +71,10 @@ const AddCartCmdView: React.FC<PropsAddCartCmdView> = ({ viewedProduct, quantity
         }
 
         .add-to-cart:hover {
-          transform: scale(1.02);
+          transform: scale(0.98);
+          box-shadow: inset 1px 1px 3px rgba(255, 255, 255, 0.2),
+                      inset -1px -1px 3px rgba(0, 0, 0, 0.4),
+                      0 3px 4px rgba(0, 0, 0, 0.2);
         }
 
         .text {
@@ -82,7 +85,7 @@ const AddCartCmdView: React.FC<PropsAddCartCmdView> = ({ viewedProduct, quantity
           text-align: center;
           width: 100%;
           box-sizing: border-box;
-          height:40px;
+          height:45px;
         }
 
         .icon {
