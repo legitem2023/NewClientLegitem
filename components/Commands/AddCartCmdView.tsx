@@ -85,15 +85,15 @@ const AddCartCmdView: React.FC<PropsAddCartCmdView> = ({ viewedProduct, quantity
         }
 
         .icon {
-          background: linear-gradient(45deg, #ffffff, #f1f1f1); /* Reversed gradient */
+          background: linear-gradient(-45deg, #ffffff, #f1f1f1); /* Reversed gradient */
           padding: 5px 10px;
           border-radius: 8px 0px 0px 8px;
           display: flex;
           align-items: center;
           justify-content: center;
           font-size: 18px;
-          box-shadow: inset 2px 2px 5px rgba(255, 255, 255, 0.2),
-                      inset -2px -2px 5px rgba(0, 0, 0, 0.4),
+          box-shadow: inset -2px -2px -5px rgba(255, 255, 255, 0.2),
+                      inset 2px 2px -5px rgba(0, 0, 0, 0.4),
                       0 4px 6px rgba(0, 0, 0, 0.2);
         }
       `}</style>
