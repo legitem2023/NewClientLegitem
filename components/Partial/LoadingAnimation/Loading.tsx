@@ -14,6 +14,7 @@ const navItemStyle: React.CSSProperties = {
 };
 
 const circleContainerStyle: React.CSSProperties = { 
+  minHeight:'45px',
   height: '100%',
   width: 'auto',
   display: 'flex',
