@@ -42,7 +42,11 @@ const ReusableLikeCard: React.FC<ReusableCardProps> = ({ item, view, imageSource
                                        gap:'2px',
                                        backgroundColor:'#c0c0c0',
                                        width:'100%'}}>
-          <div className='ViewsLikes' style={{flexGrow:'3'}}>
+          <div className='ViewsLikes' style={{flexGrow:'3',
+                                       display:'flex',
+                                       flexDirection:'row',
+                                       justifyContent:'center',
+                                       alignItems:'center'}}>
             <Ratings data={item.TotalRatings > 0 ? item.TotalRatings : 0} count={item} />
           </div>
           <div>
