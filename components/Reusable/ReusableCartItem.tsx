@@ -19,7 +19,7 @@ const ReusableCartItem: FC<CartItemWithFunc> = ({ id, size, color, price, quanti
                        width={150} 
                        fill
                        alt={name} 
-                       style={{aspectRatio:'1/1'}}/>
+                       style={{aspectRatio:'1/1',width:'100%'}}/>
                 <Icon icon="material-symbols:close" width="24" height="24" style={{ color: "#cd0000", cursor: "pointer",top:'0px',right:'0px',position:'absolute'}} onClick={removeItem} />
             </div>
 
