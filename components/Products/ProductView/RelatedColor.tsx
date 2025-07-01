@@ -34,6 +34,7 @@ const RelatedColor = ({styleCode,currentcolor}) => {
       modules={[Navigation, Thumbs]}
       slidesPerView={6}
       spaceBetween={10}
+      style={{boxSizing:'border-box',width:'100%'}}
       watchSlidesProgress>
         {
         data.getChildInventory_details.map((item:any)=>(
