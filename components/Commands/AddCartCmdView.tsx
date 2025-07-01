@@ -94,7 +94,7 @@ const AddCartCmdView: React.FC<PropsAddCartCmdView> = ({ viewedProduct, quantity
           font-size: 18px;
           box-shadow: inset 2px 2px 5px rgba(255, 255, 255, 0.2),
                       inset -2px -2px 5px rgba(0, 0, 0, 0.4),
-                      6 4px 0px rgba(0, 0, 0, 0.2);
+                      0 4px 6px rgba(0, 0, 0, 0.2);
         }
       `}</style>
     </>
