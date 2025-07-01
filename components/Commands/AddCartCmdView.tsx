@@ -71,7 +71,7 @@ const AddCartCmdView: React.FC<PropsAddCartCmdView> = ({ viewedProduct, quantity
         }
 
         .add-to-cart:hover {
-          transform: scale(1.05);
+          transform: scale(1.02);
         }
 
         .text {
@@ -82,9 +82,11 @@ const AddCartCmdView: React.FC<PropsAddCartCmdView> = ({ viewedProduct, quantity
           text-align: center;
           width: 100%;
           box-sizing: border-box;
+          height:40px;
         }
 
         .icon {
+          color:#707070;
           background: linear-gradient(-45deg, #ffffff, #f1f1f1); /* Reversed gradient */
           padding: 5px 10px;
           border-radius: 8px 0px 0px 8px;
