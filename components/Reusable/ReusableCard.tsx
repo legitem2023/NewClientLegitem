@@ -31,7 +31,6 @@ const ReusableCard: React.FC<ReusableCardProps> = ({
             quality={1}
             priority
             onError={handleError}
-            onLoadingComplete={handleLoading}
             style={{ objectFit: 'cover' }}
           />
         </div>
