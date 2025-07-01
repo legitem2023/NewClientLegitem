@@ -41,6 +41,7 @@ const RelatedColor = ({styleCode,currentcolor}) => {
           key={item.id}
           style={{
             borderRadius:'100%',
+            boxSizing:'border-box'
           }}
           onClick={() => view(item)}> 
   <ReusableFirstLetterImage
