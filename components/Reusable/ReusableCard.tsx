@@ -21,6 +21,7 @@ const ReusableCard: React.FC<ReusableCardProps> = ({ item, view, imageSource, ha
         src={imageSource(item)}
         height={150}
         width={150}
+        fill
         quality={1}
         style={{ aspectRatio:'1/1' }}
         alt={`Image_`+item.id}
