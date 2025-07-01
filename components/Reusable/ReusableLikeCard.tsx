@@ -35,7 +35,13 @@ const ReusableLikeCard: React.FC<ReusableCardProps> = ({ item, view, imageSource
         <Element Label="Size" value={item.size} />
         <Element Label="Sold" value={item.TotalSoldItems ? item.TotalSoldItems : '0'} />
         {item.discount > 0 ? <Price_strike item={item} /> : <Price item={item} />}
-        <div className='Rates' style={{display:'flex',flexDirection:'row',justifyContent:'center',alignItems:'center',gap:'2px',width:'100%'}}>
+        <div className='Rates' style={{display:'flex',
+                                       flexDirection:'row',
+                                       justifyContent:'center',
+                                       alignItems:'center',
+                                       gap:'2px',
+                                       backgroundColor:'#c0c0c0',
+                                       width:'100%'}}>
           <div className='ViewsLikes' style={{flexGrow:'3'}}>
             <Ratings data={item.TotalRatings > 0 ? item.TotalRatings : 0} count={item} />
           </div>
