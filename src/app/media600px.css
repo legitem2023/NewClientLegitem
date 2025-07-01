@@ -21,10 +21,7 @@
     width:100%;
   }
     
-    
-    /* .Main {
-        overflow-x: hidden !important;
-    } */
+
     .FootCenter a{
         font-size:16px;
     }
@@ -34,12 +31,7 @@
     .cartTableData,.cartTableTotal{
         width: 100%;
     }
-    .Header{
-        /* position: sticky; */
-        /* top:0px; */
-        /* z-index: 99999; */
-        /* background-color: rgb(255, 255, 255); */
-    }
+
     .MainView_LchildGalleryDetails div{
         padding:5px;
     }
@@ -50,10 +42,7 @@
         height: 20vh !important;
     }
     .game-icons--shopping-cart{
-        height: 80vw!important;
-    }
-    .carouselImage {
-        /* transform: scale(0.4)!important; */
+        height: auto!important;
     }
 
     .LabelBack{
@@ -129,9 +118,7 @@
     .Menu_label_management {
         display: flex;
         flex-direction: row;
-        /* justify-content: center; */
         align-items: center;
-        /* font-size: 30px; */
     }
 
     .Search_container {
@@ -155,7 +142,6 @@
         display: grid;
         grid-template-columns: 100%;
         grid-template-rows: 33.33% 33.33% 33.33%;
-        /* flex-direction: column; */
         align-items: left;
         padding: 0px;
         width: 100%;
@@ -198,7 +184,6 @@
       }
     .Thumbnails {
         grid-gap: 0.5vw !important;
-        /*grid-template-columns: 49% 49% !important;*/
         grid-template-columns: 33% 33% 33% !important;
     }
     .thumbnail {
@@ -214,7 +199,7 @@
     .thumbElements{
         font-size: 10px;
     }
-    .feedbackattachment{
+    .feedbackattachment {
         width: 100%;
         height: auto;
       }
@@ -244,7 +229,7 @@
         right: 0px;
         background-color: #00a380;
     }
-    .Notification{
+    .Notification {
         right:0px!important;
         top:93vh!important;
         font-size: 16px;
@@ -260,28 +245,4 @@
         display:flex;
         align-items:center;
     }
-    /*
-.react-image-carousel img {
-    object-fit: cover!important;
-    width: 100%!important;
-    height: 300px!important;
-    border-radius: 8px; 
-  }
-.react-image-carousel .ric-thumbnails {
-  height: 40px!important;
-  overflow: hidden;
-}
-
-.react-image-carousel .ric-thumbnail {
-  height: 100%; 
-  aspect-ratio: 1 / 1; 
-}
-
-.react-image-carousel .ric-thumbnail img {
-  height: 100%;
-  width: 100%;
-  object-fit: cover;
-  border-radius: 4px;
-}
-*/
 }
