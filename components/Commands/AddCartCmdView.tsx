@@ -70,7 +70,7 @@ const AddCartCmdView: React.FC<PropsAddCartCmdView> = ({ viewedProduct, quantity
           overflow: hidden;
         }
 
-        .add-to-cart:hover {
+        .add-to-cart:active {
           transform: scale(0.98);
           box-shadow: inset 1px 1px 3px rgba(255, 255, 255, 0.2),
                       inset -1px -1px 3px rgba(0, 0, 0, 0.4),
