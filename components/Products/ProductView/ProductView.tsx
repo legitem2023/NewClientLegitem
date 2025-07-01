@@ -50,7 +50,7 @@ const ProductView: React.FC = () => {
   if (viewedProd.length < 1) return null;
 
   return (
-    <Suspense fallback={<Loading />}>
+    <Suspense fallback={<ProductViewLoading />}>
       {viewedProd.map((viewItem: any, idx: number) => {
         const tabs = [
           {
@@ -117,8 +117,10 @@ const ProductView: React.FC = () => {
                     <button onClick={() => setQuantity(quantity > 1 ? quantity - 1 : 1)}>-</button>
                   </div>
                   <div className='CommandContainer'>
-                    <LinkStoreCmd emailAddress={viewItem.agentEmail} />
-                    <LikeCmd productCode={viewItem.productCode} />
+                   
+                    {/* <LinkStoreCmd emailAddress={viewItem.agentEmail} />
+                    <LikeCmd productCode={viewItem.productCode} /> */}
+                    
                     <AddCartCmdView
                       viewedProduct={viewedProd}
                       quantity={quantity}
