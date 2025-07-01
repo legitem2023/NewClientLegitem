@@ -1,11 +1,10 @@
 import { metadata as baseMetadata } from 'components/Partial/Header/seoConfig'
 export const metadata = baseMetadata;
-//import { Html, Head, Main, NextScript } from 'next/document';
 import { Inter } from 'next/font/google'
 const inter = Inter({ subsets: ['latin'] })
 import './globals.css'
 import './media600px.css'
-//import './media1080px.css'
+import './media1080px.css'
 import LoadEruda from './LoadEruda';
 import ReduxWrapper from 'components/ApolloProvider/ReduxWrapper'
 import { ShoppingCartProvider } from 'components/context/ShoppingCartProvider'
@@ -21,8 +20,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <body className={inter.className}>
-      <ToastContainer/>
-    
+      <ToastContainer/> 
         <LoadEruda/>
         <NotificationProvider>
           <ShoppingCartProvider>
@@ -31,8 +29,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               {children}
             </ReduxWrapper>
           </ShoppingCartProvider>
-        </NotificationProvider>
-        
+        </NotificationProvider>    
       </body>
     </html>
   )
