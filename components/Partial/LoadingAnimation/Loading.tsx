@@ -13,12 +13,9 @@ const navItemStyle: React.CSSProperties = {
   WebkitTapHighlightColor: 'transparent',
 };
 
-const circleContainerStyle: React.CSSProperties = {
-  
+const circleContainerStyle: React.CSSProperties = { 
   height: '100%',
   width: 'auto',
-  gap: '2px',
-  marginBottom: '5px',
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',
