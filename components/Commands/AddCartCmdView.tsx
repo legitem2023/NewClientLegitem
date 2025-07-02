@@ -54,6 +54,7 @@ const AddCartCmdView: React.FC<PropsAddCartCmdView> = ({ viewedProduct, quantity
           gap: 8px;
           width: 150px;
           padding: 0px;
+          height:45px;
           font-size: 18px;
           font-weight: bold;
           font-family: 'Segoe UI', sans-serif;
@@ -92,7 +93,7 @@ const AddCartCmdView: React.FC<PropsAddCartCmdView> = ({ viewedProduct, quantity
           color:#707070;
           height:45px;
           background: linear-gradient(-45deg, #ffffff, #f1f1f1); /* Reversed gradient */
-          padding: 5px 10px;
+          padding: 5px;
           border-radius: 5px 0px 0px 5px;
           display: flex;
           align-items: center;
