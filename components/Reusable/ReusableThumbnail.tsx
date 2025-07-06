@@ -40,8 +40,8 @@ return (
 src={imageSource(item)}
 style={{filter:item.stock < 1?'grayscale(100%)':''}}
 loading='lazy'
-height="200"
-width="200"
+height="100"
+width="100"
 quality={100}
 alt={item.id}
 onClick={view}
