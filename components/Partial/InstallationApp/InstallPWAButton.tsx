@@ -44,6 +44,7 @@ const InstallPWAButton: React.FC = () => {
           position: relative;
           display: inline-flex;
           gap: 8px;
+          margin:5px;
           width: 150px;
           padding: 0px;
           height:45px;
