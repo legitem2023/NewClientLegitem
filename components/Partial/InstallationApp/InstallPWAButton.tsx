@@ -34,7 +34,7 @@ const InstallPWAButton: React.FC = () => {
     <>
     <button onClick={handleInstallClick} className="install_button">
         <span className="icon">
-          <Icon icon="material-icon-theme:installation"/>
+          <Icon icon="material-symbols:download-sharp"/>
         </span>
         <span className="text">Install App</span> 
     </button>
