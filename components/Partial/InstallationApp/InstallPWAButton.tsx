@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-
+import { Icon } from '@iconify/react';
 const InstallPWAButton: React.FC = () => {
   const [deferredPrompt, setDeferredPrompt] = useState<Event | null>(null);
 
