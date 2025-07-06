@@ -28,7 +28,7 @@ const Home = () => {
     <ReusableCenterLayout
       child1={()=>(
         <div className='homeContainer'>
-          <SliderModels/>
+          
         </div>
       )}
       child2={()=>(         
